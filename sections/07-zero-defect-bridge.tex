@@ -1,0 +1,415 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Arithmetic dynamics and complete Pell orbits}
+\label{sec:zero-defect}
+
+The nearest-gap equation is not an isolated algebraic coincidence. It is the
+exact image of an integral dynamical system under a quadratic-unit
+semiconjugacy. This section first proves that structural statement for a
+general seed, then specializes it to the two Fibonacci cores and obtains the
+complete list in \cref{thm:orbit-intro}.
+
+For an integral seed $z=(u,v)$, put
+
+\begin{equation}
+\begin{aligned}
+ \mathsf S(u,v)&=(v,u+2v),\\
+ \mathcal H(u,v)&=u^2+v^2,\\
+ \mathcal B(u,v)&=v^2-u^2+2uv,\\
+ \mathcal Q(u,v)&=v^2-2uv-u^2,
+\end{aligned}
+\label{eq:orbit-forms}
+\end{equation}
+
+and define
+
+\begin{equation}
+ A_z=(v-u)+u\sqrt2.
+ \label{eq:seed-unit-map}
+\end{equation}
+
+\begin{proposition}[Seed/unit semiconjugacy]
+\label{prop:seed-semiconjugacy}
+The map $z\mapsto A_z$ is a bijection
+
+\begin{equation}
+ \{(u,v)\in\Z^2:0<u\leqslant v\}
+ \longrightarrow
+ \{a+b\sqrt2\in\Z[\sqrt2]:a\geqslant0,\ b>0\},
+ \label{eq:cone-bijection}
+\end{equation}
+
+with inverse $a+b\sqrt2\mapsto(b,a+b)$. For every integral seed and every
+$t\geqslant0$,
+
+\begin{equation}
+ \norm{A_z}=\mathcal Q(z),
+ \qquad
+ A_{\mathsf S^tz}=\lambda^tA_z.
+ \label{eq:semiconjugacy}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The inverse in \cref{eq:cone-bijection} is immediate. Direct calculation
+gives
+
+\begin{equation}
+ \norm{A_z}=(v-u)^2-2u^2=\mathcal Q(z)
+\end{equation}
+
+and
+
+\begin{equation}
+ A_{\mathsf Sz}=(u+v)+v\sqrt2
+ =\lambda\bigl((v-u)+u\sqrt2\bigr).
+\end{equation}
+
+Iteration proves \cref{eq:semiconjugacy}.
+\end{proof}
+
+For a positive integral seed, $\mathcal Q(z)=0$ would force
+$(v-u)^2=2u^2$, which is impossible. Thus the canonical case
+$\mathcal Q(z)^2=1$ and the noncanonical case
+$\mathcal Q(z)^2>1$ exhaust all positive seeds.
+
+In coefficient columns this intertwining is an integral conjugacy. Indeed,
+
+\begin{equation}
+ M=\begin{pmatrix}0&1\\1&2\end{pmatrix},
+ \qquad
+ U=\begin{pmatrix}1&2\\1&1\end{pmatrix},
+ \qquad
+ R=\begin{pmatrix}-1&1\\1&0\end{pmatrix}
+ \label{eq:conjugacy-matrices}
+\end{equation}
+
+are respectively the seed step, multiplication by $\lambda$, and the map
+$(u,v)^{\mathsf T}\mapsto(v-u,u)^{\mathsf T}$. Direct multiplication gives
+
+\begin{equation}
+ RM=UR.
+ \label{eq:integral-conjugacy}
+\end{equation}
+
+Since $R\in\mathrm{GL}_2(\Z)$, no lattice information is lost:
+$M^2\in\mathrm{SL}_2(\Z)$ is conjugate to the hyperbolic norm-one unit
+$\iota(\lambda^2)$.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+  every node/.style={font=\small,align=center},
+  obj/.style={draw,rounded corners,inner sep=6pt,minimum width=35mm},
+  arrow/.style={-{Latex[length=2mm]},thick}
+]
+ \node[obj] (z) at (0,1.7) {$z=(u,v)$\\integral seed};
+ \node[obj] (stz) at (7.2,1.7) {$\mathsf S^tz$\\evolved seed};
+ \node[obj] (az) at (0,0) {$A_z\in\Z[\sqrt2]$\\quadratic integer};
+ \node[obj] (lat) at (7.2,0) {$\lambda^tA_z$\\unit translate};
+ \draw[arrow] (z)--node[above] {$\mathsf S^t$} (stz);
+ \draw[arrow] (z)--node[left] {$A$} (az);
+ \draw[arrow] (stz)--node[right] {$A$} (lat);
+ \draw[arrow] (az)--node[below] {$\times\,\lambda^t$} (lat);
+\end{tikzpicture}
+\caption{The exact seed/unit commutative diagram. The lower dynamics is
+multiplication in $\Z[\sqrt2]$, not an asymptotic model of the upper
+dynamics. Norm gives the signed covariance $\mathcal Q(\mathsf S^tz)=
+(-1)^t\mathcal Q(z)$; equivalently, $\mathcal Q^2$ is invariant.}
+\label{fig:seed-semiconjugacy}
+\end{figure}
+
+There is a second, symmetric-square description. Direct expansion gives
+
+\begin{equation}
+ \mathcal B(z)^2+\mathcal Q(z)^2=2\mathcal H(z)^2,
+ \label{eq:lorentz-cone}
+\end{equation}
+
+and
+
+\begin{equation}
+ \begin{pmatrix}
+  \mathcal H(\mathsf S^tz)\\
+  \mathcal B(\mathsf S^tz)\\
+  \mathcal Q(\mathsf S^tz)
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  C_{2t}&P_{2t}&0\\
+  2P_{2t}&C_{2t}&0\\
+  0&0&(-1)^t
+ \end{pmatrix}
+ \begin{pmatrix}
+  \mathcal H(z)\\
+  \mathcal B(z)\\
+  \mathcal Q(z)
+ \end{pmatrix}.
+ \label{eq:lorentz-action}
+\end{equation}
+
+The integral matrix in \cref{eq:lorentz-action} preserves
+$2X^2-Y^2-Z^2$. Thus the quadratic observables of the seed lie on an
+integral Lorentz cone, and $\mathsf S$ acts through an arithmetic subgroup of
+its orthogonal group. This formulation is useful rather than decorative:
+the first two coordinates in \cref{eq:lorentz-action} are exactly the
+proportionality mechanism behind the orbit/gap equivalence below.
+
+\begin{theorem}[Anchored orbit/gap equivalence]
+\label{thm:general-orbit-gap}
+Let $z=(u,v)$ have positive integral coordinates and
+$\mathcal Q(z)^2>1$. Let $d$ be positive and $t\geqslant0$, and suppose
+either $u\leqslant v$ or $t\geqslant1$. Then
+
+\begin{equation}
+ \mathcal H(\mathsf S^tz)=P_{d+2t}
+ \label{eq:general-orbit-hit}
+\end{equation}
+
+if and only if there is an integer $g>0$ such that
+
+\begin{equation}
+ \lambda^{d-1}-A_z^2=g\lambda^{-(2t+1)}.
+ \label{eq:general-anchored-gap}
+\end{equation}
+
+At a hit, if
+
+\begin{equation}
+ D=\mathcal H(z)-P_d,
+ \qquad
+ E=C_d-\mathcal B(z),
+ \label{eq:orbit-DE}
+\end{equation}
+
+then
+
+\begin{equation}
+ D=gP_{2t},
+ \qquad
+ E=gC_{2t},
+ \qquad
+ g=\gcd(D,E).
+ \label{eq:orbit-proportionality}
+\end{equation}
+
+Moreover, \cref{eq:general-anchored-gap} automatically satisfies
+
+\begin{equation}
+ A_z^2<\lambda^{d-1}<2A_z^2,
+ \label{eq:general-orbit-window}
+\end{equation}
+
+and its coefficient content and norm are respectively $g$ and $-g^2$.
+\end{theorem}
+
+\begin{proof}
+Put $w=\mathsf S^tz$ and $k=d+2t$. The hypotheses ensure that $w$ is
+positive and ordered. At a hit, \cref{eq:lorentz-cone} and
+$C_k^2-2P_k^2=(-1)^d$ give
+
+\begin{equation}
+ \mathcal B(w)^2
+ =C_k^2-\bigl(\mathcal Q(z)^2+(-1)^d\bigr)<C_k^2.
+ \label{eq:B-below-C}
+\end{equation}
+
+Because $w$ is positive and ordered, $0<\mathcal B(w)<C_k$. For
+$t\geqslant1$, comparison of the first coordinates in
+\cref{eq:lorentz-action} with the Pell addition formula gives
+
+\begin{equation}
+ C_{2t}D=P_{2t}E.
+\end{equation}
+
+The second-coordinate difference is
+$\mathcal B(w)-C_k=-E/C_{2t}$, so $D,E>0$. Since
+$\gcd(C_{2t},P_{2t})=1$, this proves
+\cref{eq:orbit-proportionality}. At $t=0$, the hit gives $D=0$ and
+\cref{eq:B-below-C} gives $E>0$; the same formula holds with
+$P_0=0$ and $C_0=1$.
+
+The parity-free identity
+
+\begin{equation}
+ \lambda A_z^2=\mathcal B(z)+\mathcal H(z)\sqrt2
+ \label{eq:key-seed-identity}
+\end{equation}
+
+turns \cref{eq:orbit-DE} into
+
+\begin{equation}
+ \lambda^d-\lambda A_z^2=E-D\sqrt2.
+ \label{eq:gap-from-DE}
+\end{equation}
+
+At a hit, \cref{eq:orbit-proportionality} makes the right-hand side
+$g\lambda^{-2t}$, and division by $\lambda$ proves
+\cref{eq:general-anchored-gap}. Conversely,
+\cref{eq:general-anchored-gap,eq:gap-from-DE} recover
+\cref{eq:orbit-proportionality} coefficientwise; the first row of
+\cref{eq:lorentz-action} then recovers the hit.
+
+It remains to prove the window. Multiplying
+\cref{eq:general-anchored-gap} by $\lambda^{2t}$ and using
+\cref{eq:semiconjugacy} gives
+
+\begin{equation}
+ \lambda^{k-1}-A_w^2=g\lambda^{-1}.
+ \label{eq:evolved-gap}
+\end{equation}
+
+At the hit, $g=C_k-\mathcal B(w)$. Combining this with
+\cref{eq:key-seed-identity} at $w$ gives
+
+\begin{equation}
+ \lambda A_w^2-g
+ =2\mathcal B(w)+(-1)^{k+1}\lambda^{-k}>0.
+\end{equation}
+
+For even $k$, positivity follows from
+$2\mathcal B(w)\geqslant2>\lambda^{-k}$; for odd $k$ it is immediate.
+Hence $0<g\lambda^{-(2t+1)}<A_z^2$, which is
+\cref{eq:general-orbit-window}. Finally,
+$\lambda^{-(2t+1)}$ is a coefficient-primitive norm-$-1$ unit, proving the
+content and norm assertions.
+\end{proof}
+
+\begin{remark}[Canonical seeds]
+\label{rem:canonical-seeds}
+If $0<u\leqslant v$ and $\mathcal Q(z)^2=1$, then
+\cref{prop:seed-semiconjugacy} and the unit group of $\Z[\sqrt2]$ give a
+unique $r\geqslant1$ with
+
+\begin{equation}
+ z=(P_r,P_{r+1}),
+ \qquad
+ A_z=\lambda^r.
+\end{equation}
+
+Consequently
+
+\begin{equation}
+ \mathcal H(\mathsf S^tz)=P_{d+2t}
+ \quad\Longleftrightarrow\quad
+ d=2r+1,
+\end{equation}
+
+and this equality persists for every $t\geqslant0$. The corresponding gap
+is zero, so these seeds are correctly separated from
+\cref{thm:general-orbit-gap}.
+\end{remark}
+
+We now specialize to
+
+\begin{equation}
+ z_{q,\sigma}=(F_{q+1},F_{q+1}+\sigma F_q).
+ \label{eq:fibonacci-cores}
+\end{equation}
+
+For both signs,
+
+\begin{equation}
+ A_{z_{q,\sigma}}=D_{q,\sigma},
+ \qquad
+ \mathcal Q(z_{q,\sigma})=F_q^2-2F_{q+1}^2.
+ \label{eq:fibonacci-core-map}
+\end{equation}
+
+\begin{theorem}[Complete all-anchor Fibonacci-core orbits]
+\label{thm:complete-fibonacci-orbits}
+For every $q\geqslant1$, $\sigma\in\{1,-1\}$, positive $d$, and
+$t\geqslant0$, the hit
+
+\begin{equation}
+ \mathcal H(\mathsf S^tz_{q,\sigma})=P_{d+2t}
+ \label{eq:fibonacci-orbit-hit}
+\end{equation}
+
+occurs exactly in the four rows of \cref{eq:intro-orbit-list}.
+\end{theorem}
+
+\begin{proof}
+First let $q\geqslant2$. Then
+
+\begin{equation}
+ \mathcal Q(z_{q,\sigma})^2-1
+ =F_{q-1}F_{q+1}F_{q+2}F_{q+4}>0.
+ \label{eq:core-noncanonical}
+\end{equation}
+
+The strict window in \cref{thm:general-orbit-gap} first forces
+$d\geqslant2$: if $d=1$, it would give
+$A_{z_{q,\sigma}}^2<1$, whereas $A_{z_{q,\sigma}}>1$ for
+$q\geqslant2$. Hence an odd anchor here has $d\geqslant3$, so $d-1$ is a
+positive even exponent.
+
+For the plus sign the seed is ordered, so
+\cref{thm:general-orbit-gap} applies at every time. If $d$ is odd, the gap
+exponent $d-1$ is even. The only plus target in
+\cref{thm:classification-intro} has normalized direction $\lambda$, whereas
+the orbit bridge requires $\lambda^{-(2t+1)}$. Hence there is no plus hit.
+If $d$ is even, the gap exponent is odd, which is impossible by
+\cref{thm:classification-intro}. Thus the plus core has no hit for
+$q\geqslant2$.
+
+For the minus sign and $t\geqslant1$, the evolved seed is ordered, so the
+same bridge applies. At an odd anchor, the only minus target has normalized
+direction $\lambda^{-1}$; it would force $t=0$, a contradiction. At an even
+anchor, the exponent is odd and no target exists. Thus the minus core has no
+positive-time hit.
+
+It remains to classify direct minus hits. The identity
+
+\begin{equation}
+ \mathcal H(z_{q,-1})
+ =F_{q+1}^2+F_{q-1}^2
+ =3F_q^2+2(-1)^q
+ \label{eq:minus-direct-height}
+\end{equation}
+
+and the complete Pell-value classification used in
+\cref{prop:negative-exponent} give exactly
+
+\begin{equation}
+ (q,d)=(2,3),(4,5)
+ \label{eq:minus-direct-hits}
+\end{equation}
+
+for $q\geqslant2$. These are the last two rows of
+\cref{eq:intro-orbit-list}.
+
+Finally, $z_{1,1}=(1,2)=(P_1,P_2)$ is canonical. By
+\cref{rem:canonical-seeds}, it gives $d=3$ and every $t\geqslant0$.
+For the minus sign, $z_{1,-1}=(1,0)$ gives the direct hit
+$\mathcal H(1,0)=P_1$. If $t\geqslant1$, then
+
+\begin{equation}
+ \mathsf S^t(1,0)=(P_{t-1},P_t),
+ \qquad
+ \mathcal H(\mathsf S^t(1,0))=P_{2t-1}<P_{d+2t},
+\end{equation}
+
+so there are no further hits. This proves the exhaustive list.
+\end{proof}
+
+\begin{remark}[Exact scope]
+The theorem classifies both signs, every positive anchor, and every
+nonnegative time for the displayed Fibonacci cores. It does not classify
+negative time or all noncanonical positive seeds with
+$\mathcal Q(z)^2>1$. Most importantly, no result here shows that a
+hypothetical Markoff collision must produce one of these cores. The
+semiconjugacy closes the downstream arithmetic problem; it does not supply
+the missing upstream Markoff reduction.
+\end{remark}
+
+The next section changes perspective. Instead of classifying the global
+equation, it asks how much of its divisibility can recur locally, and thereby
+identifies the precise limits of $p$-adic information.

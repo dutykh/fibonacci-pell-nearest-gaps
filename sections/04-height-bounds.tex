@@ -1,0 +1,287 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Height separation in the even branch}
+\label{sec:height}
+
+Continue under the standing hypothesis of an even-exponent target with
+$q\geqslant7$.
+By \cref{prop:negative-exponent},
+
+\begin{equation}
+ \lambda^n-D_{q,\sigma}^2=g\lambda^{-h},
+ \qquad
+ h\geqslant3\ \text{odd}.
+ \label{eq:negative-target}
+\end{equation}
+
+We first turn the reconstructed rectangle into a separation between $h$ and
+$n$.
+
+\begin{lemma}[Divisor-height separation]
+\label{lem:height-separation}
+Every target in \cref{eq:negative-target} satisfies
+
+\begin{equation}
+ \begin{array}{ll}
+ \sigma=1:&h\leqslant n-5,\\
+ \sigma=-1:&h\leqslant n-3.
+ \end{array}
+ \label{eq:height-separation}
+\end{equation}
+
+In particular, $h<n$.
+\end{lemma}
+
+\begin{proof}
+Put
+
+\begin{equation}
+ L=f^2+2x^2.
+\end{equation}
+
+Since $\lambda^{-h}=-C_h+P_h\sqrt2$ for odd $h$, coefficient comparison in
+\cref{eq:negative-target} gives
+
+\begin{equation}
+ gC_h=L-C_n,
+ \qquad
+ gP_h=P_n-2\sigma fx.
+ \label{eq:coefficient-height}
+\end{equation}
+
+Let $t=g/2$. By \cref{lem:rectangle}, $t\geqslant\sqrt{k}$. For every
+positive odd $h$,
+
+\begin{equation}
+ C_h=\frac{\lambda^h-\lambda^{-h}}2>\frac{\lambda^h}{3}.
+ \label{eq:Ch-lower}
+\end{equation}
+
+On the plus branch, $L<A_q^2<\lambda^n$. Hence
+
+\begin{equation}
+ t=\frac{L-C_n}{2C_h}<\frac32\lambda^{n-h}.
+\end{equation}
+
+On the minus branch, \cref{eq:AB-ratio} gives
+
+\begin{equation}
+ L=\frac{A_q^2+B_q^2}{2}<5B_q^2<5\lambda^n,
+\end{equation}
+
+and therefore $t<(15/2)\lambda^{n-h}$. Combining these inequalities with
+$t\geqslant\sqrt{k}$ yields
+
+\begin{equation}
+ \lambda^{2(n-h)}>
+ \begin{cases}
+ 4k/9,&\sigma=1,\\
+ 4k/225,&\sigma=-1.
+ \end{cases}
+ \label{eq:separation-raw}
+\end{equation}
+
+The sequence $R_q$ is increasing for $q\geqslant3$: with
+$f=F_q$ and $x=F_{q+1}<2f$,
+
+\begin{equation}
+ R_{q+1}-R_q=3f^2+4fx-x^2>0.
+\end{equation}
+
+Hence $k\geqslant R_7=713$, and $n-h$ is odd. Direct comparison in
+\cref{eq:separation-raw} excludes $n-h\leqslant3$ in the plus case and
+$n-h\leqslant1$ in the minus case. This proves
+\cref{eq:height-separation}.
+\end{proof}
+
+We shall use the following explicit specialization of Matveev's theorem
+\cite[Corollary~2.3]{Matveev2000}. For a positive algebraic number $\alpha$,
+write $h_{\mathrm{abs}}(\alpha)$ for its absolute logarithmic Weil height.
+
+\begin{lemma}[Matveev, three positive real logarithms]
+\label{lem:matveev}
+Let $K$ be a real number field of degree $D$, let
+$\alpha_1,\alpha_2,\alpha_3\in K$ be positive, and let
+
+\begin{equation}
+ \Lambda=b_1\log\alpha_1+b_2\log\alpha_2+b_3\log\alpha_3\ne0
+\end{equation}
+
+with $b_i\in\Z$. If
+
+\begin{equation}
+ A_i\geqslant
+ \max\{D h_{\mathrm{abs}}(\alpha_i),\abs{\log\alpha_i},0.16\}
+\end{equation}
+
+and $B\geqslant\max_i\abs{b_i}$, then
+
+\begin{equation}
+ \log\abs\Lambda>
+ -1.4\mathbin{\cdot}30^6 3^{9/2}D^2(1+\log D)
+ A_1A_2A_3(1+\log B).
+ \label{eq:matveev-special}
+\end{equation}
+\end{lemma}
+
+The first application reduces the a priori linear range for $h$ to a
+logarithmic range.
+
+\begin{proposition}[Logarithmic bound for the negative exponent]
+\label{prop:h-log-bound}
+Every target with $q\geqslant7$ satisfies
+
+\begin{equation}
+ h<2.4\mathbin{\cdot}10^{14}\bigl(1+\log(2q)\bigr)
+ \label{eq:h-log-bound}
+\end{equation}
+
+and
+
+\begin{equation}
+ n<2q.
+ \label{eq:n-less-2q}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Put
+
+\begin{equation}
+ \varphi=\frac{1+\sqrt5}{2},
+ \qquad
+ \epsilon=(-1)^q,
+ \qquad
+ u=\sigma+\sqrt2\varphi,
+ \qquad
+ v=-\sigma+\sqrt2\varphi^{-1}.
+ \label{eq:u-v}
+\end{equation}
+
+Binet's formula gives
+
+\begin{equation}
+ D_{q,\sigma}
+ =\frac{u\varphi^q+\epsilon v\varphi^{-q}}{\sqrt5}.
+ \label{eq:D-binet}
+\end{equation}
+
+Set
+
+\begin{equation}
+ \delta=\epsilon\frac vu\varphi^{-2q},
+ \qquad
+ A_0=\frac{u^2}{5}\varphi^{2q}.
+\end{equation}
+
+Then $D_{q,\sigma}^2=A_0(1+\delta)^2$. The elementary bounds
+$1<u<4$ and $\abs{v/u}<2$ give
+
+\begin{equation}
+ \abs\delta<2\left(\frac23\right)^{14}<\frac1{100}.
+ \label{eq:delta-first}
+\end{equation}
+
+By \cref{lem:height-separation} and the nearest window,
+
+\begin{equation}
+ \lambda^{h+3}<2\frac{16}{5}\left(\frac{101}{100}\right)^2
+ \varphi^{2q}<7\varphi^{2q}.
+\end{equation}
+
+Since $\lambda>12/5$, this strengthens \cref{eq:delta-first} to
+
+\begin{equation}
+ \abs\delta<\frac{1750}{1728}\lambda^{-h}.
+ \label{eq:delta-second}
+\end{equation}
+
+By \cref{lem:rectangle}, $g<k=A_qB_q$. Therefore
+$g/D_{q,\sigma}^2<3$ for either sign, by \cref{eq:AB-ratio}. Define
+
+\begin{equation}
+ \Lambda_0=n\log\lambda-2q\log\varphi
+ -\log\left(\frac{u^2}{5}\right).
+ \label{eq:Lambda0}
+\end{equation}
+
+After dividing \cref{eq:negative-target} by $A_0$, the estimates
+\cref{eq:delta-first,eq:delta-second} give
+
+\begin{equation}
+ \abs{e^{\Lambda_0}-1}<\frac{128}{25}\lambda^{-h}<\frac{10}{27}.
+\end{equation}
+
+The elementary logarithm estimate on this interval yields
+
+\begin{equation}
+ 0<\abs{\Lambda_0}<9\lambda^{-h}.
+ \label{eq:Lambda0-small}
+\end{equation}
+
+The nonvanishing is exact. In
+$K=\Q(\sqrt2,\sqrt5)$ one has
+$N_{K/\Q}(u)=-1$ and
+$N_{K/\Q}(\lambda)=N_{K/\Q}(\varphi)=1$. Equality in
+\cref{eq:Lambda0} would give $1=5^{-4}$ after taking full norms.
+
+We next verify \cref{eq:n-less-2q}. From \cref{eq:D-binet},
+$D_{q,\sigma}<4\varphi^q$. Also $\lambda/\varphi>7/5$ and
+$(7/5)^{14}>32$. Thus, for $q\geqslant7$,
+
+\begin{equation}
+ \lambda^{2q}>32\varphi^{2q}>2D_{q,\sigma}^2>\lambda^n.
+\end{equation}
+
+For \cref{lem:matveev}, the field degree is $4$ and admissible parameters
+for \cref{eq:Lambda0} are
+
+\begin{equation}
+ A_1=2\log\lambda,
+ \qquad
+ A_2=2\log\varphi,
+ \qquad
+ A_3=20,
+ \qquad
+ B=2q.
+\end{equation}
+
+Indeed,
+
+\begin{equation}
+ h_{\mathrm{abs}}(u^2/5)
+ \leqslant3\log2+\log\varphi+\log5<5,
+\end{equation}
+
+and $1/5<u^2/5<16/5$. The constant before $A_3$ satisfies the exact
+outward inequality
+
+\begin{equation}
+ 1.4\mathbin{\cdot}30^6 3^{9/2}4^2(1+\log4)
+ (2\log\lambda)(2\log\varphi)
+ <9.275\mathbin{\cdot}10^{12}.
+ \label{eq:matveev-prefactor}
+\end{equation}
+
+Writing $H=1+\log(2q)$, comparison with
+\cref{eq:Lambda0-small} gives
+
+\begin{equation}
+ h\log\lambda<1.855\mathbin{\cdot}10^{14}H+\log9.
+\end{equation}
+
+Finally $\log\lambda>4/5$. Rounding only upward proves
+\cref{eq:h-log-bound}.
+\end{proof}
+
+The fixed-coefficient form has therefore done two jobs: it makes $h$
+logarithmic in $q$ and keeps $n$ below $2q$. It does not yet bound $q$.
+The next section supplies that missing absolute bound by allowing the third
+logarithmic coefficient to depend on the now-controlled exponent $h$.

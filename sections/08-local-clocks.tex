@@ -1,0 +1,389 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Local clocks, Haar recurrence, and their limits}
+\label{sec:local-clocks}
+
+The global classification uses the full norm--content equation. A tempting
+alternative is to control only the common prime-power content forced by the
+Fibonacci and Pell recurrences. We now show exactly how far that local idea
+can go. Compatible $p$-adic clocks recur on positive-density subfamilies of
+genuine nearest windows, but a rank-parity obstruction can also prevent a
+split prime from occurring at all.
+
+For the plus sign put
+
+\begin{equation}
+ D_q=F_q+F_{q+1}\sqrt2,
+ \qquad
+ m(q)=\left\lceil\log_\lambda D_q\right\rceil.
+ \label{eq:local-m}
+\end{equation}
+
+Whenever $3\nmid q$ and
+
+\begin{equation}
+ D_q<\lambda^{m(q)}<\sqrt2D_q,
+ \label{eq:local-window}
+\end{equation}
+
+the even power $\lambda^{2m(q)}$ lies in the strict nearest window for
+$D_q^2$. Put $s=(-1)^{m(q)}$ and define
+
+\begin{equation}
+ G(q,m)=\gcd\left(
+ R_q-s,\,
+ 2F_{q+1}P_m-F_qC_m
+ \right).
+ \label{eq:cross-gcd}
+\end{equation}
+
+This cross-gcd is defined on every row in \cref{eq:local-window}; the
+norm--content equation is not assumed.
+
+\begin{lemma}[Two exact phase factorizations]
+\label{lem:cross-gcd-factorisations}
+For $3\nmid q$,
+
+\begin{equation}
+\begin{aligned}
+ m\equiv q\pmod2\quad&\Longrightarrow\quad
+ G(q,m)=
+ \gcd(F_{q+1},C_m)\gcd(F_{q+2},C_{m+1})\\[2mm]
+ m\not\equiv q\pmod2\quad&\Longrightarrow\quad
+ G(q,m)=
+ \gcd(F_{q-1},C_{m-1})\gcd(F_{q+4},C_{m+2}).
+\end{aligned}
+\label{eq:cross-gcd-factorisations}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put $\varepsilon=(-1)^q$ and
+$E=2F_{q+1}P_m-F_qC_m$. Cassini's identity gives
+
+\begin{equation}
+\begin{aligned}
+ R_q-\varepsilon&=F_{q+1}F_{q+2},\\
+ R_q+\varepsilon&=F_{q-1}F_{q+4}.
+\end{aligned}
+\label{eq:local-cassini-factors}
+\end{equation}
+
+Direct reduction gives
+
+\begin{equation}
+\begin{aligned}
+ E&\equiv-F_qC_m&&\pmod {F_{q+1}},\\
+ E&\equiv-F_qC_{m+1}&&\pmod {F_{q+2}},\\
+ E&\equiv F_qC_{m-1}&&\pmod {F_{q-1}},\\
+ 3E&\equiv-F_qC_{m+2}&&\pmod {F_{q+4}}.
+\end{aligned}
+\label{eq:local-companion-reductions}
+\end{equation}
+
+The equal-phase Fibonacci factors are coprime. In the unequal phase,
+
+$$
+ \gcd(F_{q-1},F_{q+4})\in\{1,5\},
+$$
+
+but the exceptional prime $5$ divides no companion number $C_j$: the
+recurrence modulo $5$ has period $12$ and nonzero residues
+$1,1,3,2,2,1,4,4,2,3,3,4$. The only possible failure of the displayed
+multipliers to be units is at $3$. Here
+
+$$
+ 3\mid F_r\Longleftrightarrow4\mid r,
+ \qquad
+ 3\mid C_j\Longleftrightarrow j\equiv2\pmod4,
+$$
+
+and every aligned Fibonacci--companion index pair has opposite parity.
+Thus $3$ cannot occur in an aligned gcd. The product identity follows prime
+by prime and valuation by valuation.
+\end{proof}
+
+The factorisation replaces one two-coordinate gcd by two aligned recurrence
+clocks. We now determine exactly which primes can synchronize in one of
+these clocks to arbitrary depth.
+
+Let $p$ be an odd prime with $(2/p)=1$ that divides some $C_j$. Define
+
+\begin{equation}
+\begin{aligned}
+ z_F(p)&=\min\{r>0:p\mid F_r\},
+ &e_F(p)&=v_p(F_{z_F(p)}),\\
+ z_C(p)&=\min\{r>0:p\mid C_r\},
+ &e_C(p)&=v_p(C_{z_C(p)}),
+\end{aligned}
+\label{eq:local-ranks}
+\end{equation}
+
+and, for $a\geqslant1$,
+
+\begin{equation}
+ B_p(a)=z_F(p)p^{\max(0,a-e_F(p))},
+ \qquad
+ J_p(a)=z_C(p)p^{\max(0,a-e_C(p))}.
+ \label{eq:lifted-ranks}
+\end{equation}
+
+The exact rank laws are
+
+\begin{equation}
+ p^a\mid F_r\Longleftrightarrow B_p(a)\mid r,
+ \qquad
+ p^a\mid C_j\Longleftrightarrow
+ j\equiv J_p(a)\pmod {2J_p(a)}.
+ \label{eq:rank-laws}
+\end{equation}
+
+The first is the standard Fibonacci rank and valuation law
+\cite{Lengyel1995,Sanna2016}. For the second, choose a Hensel lift
+$\sqrt2\in\Z_p$, put $u=1+\sqrt2$ and $b=-u^2$, and use
+
+\begin{equation}
+ 2u^jC_j=(-1)^j(b^j+1).
+ \label{eq:local-companion-unit}
+\end{equation}
+
+Companion zeros are the odd multiples of $z_C(p)$, and odd-prime lifting
+gives their complete valuations. In local-field language,
+$\Q(\sqrt2)\otimes\Q_p\simeq\Q_p\times\Q_p$ at such a split prime, and
+\cref{eq:local-companion-unit} converts the clock into an order and
+valuation statement for a unit of $\Z_p$; this is the special case of the
+standard framework described by Serre \cite{Serre1979LocalFields}.
+
+\begin{proposition}[Local-to-Archimedean transfer]
+\label{prop:local-transfer}
+Let $\mathcal P$ be a finite nonempty set of primes satisfying the preceding
+hypotheses, prescribe $a_p\geqslant1$, and partition
+$\mathcal P=\mathcal P_1\sqcup\mathcal P_2$. Choose
+$\delta\in\{0,1\}$ and the offsets
+
+\begin{equation}
+\begin{array}{ccc}
+ \toprule
+ \delta&(r_1,t_1)&(r_2,t_2)\\
+ \midrule
+ 0&(1,0)&(2,1)\\
+ 1&(-1,-1)&(4,2)\\
+ \bottomrule
+\end{array}
+\label{eq:clock-offsets}
+\end{equation}
+
+Suppose that integers $q_0,m_0$ satisfy
+
+\begin{equation}
+ 3\nmid q_0,
+ \qquad
+ q_0-m_0\equiv\delta\pmod2,
+ \label{eq:clock-phase}
+\end{equation}
+
+and, for $i\in\{1,2\}$ and $p\in\mathcal P_i$,
+
+\begin{equation}
+ q_0+r_i\equiv0\pmod {B_p(a_p)},
+ \qquad
+ m_0+t_i\equiv J_p(a_p)\pmod {2J_p(a_p)}.
+ \label{eq:clock-congruences}
+\end{equation}
+
+Put
+
+\begin{equation}
+ Q=\operatorname{lcm}\left(6,\{B_p(a_p):p\in\mathcal P\}\right),
+ \qquad
+ M=\operatorname{lcm}\left(\{2J_p(a_p):p\in\mathcal P\}\right).
+ \label{eq:clock-moduli}
+\end{equation}
+
+Then infinitely many $q=q_0+Q\ell$ satisfy
+\cref{eq:local-window}, $m(q)\equiv m_0\pmod M$, and
+
+\begin{equation}
+ \prod_{p\in\mathcal P}p^{a_p}\mid G(q,m(q)),
+ \label{eq:clock-product}
+\end{equation}
+
+with every prime power carried by its prescribed factor in
+\cref{eq:cross-gcd-factorisations}. Among the progression
+$q=q_0+Q\ell$, this selected family has relative natural density
+
+\begin{equation}
+ \frac{\vartheta}{M},
+ \qquad
+ \vartheta=\log_\lambda\sqrt2.
+ \label{eq:clock-relative-density}
+\end{equation}
+
+Its counting function up to $q\leqslant X$ is therefore
+$\vartheta X/(MQ)+o(X)$.
+\end{proposition}
+
+\begin{proof}
+The congruences and \cref{eq:rank-laws} place each prescribed prime power in
+the required Fibonacci--companion pair of
+\cref{eq:cross-gcd-factorisations}. They remain valid on the progression
+$q=q_0+Q\ell$.
+
+It remains to meet the Archimedean window with the required value of $m$.
+Put
+
+\begin{equation}
+ \alpha=\frac{\log\varphi}{\log\lambda},
+ \qquad
+ \beta=\log_\lambda\left(\frac{1+\sqrt2\varphi}{\sqrt5}\right).
+\end{equation}
+
+Binet's formula gives
+
+\begin{equation}
+ \log_\lambda D_q=q\alpha+\beta+O(\varphi^{-2q}).
+ \label{eq:local-rotation}
+\end{equation}
+
+The irrationality of $\alpha$ was proved in
+\cref{thm:candidate-density}; hence $Q\alpha/M$ is irrational. Weyl
+equidistribution on the circle $\R/M\Z$ shows that the limiting phase lies
+in the cyclic interval $(m_0-\vartheta,m_0)$ with normalized Haar measure
+$\vartheta/M$. Its boundary has Haar measure zero, and the Binet error tends
+to zero. Membership in this interval is exactly
+$m(q)\equiv m_0\pmod M$ together with \cref{eq:local-window}. This proves
+the divisibility and both density assertions.
+\end{proof}
+
+\begin{theorem}[Exact clock criterion and simultaneous products]
+\label{thm:local-clocks}
+Let $p$ be an odd prime with $(2/p)=1$ that divides some $C_j$. Then the
+following are equivalent:
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item $z_F(p)$ and $z_C(p)$ are not both even;
+ \item for every $a\geqslant1$, infinitely many nearest-window rows have
+ $p^a\mid G(q,m(q))$;
+ \item at least one such row has $p\mid G(q,m(q))$.
+\end{enumerate}
+
+Every prime $p\equiv7\pmod8$ satisfies these conditions. Consequently, for
+every finite set $\mathcal P$ of such primes and arbitrary exponents
+$a_p\geqslant1$, infinitely many rows satisfy the one-bin divisibility
+
+\begin{equation}
+ \prod_{p\in\mathcal P}p^{a_p}
+ \mid\gcd(F_{q+1},C_{m(q)})
+ \mid G(q,m(q)).
+ \label{eq:seven-class-product}
+\end{equation}
+
+In particular, for every $a,b\geqslant1$, infinitely many rows satisfy
+
+\begin{equation}
+ 7^a17^b\mid G(q,m(q)).
+ \label{eq:seven-seventeen}
+\end{equation}
+
+The rank-parity condition is sharp: $z_F(241)=120$ and $z_C(241)=20$, so
+
+\begin{equation}
+ 241\nmid G(q,m)
+ \label{eq:241-obstruction}
+\end{equation}
+
+for every plus nearest-window row.
+\end{theorem}
+
+\begin{proof}
+For a single prime, use the first factor in the appropriate phase and write
+$q=B_p(a)u-1$, with
+$m\equiv J_p(a)\pmod {2J_p(a)}$. The phase condition becomes
+
+\begin{equation}
+ B_p(a)u\equiv J_p(a)+1\pmod2.
+\end{equation}
+
+If $B_p(a)$ is even, this is soluble exactly when $J_p(a)$ is odd; if
+$B_p(a)$ is odd, the parity of $u$ is free. Multiplication by powers of the
+odd prime does not change the rank parities, so the congruences are
+consistent exactly when $z_F(p)$ and $z_C(p)$ are not both even. Choose the
+residue of $u$ modulo $3$ so that $3\nmid B_p(a)u-1$. If
+$3\mid B_p(a)$ this is automatic; otherwise exactly one residue is
+forbidden. This choice is compatible with the required parity by the Chinese
+remainder theorem modulo $6$.
+\Cref{prop:local-transfer} then gives infinitely many rows at every depth.
+Conversely, the Fibonacci and companion indices paired in
+\cref{eq:cross-gcd-factorisations} have opposite parity. If both ranks are
+even, no pair can contain $p$. This proves the equivalence.
+
+Now let $p\equiv7\pmod8$ and choose $r^2=2\pmod p$. For
+$u=1+r$, the order of $u$ has $2$-part at most $2$. If $h$ is its odd
+part, then $u^h=\pm1$; since $1-r=-u^{-1}$,
+$C_h\equiv0\pmod p$. Thus $z_C(p)$ is odd, and the criterion applies.
+The assertion for $\mathcal P=\varnothing$ follows from
+\cref{thm:candidate-density}, so suppose henceforth that
+$\mathcal P\ne\varnothing$.
+For finitely many such primes, the lifted companion ranks remain odd. Put
+
+$$
+ B=\operatorname{lcm}_{p\in\mathcal P}B_p(a_p),
+ \qquad
+ J=\operatorname{lcm}_{p\in\mathcal P}J_p(a_p).
+$$
+
+Then $m\equiv J\pmod {2J}$ satisfies every odd companion class, and
+$q=Bu-1$ satisfies every first-bin Fibonacci class. Choose the parity of
+$u$ to make $q\equiv m\pmod2$, and choose its residue modulo $3$ as above.
+The choices are compatible modulo $6$, so \cref{prop:local-transfer} proves
+\cref{eq:seven-class-product}. There are
+infinitely many primes $7\pmod8$: if $p_1,\ldots,p_k$ were all of them,
+an even multiple $A$ of their product would make $2A^2-1\equiv7\pmod8$;
+every prime divisor $r$ has $(2/r)=1$, hence
+$r\equiv1$ or $7\pmod8$, and at least one must be $7\pmod8$. It is new
+because $2A^2-1\equiv-1\pmod {p_i}$ for every $i$.
+
+For \cref{eq:seven-seventeen}, the exact lifted ranks are
+
+\begin{equation}
+\begin{aligned}
+ B_7(a)&=8\mathbin{\cdot}7^{a-1},
+ &J_7(a)&=3\mathbin{\cdot}7^{a-1},\\
+ B_{17}(b)&=9\mathbin{\cdot}17^{b-1},
+ &J_{17}(b)&=4\mathbin{\cdot}17^{b-1}.
+\end{aligned}
+\end{equation}
+
+Assign $7$ and $17$ to the two equal-phase bins. Their $q$ moduli are
+coprime and their $m$ moduli have gcd $2$ with odd prescribed residues, so
+the systems are compatible. More explicitly,
+$q\equiv-1\pmod {B_7(a)}$ makes $q$ odd, both companion congruences make
+$m$ odd, and $q\equiv-2\pmod {B_{17}(b)}$ gives
+$q\equiv1\pmod3$ because $9\mid B_{17}(b)$. Thus the phase and
+$3\nmid q$ hypotheses of \cref{prop:local-transfer} hold. Finally, the
+exact recurrence certificates at $241$ give the two even ranks displayed in
+the theorem; the already proved criterion yields
+\cref{eq:241-obstruction}.
+\end{proof}
+
+\begin{remark}[What the clocks establish]
+\label{rem:local-scope}
+The rows above satisfy genuine strict nearest windows, and the density is a
+Haar-measure statement on a phase circle. They are not asserted to satisfy
+\cref{eq:norm-content}. Thus local abundance produces neither a target nor a
+Markoff counterexample. Its exact conclusion is methodological: uniform
+boundedness, squarefreeness, finitely many compatible rank clocks, and the
+assertion that every split prime occurs are all false as global substitutes
+for the norm--content equation.
+\end{remark}
+
+This local--global contrast is the organising principle of the final
+discussion, which situates the exact theorems relative to the parent Markoff
+problem.

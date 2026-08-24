@@ -1,0 +1,312 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Introduction}
+\label{sec:introduction}
+
+How often can the square of a Fibonacci quadratic integer lie just below a
+power of the fundamental Pell unit, with the small difference pointing in a
+primitive negative-norm unit direction? This question combines an
+Archimedean nearest-neighbour condition with an exact norm--content condition.
+The former occurs with positive density; the latter will leave only two
+rows.
+
+Let
+
+\begin{equation}
+ \lambda=1+\sqrt2,
+ \qquad
+ D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2,
+ \qquad
+ q\geqslant1,
+ \qquad
+ \sigma\in\{1,-1\}.
+ \label{eq:intro-D}
+\end{equation}
+
+Suppose that a positive integer $n$ lies in the strict factor-two window
+
+\begin{equation}
+ D_{q,\sigma}^2<\lambda^n<2D_{q,\sigma}^2.
+ \label{eq:intro-window}
+\end{equation}
+
+There is at most one such $n$, because the ratio of two distinct integral
+powers of $\lambda$ is at least $\lambda>2$. Write
+
+\begin{equation}
+ \Delta_{q,\sigma}=\lambda^n-D_{q,\sigma}^2,
+ \qquad
+ g_{q,\sigma}=\cont{\Delta_{q,\sigma}},
+ \label{eq:intro-gap}
+\end{equation}
+
+where
+
+$$
+ N(a+b\sqrt2)=a^2-2b^2
+$$
+
+is the quadratic norm and the coefficient content of
+$a+b\sqrt2\in\Z[\sqrt2]$ is $\gcd(\abs a,\abs b)$. The target condition is
+
+\begin{equation}
+ \norm{\Delta_{q,\sigma}}=-g_{q,\sigma}^2.
+ \label{eq:intro-target}
+\end{equation}
+
+After division by its largest rational coefficient factor, the gap is then
+a norm-$-1$ unit. The two surviving examples already display the two possible
+orientations:
+
+\begin{align}
+ \lambda^2-(-F_2+F_3\sqrt2)^2
+ &=-6+6\sqrt2=6\lambda^{-1},
+ \label{eq:intro-example-minus}\\
+ \lambda^6-(F_4+F_5\sqrt2)^2
+ &=40+40\sqrt2=40\lambda.
+ \label{eq:intro-example-plus}
+\end{align}
+
+Our first main theorem says that there are no others, even when the parity
+of $n$ is not prescribed.
+
+\begin{theorem}[All-exponent nearest-gap classification]
+\label{thm:classification-intro}
+For $q\geqslant1$, $\sigma\in\{1,-1\}$, and positive $n$, the two conditions
+\cref{eq:intro-window,eq:intro-target} hold exactly in the two rows
+
+\begin{equation}
+ \begin{array}{ccccc}
+ \toprule
+ q&\sigma&n&g_{q,\sigma}&\Delta_{q,\sigma}/g_{q,\sigma}\\
+ \midrule
+ 2&-1&2&6&\lambda^{-1}\\
+ 4& 1&6&40&\lambda\\
+ \bottomrule
+ \end{array}
+ \label{eq:two-solutions}
+\end{equation}
+
+In particular, no odd exponent is a target. Every hypothetical target obeys
+the intrinsic selector
+
+\begin{equation}
+ n\text{ odd}\Longrightarrow3\mid q,
+ \qquad
+ n\text{ even}\Longrightarrow3\nmid q.
+ \label{eq:intro-parity-selector}
+\end{equation}
+\end{theorem}
+
+The boundary $q\geqslant1$ is sharp: at $q=0$ one has
+$D_{0,\sigma}=\sqrt2$ and $\lambda-D_{0,\sigma}^2=\lambda^{-1}$.
+
+The proof is an exact, finite certificate built on an unbounded argument.
+The parity selector first divides the proof into two genuinely different
+branches. For even $n$, algebraic reconstruction turns the coefficient
+content into a primitive factor rectangle. This gives the missing height
+separation $h<n<2q$ for the negative unit exponent $-h$. Two linear forms in
+logarithms then give $h=O(\log q)$ and $q<10^{32}$; certified
+rational-interval reductions yield $h<192$ and $q<90$, after which exact
+recurrence arithmetic is exhaustive. For odd $n$, the selector forces
+$3\mid q$. Its factorisation has no analogue of $h<n$, so the proof must be
+reordered: a fixed-coefficient logarithmic form first bounds
+$\min\{h,q\log_\lambda\varphi\}$, and only then can the moving-coefficient
+form bound $q$. The same certified reductions give $h<48$ or $q<96$, and
+the exact terminal list is empty.
+
+The scarcity in \cref{thm:classification-intro} does not come from scarcity
+of windows. \Cref{thm:candidate-density} proves that both even candidate
+windows occur for natural density
+$\log_\lambda\sqrt2-\eta=0.3300\ldots$, and that the density statement
+persists on every arithmetic progression. The exact norm--content condition,
+not the Archimedean approximation, is the rigid step.
+
+Our second main theorem packages the classification as a complete arithmetic
+orbit result. Let
+
+\begin{equation}
+ \mathsf S(u,v)=(v,u+2v),
+ \qquad
+ \mathcal H(u,v)=u^2+v^2,
+ \qquad
+ z_{q,\sigma}=(F_{q+1},F_{q+1}+\sigma F_q),
+ \label{eq:intro-orbit-data}
+\end{equation}
+
+and write $\lambda^r=C_r+P_r\sqrt2$. We call $d$ the \emph{anchor}: it is
+the Pell index at time $t=0$ in the orbit equation below.
+
+\begin{theorem}[Complete Fibonacci-core Pell-orbit classification]
+\label{thm:orbit-intro}
+For every $q\geqslant1$, $\sigma\in\{1,-1\}$, positive anchor $d$, and
+$t\geqslant0$, one has
+
+\begin{equation}
+ \mathcal H(\mathsf S^tz_{q,\sigma})=P_{d+2t}
+ \label{eq:intro-orbit-hit}
+\end{equation}
+
+if and only if one of the following alternatives holds:
+
+\begin{equation}
+\begin{array}{cccc}
+ \toprule
+ \sigma&q&d&t\\
+ \midrule
+ 1&1&3&\text{arbitrary }t\geqslant0\\
+ -1&1&1&0\\
+ -1&2&3&0\\
+ -1&4&5&0\\
+ \bottomrule
+\end{array}
+\label{eq:intro-orbit-list}
+\end{equation}
+
+There is no hit at a positive even anchor. In particular, the
+consecutive-Fibonacci core $z_{q,1}=(F_{q+1},F_{q+2})$ has no hit for
+$q\geqslant2$.
+\end{theorem}
+
+The bridge behind this theorem is more general than the Fibonacci cores.
+For a positive ordered integral seed $z=(u,v)$, the map
+
+\begin{equation}
+ A_z=(v-u)+u\sqrt2
+ \label{eq:intro-seed-map}
+\end{equation}
+
+obeys $A_{\mathsf S^tz}=\lambda^tA_z$. Thus an integral linear dynamical
+system is integrally conjugate to multiplication by a quadratic unit. An orbit hit
+at anchor $d$ is equivalent, outside the canonical unit seeds, to the
+anchored gap
+
+\begin{equation}
+ \lambda^{d-1}-A_z^2=g\lambda^{-(2t+1)},
+ \label{eq:intro-anchored-gap}
+\end{equation}
+
+which automatically lies in the strict factor-two window. This equivalence
+retains the anchor and time in both directions; it is not merely a numerical
+analogy.
+
+Several classical structures clarify why the proof works. The equations
+$N(X+Y\sqrt2)=\pm1$ define the norm-one torus and its norm-$-1$ torsor, so
+coefficient content records the integral lattice multiple of a primitive
+torsor point. The matrix of $\mathsf S$ lies in $\mathrm{GL}_2(\Z)$, and
+its symmetric-square action preserves the Lorentzian identity
+$2\mathcal H^2-\mathcal B^2-\mathcal Q^2=0$ used in the orbit bridge.
+The two involutions of the biquadratic field $\Q(\sqrt2,\sqrt5)$ have
+different jobs: one controls Pell norms, while the other separates the
+dominant and conjugate Fibonacci terms in the logarithmic forms. Finally,
+the local results combine $p$-adic rank lifting with an Archimedean irrational
+rotation. These are operational connections: each supplies an invariant,
+factorisation, height, or recurrence mechanism used below.
+
+Interactions between the Fibonacci and Pell sequences have been studied from
+several directions. Alekseyev determined the exact intersection of the two
+sequences \cite{Alekseyev2011}, and Bravo, Herrera and Luca extended the
+question to common values of their generalised analogues
+\cite{BravoHerreraLuca2021}. Pomeo and Bravo measured how closely a Pell
+number can approach a Fibonacci number \cite{PomeoBravo2024}, Luca and Zottor
+classified the Fibonacci numbers occurring among the $Y$-coordinates of Pell
+equations \cite{LucaZottor2023}, and Kafle, Luca, Montejano, Szalay and
+Togb\'e treated $X$-coordinates that are products of two Fibonacci numbers
+\cite{KafleEtAl2019}. Each of those questions asks for a value coincidence
+between two sequences, or for an Archimedean bound on their difference. The
+present question is different in kind. The window
+\cref{eq:intro-window} is only its Archimedean part, and the arithmetic lies
+in the exact norm--content equation \cref{eq:intro-target} imposed on the gap
+itself. That equation sees both coefficient coordinates of
+$\Delta_{q,\sigma}$ at once, which is why a positive-density supply of
+windows leaves exactly two rows.
+
+The nearest-gap problem arose in an ongoing programme on the
+Markoff--Frobenius uniqueness conjecture. A positive integral triple
+$(a,b,c)$ with $a\leqslant b\leqslant c$ is a Markoff triple when
+
+\begin{equation}
+ a^2+b^2+c^2=3abc,
+ \label{eq:markoff-equation}
+\end{equation}
+
+and the conjecture asks whether the largest entry $c$ determines the
+unordered pair $\{a,b\}$. The problem has arithmetic, geometric, word-
+combinatorial, and trace formulations; see Aigner \cite{Aigner2013}, the
+integral-necklace model of Fisac \cite{Fisac2025}, and Reutenauer's account
+of Christoffel words and Markoff numbers \cite{Reutenauer2026}. The present
+paper neither proves nor disproves this conjecture. In particular, we do not
+prove that a hypothetical Markoff collision must enter the Fibonacci-core
+family in \cref{thm:orbit-intro}. The arithmetic theorem is complete on its
+stated domain; the upstream reduction remains open.
+
+The local theory also draws a sharp methodological boundary. A natural
+plus-sign cross-gcd on genuine nearest windows contains arbitrary prescribed
+powers of $7$ and $17$, and more generally simultaneous products from an
+infinite class of split primes. A prime-rank parity criterion is exact, while
+the split prime $241$ gives a sharp obstruction. These facts rule out any
+proof based only on uniform boundedness, squarefreeness, or finitely many
+compatible local rank clocks. They do not produce a norm--content target.
+
+\Cref{fig:logic} displays the dependency structure and the one unproved
+Markoff-facing arrow.
+
+\begin{figure}[H]
+ \centering
+ \begin{tikzpicture}[
+   node distance=6mm and 8mm,
+   every node/.style={font=\small,align=center},
+   proof/.style={draw=blue!55!black,rounded corners,fill=blue!4,
+     inner sep=5pt,text width=35mm,minimum height=11mm},
+   context/.style={draw=black!55,rounded corners,fill=black!3,
+     inner sep=5pt,text width=35mm,minimum height=11mm},
+   open/.style={draw=red!60!black,dashed,rounded corners,fill=red!2,
+     inner sep=5pt,text width=35mm,minimum height=11mm},
+   arrow/.style={-{Latex[length=2mm]},thick}
+ ]
+  \node[proof] (target) {norm--content target\\at any exponent};
+  \node[context,left=of target] (density) {positive-density\\candidate windows};
+  \node[context,right=of target] (clocks) {unbounded local\\prime-power clocks};
+  \node[proof,below=of target] (selector) {intrinsic parity\\selector};
+  \node[proof,below left=of selector] (even) {even branch:\\rectangle, heights,\\certified reduction};
+  \node[proof,below right=of selector] (odd) {odd branch:\\reordered heights,\\certified reduction};
+  \node[proof,below=18mm of selector] (classify) {two targets only;\\no odd target};
+  \node[proof,below left=of classify] (semiconj) {seed/unit\\integral conjugacy};
+  \node[proof,below right=of classify] (direct) {direct Pell hits\\at time zero};
+  \node[proof,below=20mm of classify] (orbit) {complete Fibonacci-core\\orbit list};
+  \draw[arrow] (target)--(selector);
+  \draw[arrow] (selector)--(even);
+  \draw[arrow] (selector)--(odd);
+  \draw[arrow] (even)--(classify);
+  \draw[arrow] (odd)--(classify);
+  \draw[arrow] (classify)--(orbit);
+  \draw[arrow] (semiconj)--(orbit);
+  \draw[arrow] (direct)--(orbit);
+  \node[open,below=of orbit] (markoff) {hypothetical\\Markoff collision};
+  \draw[arrow,red!60!black,dashed] (markoff)--
+    node[right,font=\scriptsize] {reduction open} (orbit);
+ \end{tikzpicture}
+ \caption{Logical architecture. Solid arrows are proof dependencies: the
+ orbit list combines the independent seed/unit conjugacy, the all-exponent
+ classification, and the direct time-zero Pell hits. Density and local clocks
+ are contextual, not hypotheses. The dashed red arrow is the unproved
+ Markoff-to-orbit reduction.}
+ \label{fig:logic}
+\end{figure}
+
+The paper is organised as follows. \Cref{sec:system} develops the
+quadratic-unit dictionary, the exact window densities, and the primitive
+factor rectangle. \Cref{sec:leading,sec:height,sec:classification} prove the
+even branch, and \cref{sec:odd-exponents} proves the odd exclusion.
+\Cref{sec:zero-defect} gives the general seed/unit integral conjugacy and the
+complete Fibonacci-core orbit theorem. \Cref{sec:local-clocks} develops the
+local rank criterion and simultaneous prime-power recurrence. We close by
+stating the exact Markoff-facing boundary and further directions.
+\Cref{app:certificates} specifies the finite certificates and their coverage.

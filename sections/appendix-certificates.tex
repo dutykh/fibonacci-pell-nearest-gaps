@@ -1,0 +1,154 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Certificate architecture and finite coverage}
+\label{app:certificates}
+
+This appendix specifies exactly where computation enters the proof and how
+the finite conclusions cover the original unbounded statement. The
+corresponding source files and one-command driver are listed in the
+supplement.
+
+\subsection{Logical dependency}
+
+\begin{table}[H]
+ \centering
+ \caption{Computer-assisted inputs and controls. Finite density and orbit
+ regressions test identities and boundaries but do not prove the corresponding
+ unbounded theorems.}
+ \label{tab:certificates}
+ \begin{tabular}{>{\raggedright\arraybackslash}p{0.24\textwidth}
+                 >{\raggedright\arraybackslash}p{0.30\textwidth}
+                 >{\raggedright\arraybackslash}p{0.34\textwidth}}
+  \toprule
+  Claim & Complete input & Independent control\\
+  \midrule
+  Leading exponents
+  & Published complete Fibonacci--Pell and Pell near-square classifications
+  & Two optional Magma V2.29-9 quartic runs and exact arithmetic filters\\
+  Even classification
+  & Exact logarithmic-form identities, outward rational intervals, all $190$
+    moving shifts, and enumeration of $2\leqslant q<90$
+  & Two separately structured fixed-point implementations and a wider exact
+    regression\\
+  Odd exclusion
+  & Exact changed-sign trace identities, unchanged fixed and moving shifts,
+    and enumeration of $q=3,6,\ldots,93$
+  & A source checker and a non-importing integer-arithmetic reconstruction\\
+  Window densities
+  & Irrational-rotation proof and exact interval lengths
+  & Exact finite counts through $q=5000$, used only as regression evidence\\
+  All-anchor orbits
+  & Exact semiconjugacy, anchored equivalence, all-exponent theorem, and
+    published direct-hit classifications
+  & Separate general-seed, odd-anchor, and even-anchor identity regressions\\
+  Uniform local clocks
+  & Written $p$-adic rank, Chinese remainder, and equidistribution proof
+  & Exact rank certificates, obstruction at $241$, and displayed witnesses\\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+No finite computation proves an unbounded statement by extrapolation. In the
+even branch, the analytic argument applies to every hypothetical target with
+$q\geqslant7$: \cref{prop:negative-exponent,prop:h-log-bound} and the
+moving-coefficient form first give $q<10^{32}$; the certified reductions then
+give $h<192$ and $q<90$. Only after those deductions does the terminal
+enumeration inspect the complete finite domain
+
+\begin{equation}
+ 2\leqslant q<90,
+ \qquad
+ 3\nmid q,
+ \qquad
+ \sigma\in\{1,-1\}.
+ \label{eq:terminal-domain}
+\end{equation}
+
+The omitted lower boundary is analytic rather than computational:
+\cref{eq:q1-boundary} proves directly that neither sign has a strict
+candidate at $q=1$. Thus $q=90$ is excluded by the strict analytic bound,
+while every lower index in this parity branch and both signs are covered.
+In the odd branch,
+the fixed-form-first argument gives $q<10^{32}$, the fixed reduction gives
+$\min\{h,q\gamma\}<48$, and the moving reduction excludes $q\geqslant96$.
+It leaves exactly
+
+\begin{equation}
+ q=3,6,\ldots,93,
+ \qquad
+ \sigma\in\{1,-1\}.
+ \label{eq:odd-terminal-domain-appendix}
+\end{equation}
+
+Exact recurrence arithmetic checks both complete domains. The even output
+consists only of \cref{eq:low-q2,eq:low-q4}, while the odd output is empty.
+This proves both existence and completeness of
+\cref{thm:classification-intro}.
+
+\subsection{Rational interval model}
+
+All reduction comparisons are made with rational endpoints. Positive square
+roots are bracketed by integer squaring. After range reduction, logarithms
+are evaluated through \cref{eq:log-series,eq:log-tail}. A certificate is
+accepted only when the lower endpoint of each $\eta$ is positive and the
+lower endpoint of the left side in
+\cref{eq:fixed-cutoff,eq:moving-cutoff} exceeds the upper endpoint of its
+right side. Strict inequalities therefore remain strict under rounding.
+
+The common integers $p,Q$ are printed in \cref{eq:common-convergent}. The
+certificate independently verifies $\gcd(p,Q)=1$ and the approximation error;
+trust in a floating-point continued-fraction library is not part of the proof.
+The moving stage evaluates every one of the $190$ pairs, rather than sampling
+or replacing them by a numerical minimum.
+
+\subsection{Exact arithmetic model}
+
+An element of $\Z[\sqrt2]$ is stored as a pair of arbitrary-precision
+integers $(a,b)$ representing $a+b\sqrt2$. Addition, multiplication,
+conjugation, norm, and coefficient content are consequently exact. The sign
+of $a+b\sqrt2$ is decided from integer signs and the comparison of $a^2$
+with $2b^2$. Fibonacci and Pell coordinates are generated by their integer
+recurrences. The terminal search therefore contains no floating-point
+predicate.
+
+The two all-exponent programs share the published classification inputs and
+the fixed rational-interval constants already displayed in the manuscript.
+The second independently reconstructs the parity selector, the changed odd
+trace, the bootstrap arithmetic, and the terminal integer enumeration; it
+does not import the first. Wider runs through $q=2000$ are regressions only.
+
+\subsection{Published near-square classification}
+
+The proof of \cref{eq:j1-solutions} imports the published complete
+classification in \cite[Table~1]{AlekseyevTengely2014}. That paper reduces
+the relevant Lucas near-square equations through complete computational
+reductions via elliptic curves or Thue equations. Because its table does not
+publish row-specific transcripts,
+the supplement retains a separate complete calculation of the two induced
+quartics. The local Magma transcripts report the complete integral-point
+routine and the required Mordell--Weil information; standard-library
+programs then verify every returned point and the exact filtering to
+\cref{eq:j1-solutions}. The manuscript relies on the published theorem for
+completeness and treats the local calculation as independent corroboration.
+
+\subsection{Reproduction}
+
+From the manuscript directory, run
+
+\begin{center}
+ \texttt{python3 supplement/run\_all.py}
+\end{center}
+
+This executes every standard-library certificate used by the paper. Magma is
+optional: its inputs and recorded
+transcripts can be inspected without the proprietary executable, while a
+fresh Magma V2.29-9 installation can rerun them. The supplement README records
+the software assumptions, source-to-claim map, expected summaries, and the
+distinction between proof certificates and non-probative regression checks.

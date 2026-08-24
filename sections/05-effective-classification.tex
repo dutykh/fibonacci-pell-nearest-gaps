@@ -1,0 +1,537 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Effective classification of the even branch}
+\label{sec:classification}
+
+We now bound $q$, reduce both exponents by exact rational intervals, and
+finish the even-exponent branch of \cref{thm:classification-intro}.
+Until the terminal enumeration, we retain the standing hypothesis that an
+even-exponent target exists with $q\geqslant7$.
+
+\subsection{A moving-coefficient logarithmic form}
+
+Quadratic conjugation of \cref{eq:negative-target}, followed by elimination
+of $g$, gives the exact trace identity
+
+\begin{equation}
+ \lambda^n+\lambda^{-n-2h}
+ =D_{q,\sigma}^2+\overline{D}_{q,\sigma}^{\,2}\lambda^{-2h}.
+ \label{eq:trace-identity}
+\end{equation}
+
+Retain $\epsilon=(-1)^q$ and put
+
+\begin{equation}
+ \begin{aligned}
+ u_\sigma&=\sigma+\sqrt2\varphi,
+ &u'_\sigma&=-\sigma+\sqrt2\varphi^{-1},\\
+ v_\sigma&=\sigma-\sqrt2\varphi,
+ &v'_\sigma&=-\sigma-\sqrt2\varphi^{-1}.
+ \end{aligned}
+ \label{eq:four-coefficients}
+\end{equation}
+
+Binet's formula becomes
+
+\begin{equation}
+ \begin{aligned}
+ D_{q,\sigma}
+ &=\frac{u_\sigma\varphi^q+\epsilon u'_\sigma\varphi^{-q}}{\sqrt5},\\
+ \overline D_{q,\sigma}
+ &=\frac{v_\sigma\varphi^q+\epsilon v'_\sigma\varphi^{-q}}{\sqrt5}.
+ \end{aligned}
+ \label{eq:two-binet}
+\end{equation}
+
+The key is to retain both growing $\varphi^{2q}$ terms inside one
+coefficient:
+
+\begin{equation}
+ \mathcal A_{\sigma,h}
+ =\frac{u_\sigma^2+v_\sigma^2\lambda^{-2h}}5.
+ \label{eq:moving-coefficient}
+\end{equation}
+
+Substitution in \cref{eq:trace-identity} gives
+
+\begin{equation}
+ \lambda^n=\mathcal A_{\sigma,h}\varphi^{2q}
+ +\mathcal R_{\sigma,q,h},
+ \label{eq:moving-main}
+\end{equation}
+
+where
+
+\begin{align}
+ \mathcal R_{\sigma,q,h}={}&
+ \frac{2\epsilon}{5}
+ \left((1-\sigma\sqrt2)
+ +(1+\sigma\sqrt2)\lambda^{-2h}\right)
+ \notag\\
+ &+\frac{\varphi^{-2q}}5
+ \left((u'_\sigma)^2+(v'_\sigma)^2\lambda^{-2h}\right)
+ -\lambda^{-n-2h}.
+ \label{eq:moving-remainder}
+\end{align}
+
+Here we used
+$u_\sigma u'_\sigma=1-\sigma\sqrt2$ and
+$v_\sigma v'_\sigma=1+\sigma\sqrt2$. Direct coefficient estimates give
+
+\begin{equation}
+ \abs{\mathcal R_{\sigma,q,h}}<4,
+ \qquad
+ \frac15<\mathcal A_{\sigma,h}<7.
+ \label{eq:A-R-bounds}
+\end{equation}
+
+Since $\varphi^{14}=377\varphi+233>1597/2$, normalising
+\cref{eq:moving-main} and using \cref{eq:A-R-bounds} yields the logarithmic
+form
+
+\begin{equation}
+ \Lambda_1=n\log\lambda-2q\log\varphi
+ -\log\mathcal A_{\sigma,h}
+ \label{eq:Lambda1}
+\end{equation}
+
+with
+
+\begin{equation}
+ 0<\abs{\Lambda_1}<21\varphi^{-2q}.
+ \label{eq:Lambda1-small}
+\end{equation}
+
+The strict nonvanishing and the height of the moving coefficient must be
+controlled uniformly. From
+$\lambda^h=C_h+P_h\sqrt2$ one obtains
+
+\begin{equation}
+ \mathcal A_{\sigma,h}
+ =\lambda^{-h}\frac{2\sqrt2}{5}
+ \left((4+\sqrt5)P_h+2\sigma\varphi C_h\right).
+ \label{eq:A-pell}
+\end{equation}
+
+Taking the full norm in $\Q(\sqrt2,\sqrt5)$ gives
+
+\begin{equation}
+ N_{K/\Q}(\mathcal A_{\sigma,h})
+ =\frac{64}{625}
+ \left(4+3P_h^2-2\sigma C_hP_h\right)^2.
+ \label{eq:A-norm}
+\end{equation}
+
+If $\Lambda_1=0$, full norms would force $64I^2=625$ for an integer $I$,
+which is impossible. We now record the height calculation. The inequalities
+$h_{\mathrm{abs}}(\alpha\beta)\leqslant
+h_{\mathrm{abs}}(\alpha)+h_{\mathrm{abs}}(\beta)$ and
+$h_{\mathrm{abs}}(\alpha+\beta)\leqslant
+h_{\mathrm{abs}}(\alpha)+h_{\mathrm{abs}}(\beta)+\log2$ give
+
+\begin{equation}
+ h_{\mathrm{abs}}(u_\sigma),\,
+ h_{\mathrm{abs}}(v_\sigma)
+ \leqslant
+ \log2+\frac{\log2}{2}+\frac{\log\varphi}{2}
+ <\frac32.
+\end{equation}
+
+Since $h_{\mathrm{abs}}(\lambda)=\tfrac12\log\lambda$, the definition
+\cref{eq:moving-coefficient} yields
+
+\begin{align}
+ h_{\mathrm{abs}}(\mathcal A_{\sigma,h})
+ &\leqslant
+ 2h_{\mathrm{abs}}(u_\sigma)
+ +2h_{\mathrm{abs}}(v_\sigma)
+ +2h\,h_{\mathrm{abs}}(\lambda)+\log10\notag\\
+ &<h+9<h+11.
+\end{align}
+
+Together with \cref{eq:A-R-bounds}, this proves
+
+\begin{equation}
+ \height{\mathcal A_{\sigma,h}}<h+11,
+ \qquad
+ \abs{\log\mathcal A_{\sigma,h}}<2.
+ \label{eq:A-height}
+\end{equation}
+
+Thus \cref{lem:matveev} applies to \cref{eq:Lambda1} with
+
+\begin{equation}
+ A_1=2\log\lambda,
+ \qquad
+ A_2=2\log\varphi,
+ \qquad
+ A_3=4h+44,
+ \qquad
+ B=2q.
+\end{equation}
+
+Writing again $H=1+\log(2q)$ and using
+\cref{eq:matveev-prefactor}, comparison with
+\cref{eq:Lambda1-small} gives
+
+\begin{equation}
+ 2q\log\varphi
+ <9.275\mathbin{\cdot}10^{12}(4h+44)H+\log21.
+ \label{eq:q-h-comparison}
+\end{equation}
+
+By \cref{eq:h-log-bound} and $\log\varphi>2/5$,
+
+\begin{equation}
+ q<\frac54\left[
+ 9.275\mathbin{\cdot}10^{12}
+ \left(9.6\mathbin{\cdot}10^{14}H+44\right)H+4
+ \right].
+ \label{eq:q-self-bound}
+\end{equation}
+
+At $q_0=10^{32}$, one has $H(q_0)<79$ and the right-hand side of
+\cref{eq:q-self-bound} is less than $7\mathbin{\cdot}10^{31}$. After
+division by $q$, every term on the right is decreasing for
+$q\geqslant q_0$. Consequently
+
+\begin{equation}
+ q<10^{32}.
+ \label{eq:q-1e32}
+\end{equation}
+
+The moving coefficient \cref{eq:moving-coefficient} is the central
+mechanism of the proof. Its error decays with $q$, while its height grows
+only linearly with $h$, which is already logarithmic in $q$.
+
+\subsection{An absolute-value reduction lemma}
+
+We use a symmetric form of the Baker--Davenport reduction, closely related
+to the lemma of Dujella and Peth\H{o} \cite{DujellaPetho1998}. We include a
+short proof to avoid a hidden sign condition.
+
+\begin{lemma}[Absolute-value reduction]
+\label{lem:absolute-reduction}
+Let $\gamma,\mu\in\R$, let $p\in\Z$, let $Q\in\Z_{>0}$, and let
+$M\geqslant1$. Suppose that $\abs{Q\gamma-p}<1/2$ and that integers
+$a,b$ satisfy
+
+\begin{equation}
+ 0<\abs{a\gamma-b+\mu}<AB^{-w},
+ \qquad
+ 1\leqslant a\leqslant M,
+ \label{eq:reduction-hypothesis}
+\end{equation}
+
+where $A>0$, $B>1$, and $w>0$ are real. Put
+
+\begin{equation}
+ \eta=\dist{Q\mu}-M\abs{Q\gamma-p},
+ \label{eq:eta}
+\end{equation}
+
+where $\dist{x}$ is the distance from $x$ to the nearest integer. If
+$\eta>0$, then
+
+\begin{equation}
+ w<\frac{\log(AQ/\eta)}{\log B}.
+ \label{eq:reduction-conclusion}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Write $\dist{x}$ for the distance to the nearest integer. Since
+$ap-bQ\in\Z$, the triangle inequality on $\R/\Z$ gives
+
+\begin{align}
+ \dist{Q\mu}
+ &\leqslant
+ \dist{Q\mu+a(Q\gamma-p)}+a\abs{Q\gamma-p}\notag\\
+ &\leqslant
+ Q\abs{a\gamma-b+\mu}+M\abs{Q\gamma-p}.
+\end{align}
+
+The strict hypothesis therefore gives $\eta<AQB^{-w}$, which is equivalent
+to \cref{eq:reduction-conclusion}.
+\end{proof}
+
+The point of this symmetric form is that no sign of the logarithmic form is
+assumed. We apply it first to the fixed shift, reducing $h$ or $q$, and then
+to the moving shift, which supplies the absolute bound for $q$.
+
+\subsection{Certified reductions of the two exponents}
+
+Set
+
+\begin{equation}
+ \gamma=\frac{\log\varphi}{\log\lambda},
+ \qquad
+ \mu_\sigma
+ =\frac{\log(u_\sigma^2/5)}{\log\lambda}.
+ \label{eq:gamma-mu}
+\end{equation}
+
+Put
+
+\begin{equation}
+ \delta_\sigma
+ =\epsilon\frac{u'_\sigma}{u_\sigma}\varphi^{-2q},
+ \qquad
+ \widetilde\delta_\sigma
+ =\epsilon\frac{v'_\sigma}{v_\sigma}\varphi^{-2q}.
+\end{equation}
+
+Dividing the Binet expansion of \cref{eq:trace-identity} by
+$(u_\sigma^2/5)\varphi^{2q}$ gives the exact identity
+
+\begin{align}
+ e^{\Lambda_0}-1
+ ={}&
+ 2\delta_\sigma+\delta_\sigma^2
+ +\frac{v_\sigma^2}{u_\sigma^2}
+  (1+\widetilde\delta_\sigma)^2\lambda^{-2h}\notag\\
+ &-\frac5{u_\sigma^2}
+  \lambda^{-n-2h}\varphi^{-2q}.
+ \label{eq:fixed-exact-expansion}
+\end{align}
+
+For both signs, direct comparison gives
+
+\begin{equation}
+ 1<u_\sigma<4,\qquad
+ \abs{\frac{u'_\sigma}{u_\sigma}}<\frac32,\qquad
+ \abs{\frac{v_\sigma}{u_\sigma}}<3,\qquad
+ \abs{\frac{v'_\sigma}{v_\sigma}}<\frac32.
+\end{equation}
+
+Since $q\geqslant7$, $\varphi^{14}>1597/2$, so both delta terms have
+absolute value below $1/100$. The three terms in
+\cref{eq:fixed-exact-expansion} are therefore bounded, respectively, by
+$4\varphi^{-2q}$, $10\lambda^{-2h}$, and $5\varphi^{-2q}$. Moreover,
+$h\geqslant3$ and $\lambda^6>190$, whence
+
+\begin{equation}
+ \abs{e^{\Lambda_0}-1}
+ <10\left(\lambda^{-2h}+\varphi^{-2q}\right)<\frac1{10}.
+\end{equation}
+
+The inequality $\abs{\log(1+x)}\leqslant\abs{x}/(1-\abs{x})$ for
+$\abs{x}<1$ now gives the sharper estimate
+
+\begin{equation}
+ 0<\abs{\Lambda_0}
+ <12\left(\lambda^{-2h}+\varphi^{-2q}\right),
+ \label{eq:Lambda0-sharp}
+\end{equation}
+
+where $\Lambda_0$ is defined in \cref{eq:Lambda0}. Put
+$w=\min\{h,q\gamma\}$. Since $\log\lambda>4/5$,
+\cref{eq:Lambda0-sharp} implies
+
+\begin{equation}
+ 0<\abs{2q\gamma-n+\mu_\sigma}
+ <30(\lambda^2)^{-w}.
+ \label{eq:fixed-reduction-form}
+\end{equation}
+
+Take
+
+\begin{equation}
+ M_0=2\mathbin{\cdot}10^{32}
+ \label{eq:M0}
+\end{equation}
+
+and the rational number
+
+\begin{equation}
+ \frac pQ
+ =\frac{2585762774943540084566744409566833}
+ {4736007914708481810221186278309584}.
+ \label{eq:common-convergent}
+\end{equation}
+
+Exact rational intervals for square roots and logarithms certify
+
+\begin{equation}
+ \gcd(p,Q)=1,
+ \qquad
+ Q>6M_0,
+ \qquad
+ 2Q\abs{Q\gamma-p}<1.
+ \label{eq:convergent-certificate}
+\end{equation}
+
+Only the certified error is used below. For both signs, the same interval
+certificate gives
+
+\begin{equation}
+ \eta_\sigma
+ =\dist{Q\mu_\sigma}-M_0\abs{Q\gamma-p}>\frac7{100},
+ \label{eq:fixed-eta}
+\end{equation}
+
+and
+
+\begin{equation}
+ \eta_\sigma(\lambda^2)^{48}>30Q.
+ \label{eq:fixed-cutoff}
+\end{equation}
+
+Apply \cref{lem:absolute-reduction} with
+
+\begin{equation}
+ a=2q,\quad b=n,\quad \mu=\mu_\sigma,\quad
+ A=30,\quad B=\lambda^2,\quad
+ w=\min\{h,q\gamma\},\quad M=M_0.
+\end{equation}
+
+\Cref{eq:convergent-certificate,eq:fixed-eta,eq:fixed-cutoff}
+then prove $\min\{h,q\gamma\}<48$. Since $\gamma>1/2$, either $h<48$,
+or $q<96$ and then
+
+\begin{equation}
+ h<n<2q<192.
+\end{equation}
+
+Thus every target with $q\geqslant7$ satisfies
+
+\begin{equation}
+ 3\leqslant h<192,
+ \qquad
+ h\ \text{odd}.
+ \label{eq:h-192}
+\end{equation}
+
+For each of the $190$ pairs
+
+\begin{equation}
+ \sigma\in\{1,-1\},
+ \qquad
+ h\in\{3,5,\ldots,191\},
+\end{equation}
+
+put
+
+\begin{equation}
+ \nu_{\sigma,h}
+ =\frac{\log\mathcal A_{\sigma,h}}{\log\lambda}.
+\end{equation}
+
+\Cref{eq:Lambda1-small} gives
+
+\begin{equation}
+ 0<\abs{2q\gamma-n+\nu_{\sigma,h}}
+ <27(\varphi^2)^{-q}.
+ \label{eq:moving-reduction-form}
+\end{equation}
+
+The same $p/Q$ satisfies, for every one of the $190$ shifts,
+
+\begin{equation}
+ \eta_{\sigma,h}
+ =\dist{Q\nu_{\sigma,h}}-M_0\abs{Q\gamma-p}>\frac9{1000}
+ \label{eq:moving-eta}
+\end{equation}
+
+and
+
+\begin{equation}
+ \eta_{\sigma,h}(\varphi^2)^{90}>27Q.
+ \label{eq:moving-cutoff}
+\end{equation}
+
+The weakest certified interval occurs at $(\sigma,h)=(1,31)$ and remains
+strictly above the displayed margin. Apply \cref{lem:absolute-reduction}
+for each pair with
+
+\begin{equation}
+ a=2q,\quad b=n,\quad \mu=\nu_{\sigma,h},\quad
+ A=27,\quad B=\varphi^2,\quad w=q,\quad M=M_0.
+\end{equation}
+
+\Cref{eq:convergent-certificate,eq:moving-eta,eq:moving-cutoff}
+prove
+
+\begin{equation}
+ q<90.
+ \label{eq:q-90}
+\end{equation}
+
+The interval proof uses only rational arithmetic. For a positive rational
+$x$, logarithms are enclosed using
+
+\begin{equation}
+ \log x
+ =2\sum_{r=0}^{N-1}\frac{z^{2r+1}}{2r+1}+R_N,
+ \qquad
+ z=\frac{x-1}{x+1},
+ \label{eq:log-series}
+\end{equation}
+
+with the geometric tail bound
+
+\begin{equation}
+ \abs{R_N}
+ \leqslant\frac{2\abs z^{2N+1}}{(2N+1)(1-z^2)}.
+ \label{eq:log-tail}
+\end{equation}
+
+Square roots are bounded between consecutive rational grid points. Hence no
+binary floating-point comparison enters
+\cref{eq:convergent-certificate,eq:fixed-eta,eq:fixed-cutoff,eq:moving-eta,eq:moving-cutoff}.
+
+At this point the unbounded even-exponent problem has become finite: every
+hypothetical target has $q<90$. What remains is an exact recurrence
+calculation, not a further asymptotic estimate.
+
+\subsection{Exact terminal enumeration}
+
+The remaining lower boundary $q=1$ is direct:
+
+\begin{equation}
+ D_{1,1}=\lambda,
+ \qquad
+ D_{1,-1}=\lambda^{-1}.
+ \label{eq:q1-boundary}
+\end{equation}
+
+For the plus sign, the first integral power strictly above
+$D_{1,1}^2=\lambda^2$ is $\lambda^3>2\lambda^2$. For the minus sign, every
+positive integral power is at least
+$\lambda>2\lambda^{-2}=2D_{1,-1}^2$. Thus neither sign has a strict
+candidate at $q=1$.
+
+It remains to test $2\leqslant q<90$, $3\nmid q$, and both signs. For each
+row, exact recurrence arithmetic constructs $D_{q,\sigma}^2$ and the first
+even Pell unit above it. The algorithm then checks the strict upper window,
+computes the two coefficient gcd, and tests the exact norm identity. Signs of
+$a+b\sqrt2$ are decided over the integers from $a$, $b$, and
+$a^2-2b^2$; no numerical approximation is used.
+
+The complete output consists of
+
+\begin{align}
+ q=2, \sigma=-1:
+ &\quad
+ \lambda^2-(-F_2+F_3\sqrt2)^2
+ =6\lambda^{-1},
+ \label{eq:low-q2}\\
+ q=4, \sigma=1:
+ &\quad
+ \lambda^6-(F_4+F_5\sqrt2)^2
+ =40\lambda.
+ \label{eq:low-q4}
+\end{align}
+
+No other row passes. In particular, the range $7\leqslant q<90$ is empty;
+together with \cref{eq:q-90}, this proves the even-exponent branch of
+\cref{thm:classification-intro}. The odd branch cannot use the primitive
+rectangle or the inequality $h<n$; the next section closes it by reversing
+the order of the fixed and moving logarithmic-form estimates.

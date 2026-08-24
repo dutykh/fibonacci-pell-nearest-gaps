@@ -1,0 +1,65 @@
+The order and command labels below are stable. Python may format timing or
+interpreter diagnostics differently, but every successful run must contain
+these summaries and finish with the final PASS line.
+
+$ python3 -B supplement/certificates/check_c0082_logarithmic_h_bound_curator.py
+PASS: C0082 logarithmic h-bound constants; analytic_error<128/25*lambda^-h; |Lambda|<9*lambda^-h; Matveev_constant<1.855e14; rounded_h_coefficient<2.4e14. This does not bound q.
+
+$ python3 -B supplement/certificates/check_c0082_effective_advances_independent_audit_agent_ea.py
+PASS: independently derived both Galois actions; exhaustively split each 28-pattern 4+4 sector as 12+2+6+8 with the claimed row-span consequences; certified the mod-5 trace and size obstructions; and verified the Binet signs, norms, rational constants, height budget, Matveev prefactor, coefficient bound n<2q, and final h-bound rounding.
+
+$ python3 -B supplement/certificates/check_c0082_full8_adjusted_form_agent_c.py
+PASS: C0082 full-eight adjusted form; four sign sectors and Galois dominant-pair supports reconstructed; exact alpha_h regrouping and norm nonvanishing verified; rational Matveev cutoff gives q<10^32 conditional on C0085 and the archived Matveev specialization.
+
+$ python3 -B supplement/certificates/check_c0082_full8_dp_closure_agent_c.py
+PASS: certified full-eight DP closure; fixed threshold<48; moving threshold<90 with worst interval at (sigma,h)=(1,31); exact q<90 C0068 hits=[(2, -1, 2), (4, 1, 6)]; no residual q>=7 target remains.
+
+$ python3 -B supplement/certificates/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py
+PASS: independent C0082 terminal audit; q<10^32 cutoff checked; common convergent certified by rational log intervals; fixed form gives min(h,q*gamma)<48 and h<192; 190 moving forms give q<90; exact q-only targets below 90 are q=2 and q=4, so no residual q>=7 negative-gap target remains
+
+$ python3 -B supplement/certificates/check_full8_adjusted_dp_independent_agent_b.py
+PASS: independent outward-rounded fixed-point audit; common convergent certified by Legendre; both fixed epsilons give w<48; all moving epsilons give q<90 with worst (sigma,h)=(1, 31); exact C0068 hits below 90 are [(2, -1, 2), (4, 1, 6)], so none has q>=7.
+
+$ python3 -B supplement/certificates/check_all_exponent_nearest_gap_agent_aeng.py --q-max 2000
+PASS: all-exponent Fibonacci nearest-gap support; global parity selector and j=+-1 coefficient identities exact; odd-trace sign verified; bootstrap q<10^32 arithmetic exact; fixed DP threshold<48 and moving threshold<90 certified (worst moving interval sigma=1,h=31); terminal q<96 odd branch empty; all-exponent regression q<=2000, odd_window_candidates=1575, hits=[(2, -1, 2, -1, 6), (4, 1, 6, 1, 40)].
+
+$ python3 -B supplement/certificates/check_all_exponent_nearest_gap_independent_audit_agent_aei.py --q-max 2000
+PASS: independent all-exponent exact audit; parity selector, j=+-1 identities, odd-trace boundary, q=1 boundary, bootstrap constants, terminal odd hits=0, q<=2000 hits=[(2, -1, 2, -1, 6), (4, 1, 6, 1, 40)].
+
+$ python3 -B supplement/certificates/check_candidate_window_density_curator.py --q-max 5000
+PASS: candidate-window density regression; q<= 5000; theta=0.393219850679; delta=0.063195999986; expected={'both': 0.3300238506926601, 'plus': 0.06319599998603741, 'minus': 0.06319599998603741, 'neither': 0.5435841493352651}; reports={'all': ({'both': 1647, 'plus': 315, 'minus': 320, 'neither': 2717}, {'both': 0.3294658931786357, 'plus': 0.0630126025205041, 'minus': 0.0640128025605121, 'neither': 0.543508701740348}), '3nmidq': ({'both': 1096, 'plus': 209, 'minus': 217, 'neither': 1811}, {'both': 0.3288328832883288, 'plus': 0.0627062706270627, 'minus': 0.06510651065106511, 'neither': 0.5433543354335434})}. Limiting densities use the irrational-rotation proof.
+
+$ python3 -B supplement/certificates/check_two_sign_odd_pell_orbit_independent_audit_agent_tsa.py
+PASS: independent two-sign odd-Pell audit; orbit_comparisons=393600; orbit_hits=[(1, 1, 3, 0), (1, 1, 3, 1), (1, 1, 3, 2), (1, 1, 3, 3), (1, 1, 3, 4), (1, 1, 3, 5), (1, 1, 3, 6), (1, 1, 3, 7), (1, 1, 3, 8), (1, 1, 3, 9), (1, 1, 3, 10), (1, 1, 3, 11), (1, 1, 3, 12), (1, 1, 3, 13), (1, 1, 3, 14), (1, 1, 3, 15), (1, 1, 3, 16), (1, 1, 3, 17), (1, 1, 3, 18), (1, 1, 3, 19), (1, 1, 3, 20), (1, 1, 3, 21), (1, 1, 3, 22), (1, 1, 3, 23), (1, 1, 3, 24), (1, 1, 3, 25), (1, 1, 3, 26), (1, 1, 3, 27), (1, 1, 3, 28), (1, 1, 3, 29), (1, 1, 3, 30), (1, 1, 3, 31), (1, 1, 3, 32), (1, 1, 3, 33), (1, 1, 3, 34), (1, 1, 3, 35), (1, 1, 3, 36), (1, 1, 3, 37), (1, 1, 3, 38), (1, 1, 3, 39), (1, 1, 3, 40), (-1, 1, 1, 0), (-1, 2, 3, 0), (-1, 4, 5, 0)]; direct_comparisons=40000; direct_hits=[(1, 1), (2, 3), (4, 5)]; exact converse, q=1 boundaries, nearest-window inequalities, and negative-time witnesses verified.
+
+$ python3 -B supplement/certificates/check_even_pell_anchor_orbits_agent_epa.py --q-max 5000
+PASS: even-Pell-anchor exact regressions; brute comparisons=393600; q<= 5000; q=0 mod 3 signed seeds=3332; positive-norm candidates=730; square norms=0; exact hits=0; small-modulus survivor=(357, -1, 390, 70, 2042040).
+
+$ python3 -B supplement/certificates/check_even_pell_anchor_orbits_independent_audit_agent_eaa.py --q-max 5000
+PASS: independent even-anchor audit; form comparisons=2601; bridge comparisons=372000; anchor comparisons=65895; q<= 5000; signed seeds=3332; positive candidates=730; square norms=0; exact hits=0; modular survivor=(357, -1, 390, 70, 2042040).
+
+$ python3 -B supplement/certificates/check_general_seed_orbit_nearest_gap_curator.py
+PASS: general-seed orbit/nearest-gap regression; coordinates<=32, all d<=31, t<=8; comparisons=146196, noncanonical hits=2.
+
+$ python3 -B supplement/certificates/check_general_seed_orbit_nearest_gap_independent_audit_agent_gsa.py
+PASS: independent general-seed orbit/gap audit; coordinates<=60, all_d<=49, t<=12, comparisons=1163162, canonical_seeds=[(1, 2), (2, 5), (5, 12), (12, 29)], noncanonical_hits=[(1, 1, 2, 0, -2), (13, 47, 10, 0, 818), (16, 27, 9, 0, -391), (23, 43, 10, 0, -658)]; bijection, unit boundary, parity-uniform companion comparison, all-d exact converse, d=1 exclusion, u=v face, and direct-time strict factor-two bound verified.
+
+$ python3 -B supplement/certificates/check_uniform_local_clock_generalisation_agent_lcg.py
+PASS: uniform local-clock regressions; sharp obstruction=(p,z_F,z_C)=(241,120,20); simultaneous rows=(5191,2835,23681),(11543,6303,161).
+
+$ python3 -B supplement/certificates/check_c0068_nearest_even_unit_gap_curator.py --q-max 2000
+PASS: C0068 nearest-even-unit gap; q<=2000; plus_candidates=522; minus_candidates=521; normalized_norm_minus_one_hits=[(2, 'minus', 2, 3, -1, 1), (4, 'plus', 6, 5, -1, -1)]; direct_orbit_q<=80_e<=159=((2, -1, 3), (4, -1, 5)). Finite absence beyond q=4 is evidence only.
+
+$ python3 -B supplement/certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py
+PASS: imprimitive two-clock recurrence; progression_witnesses=((7, 1, 7, (103, 57, 4)), (7, 2, 49, (10807, 5901, 64)), (17, 1, 17, (314, 172, 17)), (17, 2, 289, (5354, 2924, 17))); exact exceptional rows=(1118,-1,610,49),(1345,-1,734,49).
+
+$ python3 -B supplement/certificates/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py
+PASS: independent C0077 imprimitive recurrence audit; rank lifts, progression clocks, six exact nearest rows, diagonal gcds, and trace-conic failures verified.
+
+$ python3 -B supplement/certificates/check_c0068_plus_j1_quartic_curator.py
+PASS: C0068 plus j=1 quartic; exact Magma point lists verified; complete recurrence pairs=(1,1),(2,3),(4,5); bounded q<200 loop is regression only
+
+$ python3 -B supplement/certificates/check_j1_plus_branch_quartic_independent_audit_agent_j1.py
+PASS: independent j=1 shifted-quartic arithmetic; plus_y=[-3, -1, 1, 3]; minus_y=[-1, 1]; fibonacci_hits=[(1, 1, 1, -1), (2, 3, 1, 1), (4, 5, 3, 1)]; bounded_abs_y=10000.
+
+PASS: every manuscript certificate completed successfully.

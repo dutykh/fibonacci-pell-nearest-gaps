@@ -1,0 +1,161 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Leading unit exponents in the even branch}
+\label{sec:leading}
+
+Assume throughout \cref{sec:leading,sec:height,sec:classification} that an
+even-exponent target is fixed, and retain $j$ and $M=n-j$ from
+\cref{lem:normalisation}. By \cref{prop:parity-selector}, $3\nmid q$ and
+$M$ is odd; in particular, \cref{lem:rectangle} applies. The first task is
+to show that every target in the unresolved range has a genuinely negative
+normalised exponent.
+
+\begin{lemma}[Ratio bounds]
+\label{lem:ratio-bounds}
+For $q\geqslant3$,
+
+\begin{equation}
+ \lambda B_q<A_q<3B_q.
+ \label{eq:AB-ratio}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Using $F_{q+1}=F_q+F_{q-1}$, direct expansion gives
+
+\begin{equation}
+ A_q-\lambda B_q=\sqrt2F_q-2F_{q-1}>0,
+\end{equation}
+
+because $F_q/F_{q-1}\geqslant3/2>\sqrt2$ for $q\geqslant3$.
+Similarly,
+
+\begin{equation}
+ 3B_q-A_q=2\bigl(\sqrt2F_{q+1}-2F_q\bigr)>0.
+\end{equation}
+
+Indeed, $F_{q+1}/F_q\geqslant3/2>\sqrt2$ for $q\geqslant3$, which proves
+the last inequality.
+\end{proof}
+
+\begin{proposition}[Negative-exponent reduction]
+\label{prop:negative-exponent}
+Every even-exponent target with $q\geqslant7$ has
+
+\begin{equation}
+ j=-h,
+ \qquad
+ h\geqslant3\ \text{odd}.
+ \label{eq:j-negative}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+On the plus branch, \cref{eq:plus-orbit} has positive rational coefficient
+$W=C_M-g$. Quadratic conjugation gives
+
+\begin{equation}
+ 2W=A_q^2\lambda^{-j}-B_q^2\lambda^j>0.
+\end{equation}
+
+Thus $\lambda^j<A_q/B_q<3<\lambda^2$. Since $j$ is odd, $j\leqslant1$.
+On the minus branch the actual rational coefficient is
+$C_M-g=-W>0$. Conjugating \cref{eq:minus-orbit} gives
+
+\begin{equation}
+ 2(C_M-g)=B_q^2\lambda^{-j}-A_q^2\lambda^j>0,
+\end{equation}
+
+and hence
+
+\begin{equation}
+ \lambda^j<\frac{B_q}{A_q}<\lambda^{-1}.
+\end{equation}
+
+Hence the odd integer $j$ is at most $-3$ there.
+
+It remains to remove $j=1$ and $j=-1$ on the plus branch. If $j=1$,
+comparison of the $\sqrt2$-coefficients in \cref{eq:plus-orbit} gives
+
+\begin{equation}
+ P_M=F_{q-1}^2+F_{q+1}^2
+ =3F_q^2+2(-1)^q.
+ \label{eq:j1-recurrence}
+\end{equation}
+
+This recurrence equation has exactly
+
+\begin{equation}
+ (q,M)=(1,1),(2,3),(4,5)
+ \label{eq:j1-solutions}
+\end{equation}
+
+among nonnegative $q$ and positive odd $M$. This follows directly from the
+complete near-square classification of Alekseyev and Tengely
+\cite[Table~1]{AlekseyevTengely2014}. In their notation the Pell sequence is
+$U_M(2,-1)$. They prove that all Pell values of the forms $3y^2+2$ and
+$3y^2-2$ are, respectively,
+
+\begin{equation}
+\{2,5,29\}
+\qquad\text{and}\qquad
+\{1\}.
+\label{eq:near-square-values}
+\end{equation}
+
+If $q$ is even, \cref{eq:j1-recurrence} has the first form in
+\cref{eq:near-square-values}. The value $2=P_2$ is removed because $M$ is
+odd, while $5=P_3$ and $29=P_5$ give $F_q=1$ and $F_q=3$. Even parity of
+$q$ leaves $(q,M)=(2,3),(4,5)$. If $q$ is odd, the second form in
+\cref{eq:near-square-values} gives $P_M=1$, hence $M=1$ and $F_q=1$;
+odd parity leaves $(q,M)=(1,1)$. Direct substitution proves the converse.
+
+The nearest plus window is absent at $q=2$, and $q=4$ is the low plus target
+in \cref{eq:two-solutions}. Thus no $j=1$ target has $q\geqslant7$.
+
+If $j=-1$, the radical coefficient instead becomes
+
+\begin{equation}
+ P_M=F_q^2+2F_{q+1}^2+2F_qF_{q+1}
+ =F_{q+1}^2+F_{q+2}^2
+ =F_{2q+3}.
+ \label{eq:jminus1}
+\end{equation}
+
+Alekseyev's complete Fibonacci--Pell intersection theorem states that the
+common values of the two sequences are $0,1,2,5$ \cite[Theorem~9]{Alekseyev2011}.
+Since $2q+3\geqslant17$ for $q\geqslant7$, \cref{eq:jminus1} is
+impossible. All remaining exponents therefore have the form
+\cref{eq:j-negative}.
+\end{proof}
+
+\begin{remark}[Independent verification of the near-square step]
+\label{rem:quartic-status}
+The published theorem \cite{AlekseyevTengely2014} is the completeness input;
+this boundary classification is not new here. As an independent audit, the
+negative-Pell identity converts \cref{eq:j1-recurrence}, with
+$y=F_q$ and $s=(-1)^q$, into
+
+\begin{equation}
+ C_M^2=18y^4+24sy^2+7.
+\end{equation}
+
+After $y=z+1$, two complete Magma V2.29-9 integral-point computations give
+exactly the points corresponding to \cref{eq:j1-solutions}. The supplement
+contains both inputs, complete transcripts, and independent arithmetic
+verifiers. These computations corroborate the published theorem and are not
+used as an unrecorded bounded search.
+\end{remark}
+
+Thus every even-exponent target in the unresolved range has primitive unit
+direction $\lambda^{-h}$ with $h\geqslant3$ odd. The qualitative
+leading-unit ambiguity has disappeared; the next task is quantitative,
+namely to separate the negative exponent $h$ from the nearest Pell exponent
+$n$.

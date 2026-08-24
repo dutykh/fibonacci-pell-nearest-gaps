@@ -1,0 +1,466 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{The odd-exponent branch}
+\label{sec:odd-exponents}
+
+The preceding sections classified the even-exponent branch. We now return to
+the intrinsic setup of \cref{sec:system} and suppose that the exponent $n$ is
+odd. The parity selector forces $3\mid q$, so this branch is disjoint from
+the primitive-rectangle argument. Its content has a different factorisation,
+and in particular no analogue of the divisor-height separation
+\cref{lem:height-separation} is available. The proof closes after reversing
+the order of the two logarithmic-form estimates.
+
+\begin{proposition}[Negative unit exponent in the odd branch]
+\label{prop:odd-negative-exponent}
+Suppose that $q\geqslant1$, $\sigma\in\{1,-1\}$, and a positive odd integer
+$n$ satisfy \cref{eq:nearest-window,eq:norm-content}. Then $3\mid q$, and
+the unit normalisation has the form
+
+\begin{equation}
+ \lambda^n-D_{q,\sigma}^2=g\lambda^{-h},
+ \qquad
+ h\geqslant3\ \text{odd}.
+ \label{eq:odd-negative-target}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \cref{prop:parity-selector}, $3\mid q$ and hence $q\geqslant3$. Put
+
+\begin{equation}
+ A_+=F_q+F_{q+1}\sqrt2,
+ \qquad
+ A_-=-F_q+F_{q+1}\sqrt2.
+ \label{eq:odd-Apm}
+\end{equation}
+
+Both are positive. By \cref{lem:normalisation}, there is a unique odd
+integer $j$ such that
+
+\begin{equation}
+ \lambda^n-D_{q,\sigma}^2=g\lambda^j.
+ \label{eq:odd-unit-j}
+\end{equation}
+
+Since $\overline{D_{q,\sigma}}=-D_{q,-\sigma}$ and both $n$ and $j$ are
+odd, conjugation gives
+
+\begin{equation}
+ \lambda^{-n}+D_{q,-\sigma}^2=g\lambda^{-j}.
+ \label{eq:odd-unit-conjugate}
+\end{equation}
+
+Division of \cref{eq:odd-unit-j} by
+\cref{eq:odd-unit-conjugate}, followed by the strict upper window, yields
+
+\begin{equation}
+ \lambda^{2j}
+ <\frac{D_{q,\sigma}^2}{D_{q,-\sigma}^2}.
+ \label{eq:odd-j-ratio}
+\end{equation}
+
+The ratio bounds \cref{lem:ratio-bounds} say
+$\lambda A_-<A_+<3A_-$. Thus $j\leqslant1$ for $\sigma=1$, whereas
+$j\leqslant-3$ for $\sigma=-1$.
+
+It remains to remove $j=1$ and $j=-1$ on the plus branch. The following
+coefficient argument in fact excludes those values for either sign. Set
+
+\begin{equation}
+ H_+=F_{q+1}^2+F_{q+2}^2=F_{2q+3},
+ \qquad
+ H_-=F_{q+1}^2+F_{q-1}^2
+ =3F_q^2+2(-1)^q.
+ \label{eq:odd-seed-heights}
+\end{equation}
+
+If $j=1$, multiply \cref{eq:odd-unit-j} by $\lambda^{-1}$ and compare
+the $\sqrt2$-coefficients; if $j=-1$, multiply it by $\lambda$ instead.
+The resulting equations are
+
+\begin{equation}
+ P_{n-1}=H_{-\sigma}
+ \quad\text{or}\quad
+ P_{n+1}=H_\sigma,
+ \label{eq:odd-leading-intersections}
+\end{equation}
+
+respectively. Alekseyev's complete Fibonacci--Pell intersection theorem
+states that the common values of the two sequences are $0,1,2,5$
+\cite[Theorem~9]{Alekseyev2011}. Hence $H_+=F_{2q+3}\geqslant F_9=34$
+cannot occur. Alekseyev and Tengely's complete near-square table gives
+
+\begin{equation}
+ 3y^2+2\in\{2,5,29\},
+ \qquad
+ 3y^2-2\in\{1\}
+ \label{eq:odd-near-square-values}
+\end{equation}
+
+whenever the displayed number is a Pell value
+\cite[Table~1]{AlekseyevTengely2014}. If $q$ is odd, then
+$H_-=3F_q^2-2\geqslant10$; if $q$ is even, then
+$H_-=3F_q^2+2\geqslant194$. Thus neither alternative in
+\cref{eq:odd-leading-intersections} is possible. Every remaining $j$ is at
+most $-3$, proving \cref{eq:odd-negative-target} with $j=-h$.
+\end{proof}
+
+\begin{lemma}[Odd trace and content factorisation]
+\label{lem:odd-factorisation}
+Under the hypotheses of \cref{prop:odd-negative-exponent}, put
+
+\begin{equation}
+ f=F_q,
+ \qquad
+ x=F_{q+1},
+ \qquad
+ L=f^2+2x^2,
+ \qquad
+ R_q=2x^2-f^2,
+ \qquad
+ M=n+h.
+\end{equation}
+
+Then
+
+\begin{equation}
+ \lambda^n-\lambda^{-n-2h}
+ =D_{q,\sigma}^2+D_{q,-\sigma}^2\lambda^{-2h},
+ \label{eq:odd-trace}
+\end{equation}
+
+and
+
+\begin{equation}
+ R_q^2+1=g(2C_M-g),
+ \qquad
+ 1\leqslant g<R_q,
+ \qquad
+ g\mid R_q^2+1.
+ \label{eq:odd-content-factorisation}
+\end{equation}
+
+In particular, every prime divisor of $g$ is congruent to $1$ modulo $4$.
+\end{lemma}
+
+\begin{proof}
+Conjugating \cref{eq:odd-negative-target} gives
+
+\begin{equation}
+ \lambda^{-n}+D_{q,-\sigma}^2=g\lambda^h.
+ \label{eq:odd-negative-conjugate}
+\end{equation}
+
+Eliminating $g$ between this equation and
+\cref{eq:odd-negative-target} proves \cref{eq:odd-trace}. Since
+$\lambda^{-h}=-C_h+P_h\sqrt2$, coefficient comparison gives
+
+\begin{equation}
+ L-C_n=gC_h,
+ \qquad
+ P_n-2\sigma fx=gP_h.
+ \label{eq:odd-coefficient-comparison}
+\end{equation}
+
+Taking norms in \cref{eq:odd-negative-target}, and using that $M=n+h$ is
+even, gives
+
+\begin{equation}
+ R_q^2+1=g(2C_M-g).
+\end{equation}
+
+The Pell addition formulas and \cref{eq:odd-coefficient-comparison} also
+give
+
+\begin{equation}
+ C_M-g=LC_h+4\sigma fxP_h.
+ \label{eq:odd-positive-factor}
+\end{equation}
+
+This is positive for $\sigma=1$. For $\sigma=-1$, use
+
+\begin{equation}
+ L-3fx=(x-f)(2x-f)>0,
+ \qquad
+ 3C_h>4P_h
+\end{equation}
+
+to obtain positivity again. Hence $g<C_M$, so
+$g^2<R_q^2+1$. Here $g$ is odd by the coefficient parity in
+\cref{eq:gap-coefficients}, whereas $R_q$ is even because $3\mid q$.
+Therefore $g<R_q$, and the divisibility assertion follows from the first
+factorisation in \cref{eq:odd-content-factorisation}. Finally, if a prime
+$p$ divides $g$, then $p$ is odd and $R_q^2\equiv-1\pmod p$; hence
+$p\equiv1\pmod4$.
+\end{proof}
+
+The factorisation in \cref{lem:odd-factorisation} explains why the even
+proof cannot simply be quoted. It gives no lower bound for $g$ and no
+inequality $h<n$. We therefore use the fixed logarithmic form first, control
+$\min\{h,q\gamma\}$, and only then invoke the moving form.
+
+\begin{theorem}[Odd-exponent exclusion]
+\label{thm:odd-exclusion}
+For $q\geqslant1$ and $\sigma\in\{1,-1\}$, no positive odd integer $n$
+can satisfy both \cref{eq:nearest-window,eq:norm-content}.
+\end{theorem}
+
+\begin{proof}
+Suppose otherwise. By \cref{prop:odd-negative-exponent}, $3\mid q$ and
+\cref{eq:odd-negative-target} holds. We first treat $q\geqslant7$; the
+indices $q=3,6$ will be included in the exact terminal enumeration.
+
+Retain $\varphi$, $\epsilon=(-1)^q$, and the four Binet coefficients from
+\cref{eq:four-coefficients,eq:two-binet}, and put
+
+\begin{equation}
+ \gamma=\frac{\log\varphi}{\log\lambda},
+ \qquad
+ H=1+\log(2q).
+ \label{eq:odd-gamma-H}
+\end{equation}
+
+The window and the elementary bound $D_{q,\sigma}<4\varphi^q$ give
+
+\begin{equation}
+ \lambda^n<32\varphi^{2q}<\lambda^{2q},
+ \qquad
+ n<2q.
+ \label{eq:odd-n-less-2q}
+\end{equation}
+
+Indeed, $\lambda/\varphi>7/5$ and $(7/5)^{14}>32$.
+
+We begin with the fixed form
+
+\begin{equation}
+ \Lambda_0
+ =n\log\lambda-2q\log\varphi
+ -\log\left(\frac{u_\sigma^2}{5}\right).
+ \label{eq:odd-Lambda0}
+\end{equation}
+
+Define
+
+\begin{equation}
+ \delta_\sigma
+ =\epsilon\frac{u'_\sigma}{u_\sigma}\varphi^{-2q},
+ \qquad
+ \widetilde\delta_\sigma
+ =\epsilon\frac{v'_\sigma}{v_\sigma}\varphi^{-2q}.
+\end{equation}
+
+Expanding \cref{eq:odd-trace} gives the exact identity
+
+\begin{align}
+ e^{\Lambda_0}-1={}&
+ 2\delta_\sigma+\delta_\sigma^2
+ +\frac{v_\sigma^2}{u_\sigma^2}
+ (1+\widetilde\delta_\sigma)^2\lambda^{-2h}\notag\\
+ &+\frac5{u_\sigma^2}
+ \lambda^{-n-2h}\varphi^{-2q}.
+ \label{eq:odd-fixed-expansion}
+\end{align}
+
+The final sign is positive; this is the precise change from
+\cref{eq:fixed-exact-expansion}. The coefficient estimates used there are
+insensitive to this sign and give
+
+\begin{equation}
+ 0<\abs{\Lambda_0}
+ <12\left(\lambda^{-2h}+\varphi^{-2q}\right).
+ \label{eq:odd-Lambda0-small}
+\end{equation}
+
+Nonvanishing is exact: if $\Lambda_0=0$, full norms in
+$\Q(\sqrt2,\sqrt5)$ would give $1=5^{-4}$. By
+\cref{lem:matveev,eq:matveev-prefactor,eq:odd-n-less-2q}, the same explicit
+height parameters as in \cref{sec:height} yield
+
+\begin{equation}
+ \log\abs{\Lambda_0}>
+ -1.855\mathbin{\cdot}10^{14}H.
+ \label{eq:odd-Lambda0-lower}
+\end{equation}
+
+Put
+
+\begin{equation}
+ w=\min\{h,q\gamma\}.
+\end{equation}
+
+The right-hand side of \cref{eq:odd-Lambda0-small} is at most
+$24\lambda^{-2w}$. Since $\log\lambda>4/5$ and $\log24<4$, comparison with
+\cref{eq:odd-Lambda0-lower} gives
+
+\begin{equation}
+ w<1.16\mathbin{\cdot}10^{14}H.
+ \label{eq:odd-w-logarithmic}
+\end{equation}
+
+We next use the moving coefficient $\mathcal A_{\sigma,h}$ from
+\cref{eq:moving-coefficient}. The form
+
+\begin{equation}
+ \Lambda_1
+ =n\log\lambda-2q\log\varphi
+ -\log\mathcal A_{\sigma,h}
+ \label{eq:odd-Lambda1}
+\end{equation}
+
+has the exact remainder
+
+\begin{align}
+ \mathcal R^{\mathrm{odd}}_{\sigma,q,h}={}&
+ \frac{2\epsilon}{5}
+ \left((1-\sigma\sqrt2)
+ +(1+\sigma\sqrt2)\lambda^{-2h}\right)\notag\\
+ &+\frac{\varphi^{-2q}}5
+ \left((u'_\sigma)^2
+ +(v'_\sigma)^2\lambda^{-2h}\right)
+ +\lambda^{-n-2h}.
+ \label{eq:odd-moving-remainder}
+\end{align}
+
+Thus
+
+\begin{equation}
+ \lambda^n
+ =\mathcal A_{\sigma,h}\varphi^{2q}
+ +\mathcal R^{\mathrm{odd}}_{\sigma,q,h}.
+\end{equation}
+
+Only the sign of the last term differs from
+\cref{eq:moving-remainder}. The same absolute estimates, full norm
+\cref{eq:A-norm}, and height bound \cref{eq:A-height} therefore give
+
+\begin{equation}
+ 0<\abs{\Lambda_1}<21\varphi^{-2q}
+ \label{eq:odd-Lambda1-small}
+\end{equation}
+
+and, by \cref{lem:matveev,eq:matveev-prefactor},
+
+\begin{equation}
+ 2q\log\varphi
+ <9.275\mathbin{\cdot}10^{12}(4h+44)H+\log21.
+ \label{eq:odd-q-h-comparison}
+\end{equation}
+
+If $q\geqslant10^{32}$, then $\gamma>1/2$ and the monotonicity of $q/H$
+show that $q\gamma$ exceeds the right-hand side of
+\cref{eq:odd-w-logarithmic}. Hence $w=h$. At $q_0=10^{32}$ one has
+$H(q_0)<79$. Substitution of
+$h<1.16\mathbin{\cdot}10^{14}H$ into
+\cref{eq:odd-q-h-comparison}, using $\log\varphi>2/5$, gives at $q_0$
+
+\begin{equation}
+ q<\frac54\left[
+ 9.275\mathbin{\cdot}10^{12}
+ \left(4(1.16\mathbin{\cdot}10^{14})H+44\right)H+4
+ \right]
+ <3.36\mathbin{\cdot}10^{31}.
+ \label{eq:odd-crude-contradiction}
+\end{equation}
+
+After division by $q$, the terms $H^2/q$, $H/q$, and $1/q$ decrease for
+$q\geqslant q_0$, so the contradiction persists. Consequently
+
+\begin{equation}
+ q<10^{32}.
+ \label{eq:odd-q-crude}
+\end{equation}
+
+It remains to apply the exact reductions already used in
+\cref{sec:classification}. Put
+
+\begin{equation}
+ \mu_\sigma
+ =\frac{\log(u_\sigma^2/5)}{\log\lambda}.
+\end{equation}
+
+Dividing \cref{eq:odd-Lambda0-small} by $\log\lambda$ gives
+
+\begin{equation}
+ 0<\abs{2q\gamma-n+\mu_\sigma}
+ <30(\lambda^2)^{-w},
+ \qquad
+ 2q<2\mathbin{\cdot}10^{32}.
+ \label{eq:odd-fixed-reduction}
+\end{equation}
+
+The common rational approximation and the two fixed-shift certificates
+\cref{eq:common-convergent,eq:convergent-certificate,eq:fixed-eta,eq:fixed-cutoff}
+depend only on $\gamma$, $\mu_\sigma$, and $\lambda$, not on the parity of
+$n$. The absolute-value reduction in \cref{lem:absolute-reduction}
+therefore proves
+
+\begin{equation}
+ w<48.
+ \label{eq:odd-w-48}
+\end{equation}
+
+If $q\geqslant96$, then $q\gamma>48$, so $h=w<48$. Put
+
+\begin{equation}
+ \nu_{\sigma,h}
+ =\frac{\log\mathcal A_{\sigma,h}}{\log\lambda}.
+\end{equation}
+
+\Cref{eq:odd-Lambda1-small} gives
+
+\begin{equation}
+ 0<\abs{2q\gamma-n+\nu_{\sigma,h}}
+ <27(\varphi^2)^{-q}.
+ \label{eq:odd-moving-reduction}
+\end{equation}
+
+The moving certificates \cref{eq:moving-eta,eq:moving-cutoff} cover both
+signs and every odd $3\leqslant h<192$, hence in particular the present
+range $3\leqslant h<48$. A second application of
+\cref{lem:absolute-reduction} gives $q<90$, contradicting
+$q\geqslant96$. We conclude that
+
+\begin{equation}
+ q<96.
+ \label{eq:odd-q-96}
+\end{equation}
+
+The remaining indices are exactly
+
+\begin{equation}
+ q=3,6,\ldots,93,
+ \qquad
+ \sigma\in\{1,-1\}.
+ \label{eq:odd-terminal-domain}
+\end{equation}
+
+Because $\lambda>2$, each strict factor-two window contains at most one
+integral power. Exact recurrence arithmetic constructs every candidate in
+\cref{eq:odd-terminal-domain}, computes its coefficient content, and tests
+the norm identity. The complete terminal list is empty. This contradiction
+proves the theorem.
+\end{proof}
+
+Together with the even branch and the direct $q=1$ check in
+\cref{eq:q1-boundary}, the odd exclusion proves
+\cref{thm:classification-intro}.
+
+The order of the argument is essential. The fixed Matveev estimate first
+controls $\min\{h,q\gamma\}$; only in the large-$q$ alternative does this
+become a bound for $h$. The moving estimate then bounds $q$, after which the
+same fixed and moving rational-interval certificates reduce the problem to
+the finite domain \cref{eq:odd-terminal-domain}. No finite search is
+extrapolated beyond its proved range.
+
+The all-exponent nearest-gap classification is now complete. We next
+reinterpret it dynamically, where it becomes the arithmetic input to a
+complete Pell-orbit theorem.

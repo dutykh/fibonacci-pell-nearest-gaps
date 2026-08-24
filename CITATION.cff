@@ -1,0 +1,57 @@
+# Fibonacci-Pell nearest gaps: an all-exponent classification and
+# quadratic-unit orbit rigidity
+#
+# Authors:
+#   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+#   and Technology, Abu Dhabi, UAE)
+#   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+#   France)
+#
+# Citation metadata in Citation File Format 1.2.0. GitHub renders the
+# "Cite this repository" button from this file.
+
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
+abstract: >-
+  Manuscript source and reproduction supplement for a complete classification
+  of the strict factor-two Fibonacci-Pell nearest gaps whose quadratic norm
+  equals minus the square of their coefficient content. Exactly two such gaps
+  occur, and none has an odd exponent. The companion orbit theorem lists every
+  Pell-orbit intersection of the two signed Fibonacci cores. The repository
+  contains the LaTeX sources, the compiled manuscript, and twenty-one exact
+  standard-library certificates with recorded reference output and pinned
+  provenance digests.
+type: software
+version: "1.0.0"
+date-released: "2026-08-24"
+license: LGPL-2.1-only
+repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
+keywords:
+  - Fibonacci numbers
+  - Pell equations
+  - quadratic units
+  - linear forms in logarithms
+  - p-adic valuations
+  - arithmetic dynamics
+  - Markoff uniqueness conjecture
+authors:
+  - family-names: Dutykh
+    given-names: Denys
+    affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+    email: denys.dutykh@ku.ac.ae
+  - family-names: Vuillon
+    given-names: Laurent
+    affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+    email: laurent.vuillon@univ-smb.fr
+preferred-citation:
+  type: unpublished
+  title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
+  year: 2026
+  authors:
+    - family-names: Dutykh
+      given-names: Denys
+      affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+    - family-names: Vuillon
+      given-names: Laurent
+      affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"

@@ -1,0 +1,150 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=32mm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=green!40!black,urlcolor=blue!65!black]{hyperref}
+\usepackage{aliascnt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{N\!\left(#1\right)}
+\newcommand{\cont}[1]{\operatorname{cont}\!\left(#1\right)}
+\newcommand{\height}[1]{h_{\mathrm{abs}}\!\left(#1\right)}
+\newcommand{\dist}[1]{\left\lVert#1\right\rVert}
+
+\title[Fibonacci--Pell nearest gaps]{Fibonacci--Pell nearest gaps:\ an all-exponent classification and quadratic-unit orbit rigidity}
+
+\author{Denys Dutykh}
+\address{Mathematics Department, Khalifa University of Science and Technology, PO Box 127788, Abu Dhabi, United Arab Emirates}
+\email{denys.dutykh@ku.ac.ae}
+
+\author{Laurent Vuillon}
+\address{Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chamb\'ery, France}
+\email{laurent.vuillon@univ-smb.fr}
+
+\hypersetup{
+ pdftitle={Fibonacci--Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity},
+ pdfauthor={Denys Dutykh and Laurent Vuillon},
+ pdfsubject={An exact all-exponent Fibonacci--Pell norm--content classification and complete Fibonacci-core orbit theorem},
+ pdfkeywords={Fibonacci numbers, Pell equations, quadratic units, linear forms in logarithms, p-adic valuations, arithmetic dynamics, Markoff uniqueness conjecture}
+}
+
+\subjclass[2020]{Primary 11B39, 11D61; Secondary 11J86, 11D09}
+\keywords{Fibonacci numbers, Pell equations, quadratic units, linear forms in logarithms, $p$-adic valuations, arithmetic dynamics, Markoff uniqueness conjecture}
+
+\begin{document}
+
+\begin{abstract}
+Let $\lambda=1+\sqrt2$, let $(F_q)$ be the Fibonacci sequence, and put
+$D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2$ for
+$\sigma\in\{1,-1\}$. For every $q\geqslant1$ and every positive exponent
+$n$, we classify the strict factor-two gaps
+$\Delta=\lambda^n-D_{q,\sigma}^2$ whose quadratic norm equals minus the
+square of their coefficient content $g$. Exactly two occur:
+$(q,\sigma,n,g,\Delta/g)=(2,-1,2,6,\lambda^{-1})$ and
+$(4,1,6,40,\lambda)$. In particular, no solution has odd exponent. By
+contrast, the underlying even factor-two windows occur with explicit positive
+densities governed by an irrational circle rotation.
+
+The proof is exact and computer-assisted. In the even branch, a primitive
+factor rectangle supplies height separation; two logarithmic forms give
+$h=O(\log q)$ and $q<10^{32}$, certified rational-interval reductions give
+$h<192$ and $q<90$, and exact recurrence arithmetic completes the
+enumeration. The odd branch has no such height separation, so a
+fixed-form-first bootstrap is required; it reduces to $q<96$, where the
+terminal list is empty.
+
+The map $\mathsf S(u,v)=(v,u+2v)$ is integrally conjugate to multiplication
+by $\lambda$ through $A_{(u,v)}=(v-u)+u\sqrt2$. This gives an exact
+orbit/gap equivalence and a complete all-anchor classification for the two
+Fibonacci cores $(F_{q+1},F_{q+1}+\sigma F_q)$: one canonical persistent
+family and three isolated time-zero hits are the only Pell-orbit
+intersections. Finally, a local rank criterion and Haar equidistribution
+produce simultaneous prescribed powers of compatible split primes in a
+natural plus-sign cross-gcd on genuine nearest windows, while the split prime
+$241$ is obstructed. The work is motivated by the Markoff--Frobenius
+uniqueness conjecture, but no reduction from a hypothetical Markoff collision
+to these orbit families is claimed.
+\end{abstract}
+
+\maketitle
+
+\input{sections/01-introduction}
+\input{sections/02-arithmetic-system}
+\input{sections/03-leading-exponents}
+\input{sections/04-height-bounds}
+\input{sections/05-effective-classification}
+\input{sections/06-odd-exponents}
+\input{sections/07-zero-defect-bridge}
+\input{sections/08-local-clocks}
+\input{sections/09-scope-outlook}
+\clearpage
+\appendix
+\input{sections/appendix-certificates}
+
+\section*{Code availability}
+The LaTeX sources, supplementary proof certificates, recorded reference
+outputs, and reproduction instructions accompanying this article are publicly
+available in the companion GitHub repository:
+\begin{center}
+ \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
+\end{center}
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}
