@@ -8,7 +8,7 @@ vendored file and its named source.
 
 | Vendored file | Research-tree source | SHA-256 |
 | --- | --- | --- |
-| `certificates/check_two_arms.py` | `scripts/check_two_arms.py` | `91e9606c78047e0b5737b901d42c71c50780e73cf558fe455b3500bc9abafc51` |
+| `certificates/check_two_arms.py` | `scripts/check_two_arms.py` | `612a75986876901db406b60c3122d2bc02c065a9113e6f57059a66f8d4e81c32` |
 | `certificates/check_c0068_nearest_even_unit_gap_curator.py` | `scripts/check_c0068_nearest_even_unit_gap_curator.py` | `4d51db0ae60bfda5ae053ac0b53c4b74fafd9ce0a35bf7cc17426c2c248ed3f3` |
 | `certificates/check_c0068_plus_j1_quartic_curator.py` | `scripts/check_c0068_plus_j1_quartic_curator.py` | `91c31086b97ad5d3cc47643f005221f3af2b36d0d558e1008420cfefafa329cc` |
 | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `scripts/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `6c4945b5fe8bfb1f92c300786041bc256027c436e924ed244100e2298bb1a7f6` |

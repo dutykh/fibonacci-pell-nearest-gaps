@@ -27,7 +27,7 @@ logarithms, `p`-adic valuations, arithmetic dynamics, Markoff uniqueness
 conjecture.
 
 This repository holds the complete LaTeX source of the manuscript, the compiled
-PDF, and a reproduction supplement of twenty exact certificates that can be
+PDF, and a reproduction supplement of twenty-one exact certificates that can be
 re-run with nothing beyond a Python 3 installation.
 
 ---
@@ -64,6 +64,19 @@ exactly four rows: one canonical persistent family `(σ, q, d) = (1, 1, 3)` vali
 for all `t`, and three isolated time-zero hits at `(−1, 1, 1)`, `(−1, 2, 3)` and
 `(−1, 4, 5)`. There is no hit at a positive even anchor.
 
+**The pairing is forced, not chosen.** Every branch of the Markoff tree carries
+a quadratic Perron unit, the dominant root of `X² − 3m₀X + 1` for the Markoff
+number `m₀` that the branch keeps. What the orbit bridge consumes is not that
+unit but an integral square root of it, acting on two-square data, and
+comparing traces shows that such a square root forces `3m₀ − 2` to be a perfect
+square. Exactly two branches admit one: `m₀ = 1` and `m₀ = 2`, carrying `φ` and
+`λ`, which are the Fibonacci and Pell arms. The one further candidate that
+passes the trace test, `m₀ = 34`, carries no integral half-step at all. The
+constant `γ = log φ / log λ` that governs both certified reductions and the
+density theorem is the exchange rate between these two arms. Transporting the
+mechanism to another branch is therefore not a matter of changing parameters;
+there is nothing to transport.
+
 The work is motivated by the Markoff–Frobenius uniqueness conjecture, and the
 final sections make the boundary explicit. **No reduction from a hypothetical
 Markoff collision to these orbit families is claimed.** The arithmetic theorems
@@ -74,8 +87,8 @@ are complete on their stated domains; the upstream reduction remains open.
 ```
 .
 ├── DD-LV-Fibonacci-Pell-Gaps.tex        main file: preamble, abstract, \input list
-├── DD-LV-Fibonacci-Pell-Gaps.pdf        compiled manuscript (35 pages), tracked
-├── references.bib                       bibliography, 19 entries, all cited
+├── DD-LV-Fibonacci-Pell-Gaps.pdf        compiled manuscript (45 pages), tracked
+├── references.bib                       bibliography, 23 entries, all cited
 ├── Makefile                             strict build; `make help` lists all targets
 ├── CITATION.cff                         citation metadata (Citation File Format 1.2.0)
 ├── LICENSE                              GNU LGPL v2.1
@@ -89,6 +102,7 @@ are complete on their stated domains; the upstream reduction remains open.
 │   ├── 06-odd-exponents.tex             odd branch: reordered bootstrap, empty list
 │   ├── 07-zero-defect-bridge.tex        seed/unit conjugacy, orbit theorem
 │   ├── 08-local-clocks.tex              p-adic ranks, Haar recurrence, limits
+│   ├── 09-two-arms.tex                  why φ and λ: trace criterion, dictionary
 │   ├── 09-scope-outlook.tex             scope, Markoff boundary, next obstruction
 │   └── appendix-certificates.tex        certificate architecture and coverage
 │
@@ -96,8 +110,8 @@ are complete on their stated domains; the upstream reduction remains open.
     ├── run_all.py                       one-command driver for every certificate
     ├── README.md                        claim-to-source map, arithmetic conventions
     ├── expected-output.txt              recorded output of a successful run
-    ├── PROVENANCE.md                    research-tree origins, 24 SHA-256 digests
-    ├── certificates/                    20 exact standard-library checkers
+    ├── PROVENANCE.md                    research-tree origins, 25 SHA-256 digests
+    ├── certificates/                    21 exact standard-library checkers
     └── magma/                           optional Magma inputs and transcripts
 ```
 
@@ -120,9 +134,12 @@ The build is gated on a warning-free log. It fails on any LaTeX, package or
 class warning, on any underfull or overfull box, on a missing character, on a
 multiply-defined label, on a BibTeX warning, and on any use of the flat
 relations `\leq` or `\geq` in place of the slanted `\leqslant` and `\geqslant`.
-Two warnings are whitelisted by exact text and are documented in the `Makefile`
-where the exclusion is written. A successful `make` leaves the tree clean:
-`latexmk -c` removes every intermediate and the PDF is the only build product.
+Five warning texts are whitelisted by exact match, and are documented in the
+`Makefile` where the exclusion is written: the pdfTeX font-expansion notice,
+and `amsplain`'s missing-pages warning for the four bibliography entries whose
+publisher locator is an article number rather than a page range. A successful
+`make` leaves the tree clean: `latexmk -c` removes every intermediate and the
+PDF is the only build product.
 
 Note that `make distclean` deletes the tracked PDF; run `make` afterwards to
 restore it before committing.
@@ -136,7 +153,7 @@ and no nondeterminism is involved.
 python3 -B supplement/run_all.py
 ```
 
-The driver runs all twenty checkers in a fixed order, stops at the first
+The driver runs all twenty-one checkers in a fixed order, stops at the first
 failure, and prints the failing command with its complete output. A successful
 run ends with
 
@@ -181,6 +198,17 @@ counts through `q ⩽ 5000`, and the bounded orbit comparisons are consistency
 checks. They are not the source of any completeness statement, and no finite
 search is extrapolated beyond its proved range.
 
+**Explanatory, and labelled as such.** The two-arms certificate marks every
+line it prints. A `PROVED-CHECK` line verifies an instance of a statement
+proved in the manuscript; a `VERIFIED` line records a finite scan and nothing
+more. The trace criterion `3m₀ − 2 = square` is a theorem, but the assertion
+that only `m₀ = 1`, `2` and `34` satisfy it is a scan over the `3502` Markoff
+numbers below `10⁶⁰` and over the `4097` produced by the Christoffel tree to
+depth `11`. Whether `3m − 2` is a perfect square for infinitely many Markoff
+numbers `m` is not known, and nothing in the manuscript depends on the answer:
+the exclusion of `m₀ = 34` is a separate exact argument about one explicit
+linear system.
+
 **Optional.** Magma is never required. The leading-exponent step rests on the
 published Alekseyev–Tengely classification. `supplement/magma/` preserves two
 independent Magma V2.29-9 inputs with their complete recorded transcripts,
@@ -193,8 +221,10 @@ executable.
 The files in `supplement/certificates/` and `supplement/magma/` are byte-for-byte
 snapshots of the audited research scripts, and their SHA-256 digests are pinned
 in `supplement/PROVENANCE.md`. They are intentionally never edited here, not even
-to reformat them or to add a header. Their docstrings still name their original
-research-tree paths (`scripts/…`, `attempts/…`); that is provenance, and it is
+to reformat them or to add a header; when one of them changes it is re-copied
+from its source and its digest refreshed, which is why `PROVENANCE.md` records
+two vendoring dates. Their docstrings still name their original research-tree
+paths (`scripts/…`, `attempts/…`); that is provenance, and it is
 what makes the digests verifiable. To confirm that nothing has drifted, compare
 each file against its recorded digest:
 
@@ -209,12 +239,12 @@ The tree in this repository was built and checked end to end:
 
 | Check | Result |
 | --- | --- |
-| `make` | exit 0, 35 pages |
+| `make rebuild` | exit 0, 45 pages |
 | Strict warning gates | clean |
-| Cross-references | 127 references resolved, no broken target, no duplicate label |
-| Citation keys | every cited key present in `references.bib`, every entry cited |
+| Cross-references | 159 distinct labels referenced, no broken target, no duplicate label |
+| Citation keys | 23 of 23 entries cited, every cited key present in `references.bib` |
 | `python3 -B supplement/run_all.py` | exit 0, output identical to `expected-output.txt` |
-| `supplement/PROVENANCE.md` | 24 of 24 SHA-256 digests match |
+| `supplement/PROVENANCE.md` | 25 of 25 SHA-256 digests match |
 
 ## Citation
 

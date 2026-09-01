@@ -18,6 +18,7 @@ PROVED-CHECK  the Markoff word of 610 has 377 letters a and 233 letters b, match
               branch LLL|R^inf : m0 = 34, trace 3*m0 = 102
               branch LRL|R^inf : m0 = 194, trace 3*m0 = 582
 PROVED-CHECK  the letter-count vector obeys v_(k+1) = 3*m0*v_k - v_(k-1) on all ten branches
+VERIFIED      complete enumeration below 10^60: 3502 Markoff numbers, 3*m0 - 2 a perfect square exactly for [1, 2, 34]
 VERIFIED      among the 4097 Markoff numbers of depth 11, 3*m0 - 2 is a perfect square exactly for [1, 2, 34]
               (this is a finite scan, not a theorem; the manuscript says so)
 PROVED-CHECK  m0 = 34 carries no half-step: the unique rational matrix matching two steps has denominator 173 and fails at the third
