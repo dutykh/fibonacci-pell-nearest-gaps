@@ -17,7 +17,7 @@ from __future__ import annotations
 from math import gcd, isqrt
 
 
-DIGITS = 100
+DIGITS = 130
 SCALE = 10**DIGITS
 ONE = (SCALE, SCALE)
 
@@ -94,7 +94,7 @@ def square_root_integer(value: int) -> Interval:
     return lower, lower + 1
 
 
-def atanh_log_on_one_to_two(value: Interval, terms: int = 70) -> Interval:
+def atanh_log_on_one_to_two(value: Interval, terms: int = 110) -> Interval:
     """Certify log(value) when 1 <= value <= 2 by the atanh series."""
     assert SCALE <= value[0] <= value[1] <= 2 * SCALE
     z_value = divide(subtract(value, ONE), add(value, ONE))
@@ -115,7 +115,7 @@ def atanh_log_on_one_to_two(value: Interval, terms: int = 70) -> Interval:
 LOG_TWO = atanh_log_on_one_to_two((2 * SCALE, 2 * SCALE))
 
 
-def log_interval(value: Interval, terms: int = 70) -> Interval:
+def log_interval(value: Interval, terms: int = 110) -> Interval:
     """Certified natural logarithm of a positive narrow interval."""
     assert value[0] > 0
     reduced = value
@@ -190,6 +190,10 @@ def certify_convergent(gamma: Interval) -> Interval:
 
     distance, nearest = nearest_distance(multiply_integer(gamma, denominator))
     assert nearest == numerator
+
+    # The manuscript displays |Q*gamma - p| < 26/10^36, which is what the fixed and
+    # moving margins consume; the Legendre radius alone is too weak for them.
+    assert distance[1] * 10**36 < 26 * SCALE
     return distance
 
 

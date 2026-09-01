@@ -227,6 +227,8 @@ def analytic_reduction_audit() -> None:
     # Legendre's criterion: |gamma-p/Q| < 1/(2Q^2).
     assert 2 * CONVERGENT_Q * gamma_distance.upper < SCALE
     assert CONVERGENT_Q > 6 * EXPONENT_BOUND
+    # Displayed sharper enclosure |Q*gamma - p| < 26/10^36, consumed by the margins.
+    assert gamma_distance.upper * 10**36 < 26 * SCALE
 
     # Recompute the numerical factor inherited from the stated Matveev
     # specialization.  Here 3^(9/2)=81*sqrt(3).

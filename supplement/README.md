@@ -1,26 +1,15 @@
-<!--
-Fibonacci–Pell nearest gaps: an all-exponent classification and
-quadratic-unit orbit rigidity
-
-Authors:
-  Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
-  and Technology, Abu Dhabi, UAE)
-  Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambéry,
-  France)
--->
-
 # Reproduction supplement
 
 This supplement supports the exact computer-assisted statements in
 `DD-LV-Fibonacci-Pell-Gaps.tex`. It is self-contained relative to the
-repository root: the driver reads no source, data, or audit file from the
-surrounding research tree. Every checker uses only the Python standard
+manuscript directory: the driver reads no source, data, or audit file from the
+surrounding research repository. Every checker uses only the Python standard
 library. The proof-bearing interval and enumeration decisions are made with
 exact integer, rational, or outward-rounded fixed-point arithmetic.
 
 ## Run the certificates
 
-From the repository root, run:
+From `manuscripts/fibonacci-pell-nearest-gaps`, run:
 
 ```sh
 python3 -B supplement/run_all.py
@@ -28,8 +17,8 @@ python3 -B supplement/run_all.py
 
 The driver stops at the first failure and prints the command and its complete
 output. It resolves every executable below `supplement/certificates`, so the
-repository can be copied and checked independently of the research
-tree. A successful run ends with the line
+manuscript directory can be copied and checked independently of the research
+repository. A successful run ends with the line
 
 ```text
 PASS: every manuscript certificate completed successfully.
@@ -51,7 +40,34 @@ The complete expected summaries are recorded in `expected-output.txt`.
 | Uniform simultaneous local clocks, rank-parity criterion, and the obstruction at $241$ | Written rank/CRT/equidistribution proof and `certificates/check_uniform_local_clock_generalisation_agent_lcg.py` | The checker verifies exact ranks and witnesses; infinitude rests on the written proof |
 | Wider exact nearest-gap regression | `certificates/check_c0068_nearest_even_unit_gap_curator.py --q-max 2000` | Not used for completeness |
 | $7$- and $17$-clock theorem witnesses and rank data | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `certificates/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py` |
+| Two-arms section: Cohn normalisation, arm letter counts, branch recurrence with trace $3m_0$, exclusion of $m_0=34$, and the growth-rate trace comparison | `certificates/check_two_arms.py` | Self-contained; the trace-criterion scan over the depth-11 Markoff numbers is a finite verification and is printed as such, not as a theorem |
 | Exact filtering of the published $j=1$ near-square classification | `certificates/check_c0068_plus_j1_quartic_curator.py` | `certificates/check_j1_plus_branch_quartic_independent_audit_agent_j1.py` |
+
+The identifier `C0085` in the recorded output of
+`check_c0082_full8_adjusted_form_agent_c.py` names the research-tree
+derivation of the Matveev prefactor $9.275\cdot10^{12}$. That prefactor is
+re-derived here from Matveev's constants with exact rational intervals inside
+`certificates/check_c0082_effective_advances_independent_audit_agent_ea.py`,
+and the specialisation it rests on is the Matveev lemma of the manuscript, so
+the condition recorded in that PASS line is discharged inside this supplement
+and does not depend on any file outside it.
+
+The other internal identifiers that survive in shipped file names and PASS
+lines are research-tree claim numbers, not manuscript objects. They may be
+read as follows: `C0060` and `C0065`, the primitive factorisation and
+orientation congruences of the even branch; `C0068`, the nearest even-unit
+gap criterion; `C0070` and `C0073`, the half-unit trace conic and its
+consequences; `C0077`, the imprimitive two-clock recurrence; `C0080`, the
+exclusion of primitive norm one; `C0082`, the effective classification;
+`C0088`, the all-exponent classification itself. Nothing in the manuscript
+depends on these labels; they are retained only so that the vendored files
+remain byte-identical to their sources.
+
+The run instructions and provenance pointers inside individual vendored
+files mention `math-sandbox/`, `scripts/` and `attempts/` paths. Those are
+historical annotations from the research tree and are not part of the
+distributed supplement. The only supported invocation is the one given under
+"Run the certificates" above.
 
 The independent effective-advances checker also reconstructs an earlier
 $4+4$ support exclusion. That extra check is retained as provenance, but the
@@ -104,5 +120,5 @@ full Mordell--Weil proof flags. See `magma/README.md` for the exact map.
   service, and use no nondeterminism. Two new checkers import named sibling
   certificates already vendored in the same directory; all other checkers
   import only the standard library.
-- LaTeX compilation is separate and uses `make check` in the repository
-  root.
+- LaTeX compilation is separate and uses `make check` in the manuscript
+  directory.

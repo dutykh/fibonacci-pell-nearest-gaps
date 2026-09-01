@@ -1,14 +1,4 @@
 #!/usr/bin/env python3
-#
-# Fibonacci-Pell nearest gaps: an all-exponent classification and
-# quadratic-unit orbit rigidity
-#
-# Authors:
-#   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
-#   and Technology, Abu Dhabi, UAE)
-#   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
-#   France)
-#
 """Run the exact standard-library certificates used by the manuscript."""
 
 from __future__ import annotations
@@ -22,6 +12,7 @@ MANUSCRIPT = Path(__file__).resolve().parents[1]
 CERTIFICATES = Path(__file__).resolve().parent / "certificates"
 
 COMMANDS: list[tuple[str, ...]] = [
+    ("check_two_arms.py",),
     ("check_c0082_logarithmic_h_bound_curator.py",),
     ("check_c0082_effective_advances_independent_audit_agent_ea.py",),
     ("check_c0082_full8_adjusted_form_agent_c.py",),

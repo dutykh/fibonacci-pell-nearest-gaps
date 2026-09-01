@@ -13,7 +13,7 @@
 The nearest-gap equation is not an isolated algebraic coincidence. It is the
 exact image of an integral dynamical system under a quadratic-unit
 semiconjugacy. This section first proves that structural statement for a
-general seed, then specializes it to the two Fibonacci cores and obtains the
+general seed, then specialises it to the two Fibonacci cores and obtains the
 complete list in \cref{thm:orbit-intro}.
 
 For an integral seed $z=(u,v)$, put
@@ -56,6 +56,9 @@ $t\geqslant0$,
  \label{eq:semiconjugacy}
 \end{equation}
 \end{proposition}
+
+\Cref{fig:seed-semiconjugacy} displays the square that
+\cref{eq:semiconjugacy} commutes.
 
 \begin{proof}
 The inverse in \cref{eq:cone-bijection} is immediate. Direct calculation
@@ -211,17 +214,17 @@ and its coefficient content and norm are respectively $g$ and $-g^2$.
 \end{theorem}
 
 \begin{proof}
-Put $w=\mathsf S^tz$ and $k=d+2t$. The hypotheses ensure that $w$ is
+Put $w=\mathsf S^tz$ and $\ell=d+2t$. The hypotheses ensure that $w$ is
 positive and ordered. At a hit, \cref{eq:lorentz-cone} and
-$C_k^2-2P_k^2=(-1)^d$ give
+$C_\ell^2-2P_\ell^2=(-1)^d$ give
 
 \begin{equation}
  \mathcal B(w)^2
- =C_k^2-\bigl(\mathcal Q(z)^2+(-1)^d\bigr)<C_k^2.
+ =C_\ell^2-\bigl(\mathcal Q(z)^2+(-1)^d\bigr)<C_\ell^2.
  \label{eq:B-below-C}
 \end{equation}
 
-Because $w$ is positive and ordered, $0<\mathcal B(w)<C_k$. For
+Because $w$ is positive and ordered, $0<\mathcal B(w)<C_\ell$. For
 $t\geqslant1$, comparison of the first coordinates in
 \cref{eq:lorentz-action} with the Pell addition formula gives
 
@@ -230,7 +233,7 @@ $t\geqslant1$, comparison of the first coordinates in
 \end{equation}
 
 The second-coordinate difference is
-$\mathcal B(w)-C_k=-E/C_{2t}$, so $D,E>0$. Since
+$\mathcal B(w)-C_\ell=-E/C_{2t}$, so $D,E>0$. Since
 $\gcd(C_{2t},P_{2t})=1$, this proves
 \cref{eq:orbit-proportionality}. At $t=0$, the hit gives $D=0$ and
 \cref{eq:B-below-C} gives $E>0$; the same formula holds with
@@ -262,20 +265,20 @@ It remains to prove the window. Multiplying
 \cref{eq:semiconjugacy} gives
 
 \begin{equation}
- \lambda^{k-1}-A_w^2=g\lambda^{-1}.
+ \lambda^{\ell-1}-A_w^2=g\lambda^{-1}.
  \label{eq:evolved-gap}
 \end{equation}
 
-At the hit, $g=C_k-\mathcal B(w)$. Combining this with
+At the hit, $g=C_\ell-\mathcal B(w)$. Combining this with
 \cref{eq:key-seed-identity} at $w$ gives
 
 \begin{equation}
  \lambda A_w^2-g
- =2\mathcal B(w)+(-1)^{k+1}\lambda^{-k}>0.
+ =2\mathcal B(w)+(-1)^{\ell+1}\lambda^{-\ell}>0.
 \end{equation}
 
-For even $k$, positivity follows from
-$2\mathcal B(w)\geqslant2>\lambda^{-k}$; for odd $k$ it is immediate.
+For even $\ell$, positivity follows from
+$2\mathcal B(w)\geqslant2>\lambda^{-\ell}$; for odd $\ell$ it is immediate.
 Hence $0<g\lambda^{-(2t+1)}<A_z^2$, which is
 \cref{eq:general-orbit-window}. Finally,
 $\lambda^{-(2t+1)}$ is a coefficient-primitive norm-$-1$ unit, proving the
@@ -307,7 +310,7 @@ is zero, so these seeds are correctly separated from
 \cref{thm:general-orbit-gap}.
 \end{remark}
 
-We now specialize to
+We now specialise to
 
 \begin{equation}
  z_{q,\sigma}=(F_{q+1},F_{q+1}+\sigma F_q).
@@ -354,14 +357,14 @@ positive even exponent.
 For the plus sign the seed is ordered, so
 \cref{thm:general-orbit-gap} applies at every time. If $d$ is odd, the gap
 exponent $d-1$ is even. The only plus target in
-\cref{thm:classification-intro} has normalized direction $\lambda$, whereas
+\cref{thm:classification-intro} has normalised direction $\lambda$, whereas
 the orbit bridge requires $\lambda^{-(2t+1)}$. Hence there is no plus hit.
 If $d$ is even, the gap exponent is odd, which is impossible by
 \cref{thm:classification-intro}. Thus the plus core has no hit for
 $q\geqslant2$.
 
 For the minus sign and $t\geqslant1$, the evolved seed is ordered, so the
-same bridge applies. At an odd anchor, the only minus target has normalized
+same bridge applies. At an odd anchor, the only minus target has normalised
 direction $\lambda^{-1}$; it would force $t=0$, a contradiction. At an even
 anchor, the exponent is odd and no target exists. Thus the minus core has no
 positive-time hit.

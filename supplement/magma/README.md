@@ -1,14 +1,3 @@
-<!--
-Fibonacci–Pell nearest gaps: an all-exponent classification and
-quadratic-unit orbit rigidity
-
-Authors:
-  Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
-  and Technology, Abu Dhabi, UAE)
-  Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambéry,
-  France)
--->
-
 # Optional Magma corroboration
 
 These files preserve two independent Magma V2.29-9 computations for the

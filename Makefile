@@ -18,9 +18,12 @@ SOURCES := $(MAIN).tex references.bib $(wildcard sections/*.tex)
 # exact text, and only those two:
 #   * the pdfTeX font-expansion notice, which is emitted before first use and
 #     has no effect on the output;
-#   * amsplain's missing-pages warning for PomeoBravo2024, which is online-first
-#     with no volume, issue or pages assigned (verified against its Crossref
-#     record). Pagination is not invented to silence it.
+#   * amsplain's missing-pages warnings for the three entries whose publisher
+#     locator is an article number rather than a page range: PomeoBravo2024
+#     (online-first, no volume, issue or pages), AlekseyevTengely2014 (Journal
+#     of Integer Sequences, Article 14.6.6), LucaZottor2023 (Article 49) and
+#     Reutenauer2006 (Seminaire Lotharingien de Combinatoire, Article B54h).
+#     Pagination is not invented to silence them.
 define compile_and_check
 $(LATEXMK) -pdf -interaction=nonstopmode -halt-on-error $(MAIN).tex
 @test -s $(MAIN).log
@@ -28,7 +31,7 @@ $(LATEXMK) -pdf -interaction=nonstopmode -halt-on-error $(MAIN).tex
 @! grep -E "LaTeX (Font )?Warning:|Package .* Warning:|Class .* Warning:|Underfull \\\\[hv\\\\]box|Overfull \\\\[hv\\\\]box|Missing character:" $(MAIN).log
 @! grep -E "pdfTeX warning" $(MAIN).log | grep -Fv "pdfTeX warning (font expansion): font should be expanded before its first use"
 @! grep -E "multiply defined" $(MAIN).log
-@! grep -E "^Warning--" $(MAIN).blg | grep -Fv "missing pages in PomeoBravo2024"
+@! grep -E "^Warning--" $(MAIN).blg | grep -Fv "missing pages in PomeoBravo2024" | grep -Fv "missing pages in AlekseyevTengely2014" | grep -Fv "missing pages in LucaZottor2023" | grep -Fv "missing pages in Reutenauer2006"
 @! grep -n -P '\\(?:leq?|geq?)(?!slant|[A-Za-z])' $(MAIN).tex sections/*.tex
 $(LATEXMK) -c $(MAIN).tex
 $(RM) $(MAIN).bbl

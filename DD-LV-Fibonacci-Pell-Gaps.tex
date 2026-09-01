@@ -91,34 +91,33 @@
 \begin{abstract}
 Let $\lambda=1+\sqrt2$, let $(F_q)$ be the Fibonacci sequence, and put
 $D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2$ for
-$\sigma\in\{1,-1\}$. For every $q\geqslant1$ and every positive exponent
-$n$, we classify the strict factor-two gaps
-$\Delta=\lambda^n-D_{q,\sigma}^2$ whose quadratic norm equals minus the
-square of their coefficient content $g$. Exactly two occur:
+$\sigma\in\{1,-1\}$. For all $q\geqslant1$ and all positive $n$, we classify the strict
+factor-two gaps $\Delta=\lambda^n-D_{q,\sigma}^2$ whose norm is minus the
+square of their content $g$. Exactly two occur:
 $(q,\sigma,n,g,\Delta/g)=(2,-1,2,6,\lambda^{-1})$ and
-$(4,1,6,40,\lambda)$. In particular, no solution has odd exponent. By
-contrast, the underlying even factor-two windows occur with explicit positive
+$(4,1,6,40,\lambda)$. In particular, no solution has odd exponent. The underlying even windows, by contrast, occur with explicit positive
 densities governed by an irrational circle rotation.
 
-The proof is exact and computer-assisted. In the even branch, a primitive
-factor rectangle supplies height separation; two logarithmic forms give
-$h=O(\log q)$ and $q<10^{32}$, certified rational-interval reductions give
-$h<192$ and $q<90$, and exact recurrence arithmetic completes the
-enumeration. The odd branch has no such height separation, so a
-fixed-form-first bootstrap is required; it reduces to $q<96$, where the
+The argument is unbounded in $q$; the exact computation enters only after
+certified analytic estimates have cut it to a finite domain. In the even
+branch, a primitive factor rectangle separates heights, giving $h<n<2q$ for
+the odd exponent $h\geqslant3$ of the normalised gap $\Delta=g\lambda^{-h}$.
+Two logarithmic forms give $h=O(\log q)$ and $q<10^{32}$, certified
+rational-interval reductions give $h<192$ and $q<90$, and exact arithmetic
+finishes. The odd branch has no such separation,
+so a fixed-form-first bootstrap is required; it reduces to $q<96$, where the
 terminal list is empty.
 
 The map $\mathsf S(u,v)=(v,u+2v)$ is integrally conjugate to multiplication
-by $\lambda$ through $A_{(u,v)}=(v-u)+u\sqrt2$. This gives an exact
-orbit/gap equivalence and a complete all-anchor classification for the two
-Fibonacci cores $(F_{q+1},F_{q+1}+\sigma F_q)$: one canonical persistent
-family and three isolated time-zero hits are the only Pell-orbit
-intersections. Finally, a local rank criterion and Haar equidistribution
-produce simultaneous prescribed powers of compatible split primes in a
-natural plus-sign cross-gcd on genuine nearest windows, while the split prime
-$241$ is obstructed. The work is motivated by the Markoff--Frobenius
-uniqueness conjecture, but no reduction from a hypothetical Markoff collision
-to these orbit families is claimed.
+by $\lambda$ through $A_{(u,v)}=(v-u)+u\sqrt2$. This gives an exact orbit/gap
+equivalence and, for the two Fibonacci cores $(F_{q+1},F_{q+1}+\sigma F_q)$,
+a complete all-anchor classification: one persistent family and three
+isolated time-zero hits are the only Pell-orbit intersections. An exact local rank criterion makes compatible split-prime
+clocks recur to arbitrary depth, sharply obstructed at $241$: congruences
+alone cannot replace the norm--content equation. The unit pair is forced, not
+chosen. The golden ratio and $\lambda$ are the only integral square roots of
+a Markoff branch Perron number, which requires $3m_0-2$ to be a square. No
+Markoff reduction is claimed.
 \end{abstract}
 
 \maketitle
@@ -131,6 +130,7 @@ to these orbit families is claimed.
 \input{sections/06-odd-exponents}
 \input{sections/07-zero-defect-bridge}
 \input{sections/08-local-clocks}
+\input{sections/09-two-arms}
 \input{sections/09-scope-outlook}
 \clearpage
 \appendix

@@ -1,32 +1,24 @@
-<!--
-Fibonacci–Pell nearest gaps: an all-exponent classification and
-quadratic-unit orbit rigidity
-
-Authors:
-  Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
-  and Technology, Abu Dhabi, UAE)
-  Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambéry,
-  France)
--->
-
 # Vendored certificate provenance
 
-The files below were copied byte for byte on 2026-08-24 from the indicated
-paths in the `math-sandbox` research tree. No mathematical code, constants,
-assertions, comments, or provenance headers were changed while vendoring.
+The files below were copied byte for byte from the indicated paths in the
+`math-sandbox` research tree, on 2026-08-24 and, for the entries revised in
+the course of the two-arms revision, on 2026-09-01. No mathematical code,
+constants, assertions, comments, or provenance headers differ between a
+vendored file and its named source.
 
 | Vendored file | Research-tree source | SHA-256 |
 | --- | --- | --- |
+| `certificates/check_two_arms.py` | `scripts/check_two_arms.py` | `91e9606c78047e0b5737b901d42c71c50780e73cf558fe455b3500bc9abafc51` |
 | `certificates/check_c0068_nearest_even_unit_gap_curator.py` | `scripts/check_c0068_nearest_even_unit_gap_curator.py` | `4d51db0ae60bfda5ae053ac0b53c4b74fafd9ce0a35bf7cc17426c2c248ed3f3` |
 | `certificates/check_c0068_plus_j1_quartic_curator.py` | `scripts/check_c0068_plus_j1_quartic_curator.py` | `91c31086b97ad5d3cc47643f005221f3af2b36d0d558e1008420cfefafa329cc` |
 | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `scripts/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `6c4945b5fe8bfb1f92c300786041bc256027c436e924ed244100e2298bb1a7f6` |
 | `certificates/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py` | `scripts/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py` | `b778a01da16d3e81882b007c3ba3f066463d7f3ae0d4bf80fe6b0da5e10446e0` |
 | `certificates/check_c0082_effective_advances_independent_audit_agent_ea.py` | `scripts/check_c0082_effective_advances_independent_audit_agent_ea.py` | `db63f60deeeb5cba1ecfe6379bb1871d8e49cc5dcce83680ef73dd45c9ad39df` |
 | `certificates/check_c0082_full8_adjusted_form_agent_c.py` | `scripts/check_c0082_full8_adjusted_form_agent_c.py` | `673afce50f30c60812974dff0b4e6edaff77362dab4cb1859664f0aeb7330943` |
-| `certificates/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py` | `scripts/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py` | `a24fb1790eb77d390963228a08b0a15876c540f493114919a2f9f04cf8ca3c98` |
-| `certificates/check_c0082_full8_dp_closure_agent_c.py` | `scripts/check_c0082_full8_dp_closure_agent_c.py` | `565c7f6e937b12016d278745242ca7e305fa01d274440250c8660f6c1b512df7` |
+| `certificates/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py` | `scripts/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py` | `3ec0a499041f02f040772789351a7938b19f1d5b6228d71835f0b5508cfa664f` |
+| `certificates/check_c0082_full8_dp_closure_agent_c.py` | `scripts/check_c0082_full8_dp_closure_agent_c.py` | `1ad15b2abc7a889b3ea60e134ea664b3e97548f6a0f4b0d0fe5b5fe7b2b55b63` |
 | `certificates/check_c0082_logarithmic_h_bound_curator.py` | `scripts/check_c0082_logarithmic_h_bound_curator.py` | `24a33027fd03965a0695049482c2f5fd4cf505ce0eaa795671e52bd894a0a2fa` |
-| `certificates/check_full8_adjusted_dp_independent_agent_b.py` | `scripts/check_full8_adjusted_dp_independent_agent_b.py` | `c5df1be1810f77196acfb1184c197d05a52c7fb565bad3bd55130d56260fd4ab` |
+| `certificates/check_full8_adjusted_dp_independent_agent_b.py` | `scripts/check_full8_adjusted_dp_independent_agent_b.py` | `6c5e1a70dafb15848d14b34114952d80a39edea3f70c8ea0f197918324d9867e` |
 | `certificates/check_j1_plus_branch_quartic_independent_audit_agent_j1.py` | `scripts/check_j1_plus_branch_quartic_independent_audit_agent_j1.py` | `924de0e2d8a7c95adc002eb61175b400f8e4bd8627cd0c900140a103ddef3897` |
 | `certificates/check_all_exponent_nearest_gap_agent_aeng.py` | `scripts/check_all_exponent_nearest_gap_agent_aeng.py` | `d1bbb48dc00d49409b1c6f914f114b900d4fb3dc01417195f5730be9e787f0de` |
 | `certificates/check_all_exponent_nearest_gap_independent_audit_agent_aei.py` | `scripts/check_all_exponent_nearest_gap_independent_audit_agent_aei.py` | `e6e1d560fae8cfe47671d080c2077a7aa50d702ea2a25fe4c6bb897701b8702b` |

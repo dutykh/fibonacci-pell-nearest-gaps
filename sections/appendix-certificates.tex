@@ -13,9 +13,8 @@
 This appendix specifies exactly where computation enters the proof and how
 the finite conclusions cover the original unbounded statement. The
 corresponding source files and one-command driver are listed in the
-supplement.
-
-\subsection{Logical dependency}
+supplement, and \cref{tab:certificates} records which certificate carries
+which claim.
 
 \begin{table}[H]
  \centering
@@ -54,6 +53,8 @@ supplement.
   \bottomrule
  \end{tabular}
 \end{table}
+
+\subsection{Logical dependency}
 
 No finite computation proves an unbounded statement by extrapolation. In the
 even branch, the analytic argument applies to every hypothetical target with
@@ -97,7 +98,7 @@ This proves both existence and completeness of
 All reduction comparisons are made with rational endpoints. Positive square
 roots are bracketed by integer squaring. After range reduction, logarithms
 are evaluated through \cref{eq:log-series,eq:log-tail}. A certificate is
-accepted only when the lower endpoint of each $\eta$ is positive and the
+accepted only when the lower endpoint of each $\kappa$ is positive and the
 lower endpoint of the left side in
 \cref{eq:fixed-cutoff,eq:moving-cutoff} exceeds the upper endpoint of its
 right side. Strict inequalities therefore remain strict under rounding.

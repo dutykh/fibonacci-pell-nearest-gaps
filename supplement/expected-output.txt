@@ -2,6 +2,29 @@ The order and command labels below are stable. Python may format timing or
 interpreter diagnostics differently, but every successful run must contain
 these summaries and finish with the final PASS line.
 
+$ python3 -B supplement/certificates/check_two_arms.py
+PROVED-CHECK  Cohn normalisation and u = A - 2m on all 4095 Christoffel words of depth 11
+PROVED-CHECK  Fibonacci arm: (m_a, m_b) = (F_2k, F_2k-1), the coordinates of phi^(2k), for k = 2..24
+PROVED-CHECK  Pell arm: (m_a, m_b) = (C_2k, P_2k), the coordinates of lambda^(2k), for k = 1..24
+PROVED-CHECK  the Markoff word of 610 has 377 letters a and 233 letters b, matching phi^14 = 377 phi + 233
+              branch (root)|L^inf : m0 = 1, trace 3*m0 = 3
+              branch (root)|R^inf : m0 = 2, trace 3*m0 = 6
+              branch L|R^inf : m0 = 5, trace 3*m0 = 15
+              branch R|L^inf : m0 = 5, trace 3*m0 = 15
+              branch LL|R^inf : m0 = 13, trace 3*m0 = 39
+              branch RR|L^inf : m0 = 29, trace 3*m0 = 87
+              branch LR|L^inf : m0 = 13, trace 3*m0 = 39
+              branch RL|R^inf : m0 = 29, trace 3*m0 = 87
+              branch LLL|R^inf : m0 = 34, trace 3*m0 = 102
+              branch LRL|R^inf : m0 = 194, trace 3*m0 = 582
+PROVED-CHECK  the letter-count vector obeys v_(k+1) = 3*m0*v_k - v_(k-1) on all ten branches
+VERIFIED      among the 4097 Markoff numbers of depth 11, 3*m0 - 2 is a perfect square exactly for [1, 2, 34]
+              (this is a finite scan, not a theorem; the manuscript says so)
+PROVED-CHECK  m0 = 34 carries no half-step: the unique rational matrix matching two steps has denominator 173 and fails at the third
+PROVED-CHECK  over twelve letters the Stern-Brocot traces are 322 (all ones), 198 (all twos), 194 (alternating)
+              so the Fibonacci arm is fastest and the Pell arm is not slowest; no extremality from below is claimed
+PASS: two-arms certificate; Cohn normalisation, arm letter counts, branch recurrence with trace 3*m0, trace criterion scan (finite), exclusion of m0=34, and the growth-rate trace comparison all check exactly.
+
 $ python3 -B supplement/certificates/check_c0082_logarithmic_h_bound_curator.py
 PASS: C0082 logarithmic h-bound constants; analytic_error<128/25*lambda^-h; |Lambda|<9*lambda^-h; Matveev_constant<1.855e14; rounded_h_coefficient<2.4e14. This does not bound q.
 

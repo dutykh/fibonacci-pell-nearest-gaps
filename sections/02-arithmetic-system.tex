@@ -66,7 +66,7 @@ points on the latter with positive principal embedding are precisely
 $\lambda^j$ for odd $j\in\Z$.
 Thus the target condition below says that the primitive direction of a gap
 lands on this torsor; see, for example, the Pell-conic viewpoint in
-\cite[Chapter~8]{Lemmermeyer2021}.
+\cite[Chapter~7]{Lemmermeyer2021}.
 
 More explicitly, the regular representation
 
@@ -256,9 +256,9 @@ Write $x_\sigma(q)=\log_\lambda D_{q,\sigma}$. If $n=2m$, then
 Binet's formula gives
 
 \begin{equation}
- x_\sigma(q)=q\alpha+\beta_\sigma+O(\varphi^{-2q}),
+ x_\sigma(q)=q\gamma+\beta_\sigma+O(\varphi^{-2q}),
  \qquad
- \alpha=\frac{\log\varphi}{\log\lambda},
+ \gamma=\frac{\log\varphi}{\log\lambda},
  \qquad
  \beta_\sigma=\log_\lambda\left(
   \frac{\sqrt2\varphi+\sigma}{\sqrt5}
@@ -266,10 +266,10 @@ Binet's formula gives
  \label{eq:window-binet-phase}
 \end{equation}
 
-The number $\alpha$ is irrational. Indeed, a rational relation would put
+The number $\gamma$ is irrational. Indeed, a rational relation would put
 equal positive powers of $\varphi$ and $\lambda$ in
 $\Q(\sqrt5)\cap\Q(\sqrt2)=\Q$, whereas no positive power of $\varphi$ is
-rational. Hence $q\alpha+\beta_-$ is equidistributed modulo one by Weyl's
+rational. Hence $q\gamma+\beta_-$ is equidistributed modulo one by Weyl's
 theorem \cite{Weyl1916}. Equivalently, its empirical measures converge to
 Haar probability measure on $\R/\Z$. Since
 
@@ -292,7 +292,7 @@ the corresponding phase regions. The inequalities in
 $1+\sqrt2>\sqrt5$, $\varphi>3/2$, and $\lambda>2$. The exponentially
 decaying error in \cref{eq:window-binet-phase} can change membership only
 near the four endpoints, a set of density zero. On a progression
-$q=q_0+Q\ell$, the increment $Q\alpha$ remains irrational, so the same
+$q=q_0+Q\ell$, the increment $Q\gamma$ remains irrational, so the same
 argument applies.
 \end{proof}
 
@@ -323,8 +323,8 @@ the arithmetic.
  \node at (9.88,0.27) {both};
  \node[above left] (po) at (6.65,0.72) {plus only};
  \draw[-Stealth,thin] (po.east)--(7.36,0.43);
- \node[above right] (mo) at (12.60,0.72) {minus only};
- \draw[-Stealth,thin] (mo.west)--(12.39,0.43);
+ \node[above] (mo) at (13.15,1.80) {minus only};
+ \draw[-Stealth,thin] (mo.south)--(12.72,0.45);
  \draw[blue!65!black,very thick] (6.96,1.55)--(11.99,1.55);
  \draw[blue!65!black] (6.96,1.42)--(6.96,1.68)
    (11.99,1.42)--(11.99,1.68);
@@ -419,9 +419,9 @@ Define $W=C_M-g$ in \cref{eq:plus-orbit} and $W=g-C_M$ in
 is, respectively, $W$ and $-W$. The upper half of the strict window gives
 $D_{q,\sigma}^2>\lambda^n/2$, and therefore
 
-$$
+\[
  g\lambda^j=\lambda^n-D_{q,\sigma}^2<\frac{\lambda^n}{2}.
-$$
+\]
 
 Thus $2g<\lambda^{n-j}=\lambda^M$. Since $M$ is odd,
 
@@ -486,6 +486,9 @@ $\gcd(U,X_\delta)\gcd(U,Y_\delta)=U$, and
  dT-aS=\delta.
 \label{eq:rectangle}
 \end{equation}
+
+\Cref{fig:primitive-rectangle} shows the factor rectangle that
+\cref{eq:rectangle} describes.
 
 \begin{figure}[t]
 \centering

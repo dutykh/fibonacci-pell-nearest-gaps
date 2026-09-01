@@ -34,11 +34,11 @@ Whenever $3\nmid q$ and
 \end{equation}
 
 the even power $\lambda^{2m(q)}$ lies in the strict nearest window for
-$D_q^2$. Put $s=(-1)^{m(q)}$ and define
+$D_q^2$. Put $s(m)=(-1)^{m}$ and define
 
 \begin{equation}
  G(q,m)=\gcd\left(
- R_q-s,\,
+ R_q-s(m),\,
  2F_{q+1}P_m-F_qC_m
  \right).
  \label{eq:cross-gcd}
@@ -90,20 +90,20 @@ Direct reduction gives
 
 The equal-phase Fibonacci factors are coprime. In the unequal phase,
 
-$$
+\[
  \gcd(F_{q-1},F_{q+4})\in\{1,5\},
-$$
+\]
 
 but the exceptional prime $5$ divides no companion number $C_j$: the
 recurrence modulo $5$ has period $12$ and nonzero residues
 $1,1,3,2,2,1,4,4,2,3,3,4$. The only possible failure of the displayed
 multipliers to be units is at $3$. Here
 
-$$
+\[
  3\mid F_r\Longleftrightarrow4\mid r,
  \qquad
  3\mid C_j\Longleftrightarrow j\equiv2\pmod4,
-$$
+\]
 
 and every aligned Fibonacci--companion index pair has opposite parity.
 Thus $3$ cannot occur in an aligned gcd. The product identity follows prime
@@ -111,7 +111,7 @@ by prime and valuation by valuation.
 \end{proof}
 
 The factorisation replaces one two-coordinate gcd by two aligned recurrence
-clocks. We now determine exactly which primes can synchronize in one of
+clocks. We now determine exactly which primes can synchronise in one of
 these clocks to arbitrary depth.
 
 Let $p$ be an odd prime with $(2/p)=1$ that divides some $C_j$. Define
@@ -240,7 +240,7 @@ It remains to meet the Archimedean window with the required value of $m$.
 Put
 
 \begin{equation}
- \alpha=\frac{\log\varphi}{\log\lambda},
+ \gamma=\frac{\log\varphi}{\log\lambda},
  \qquad
  \beta=\log_\lambda\left(\frac{1+\sqrt2\varphi}{\sqrt5}\right).
 \end{equation}
@@ -248,14 +248,14 @@ Put
 Binet's formula gives
 
 \begin{equation}
- \log_\lambda D_q=q\alpha+\beta+O(\varphi^{-2q}).
+ \log_\lambda D_q=q\gamma+\beta+O(\varphi^{-2q}).
  \label{eq:local-rotation}
 \end{equation}
 
-The irrationality of $\alpha$ was proved in
-\cref{thm:candidate-density}; hence $Q\alpha/M$ is irrational. Weyl
+The irrationality of $\gamma$ was proved in
+\cref{thm:candidate-density}; hence $Q\gamma/M$ is irrational. Weyl
 equidistribution on the circle $\R/M\Z$ shows that the limiting phase lies
-in the cyclic interval $(m_0-\vartheta,m_0)$ with normalized Haar measure
+in the cyclic interval $(m_0-\vartheta,m_0)$ with normalised Haar measure
 $\vartheta/M$. Its boundary has Haar measure zero, and the Binet error tends
 to zero. Membership in this interval is exactly
 $m(q)\equiv m_0\pmod M$ together with \cref{eq:local-window}. This proves
@@ -285,7 +285,12 @@ $a_p\geqslant1$, infinitely many rows satisfy the one-bin divisibility
  \label{eq:seven-class-product}
 \end{equation}
 
-In particular, for every $a,b\geqslant1$, infinitely many rows satisfy
+The criterion also reaches primes outside that residue class: $z_F(17)=9$ is
+odd, so $17$ satisfies condition~(i) although $17\equiv1\pmod8$. Assigning
+$7$ to $\gcd(F_{q+1},C_{m(q)})$ and $17$ to $\gcd(F_{q+2},C_{m(q)+1})$, that
+is to the two different factors of
+\cref{lem:cross-gcd-factorisations}, gives, for every $a,b\geqslant1$,
+infinitely many rows with
 
 \begin{equation}
  7^a17^b\mid G(q,m(q)).
@@ -324,20 +329,20 @@ Conversely, the Fibonacci and companion indices paired in
 \cref{eq:cross-gcd-factorisations} have opposite parity. If both ranks are
 even, no pair can contain $p$. This proves the equivalence.
 
-Now let $p\equiv7\pmod8$ and choose $r^2=2\pmod p$. For
-$u=1+r$, the order of $u$ has $2$-part at most $2$. If $h$ is its odd
-part, then $u^h=\pm1$; since $1-r=-u^{-1}$,
-$C_h\equiv0\pmod p$. Thus $z_C(p)$ is odd, and the criterion applies.
+Now let $p\equiv7\pmod8$ and choose $r$ with $r^2\equiv2\pmod p$. For
+$\pi=1+r$, the order of $\pi$ has $2$-part at most $2$. If $e$ is its odd
+part, then $\pi^e=\pm1$; since $1-r=-\pi^{-1}$, this gives
+$C_e\equiv0\pmod p$. Thus $z_C(p)$ is odd, and the criterion applies.
 The assertion for $\mathcal P=\varnothing$ follows from
 \cref{thm:candidate-density}, so suppose henceforth that
 $\mathcal P\ne\varnothing$.
 For finitely many such primes, the lifted companion ranks remain odd. Put
 
-$$
+\[
  B=\operatorname{lcm}_{p\in\mathcal P}B_p(a_p),
  \qquad
  J=\operatorname{lcm}_{p\in\mathcal P}J_p(a_p).
-$$
+\]
 
 Then $m\equiv J\pmod {2J}$ satisfies every odd companion class, and
 $q=Bu-1$ satisfies every first-bin Fibonacci class. Choose the parity of

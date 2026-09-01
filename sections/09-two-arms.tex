@@ -1,0 +1,832 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Why the Fibonacci and Pell arms}
+\label{sec:two-arms}
+
+A reader who has followed the proof may reasonably ask why this particular
+pair of sequences carries the whole argument. The Markoff tree has
+infinitely many branches; Fibonacci and Pell are two of them. This section
+answers the question. The pairing is forced, not chosen: the mechanism used
+throughout this paper exists on exactly these two branches, and the constant
+$\gamma$ of \cref{eq:window-binet-phase} is the exchange rate between them.
+
+Nothing in this section is used in the proofs of
+\cref{thm:classification-intro,thm:orbit-intro,thm:local-clocks}. It is
+included because it explains their shape, and because it delimits the
+generalisations that can and cannot be attempted.
+
+We are careful throughout to separate what is proved from what is only
+verified on a finite family. Statements of the first kind are labelled as
+propositions and theorems; statements of the second kind are labelled as
+computational observations and are never used as hypotheses.
+
+\subsection{Background from the Christoffel--Markoff correspondence}
+
+We use the classical dictionary between Christoffel words and Markoff
+numbers in the form given by Reutenauer \cite{Reutenauer2026}, whose origin is
+Frobenius's observation of 1913 \cite{Frobenius1913} and Cohn's matrix
+formulation. The one normalisation we need beyond the correspondence itself is
+$m=\tfrac13\operatorname{tr}M_w=(M_w)_{12}$. In the transposed convention this
+is \cite[Lemme~3.2]{Reutenauer2006}, which states that
+$3N_{21}=\operatorname{tr}N$ for the corresponding conjugate; the supplement
+also verifies the identity directly, in the convention used here, on every
+Christoffel word of depth at most eleven. Let
+
+\begin{equation}
+ \mathsf A=\begin{pmatrix}2&1\\1&1\end{pmatrix},
+ \qquad
+ \mathsf B=\begin{pmatrix}5&2\\2&1\end{pmatrix},
+ \label{eq:cohn-generators}
+\end{equation}
+
+and for a word $w$ over $\{a,b\}$ write $M_w$ for the corresponding product,
+$a\mapsto\mathsf A$ and $b\mapsto\mathsf B$. If $w$ is a Christoffel word,
+then $M_w\in\mathrm{SL}_2(\Z)$ has positive entries and
+
+\begin{equation}
+ M_w=\begin{pmatrix}A&m\\C&D\end{pmatrix},
+ \qquad
+ A+D=3m,
+ \qquad
+ 1\leqslant D\leqslant m,
+ \label{eq:cohn-normalisation}
+\end{equation}
+
+where $m$ is the Markoff number attached to $w$. Two consequences are used
+below. First, $AD-mC=1$ and $A\equiv-D\pmod m$ give $D^2\equiv-1\pmod m$, so
+the residue
+
+\begin{equation}
+ u=A-2m=m-D
+ \label{eq:characteristic-root}
+\end{equation}
+
+lies in $[0,m)$ and satisfies $u^2+1\equiv0\pmod m$; it is the
+characteristic root of the Markoff number. Second, the Markoff word attached
+to $m$, that is the Christoffel word of slope $u/(m-u)$, has length exactly
+$m$, with
+
+\begin{equation}
+ m_b=u\ \text{letters }b,
+ \qquad
+ m_a=m-u\ \text{letters }a.
+ \label{eq:letter-counts}
+\end{equation}
+
+We write $\varphi=(1+\sqrt5)/2$ throughout, as elsewhere in this paper.
+
+\subsection{The writing and the letter counts determine each other}
+
+The seed data of this paper is a primitive two-square writing $m=p^2+q^2$,
+whereas the word side supplies the letter counts \cref{eq:letter-counts}. The
+passage between the two is the Gauss correspondence between primitive writings
+and square roots of $-1$, and it takes the concrete form of a congruence with
+an explicit quotient. We record it because it turns the first row of
+\cref{tab:dictionary} into an identity rather than an analogy, and because the
+orientation ambiguity it carries is exactly the ambiguity
+$u\leftrightarrow m-u$ of the characteristic root.
+
+\begin{proposition}[Gauss congruence and its orientation]
+\label{prop:gauss-congruence}
+Let $p$ and $q$ be coprime positive integers, put $m=p^2+q^2$, and let
+$u\in[0,m)$ be the residue determined by $uq\equiv p\pmod m$. Then
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item $u^2+1\equiv0\pmod m$;
+ \item $q-p+u(p+q)\equiv0\pmod m$, and the quotient
+
+ \begin{equation}
+  k=\frac{u(p+q)+q-p}{m}
+  \label{eq:gauss-quotient}
+ \end{equation}
+
+ is the unique integer of the open interval $(0,p+q)$ satisfying
+ $kq\equiv1\pmod{p+q}$;
+ \item exchanging $p$ and $q$ replaces $u$ by $m-u$ and $k$ by $p+q-k$; the
+ companion congruence is $p-q+(m-u)(p+q)\equiv0\pmod m$, and its quotient
+ $p+q-k$ is the inverse of $p$ modulo $p+q$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{The residue is well defined.} A common divisor of $q$ and $m=p^2+q^2$
+divides $p^2$, hence divides $\gcd(p,q)^2=1$. So $q$ is invertible modulo $m$,
+and $u=pq^{-1}\bmod m$ exists and is unique in $[0,m)$.
+
+\emph{Part (i).} Reducing $m=p^2+q^2$ modulo $m$ gives $p^2\equiv-q^2$.
+Multiplying by the square of $q^{-1}$,
+
+\begin{equation}
+ u^2=p^2\bigl(q^{-1}\bigr)^2\equiv-q^2\bigl(q^{-1}\bigr)^2=-1\pmod m.
+\end{equation}
+
+\emph{Part (ii), the congruence.} Expanding and using $p^2\equiv-q^2$ once,
+
+\begin{equation}
+ u(p+q)\equiv pq^{-1}(p+q)=p+p^2q^{-1}\equiv p-q^2q^{-1}=p-q\pmod m,
+ \label{eq:gauss-congruence-core}
+\end{equation}
+
+which is the assertion.
+
+\emph{Part (ii), the quotient lies in $(0,p+q)$.} First $u\neq0$: otherwise
+$p\equiv0\pmod m$, which is impossible because $1\leqslant p<m$. Hence
+$1\leqslant u\leqslant m-1$, and the numerator of \cref{eq:gauss-quotient} is
+bounded on both sides by
+
+\begin{equation}
+ 2q=(p+q)+q-p\leqslant u(p+q)+q-p\leqslant(m-1)(p+q)+q-p=m(p+q)-2p.
+\end{equation}
+
+The left end is positive and the right end is smaller than $m(p+q)$, so
+dividing by $m$ gives $0<k<p+q$; and $k$ is an integer because the numerator is
+divisible by $m$ by the previous step.
+
+\emph{Part (ii), the quotient is an inverse.} By the definition of $u$ there is
+an integer $a$ with $uq=p+am$. Multiplying $km=u(p+q)+q-p$ by $q$ and
+substituting,
+
+\begin{equation}
+ kmq=uq(p+q)+q^2-pq=(p+am)(p+q)+q^2-pq=p^2+q^2+am(p+q),
+\end{equation}
+
+the term $pq$ cancelling. The right-hand side is $m+am(p+q)$, so dividing
+through by $m$,
+
+\begin{equation}
+ kq=1+a(p+q).
+ \label{eq:gauss-quotient-inverse}
+\end{equation}
+
+Thus $kq\equiv1\pmod{p+q}$. Since $\gcd(q,p+q)=\gcd(q,p)=1$, that inverse is
+unique modulo $p+q$, and by the previous step $k$ is its representative in
+$(0,p+q)$.
+
+\emph{Part (iii).} Exchanging $p$ and $q$ replaces $u$ by the residue $u'$
+determined by $u'p\equiv q$, that is $u'=qp^{-1}\bmod m$. Then $uu'\equiv1$,
+and multiplying $u^2\equiv-1$ by $u'$ gives $u\equiv u^2u'\equiv-u'$; since
+both lie in $[0,m)$ and $u\neq0$, this means $u'=m-u$. Parts (i) and (ii)
+applied to the pair $(q,p)$ give the companion congruence together with the
+statement that its quotient $k'=\bigl(u'(p+q)+p-q\bigr)/m$ is the inverse of
+$p$ modulo $p+q$. Finally, adding the two numerators and using $u+u'=m$,
+
+\begin{equation}
+ (k+k')m=(u+u')(p+q)=m(p+q),
+\end{equation}
+
+so $k'=p+q-k$.
+\end{proof}
+
+\begin{proposition}[The writing attached to a root of $-1$]
+\label{prop:writing-from-root}
+Let $m\geqslant5$ and let $u$ be an integer with $u^2+1\equiv0\pmod m$. Then
+there is exactly one pair $(p,q)$ of positive integers with $m=p^2+q^2$ and
+$p\equiv uq\pmod m$, and that pair is coprime.
+\end{proposition}
+
+\begin{proof}
+\emph{A small solution of the congruence.} Put $n=\lfloor\sqrt m\rfloor$ and
+consider the $(n+1)^2$ pairs $(s,t)$ of integers with $0\leqslant s,t\leqslant n$.
+Since $(n+1)^2>m$, two distinct such pairs $(s_1,t_1)$ and $(s_2,t_2)$ satisfy
+$s_1-ut_1\equiv s_2-ut_2\pmod m$. Put $x=s_1-s_2$ and $y=t_1-t_2$, so that
+
+\begin{equation}
+ x\equiv uy\pmod m,
+ \qquad
+ \abs x\leqslant n,
+ \qquad
+ \abs y\leqslant n,
+ \label{eq:thue-pair}
+\end{equation}
+
+with $(x,y)\neq(0,0)$. Neither coordinate vanishes. If $y=0$ then $m\mid x$
+while $0<\abs x\leqslant n<m$; and if $x=0$ then $m\mid uy$, hence $m\mid y$
+because $\gcd(u,m)=1$, while $0<\abs y\leqslant n<m$.
+
+\emph{The pair represents $m$.} Squaring \cref{eq:thue-pair} and using
+$u^2\equiv-1$,
+
+\begin{equation}
+ x^2+y^2\equiv u^2y^2+y^2=(u^2+1)y^2\equiv0\pmod m,
+\end{equation}
+
+while $0<x^2+y^2\leqslant2n^2\leqslant2m$. So $x^2+y^2$ is either $m$ or $2m$.
+Suppose it were $2m$. Then $\abs x=\abs y=n$ and $m=n^2$, so $x=\delta n$ and
+$y=\delta'n$ for two signs $\delta,\delta'\in\{1,-1\}$, and
+$x-uy=n(\delta-u\delta')$. Since $m=n^2$ divides $x-uy$, we get
+$n\mid\delta-u\delta'$, hence $u\equiv\delta\delta'\pmod n$ and therefore
+$u^2\equiv1\pmod n$. But $n\mid m$ and $m\mid u^2+1$ give $u^2\equiv-1\pmod n$,
+so $n\mid2$ and $m=n^2\leqslant4$, contradicting $m\geqslant5$. Hence
+$x^2+y^2=m$.
+
+\emph{The pair is coprime.} Let $g=\gcd(x,y)$ and write $x=gx_1$, $y=gy_1$.
+Then $g^2\mid x^2+y^2=m$; put $m_1=m/g^2=x_1^2+y_1^2$. The divisibility
+$m\mid x-uy$ reads $g^2m_1\mid g(x_1-uy_1)$, that is
+
+\begin{equation}
+ x_1\equiv uy_1\pmod{gm_1}.
+\end{equation}
+
+Squaring it and using $u^2\equiv-1$ modulo $g^2m_1$, hence a fortiori modulo
+$gm_1$,
+
+\begin{equation}
+ m_1=x_1^2+y_1^2\equiv(u^2+1)y_1^2\equiv0\pmod{gm_1}.
+\end{equation}
+
+A positive integer divisible by $gm_1$ and equal to $m_1$ forces $g=1$.
+
+\emph{Normalisation.} Changing $(x,y)$ into $(-x,-y)$ leaves
+\cref{eq:thue-pair} unchanged, so we may assume $y>0$. If $x>0$, take
+$(p,q)=(x,y)$. If $x<0$, put $p=y$ and $q=-x$, both positive; multiplying
+$x\equiv uy$ by $u$ and using $u^2\equiv-1$ gives $ux\equiv-y$, that is
+$y\equiv u(-x)$, which is $p\equiv uq$. In both cases $m=p^2+q^2$ with
+$\gcd(p,q)=1$ and $p\equiv uq\pmod m$.
+
+\emph{Uniqueness.} Let $(p,q)$ and $(P,Q)$ be pairs of positive integers with
+$m=p^2+q^2=P^2+Q^2$, $p\equiv uq$ and $P\equiv uQ$ modulo $m$. Then
+
+\begin{equation}
+ pQ-qP\equiv uqQ-quQ=0\pmod m.
+\end{equation}
+
+On the other hand $pQ-qP$ is the inner product of $(p,q)$ with $(Q,-P)$, so by
+the Cauchy--Schwarz inequality
+
+\begin{equation}
+ \abs{pQ-qP}\leqslant\sqrt{p^2+q^2}\,\sqrt{P^2+Q^2}=m,
+\end{equation}
+
+with equality only if $(p,q)$ and $(Q,-P)$ are proportional. That is
+impossible: $p=\mu Q$ would need $\mu>0$ and $q=-\mu P$ would need $\mu<0$.
+Hence $\abs{pQ-qP}<m$, and the congruence forces $pQ=qP$. Since
+$\gcd(p,q)=1$, this gives $P=\kappa p$ and $Q=\kappa q$ for a positive integer
+$\kappa$, and then $m=P^2+Q^2=\kappa^2m$ gives $\kappa=1$.
+\end{proof}
+
+\begin{corollary}[The writing and the letter counts determine each other]
+\label{cor:writing-letter-counts}
+Let $m\geqslant5$ be a Markoff number and $u$ its characteristic root
+\cref{eq:characteristic-root}. Then $m$ has exactly one writing $m=p^2+q^2$ in
+positive integers with $p\equiv uq\pmod m$, that writing is primitive, and the
+letter counts \cref{eq:letter-counts} of the Markoff word of $m$ satisfy
+
+\begin{equation}
+ m_b(p+q)\equiv p-q,
+ \qquad
+ m_a(p+q)\equiv q-p
+ \pmod m.
+ \label{eq:letter-counts-congruence}
+\end{equation}
+
+Exchanging $p$ with $q$ replaces $u$ by $m-u$ and exchanges $m_a$ with $m_b$.
+\end{corollary}
+
+\begin{proof}
+The characteristic root satisfies $u^2+1\equiv0\pmod m$ by
+\cref{eq:characteristic-root}, so \cref{prop:writing-from-root} supplies the
+writing, its primitivity and its uniqueness. Its defining congruence
+$p\equiv uq$ says that the residue attached to $(p,q)$ in
+\cref{prop:gauss-congruence} is $u$ itself, so
+\cref{eq:gauss-congruence-core} gives $u(p+q)\equiv p-q$; by
+\cref{eq:letter-counts} that residue is the letter count $m_b$, which is the
+first congruence. The second follows from $m_a=m-m_b$, since then
+$m_a(p+q)\equiv-u(p+q)\equiv q-p$. The last assertion is part (iii) of
+\cref{prop:gauss-congruence}.
+\end{proof}
+
+For a Markoff number the two-square writing and the Markoff word are therefore
+two readings of one object, and each is computed from the other: the writing
+from the characteristic root by \cref{prop:writing-from-root}, the letter
+counts from the writing by \cref{eq:letter-counts-congruence}. The only
+ambiguity in the passage is the exchange $u\leftrightarrow m-u$, which is the
+choice of an ordering of the pair $(p,q)$. The next subsection computes both
+sides explicitly on the two extreme arms of the tree, where the letter counts
+turn out to be the coordinates of a power of the fundamental unit.
+
+\subsection{Letter counts on the two arms are unit coordinates}
+
+The leftmost branch of the Christoffel tree consists of the words $a^kb$
+and produces the Fibonacci Markoff numbers; the rightmost consists of the
+words $ab^k$ and produces the Pell Markoff numbers. On both, the letter
+counts are not merely reminiscent of the fundamental unit: they are its
+coordinates.
+
+\begin{proposition}[Letter counts on the two arms]
+\label{prop:arm-letter-counts}
+For $k\geqslant1$,
+
+\begin{equation}
+ (m_a,m_b)=(F_{2k},F_{2k-1})
+ \quad\text{when}\quad
+ m=F_{2k+1},
+ \label{eq:fib-arm-counts}
+\end{equation}
+
+and
+
+\begin{equation}
+ (m_a,m_b)=(C_{2k},P_{2k})
+ \quad\text{when}\quad
+ m=P_{2k+1}.
+ \label{eq:pell-arm-counts}
+\end{equation}
+
+Equivalently, $(m_a,m_b)$ is the coordinate vector of $\varphi^{2k}$ in the
+basis $(\varphi,1)$ of $\Z[\varphi]$ in the first case, and of $\lambda^{2k}$
+in the basis $(1,\sqrt2)$ of $\Z[\sqrt2]$ in the second.
+\end{proposition}
+
+\begin{proof}
+Both cases are a direct computation with the Cohn generators
+\cref{eq:cohn-generators}, using \cref{eq:characteristic-root} in the form
+$m=(M_w)_{12}$ and $u=(M_w)_{11}-2m$. Two elementary matrix identities drive
+them. Writing
+
+\begin{equation}
+ \mathsf F=\begin{pmatrix}1&1\\1&0\end{pmatrix},
+ \qquad
+ \mathsf P=\begin{pmatrix}2&1\\1&0\end{pmatrix},
+ \label{eq:fib-pell-matrices}
+\end{equation}
+
+one checks at once that $\mathsf F^2=\mathsf A$ and
+$\mathsf P^2=\mathsf B$, and the standard induction gives
+
+\begin{equation}
+ \mathsf F^{\,r}=\begin{pmatrix}F_{r+1}&F_r\\F_r&F_{r-1}\end{pmatrix},
+ \qquad
+ \mathsf P^{\,r}=\begin{pmatrix}P_{r+1}&P_r\\P_r&P_{r-1}\end{pmatrix}.
+ \label{eq:power-matrices}
+\end{equation}
+
+\emph{Fibonacci arm.} The word is $w=a^{k-1}b$, so
+$M_w=\mathsf A^{k-1}\mathsf B=\mathsf F^{2k-2}\mathsf B$. Multiplying
+\cref{eq:power-matrices} by $\mathsf B$ gives
+
+\begin{equation}
+ M_w=
+ \begin{pmatrix}
+ 5F_{2k-1}+2F_{2k-2} & 2F_{2k-1}+F_{2k-2}\\
+ 5F_{2k-2}+2F_{2k-3} & 2F_{2k-2}+F_{2k-3}
+ \end{pmatrix}.
+\end{equation}
+
+Its $(1,2)$ entry is
+$2F_{2k-1}+F_{2k-2}=F_{2k-1}+(F_{2k-1}+F_{2k-2})=F_{2k-1}+F_{2k}=F_{2k+1}$,
+so $m=F_{2k+1}$. Subtracting twice this from the $(1,1)$ entry,
+
+\begin{equation}
+ u=(5F_{2k-1}+2F_{2k-2})-2(2F_{2k-1}+F_{2k-2})=F_{2k-1}.
+\end{equation}
+
+Hence $m_b=F_{2k-1}$ and $m_a=F_{2k+1}-F_{2k-1}=F_{2k}$, which is
+\cref{eq:fib-arm-counts}. The coordinate statement is Binet's identity
+$\varphi^{2k}=F_{2k}\varphi+F_{2k-1}$, immediate by induction from
+$\varphi^2=\varphi+1$.
+
+\emph{Pell arm.} The word is $w=ab^{k}$, so
+$M_w=\mathsf A\mathsf B^{k}=\mathsf A\mathsf P^{2k}$, and
+\cref{eq:power-matrices} gives
+
+\begin{equation}
+ M_w=
+ \begin{pmatrix}
+ 2P_{2k+1}+P_{2k} & 2P_{2k}+P_{2k-1}\\
+ P_{2k+1}+P_{2k} & P_{2k}+P_{2k-1}
+ \end{pmatrix}.
+\end{equation}
+
+Its $(1,2)$ entry is $2P_{2k}+P_{2k-1}=P_{2k+1}$ by the Pell recursion, so
+$m=P_{2k+1}$. Subtracting twice this from the $(1,1)$ entry,
+
+\begin{equation}
+ u=(2P_{2k+1}+P_{2k})-2P_{2k+1}=P_{2k}.
+\end{equation}
+
+Hence $m_b=P_{2k}$ and $m_a=P_{2k+1}-P_{2k}=C_{2k}$, the last equality being
+the recursion $P_{r+1}=C_r+P_r$ recorded after
+\cref{eq:pell-coordinates}. This is \cref{eq:pell-arm-counts}.
+
+Both computed roots do satisfy $u^2+1\equiv0$ modulo $m$, as
+\cref{eq:characteristic-root} requires, and in both cases this is a
+determinant. Since $\det\mathsf F=\det\mathsf P=-1$, taking determinants in
+\cref{eq:power-matrices} at the even exponent $r=2k$ gives
+
+\begin{equation}
+ F_{2k+1}F_{2k-1}-F_{2k}^2=1,
+ \qquad
+ P_{2k+1}P_{2k-1}-P_{2k}^2=1.
+ \label{eq:cassini-even}
+\end{equation}
+
+The second congruence is immediate: $P_{2k}^2\equiv-1\pmod{P_{2k+1}}$. The
+first gives $F_{2k}^2\equiv-1\pmod{F_{2k+1}}$, and since
+$F_{2k-1}=F_{2k+1}-F_{2k}\equiv-F_{2k}$, also
+$F_{2k-1}^2\equiv F_{2k}^2\equiv-1\pmod{F_{2k+1}}$.
+\end{proof}
+
+\begin{remark}[A numerical coincidence explained]
+\label{rem:377-233}
+The case $k=7$ of \cref{eq:fib-arm-counts} reads $m=F_{15}=610$ and
+$(m_a,m_b)=(377,233)$, and the corresponding unit identity is
+$\varphi^{14}=377\varphi+233$, which is \cref{eq:phi14}. The two occurrences
+of the pair $(377,233)$ in this paper, one as a threshold in the
+even-branch estimate and one as the letter counts of the Markoff word of
+$610$, are therefore the same identity read twice. The first nontrivial Pell
+case is $\lambda^4=17+12\sqrt2$: the Markoff word of $29$ has $17$ letters
+$a$ and $12$ letters $b$.
+
+The passage from the two-square writing to the letter counts is not an
+analogy to be tested on examples: \cref{cor:writing-letter-counts} makes it an
+identity, proved for every Markoff number. It can also be watched on the word
+side, where it takes a purely combinatorial form. Starting from the two-square
+pair one recovers the half directive word by iterated palindromic closure and
+doubles it by reversal complement. At $m=29$ the pair $(2,5)$ returns the half
+directive word $aab$, whose reversal complement $abb$ prefixes it into the
+directive word $abbaab$, and the Markoff word
+it builds has the $17$ letters $a$ and $12$ letters $b$ that
+\cref{eq:letter-counts} predicts from the characteristic root $u=12$, a
+quantity that mentions neither the pair nor any palindrome.
+\end{remark}
+
+\subsection{Every branch carries a quadratic Perron unit}
+
+Fix a Christoffel word $u_0$ with Markoff number $m_0$, and follow the branch
+of the tree that keeps $m_0$ fixed, so that the node words are
+$u_0^{\,k}v_0$ for a fixed $v_0$. Write $m_k$ for the Markoff number of the
+$k$-th node and $u_k$ for its characteristic root.
+
+\begin{proposition}[Branch recurrence]
+\label{prop:branch-recurrence}
+The vector $(m_a,m_b)_k=(m_k-u_k,u_k)$ satisfies
+
+\begin{equation}
+ (m_a,m_b)_{k+1}
+ =3m_0\,(m_a,m_b)_k-(m_a,m_b)_{k-1}.
+ \label{eq:branch-recurrence}
+\end{equation}
+
+Its characteristic polynomial is $x^2-3m_0x+1$, whose dominant root
+
+\begin{equation}
+ \beta(m_0)=\frac{3m_0+\sqrt{9m_0^2-4}}2
+ \label{eq:branch-perron}
+\end{equation}
+
+is a quadratic unit, hence a Perron number, of the order of discriminant
+$9m_0^2-4$.
+\end{proposition}
+
+\begin{proof}
+Write $P_k=M_{u_0^{\,k}v_0}$ for the Cohn matrix of the $k$-th node. Since
+the Cohn correspondence is multiplicative on concatenation,
+$P_k=M_{u_0}^{\,k}M_{v_0}$.
+
+\emph{Step 1: the matrix recurrence.} The matrix $M_{u_0}$ lies in
+$\mathrm{SL}_2(\Z)$ and has trace $3m_0$ by
+\cref{eq:cohn-normalisation}. Its characteristic polynomial is therefore
+$x^2-3m_0x+1$, and Cayley--Hamilton gives
+$M_{u_0}^2=3m_0M_{u_0}-I$. Multiplying on the right by
+$M_{u_0}^{\,k-1}M_{v_0}$ yields
+
+\begin{equation}
+ P_{k+1}=3m_0P_k-P_{k-1},
+ \label{eq:matrix-recurrence}
+\end{equation}
+
+an identity between matrices, hence between each of their four entries
+separately.
+
+\emph{Step 2: the two entries we need.} By \cref{eq:cohn-normalisation}, the
+Markoff number is the $(1,2)$ entry, $m_k=(P_k)_{12}$, and the $(1,1)$ entry
+is $(P_k)_{11}$. Both obey the scalar recurrence
+$x_{k+1}=3m_0x_k-x_{k-1}$, by Step 1.
+
+\emph{Step 3: the characteristic root obeys it too.} By
+\cref{eq:characteristic-root}, $u_k=(P_k)_{11}-2m_k$. A fixed integer linear
+combination of two solutions of a linear recurrence is again a solution, so
+$u_k$ satisfies $x_{k+1}=3m_0x_k-x_{k-1}$. The constancy of the coefficient
+$2$ is exactly the normalisation $1\leqslant D\leqslant m$ recorded in
+\cref{eq:cohn-normalisation}, which holds at every node.
+
+\emph{Step 4: assembling the vector.} Both coordinates of
+$(m_a,m_b)_k=(m_k-u_k,u_k)$ are integer linear combinations of $m_k$ and
+$u_k$, so both satisfy the same recurrence, which is
+\cref{eq:branch-recurrence}. Its characteristic polynomial is
+$x^2-3m_0x+1$; since $m_0\geqslant1$ the discriminant $9m_0^2-4$ is positive
+and not a square for $m_0\geqslant2$, and the dominant root is
+\cref{eq:branch-perron}. It is a unit because the product of the two roots is
+the constant term $1$.
+\end{proof}
+
+The two arms are the cases $m_0=1$ and $m_0=2$, where
+$\beta(1)=(3+\sqrt5)/2=\varphi^2$ and
+$\beta(2)=3+2\sqrt2=\lambda^2$.
+
+\begin{remark}[The order in which $\beta(m_0)$ lives is classical]
+\label{rem:frobenius-conic}
+The discriminant $9m_0^2-4$ of \cref{eq:branch-perron} is not new to Markoff
+theory. At a fixed largest entry $c$, the Markoff equation can be written as
+the pair of identities
+
+\begin{equation}
+ (a-b)^2+c^2=ab(3c-2),
+ \qquad
+ (a+b)^2+c^2=ab(3c+2),
+ \label{eq:frobenius-identities}
+\end{equation}
+
+which are printed in Frobenius \cite[p.~601 of the reprint]{Frobenius1913}
+and are quoted as equations~(3) and~(4) by Zhang \cite{Zhang2007}, and whose
+cross product is a conic of discriminant $(3c-2)(3c+2)=9c^2-4$. That conic is
+itself classical: in the halved coordinates $A=(a+b)/2$ and $B=(a-b)/2$ it is
+printed as
+
+\begin{equation}
+ (2-3c)A^2+(2+3c)B^2=-c^2
+ \label{eq:srinivasan-conic}
+\end{equation}
+
+in \cite[eq.~(2.3)]{Srinivasan2009}. So the
+order that carries the branch unit $\beta(m_0)$ is exactly the order attached
+to $m_0$ by the classical theory, and the two extreme arms of
+\cref{thm:half-step-criterion} are the two branches whose unit happens to be
+a square in it. They are also the source of the sharpest known unconditional
+uniqueness criteria, which run modulo $3c\pm2$ rather than modulo $c$:
+\cite[Theorem~2]{Zhang2007} settles every Markoff number for which one of
+$3c-2$, $3c+2$ is a prime power, four times a prime power, or eight times a
+prime power, and \cite[Theorem~2.3]{Srinivasan2009} settles every Markoff
+number whose $3c-2$ or $3c+2$ has a prime power for greatest odd divisor. The
+two hypotheses coincide on Markoff numbers, because $3c\pm2$ is odd for odd
+$c$, while for even $c$ the quotients $(3c-2)/4$ and $(3c+2)/8$ are odd
+integers \cite[Lemma~4.2]{Srinivasan2009}.
+
+Srinivasan works in exactly the order met here. Her uniqueness criterion
+\cite[Theorem~5.4]{Srinivasan2009} asks that every ambiguous form lying in the
+principal genus of the class group of discriminant $9c^2-4$ correspond to a
+divisor of $3c-2$, and for a $c$ that is not a prime power she proves that
+Markoff uniqueness at $c$ is \emph{equivalent} to a statement about
+$\Q(\sqrt{9c^2-4})$ \cite[Theorem~5.3]{Srinivasan2009}. The order attached to
+a branch is therefore not an artefact of our construction; it is where the
+difficulty of the conjecture is already known to sit.
+
+One consequence is worth recording, because it explains why
+\cref{thm:half-step-criterion} is stated for a unit of an arbitrary real
+quadratic order rather than of this one. The branch unit $\beta(m_0)$ has norm
+$1$ in the order of discriminant $9m_0^2-4$, and a square root of it of norm
+$-1$ need not lie in that order. At $m_0=1$ it does: the discriminant is $5$,
+the order is the maximal order of $\Q(\sqrt5)$, and $\varphi$ lies in it. At
+$m_0=2$ it does not: the discriminant is $32$, the order is $\Z[2\sqrt2]$, and
+$\lambda=1+\sqrt2$ lies instead in the maximal order $\Z[\sqrt2]$, of
+discriminant $8$. Restricting $\varepsilon$ to the order of $\beta(m_0)$ would
+therefore have discarded the Pell arm. We use none of this, and record it only
+because it locates \cref{prop:branch-recurrence} inside the classical
+picture.
+\end{remark}
+
+\subsection{The mechanism exists on exactly two branches}
+
+\Cref{prop:branch-recurrence} says that a quadratic unit governs every
+branch. That is not what the proofs in this paper consume. What they consume
+is the semiconjugacy of \cref{prop:seed-semiconjugacy}: the map
+$\mathsf S$ advances the two-square data by one step, and $\mathsf S^2$
+realises $\beta$. In other words the argument needs a \emph{square root} of
+$\beta(m_0)$, acting integrally. The following theorem shows that this is a
+severe restriction.
+
+\begin{theorem}[Trace criterion for a half-step]
+\label{thm:half-step-criterion}
+Let $m_0$ be a Markoff number and suppose $\beta(m_0)=\varepsilon^2$ for a
+unit $\varepsilon$ of a real quadratic order. Then
+
+\begin{equation}
+ 3m_0-2\ \text{is a perfect square},
+ \label{eq:half-step-criterion}
+\end{equation}
+
+and $\varepsilon$ has norm $-1$ and trace $\sqrt{3m_0-2}$.
+\end{theorem}
+
+\begin{proof}
+Let $t=\varepsilon+\overline\varepsilon$ be the trace of $\varepsilon$ and
+$N(\varepsilon)=\varepsilon\overline\varepsilon=\pm1$ its norm; both are
+rational integers. Squaring,
+
+\begin{equation}
+ \beta(m_0)+\overline{\beta(m_0)}
+ =\varepsilon^2+\overline\varepsilon^{\,2}
+ =t^2-2N(\varepsilon).
+\end{equation}
+
+The left-hand side is the trace of $\beta(m_0)$, which is $3m_0$ by
+\cref{eq:branch-perron}. Hence
+
+\begin{equation}
+ t^2=3m_0+2N(\varepsilon).
+\end{equation}
+
+Two cases arise. If $N(\varepsilon)=1$ then $t^2=3m_0+2$. But every square is
+congruent to $0$ or $1$ modulo $3$, while $3m_0+2\equiv2\pmod3$, so this case
+is impossible. Therefore $N(\varepsilon)=-1$ and $t^2=3m_0-2$, which is
+\cref{eq:half-step-criterion}.
+\end{proof}
+
+For the two arms the criterion is satisfied with room to spare:
+$3\cdot1-2=1$ gives $t=1$ and $\varepsilon=\varphi$, while
+$3\cdot2-2=4$ gives $t=2$ and $\varepsilon=\lambda$. Both have norm $-1$, as
+the theorem requires, and both are the units of this paper.
+
+\begin{remark}[Computational scope]
+\label{rem:half-step-scan}
+Among all $3502$ Markoff numbers below $10^{60}$, and again among the
+$4097$ produced by the Christoffel tree to depth $11$, the criterion
+\cref{eq:half-step-criterion} is met by exactly three: $m_0=1$, $m_0=2$ and
+$m_0=34$, with $3\cdot34-2=100$ and $\varepsilon=5+\sqrt{26}$. This is a
+verification on a finite family and not a theorem: we do not know whether
+$3m-2$ is a perfect square for infinitely many Markoff numbers $m$, and
+nothing below depends on the answer. The certificate is
+\texttt{check\_two\_arms.py} in the supplement.
+\end{remark}
+
+The third candidate is excluded, and here the finiteness is genuine, because
+the statement concerns one explicit linear system.
+
+\begin{proposition}[No half-step at $m_0=34$]
+\label{prop:no-half-step-34}
+The branch fixing $m_0=34$ carries no integral half-step on the two-square
+data.
+\end{proposition}
+
+\begin{proof}
+The successive two-square writings on that branch are
+$(5,8)$, $(34,89)$, $(513,814)$ and $(3468,9077)$, attached to the Markoff
+numbers $89$, $9077$, $925765$ and $94418953$. A half-step would be a matrix
+$\mathsf T\in\mathrm{GL}_2(\Z)$ carrying each writing to the next. The first
+two conditions already determine $\mathsf T$ over $\Q$, because $(5,8)$ and
+$(34,89)$ are linearly independent, and solving the resulting linear system
+gives
+
+\begin{equation}
+ \mathsf T=\frac1{173}
+ \begin{pmatrix}-1078&1409\\1409&1044\end{pmatrix},
+\end{equation}
+
+whose entries are not integers. Moreover this $\mathsf T$ sends
+$(513,814)$ to
+
+\begin{equation}
+ \left(\frac{593912}{173},\ \frac{1572633}{173}\right)
+ \ne(3468,9077),
+\end{equation}
+
+so no matrix at all, integral or not, satisfies the first three conditions
+simultaneously.
+\end{proof}
+
+Thus the criterion admits three branches, and only two of them survive. The
+pairing of $\varphi$ against $\lambda$ in this paper is therefore not a
+choice among infinitely many; it is the complete list of branches on which
+the semiconjugacy of \cref{prop:seed-semiconjugacy} can exist at all.
+
+\subsection{The two arms are the two constant directive words}
+
+There is a second, purely combinatorial way to see the same pair, and it
+explains where $\gamma$ comes from.
+
+A Markoff directive word has all its partial quotients in $\{1,2\}$. There
+are exactly two constant such sequences, and their values are
+
+\begin{equation}
+ [1;1,1,1,\ldots]=\varphi,
+ \qquad
+ [2;2,2,2,\ldots]=1+\sqrt2=\lambda.
+ \label{eq:constant-directives}
+\end{equation}
+
+These are the Fibonacci and Pell arms. The next proposition converts this
+into a statement about the cost of a directive word, that is, the number of
+steps of the subtractive Euclidean algorithm on the two-square pair, which
+equals the sum of the partial quotients minus one.
+
+\begin{proposition}[Arm costs and the meaning of $\gamma$]
+\label{prop:arm-costs}
+Let $\ell(p,q)$ denote the cost of the pair $(p,q)$. On the Fibonacci arm,
+where $m=F_{2k+1}$ and $(p,q)=(F_k,F_{k+1})$,
+
+\begin{equation}
+ \ell(F_k,F_{k+1})=k-1;
+\end{equation}
+
+on the Pell arm, where $m=P_{2k+1}$ and $(p,q)=(P_k,P_{k+1})$,
+
+\begin{equation}
+ \ell(P_k,P_{k+1})=2k-1.
+\end{equation}
+
+Consequently, comparing the two arms at equal magnitude,
+
+\begin{equation}
+ \frac{\ell\ \text{on the Pell arm}}{\ell\ \text{on the Fibonacci arm}}
+ \longrightarrow
+ \frac{2\log\varphi}{\log\lambda}
+ =2\gamma
+ =1.09195\ldots
+ \label{eq:cost-ratio}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The continued fraction of $F_{k+1}/F_k$ is $[1,1,\ldots,1,2]$ with $k-1$
+partial quotients, by induction from $F_{k+1}=F_k+F_{k-1}$; its quotient sum
+is $(k-2)+2=k$, so the cost is $k-1$. The continued fraction of
+$P_{k+1}/P_k$ is $[2,2,\ldots,2]$ with $k$ partial quotients, by induction
+from $P_{k+1}=2P_k+P_{k-1}$; its quotient sum is $2k$, so the cost is
+$2k-1$.
+
+For the ratio, Binet's formulas give
+
+\begin{equation}
+ F_{2k+1}=\frac{\varphi^{2k+1}}{\sqrt5}+O(1),
+ \qquad
+ P_{2k+1}=\frac{\lambda^{2k+1}}{2\sqrt2}+O(1).
+\end{equation}
+
+Solving each for its index at a
+common magnitude $m$ gives $k=\log m/(2\log\varphi)+O(1)$ on the Fibonacci
+arm and $k=\log m/(2\log\lambda)+O(1)$ on the Pell arm. Substituting into
+the two cost formulas gives $\log m/(2\log\varphi)+O(1)$ and
+$\log m/\log\lambda+O(1)$ respectively, whose ratio tends to
+$2\log\varphi/\log\lambda$.
+\end{proof}
+
+So $\gamma$ is not a computational artefact of the reduction. It is the
+asymptotic exchange rate between the directive-word costs of the two arms,
+and the rational $p/Q$ of \cref{eq:common-convergent} is a certified
+rational approximation to that exchange rate.
+
+\begin{remark}[What is not claimed]
+\label{rem:not-extremal}
+It is tempting to strengthen \cref{eq:constant-directives} into a statement
+that the two arms are the extremes of the growth rate of admissible directive
+words. Only one half of that is true. Among all compositions of a given
+quotient sum $N$, the continuant is maximal at $(1,1,\ldots,1)$ and equals
+$F_{N+1}$, so the Fibonacci arm does grow fastest and
+$\ell(p,q)\geqslant\log(p+q)/\log\varphi+O(1)$ for every writing. The Pell
+arm, however, is not the slowest: over a common length of twelve letters the
+Stern--Brocot products for the patterns $(1,1),(2,2),(1,2)$ have traces
+$322$, $198$ and $194$, so the alternating pattern grows strictly more slowly
+than the Pell pattern. We therefore make no extremality claim from below.
+\end{remark}
+
+\subsection{Dictionary}
+
+The correspondence between the word-combinatorial objects and the objects of
+this paper is exact, and is summarised in \cref{tab:dictionary}. Its first row
+is an identity rather than an analogy: by \cref{cor:writing-letter-counts} the
+letter counts are read off the writing by a congruence, and the two orderings
+of the writing are the two letter counts.
+
+\begin{table}[H]
+\centering
+\caption{The word-combinatorial reading of the objects of this paper.}
+\label{tab:dictionary}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Christoffel--Markoff side & This paper\\
+\midrule
+valid writing $m=p^2+q^2$ & seed $z=(u,v)$ with $\mathcal H(z)=u^2+v^2$\\
+one step along the Pell arm & $\mathsf S(u,v)=(v,u+2v)$\\
+that step, in the unit & multiplication by $\lambda$\\
+Fibonacci arm & Fibonacci core $z_{q,\sigma}$\\
+letter counts $(m_a,m_b)$ & coordinates of $\varphi^{2k}$ or $\lambda^{2k}$\\
+cut values of the half directive word & the coefficients $F_r$, or $C_r$ and $P_r$\\
+directive-word cost & the exponents $q$ and $n$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The dictionary is already at work in this paper, without having been named.
+The identity $P_M=F_{q+1}^2+F_{q+2}^2=F_{2q+3}$ of \cref{eq:jminus1} says, in
+the left-hand column, that a Fibonacci-arm Markoff number, written as a sum
+of two squares, is a Pell number; and it is settled there by Alekseyev's
+Fibonacci--Pell intersection theorem \cite[Theorem~9]{Alekseyev2011}.
+
+\subsection{Consequence for the Markoff-facing programme}
+
+\Cref{thm:half-step-criterion,prop:no-half-step-34} close one route that
+would otherwise look promising. Given the general orbit/gap equivalence of
+\cref{thm:general-orbit-gap}, it is natural to try to prove the analogue of
+\cref{thm:classification-intro} on another branch of the Markoff tree, by
+transporting $\mathsf S$ there. That cannot be done: outside $m_0=1$ and
+$m_0=2$ there is no integral half-step to transport, because
+\cref{eq:half-step-criterion} fails, or, in the one remaining case, because
+the branch has the wrong initial data. Any extension must therefore change
+the mechanism, not merely its parameters.

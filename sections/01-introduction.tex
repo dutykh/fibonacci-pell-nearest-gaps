@@ -49,9 +49,9 @@ powers of $\lambda$ is at least $\lambda>2$. Write
 
 where
 
-$$
+\[
  N(a+b\sqrt2)=a^2-2b^2
-$$
+\]
 
 is the quadratic norm and the coefficient content of
 $a+b\sqrt2\in\Z[\sqrt2]$ is $\gcd(\abs a,\abs b)$. The target condition is
@@ -62,7 +62,7 @@ $a+b\sqrt2\in\Z[\sqrt2]$ is $\gcd(\abs a,\abs b)$. The target condition is
 \end{equation}
 
 After division by its largest rational coefficient factor, the gap is then
-a norm-$-1$ unit. The two surviving examples already display the two possible
+a unit of norm $-1$. The two surviving examples already display the two possible
 orientations:
 
 \begin{align}
@@ -79,8 +79,8 @@ of $n$ is not prescribed.
 
 \begin{theorem}[All-exponent nearest-gap classification]
 \label{thm:classification-intro}
-For $q\geqslant1$, $\sigma\in\{1,-1\}$, and positive $n$, the two conditions
-\cref{eq:intro-window,eq:intro-target} hold exactly in the two rows
+For $q\geqslant1$, $\sigma\in\{1,-1\}$, and positive $n$, the two conditions~\labelcref{eq:intro-window,eq:intro-target} hold exactly
+in the two rows
 
 \begin{equation}
  \begin{array}{ccccc}
@@ -118,14 +118,16 @@ rational-interval reductions yield $h<192$ and $q<90$, after which exact
 recurrence arithmetic is exhaustive. For odd $n$, the selector forces
 $3\mid q$. Its factorisation has no analogue of $h<n$, so the proof must be
 reordered: a fixed-coefficient logarithmic form first bounds
-$\min\{h,q\log_\lambda\varphi\}$, and only then can the moving-coefficient
+$\min\{h,q\log_\lambda\varphi\}$, where $\varphi=(1+\sqrt5)/2$, and only then
+can the moving-coefficient
 form bound $q$. The same certified reductions give $h<48$ or $q<96$, and
 the exact terminal list is empty.
 
 The scarcity in \cref{thm:classification-intro} does not come from scarcity
 of windows. \Cref{thm:candidate-density} proves that both even candidate
 windows occur for natural density
-$\log_\lambda\sqrt2-\eta=0.3300\ldots$, and that the density statement
+$\log_\lambda\sqrt2-\eta=0.3300\ldots$, with $\eta$ the phase constant of
+\cref{eq:window-phases},, and that the density statement
 persists on every arithmetic progression. The exact norm--content condition,
 not the Archimedean approximation, is the rigid step.
 
@@ -198,13 +200,13 @@ retains the anchor and time in both directions; it is not merely a numerical
 analogy.
 
 Several classical structures clarify why the proof works. The equations
-$N(X+Y\sqrt2)=\pm1$ define the norm-one torus and its norm-$-1$ torsor, so
+$N(X+Y\sqrt2)=\pm1$ define the norm-one torus and the torsor of norm $-1$, so
 coefficient content records the integral lattice multiple of a primitive
 torsor point. The matrix of $\mathsf S$ lies in $\mathrm{GL}_2(\Z)$, and
 its symmetric-square action preserves the Lorentzian identity
 $2\mathcal H^2-\mathcal B^2-\mathcal Q^2=0$ used in the orbit bridge.
-The two involutions of the biquadratic field $\Q(\sqrt2,\sqrt5)$ have
-different jobs: one controls Pell norms, while the other separates the
+Two of the three involutions of the biquadratic field $\Q(\sqrt2,\sqrt5)$
+carry the argument: one controls Pell norms, while the other separates the
 dominant and conjugate Fibonacci terms in the logarithmic forms. Finally,
 the local results combine $p$-adic rank lifting with an Archimedean irrational
 rotation. These are operational connections: each supplies an invariant,
@@ -221,9 +223,9 @@ equations \cite{LucaZottor2023}, and Kafle, Luca, Montejano, Szalay and
 Togb\'e treated $X$-coordinates that are products of two Fibonacci numbers
 \cite{KafleEtAl2019}. Each of those questions asks for a value coincidence
 between two sequences, or for an Archimedean bound on their difference. The
-present question is different in kind. The window
-\cref{eq:intro-window} is only its Archimedean part, and the arithmetic lies
-in the exact norm--content equation \cref{eq:intro-target} imposed on the gap
+present question is different in kind. The
+window~\labelcref{eq:intro-window} is only its Archimedean part, and the arithmetic lies
+in the exact norm--content \cref{eq:intro-target} imposed on the gap
 itself. That equation sees both coefficient coordinates of
 $\Delta_{q,\sigma}$ at once, which is why a positive-density supply of
 windows leaves exactly two rows.
@@ -238,14 +240,24 @@ $(a,b,c)$ with $a\leqslant b\leqslant c$ is a Markoff triple when
 \end{equation}
 
 and the conjecture asks whether the largest entry $c$ determines the
-unordered pair $\{a,b\}$. The problem has arithmetic, geometric, word-
-combinatorial, and trace formulations; see Aigner \cite{Aigner2013}, the
+unordered pair $\{a,b\}$. The problem has arithmetic, geometric,
+word-combinatorial, and trace formulations; see Aigner \cite{Aigner2013}, the
 integral-necklace model of Fisac \cite{Fisac2025}, and Reutenauer's account
 of Christoffel words and Markoff numbers \cite{Reutenauer2026}. The present
 paper neither proves nor disproves this conjecture. In particular, we do not
 prove that a hypothetical Markoff collision must enter the Fibonacci-core
 family in \cref{thm:orbit-intro}. The arithmetic theorem is complete on its
 stated domain; the upstream reduction remains open.
+
+The motivation does, however, fix the two sequences, and \cref{sec:two-arms}
+proves it. Each branch of the Markoff tree carries a quadratic Perron unit,
+the dominant root of $X^2-3m_0X+1$ for the Markoff number $m_0$ that the
+branch keeps. What the orbit bridge of \cref{sec:zero-defect} consumes is
+not that unit but an integral square root of it acting on two-square data,
+and comparing traces shows that such a square root forces $3m_0-2$ to be a
+perfect square. The Fibonacci and Pell arms, carrying $\varphi$ and
+$\lambda$, are the only branches on which one exists. The pairing studied
+here is therefore forced, not chosen.
 
 The local theory also draws a sharp methodological boundary. A natural
 plus-sign cross-gcd on genuine nearest windows contains arbitrary prescribed
@@ -258,7 +270,7 @@ compatible local rank clocks. They do not produce a norm--content target.
 \Cref{fig:logic} displays the dependency structure and the one unproved
 Markoff-facing arrow.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
  \centering
  \begin{tikzpicture}[
    node distance=6mm and 8mm,

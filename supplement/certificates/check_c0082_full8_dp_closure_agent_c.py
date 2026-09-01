@@ -205,6 +205,11 @@ def certify_common_convergent(gamma: Interval) -> Interval:
     gamma_scaled = scaled_interval(gamma, denominator)
     gamma_distance, nearest = distance_to_integer_interval(gamma_scaled)
     assert nearest == numerator
+
+    # The manuscript displays the sharper enclosure |Q*gamma - p| < 26/10^36.
+    # The Legendre radius alone is 1/(2Q) = 1.05...e-34, which is too weak to
+    # give the fixed and moving margins; this is the bound those margins consume.
+    assert gamma_distance[1] < Q(26, 10**36)
     return gamma_distance
 
 

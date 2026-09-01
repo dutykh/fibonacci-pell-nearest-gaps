@@ -190,10 +190,13 @@ This is positive for $\sigma=1$. For $\sigma=-1$, use
 \begin{equation}
  L-3fx=(x-f)(2x-f)>0,
  \qquad
- 3C_h>4P_h
+ \frac{C_h}{P_h}=\sqrt{2-\frac1{P_h^2}}\geqslant\frac75>\frac43
+ \qquad(h\geqslant3\ \text{odd})
 \end{equation}
 
-to obtain positivity again. Hence $g<C_M$, so
+to obtain positivity again. The middle identity is
+\cref{eq:pell-norm} at odd $h$, and $P_h\geqslant P_3=5$ gives the stated
+bound; the restriction to $h\geqslant3$ is needed, since $3C_1=3<4=4P_1$. Hence $g<C_M$, so
 $g^2<R_q^2+1$. Here $g$ is odd by the coefficient parity in
 \cref{eq:gap-coefficients}, whereas $R_q$ is even because $3\mid q$.
 Therefore $g<R_q$, and the divisibility assertion follows from the first
@@ -347,7 +350,9 @@ Only the sign of the last term differs from
  \label{eq:odd-Lambda1-small}
 \end{equation}
 
-and, by \cref{lem:matveev,eq:matveev-prefactor},
+and, by \cref{lem:matveev,eq:matveev-prefactor} with the moving height
+parameters \cref{eq:moving-height-parameters}, whose bound $B=2q$ is
+admissible here by \cref{eq:odd-n-less-2q},
 
 \begin{equation}
  2q\log\varphi
@@ -400,7 +405,15 @@ Dividing \cref{eq:odd-Lambda0-small} by $\log\lambda$ gives
 The common rational approximation and the two fixed-shift certificates
 \cref{eq:common-convergent,eq:convergent-certificate,eq:fixed-eta,eq:fixed-cutoff}
 depend only on $\gamma$, $\mu_\sigma$, and $\lambda$, not on the parity of
-$n$. The absolute-value reduction in \cref{lem:absolute-reduction}
+$n$. The absolute-value reduction in \cref{lem:absolute-reduction}, applied
+with
+
+\begin{equation}
+ a=2q,\quad b=n,\quad \mu=\mu_\sigma,\quad
+ \mathcal C=30,\quad \rho=\lambda^2,\quad
+ w=\min\{h,q\gamma\},\quad N_0=2\mathbin{\cdot}10^{32},
+\end{equation}
+
 therefore proves
 
 \begin{equation}
@@ -426,7 +439,9 @@ If $q\geqslant96$, then $q\gamma>48$, so $h=w<48$. Put
 The moving certificates \cref{eq:moving-eta,eq:moving-cutoff} cover both
 signs and every odd $3\leqslant h<192$, hence in particular the present
 range $3\leqslant h<48$. A second application of
-\cref{lem:absolute-reduction} gives $q<90$, contradicting
+\cref{lem:absolute-reduction}, now with $a=2q$, $b=n$,
+$\mu=\nu_{\sigma,h}$, $\mathcal C=27$, $\rho=\varphi^2$, $w=q$ and
+$N_0=2\mathbin{\cdot}10^{32}$, gives $q<90$, contradicting
 $q\geqslant96$. We conclude that
 
 \begin{equation}
