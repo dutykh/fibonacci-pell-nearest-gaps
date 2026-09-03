@@ -32,9 +32,9 @@ Blocks:
     Markoff numbers of depth 11.  This is the VERIFIED statement of the
     section's computational-scope remark.
 
-5.  Exclusion of m0 = 34.  The explicit rational linear system showing that no
-    integral half-step exists on that branch.  This is finite and therefore a
-    proof.
+5.  One displayed fixed-34 ray.  The explicit rational linear system showing
+    that no integral half-step exists on the LLL|R^inf ray used in the
+    manuscript.  This does not classify every ray fixing 34.
 
 6.  Growth rates.  The exact trace comparison 322 > 198 > 194 over a common
     length of twelve letters, which refutes the tempting extremality claim
@@ -254,7 +254,7 @@ def block_trace_criterion() -> None:
     print("              (this is a finite scan, not a theorem; the manuscript says so)")
 
 
-def block_no_half_step_at_34() -> None:
+def block_no_half_step_on_displayed_34_ray() -> None:
     points = [(5, 8), (34, 89), (513, 814), (3468, 9077)]
     (x1, y1), (x2, y2), (x3, y3) = points[0], points[1], points[2]
     det = x1 * y2 - y1 * x2
@@ -274,8 +274,9 @@ def block_no_half_step_at_34() -> None:
     )
     assert nxt == (Fraction(593912, 173), Fraction(1572633, 173)), nxt
     assert nxt != (Fraction(points[3][0]), Fraction(points[3][1]))
-    print("PROVED-CHECK  m0 = 34 carries no half-step: the unique rational matrix "
-          "matching two steps has denominator 173 and fails at the third")
+    print("PROVED-CHECK  the displayed LLL|R^inf fixed-34 ray carries no half-step: "
+          "the unique rational matrix matching two steps has denominator 173 "
+          "and fails at the third")
 
 
 def block_growth_rates() -> None:
@@ -303,12 +304,13 @@ def main() -> None:
     block_arm_letter_counts()
     block_branch_recurrence()
     block_trace_criterion()
-    block_no_half_step_at_34()
+    block_no_half_step_on_displayed_34_ray()
     block_growth_rates()
     print(
         "PASS: two-arms certificate; Cohn normalisation, arm letter counts, branch "
-        "recurrence with trace 3*m0, trace criterion scan (finite), exclusion of "
-        "m0=34, and the growth-rate trace comparison all check exactly."
+        "recurrence with trace 3*m0, trace criterion scan (finite), failure on "
+        "the displayed fixed-34 ray, and the growth-rate trace comparison all "
+        "check exactly."
     )
 
 

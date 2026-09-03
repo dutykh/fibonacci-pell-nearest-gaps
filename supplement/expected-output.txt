@@ -21,10 +21,10 @@ PROVED-CHECK  the letter-count vector obeys v_(k+1) = 3*m0*v_k - v_(k-1) on all 
 VERIFIED      complete enumeration below 10^60: 3502 Markoff numbers, 3*m0 - 2 a perfect square exactly for [1, 2, 34]
 VERIFIED      among the 4097 Markoff numbers of depth 11, 3*m0 - 2 is a perfect square exactly for [1, 2, 34]
               (this is a finite scan, not a theorem; the manuscript says so)
-PROVED-CHECK  m0 = 34 carries no half-step: the unique rational matrix matching two steps has denominator 173 and fails at the third
+PROVED-CHECK  the displayed LLL|R^inf fixed-34 ray carries no half-step: the unique rational matrix matching two steps has denominator 173 and fails at the third
 PROVED-CHECK  over twelve letters the Stern-Brocot traces are 322 (all ones), 198 (all twos), 194 (alternating)
               so the Fibonacci arm is fastest and the Pell arm is not slowest; no extremality from below is claimed
-PASS: two-arms certificate; Cohn normalisation, arm letter counts, branch recurrence with trace 3*m0, trace criterion scan (finite), exclusion of m0=34, and the growth-rate trace comparison all check exactly.
+PASS: two-arms certificate; Cohn normalisation, arm letter counts, branch recurrence with trace 3*m0, trace criterion scan (finite), failure on the displayed fixed-34 ray, and the growth-rate trace comparison all check exactly.
 
 $ python3 -B supplement/certificates/check_c0082_logarithmic_h_bound_curator.py
 PASS: C0082 logarithmic h-bound constants; analytic_error<128/25*lambda^-h; |Lambda|<9*lambda^-h; Matveev_constant<1.855e14; rounded_h_coefficient<2.4e14. This does not bound q.

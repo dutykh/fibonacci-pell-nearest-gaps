@@ -2,13 +2,13 @@
 
 The files below were copied byte for byte from the indicated paths in the
 `math-sandbox` research tree, on 2026-08-24 and, for the entries revised in
-the course of the two-arms revision, on 2026-09-01. No mathematical code,
+the course of the two-arms revision, on 2026-09-03. No mathematical code,
 constants, assertions, comments, or provenance headers differ between a
 vendored file and its named source.
 
 | Vendored file | Research-tree source | SHA-256 |
 | --- | --- | --- |
-| `certificates/check_two_arms.py` | `scripts/check_two_arms.py` | `612a75986876901db406b60c3122d2bc02c065a9113e6f57059a66f8d4e81c32` |
+| `certificates/check_two_arms.py` | `scripts/check_two_arms.py` | `f8c5dee29e28b756cd4760fae507348b81391fbace69f1c4d6a78103ff5ae645` |
 | `certificates/check_c0068_nearest_even_unit_gap_curator.py` | `scripts/check_c0068_nearest_even_unit_gap_curator.py` | `4d51db0ae60bfda5ae053ac0b53c4b74fafd9ce0a35bf7cc17426c2c248ed3f3` |
 | `certificates/check_c0068_plus_j1_quartic_curator.py` | `scripts/check_c0068_plus_j1_quartic_curator.py` | `91c31086b97ad5d3cc47643f005221f3af2b36d0d558e1008420cfefafa329cc` |
 | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `scripts/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `6c4945b5fe8bfb1f92c300786041bc256027c436e924ed244100e2298bb1a7f6` |

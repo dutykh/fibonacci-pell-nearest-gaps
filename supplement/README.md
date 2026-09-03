@@ -40,7 +40,7 @@ The complete expected summaries are recorded in `expected-output.txt`.
 | Uniform simultaneous local clocks, rank-parity criterion, and the obstruction at $241$ | Written rank/CRT/equidistribution proof and `certificates/check_uniform_local_clock_generalisation_agent_lcg.py` | The checker verifies exact ranks and witnesses; infinitude rests on the written proof |
 | Wider exact nearest-gap regression | `certificates/check_c0068_nearest_even_unit_gap_curator.py --q-max 2000` | Not used for completeness |
 | $7$- and $17$-clock theorem witnesses and rank data | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `certificates/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py` |
-| Two-arms section: Cohn normalisation, arm letter counts, branch recurrence with trace $3m_0$, exclusion of $m_0=34$, and the growth-rate trace comparison | `certificates/check_two_arms.py` | Self-contained; the trace-criterion scan over the depth-11 Markoff numbers is a finite verification and is printed as such, not as a theorem |
+| Two-arms section: Cohn normalisation, arm letter counts, branch recurrence with trace $3m_0$, failure of a half-step on the displayed fixed-$34$ ray, and the growth-rate trace comparison | `certificates/check_two_arms.py` | Self-contained; the two trace-criterion scans are finite verifications, and neither they nor the displayed-ray calculation classify all fixed-$34$ rays |
 | Exact filtering of the published $j=1$ near-square classification | `certificates/check_c0068_plus_j1_quartic_curator.py` | `certificates/check_j1_plus_branch_quartic_independent_audit_agent_j1.py` |
 
 The identifier `C0085` in the recorded output of

@@ -14,11 +14,11 @@ SOURCES := $(MAIN).tex references.bib $(wildcard sections/*.tex)
 
 .PHONY: all help rebuild clean distclean check certificates release
 
-# The build is gated on a warning-free log. Five warning texts are whitelisted
-# by exact match, and only those five:
+# The build is gated on a warning-free log. Two warnings are whitelisted by
+# exact text, and only those two:
 #   * the pdfTeX font-expansion notice, which is emitted before first use and
 #     has no effect on the output;
-#   * amsplain's missing-pages warnings for the four entries whose publisher
+#   * amsplain's missing-pages warnings for the three entries whose publisher
 #     locator is an article number rather than a page range: PomeoBravo2024
 #     (online-first, no volume, issue or pages), AlekseyevTengely2014 (Journal
 #     of Integer Sequences, Article 14.6.6), LucaZottor2023 (Article 49) and

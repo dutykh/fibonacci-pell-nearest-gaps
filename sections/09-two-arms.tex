@@ -13,9 +13,11 @@
 A reader who has followed the proof may reasonably ask why this particular
 pair of sequences carries the whole argument. The Markoff tree has
 infinitely many branches; Fibonacci and Pell are two of them. This section
-answers the question. The pairing is forced, not chosen: the mechanism used
-throughout this paper exists on exactly these two branches, and the constant
-$\gamma$ of \cref{eq:window-binet-phase} is the exchange rate between them.
+answers the question without claiming a global classification of branch
+dynamics. Fibonacci and Pell are the two constant-directive branches, their
+integral half-step actions are explicit, and the constant $\gamma$ of
+\cref{eq:window-binet-phase} is the exchange rate between their costs. Any
+analogous action on another branch must pass a stringent trace obstruction.
 
 Nothing in this section is used in the proofs of
 \cref{thm:classification-intro,thm:orbit-intro,thm:local-clocks}. It is
@@ -23,9 +25,8 @@ included because it explains their shape, and because it delimits the
 generalisations that can and cannot be attempted.
 
 We are careful throughout to separate what is proved from what is only
-verified on a finite family. Statements of the first kind are labelled as
-propositions and theorems; statements of the second kind are labelled as
-computational observations and are never used as hypotheses.
+verified on a finite family. Finite checks are explicitly identified as such
+and are never used as hypotheses.
 
 \subsection{Background from the Christoffel--Markoff correspondence}
 
@@ -37,7 +38,17 @@ $m=\tfrac13\operatorname{tr}M_w=(M_w)_{12}$. In the transposed convention this
 is \cite[Lemme~3.2]{Reutenauer2006}, which states that
 $3N_{21}=\operatorname{tr}N$ for the corresponding conjugate; the supplement
 also verifies the identity directly, in the convention used here, on every
-Christoffel word of depth at most eleven. Let
+Christoffel word of depth at most eleven.
+
+Throughout this section, a \emph{normalized Markoff occurrence} means the
+representative encoded by the proper lower Christoffel word
+$a\operatorname{Pal}(v)b$ at a reduced Farey index $0<P<Q$, where
+$\operatorname{Pal}$ is iterated right palindromic closure, after removing
+the reversal and letter-exchange symmetries. This convention fixes the
+orientation whenever an occurrence-induced two-square writing is decoded
+back to a word.
+
+Let
 
 \begin{equation}
  \mathsf A=\begin{pmatrix}2&1\\1&1\end{pmatrix},
@@ -69,9 +80,9 @@ the residue
 \end{equation}
 
 lies in $[0,m)$ and satisfies $u^2+1\equiv0\pmod m$; it is the
-characteristic root of the Markoff number. Second, the Markoff word attached
-to $m$, that is the Christoffel word of slope $u/(m-u)$, has length exactly
-$m$, with
+characteristic root attached to the occurrence $w$. Second, the Markoff word
+attached to this occurrence, namely the Christoffel word of slope
+$u/(m-u)$, has length exactly $m$, with
 
 \begin{equation}
  m_b=u\ \text{letters }b,
@@ -271,12 +282,14 @@ $\gcd(p,q)=1$, this gives $P=\kappa p$ and $Q=\kappa q$ for a positive integer
 $\kappa$, and then $m=P^2+Q^2=\kappa^2m$ gives $\kappa=1$.
 \end{proof}
 
-\begin{corollary}[The writing and the letter counts determine each other]
+\begin{corollary}[An occurrence's writing and letter counts determine each other]
 \label{cor:writing-letter-counts}
-Let $m\geqslant5$ be a Markoff number and $u$ its characteristic root
-\cref{eq:characteristic-root}. Then $m$ has exactly one writing $m=p^2+q^2$ in
-positive integers with $p\equiv uq\pmod m$, that writing is primitive, and the
-letter counts \cref{eq:letter-counts} of the Markoff word of $m$ satisfy
+Let $w$ be a Christoffel word with Markoff value $m\geqslant5$, and let $u$ be
+the characteristic root of this occurrence from
+\cref{eq:characteristic-root}. Then $m$ has exactly one writing $m=p^2+q^2$
+in positive integers with $p\equiv uq\pmod m$, that writing is primitive, and
+the letter counts \cref{eq:letter-counts} of the Markoff word attached to $w$
+satisfy
 
 \begin{equation}
  m_b(p+q)\equiv p-q,
@@ -302,14 +315,15 @@ $m_a(p+q)\equiv-u(p+q)\equiv q-p$. The last assertion is part (iii) of
 \cref{prop:gauss-congruence}.
 \end{proof}
 
-For a Markoff number the two-square writing and the Markoff word are therefore
-two readings of one object, and each is computed from the other: the writing
-from the characteristic root by \cref{prop:writing-from-root}, the letter
-counts from the writing by \cref{eq:letter-counts-congruence}. The only
-ambiguity in the passage is the exchange $u\leftrightarrow m-u$, which is the
-choice of an ordering of the pair $(p,q)$. The next subsection computes both
-sides explicitly on the two extreme arms of the tree, where the letter counts
-turn out to be the coordinates of a power of the fundamental unit.
+For a fixed normalized Markoff occurrence, the two-square writing and the
+Markoff word are therefore two readings of one object, and each is computed
+from the other: the writing from the occurrence's characteristic root by
+\cref{prop:writing-from-root}, the letter counts from the writing by
+\cref{eq:letter-counts-congruence}. Within that occurrence, the orientation
+ambiguity is the exchange $u\leftrightarrow m-u$, which is the choice of an
+ordering of the pair $(p,q)$. The next subsection computes both sides
+explicitly on the two extreme arms of the tree, where the letter counts turn
+out to be the coordinates of a power of the fundamental unit.
 
 \subsection{Letter counts on the two arms are unit coordinates}
 
@@ -433,6 +447,27 @@ $F_{2k-1}=F_{2k+1}-F_{2k}\equiv-F_{2k}$, also
 $F_{2k-1}^2\equiv F_{2k}^2\equiv-1\pmod{F_{2k+1}}$.
 \end{proof}
 
+The same two arms also exhibit the square mechanism that first appeared in
+\cref{eq:jminus1}. If $U_0=0$, $U_1=1$, and
+$U_{r+1}=tU_r+U_{r-1}$, the addition formula for this recurrence gives
+
+\begin{equation}
+ U_{2k+1}=U_k^2+U_{k+1}^2.
+ \label{eq:arm-doubling-squares}
+\end{equation}
+
+At $t=1$ this reads
+$F_{2k+1}=F_k^2+F_{k+1}^2$, and at $t=2$ it reads
+$P_{2k+1}=P_k^2+P_{k+1}^2$. Every non-endpoint Markoff occurrence has an
+oriented primitive two-square writing by \cref{cor:writing-letter-counts}.
+What is special here is stronger: on these two arms the summands are
+consecutive terms of the same second-order recurrence that produces the
+Markoff number. With $t=1$ and
+$k=q+1$, \cref{eq:arm-doubling-squares} is exactly the final equality in
+\cref{eq:jminus1}; the squares are therefore the hinge between the Markoff
+writing and the Fibonacci--Pell intersection, not an accidental
+simplification.
+
 \begin{remark}[A numerical coincidence explained]
 \label{rem:377-233}
 The case $k=7$ of \cref{eq:fib-arm-counts} reads $m=F_{15}=610$ and
@@ -444,27 +479,28 @@ $610$, are therefore the same identity read twice. The first nontrivial Pell
 case is $\lambda^4=17+12\sqrt2$: the Markoff word of $29$ has $17$ letters
 $a$ and $12$ letters $b$.
 
-The passage from the two-square writing to the letter counts is not an
-analogy to be tested on examples: \cref{cor:writing-letter-counts} makes it an
-identity, proved for every Markoff number. It can also be watched on the word
-side, where it takes a purely combinatorial form. Starting from the two-square
-pair one recovers the half directive word by iterated palindromic closure and
-doubles it by reversal complement. At $m=29$ the pair $(2,5)$ returns the half
-directive word $aab$, whose reversal complement $abb$ prefixes it into the
-directive word $abbaab$, and the Markoff word
+For each non-endpoint normalized Markoff occurrence, the passage from its
+two-square writing to its letter counts is not an analogy to be tested on
+examples: \cref{cor:writing-letter-counts} makes it an identity. It can also
+be watched on the word side, where it takes a purely combinatorial form.
+Starting from the oriented two-square pair, subtractive Euclid recovers the
+half directive; iterated palindromic closure then constructs its Christoffel
+word, while reversal complement doubles the half directive. At $m=29$ the
+pair $(2,5)$ returns the half directive $aab$, whose reversal complement
+$abb$ prefixes it into the directive word $abbaab$, and the Markoff word
 it builds has the $17$ letters $a$ and $12$ letters $b$ that
 \cref{eq:letter-counts} predicts from the characteristic root $u=12$, a
 quantity that mentions neither the pair nor any palindrome.
 \end{remark}
 
-\subsection{Every branch carries a quadratic Perron unit}
+\subsection{Every branch carries a quadratic Pisot unit}
 
-Fix a Christoffel word $u_0$ with Markoff number $m_0$, and follow the branch
+Fix a Christoffel word $w_0$ with Markoff number $m_0$, and follow the branch
 of the tree that keeps $m_0$ fixed, so that the node words are
-$u_0^{\,k}v_0$ for a fixed $v_0$. Write $m_k$ for the Markoff number of the
+$w_0^{\,k}v_0$ for a fixed $v_0$. Write $m_k$ for the Markoff number of the
 $k$-th node and $u_k$ for its characteristic root.
 
-\begin{proposition}[Branch recurrence]
+\begin{proposition}[Branch recurrence and its Pisot unit]
 \label{prop:branch-recurrence}
 The vector $(m_a,m_b)_k=(m_k-u_k,u_k)$ satisfies
 
@@ -481,24 +517,24 @@ Its characteristic polynomial is $x^2-3m_0x+1$, whose dominant root
  \label{eq:branch-perron}
 \end{equation}
 
-is a quadratic unit, hence a Perron number, of the order of discriminant
-$9m_0^2-4$.
+ is a quadratic Pisot unit, hence in particular a Perron number, lying in the
+order of discriminant $9m_0^2-4$.
 \end{proposition}
 
 \begin{proof}
-Write $P_k=M_{u_0^{\,k}v_0}$ for the Cohn matrix of the $k$-th node. Since
+Write $\mathsf C_k=M_{w_0^{\,k}v_0}$ for the Cohn matrix of the $k$-th node. Since
 the Cohn correspondence is multiplicative on concatenation,
-$P_k=M_{u_0}^{\,k}M_{v_0}$.
+$\mathsf C_k=M_{w_0}^{\,k}M_{v_0}$.
 
-\emph{Step 1: the matrix recurrence.} The matrix $M_{u_0}$ lies in
+\emph{Step 1: the matrix recurrence.} The matrix $M_{w_0}$ lies in
 $\mathrm{SL}_2(\Z)$ and has trace $3m_0$ by
 \cref{eq:cohn-normalisation}. Its characteristic polynomial is therefore
 $x^2-3m_0x+1$, and Cayley--Hamilton gives
-$M_{u_0}^2=3m_0M_{u_0}-I$. Multiplying on the right by
-$M_{u_0}^{\,k-1}M_{v_0}$ yields
+$M_{w_0}^2=3m_0M_{w_0}-I$. Multiplying on the right by
+$M_{w_0}^{\,k-1}M_{v_0}$ yields
 
 \begin{equation}
- P_{k+1}=3m_0P_k-P_{k-1},
+ \mathsf C_{k+1}=3m_0\mathsf C_k-\mathsf C_{k-1},
  \label{eq:matrix-recurrence}
 \end{equation}
 
@@ -506,12 +542,12 @@ an identity between matrices, hence between each of their four entries
 separately.
 
 \emph{Step 2: the two entries we need.} By \cref{eq:cohn-normalisation}, the
-Markoff number is the $(1,2)$ entry, $m_k=(P_k)_{12}$, and the $(1,1)$ entry
-is $(P_k)_{11}$. Both obey the scalar recurrence
+Markoff number is the $(1,2)$ entry, $m_k=(\mathsf C_k)_{12}$, and the $(1,1)$ entry
+is $(\mathsf C_k)_{11}$. Both obey the scalar recurrence
 $x_{k+1}=3m_0x_k-x_{k-1}$, by Step 1.
 
 \emph{Step 3: the characteristic root obeys it too.} By
-\cref{eq:characteristic-root}, $u_k=(P_k)_{11}-2m_k$. A fixed integer linear
+\cref{eq:characteristic-root}, $u_k=(\mathsf C_k)_{11}-2m_k$. A fixed integer linear
 combination of two solutions of a linear recurrence is again a solution, so
 $u_k$ satisfies $x_{k+1}=3m_0x_k-x_{k-1}$. The constancy of the coefficient
 $2$ is exactly the normalisation $1\leqslant D\leqslant m$ recorded in
@@ -522,10 +558,46 @@ $(m_a,m_b)_k=(m_k-u_k,u_k)$ are integer linear combinations of $m_k$ and
 $u_k$, so both satisfy the same recurrence, which is
 \cref{eq:branch-recurrence}. Its characteristic polynomial is
 $x^2-3m_0x+1$; since $m_0\geqslant1$ the discriminant $9m_0^2-4$ is positive
-and not a square for $m_0\geqslant2$, and the dominant root is
-\cref{eq:branch-perron}. It is a unit because the product of the two roots is
-the constant term $1$.
+and is not a square. Indeed, if it were $d^2$, then
+$(3m_0-d)(3m_0+d)=4$, whose only positive factorisation into factors of the
+same parity would force $3m_0=2$. The dominant root is
+\cref{eq:branch-perron}, and its other conjugate is
+
+\begin{equation}
+ \overline{\beta(m_0)}
+ =\frac{3m_0-\sqrt{9m_0^2-4}}2
+ =\beta(m_0)^{-1}\in(0,1).
+ \label{eq:branch-pisot-conjugate}
+\end{equation}
+
+Thus $\beta(m_0)$ is an algebraic-integer unit greater than $1$ whose only
+other conjugate has modulus less than $1$: it is a quadratic Pisot unit.
 \end{proof}
+
+\begin{remark}[Pisot contraction and branch scale]
+\label{rem:pisot-branch-scale}
+For either coordinate $x_k$ of the vector in
+\cref{eq:branch-recurrence}, the exact solution has the form
+
+\begin{equation}
+ x_k=c_+\beta(m_0)^k+c_-\beta(m_0)^{-k},
+ \label{eq:branch-binet}
+\end{equation}
+
+with constants fixed by two consecutive branch values and $c_+>0$ on the
+positive increasing branch. Consequently
+
+\begin{equation}
+ \log x_k=k\log\beta(m_0)+\log c_+
+ +O\!\left(\beta(m_0)^{-2k}\right).
+ \label{eq:branch-log-scale}
+\end{equation}
+
+This is the precise sense in which Pisot contraction gives an exponentially
+accurate scale along a fixed branch. It does so on every branch, however, and
+therefore does not distinguish the Fibonacci and Pell arms. Their additional
+feature is the compatible integral half-step studied below.
+\end{remark}
 
 The two arms are the cases $m_0=1$ and $m_0=2$, where
 $\beta(1)=(3+\sqrt5)/2=\varphi^2$ and
@@ -557,9 +629,10 @@ printed as
 
 in \cite[eq.~(2.3)]{Srinivasan2009}. So the
 order that carries the branch unit $\beta(m_0)$ is exactly the order attached
-to $m_0$ by the classical theory, and the two extreme arms of
-\cref{thm:half-step-criterion} are the two branches whose unit happens to be
-a square in it. They are also the source of the sharpest known unconditional
+to $m_0$ by the classical theory. The two extreme arms provide the two basic
+instances in which the branch unit has a quadratic-unit square root, although
+that root need not lie in the order generated by the branch unit. They are
+also the source of the sharpest known unconditional
 uniqueness criteria, which run modulo $3c\pm2$ rather than modulo $c$:
 \cite[Theorem~2]{Zhang2007} settles every Markoff number for which one of
 $3c-2$, $3c+2$ is a prime power, four times a prime power, or eight times a
@@ -592,7 +665,7 @@ because it locates \cref{prop:branch-recurrence} inside the classical
 picture.
 \end{remark}
 
-\subsection{The mechanism exists on exactly two branches}
+\subsection{A stringent necessary condition for an integral half-step}
 
 \Cref{prop:branch-recurrence} says that a quadratic unit governs every
 branch. That is not what the proofs in this paper consume. What they consume
@@ -602,10 +675,19 @@ realises $\beta$. In other words the argument needs a \emph{square root} of
 $\beta(m_0)$, acting integrally. The following theorem shows that this is a
 severe restriction.
 
+For clarity, the square relation is forced by any such fixed action. If
+$\mathsf T\in\mathrm{GL}_2(\Z)$ carries every positive two-square vector
+$z_k$ of a growing fixed-$m_0$ ray to $z_{k+1}$, its dominant eigenvalue
+$\varepsilon>1$ is a quadratic unit. Since
+$m_k=\lVert z_k\rVert^2$ has growth rate $\beta(m_0)$ by
+\cref{prop:branch-recurrence}, while $\lVert\mathsf T^kz_0\rVert^2$ has
+growth rate $\varepsilon^2$, necessarily
+$\beta(m_0)=\varepsilon^2$.
+
 \begin{theorem}[Trace criterion for a half-step]
 \label{thm:half-step-criterion}
 Let $m_0$ be a Markoff number and suppose $\beta(m_0)=\varepsilon^2$ for a
-unit $\varepsilon$ of a real quadratic order. Then
+unit $\varepsilon>1$ of a real quadratic order. Then
 
 \begin{equation}
  3m_0-2\ \text{is a perfect square},
@@ -656,18 +738,17 @@ nothing below depends on the answer. The certificate is
 \texttt{check\_two\_arms.py} in the supplement.
 \end{remark}
 
-The third candidate is excluded, and here the finiteness is genuine, because
-the statement concerns one explicit linear system.
+The third value can be tested on an explicit ray, and here the calculation is
+finite because it concerns one concrete linear system.
 
-\begin{proposition}[No half-step at $m_0=34$]
+\begin{proposition}[No half-step on one displayed fixed-$34$ ray]
 \label{prop:no-half-step-34}
-The branch fixing $m_0=34$ carries no integral half-step on the two-square
-data.
+The fixed-$34$ ray whose successive two-square writings begin
+$(5,8),(34,89),(513,814),(3468,9077)$ carries no common integral half-step.
 \end{proposition}
 
 \begin{proof}
-The successive two-square writings on that branch are
-$(5,8)$, $(34,89)$, $(513,814)$ and $(3468,9077)$, attached to the Markoff
+These successive writings are attached to the Markoff
 numbers $89$, $9077$, $925765$ and $94418953$. A half-step would be a matrix
 $\mathsf T\in\mathrm{GL}_2(\Z)$ carrying each writing to the next. The first
 two conditions already determine $\mathsf T$ over $\Q$, because $(5,8)$ and
@@ -691,10 +772,14 @@ so no matrix at all, integral or not, satisfies the first three conditions
 simultaneously.
 \end{proof}
 
-Thus the criterion admits three branches, and only two of them survive. The
-pairing of $\varphi$ against $\lambda$ in this paper is therefore not a
-choice among infinitely many; it is the complete list of branches on which
-the semiconjugacy of \cref{prop:seed-semiconjugacy} can exist at all.
+Within the finite families of \cref{rem:half-step-scan}, the only non-arm
+candidate is $m_0=34$, and the displayed fixed-$34$ ray does not support the
+required action. This is not a classification of all rays fixing $34$.
+Globally, \cref{thm:half-step-criterion} is a necessary condition, not a
+classification: further Markoff values satisfying it are not excluded here.
+The two arms are nevertheless canonical for the present paper because they
+are the two constant-directive branches and because their half-step actions
+are explicit.
 
 \subsection{The two arms are the two constant directive words}
 
@@ -710,6 +795,32 @@ are exactly two constant such sequences, and their values are
  [2;2,2,2,\ldots]=1+\sqrt2=\lambda.
  \label{eq:constant-directives}
 \end{equation}
+
+Both values are Pisot units: their respective conjugates are
+$-\varphi^{-1}$ and $-\lambda^{-1}$. This does not contrast them with the
+fixed-branch units of \cref{eq:branch-perron}, which are Pisot on every branch.
+There are in fact three spectral objects: the value of an infinite continued
+fraction, the dominant eigenvalue of a periodic directive matrix, and the
+fixed-branch unit $\beta(m_0)$. For a constant directive, the continued-
+fraction value equals the Perron eigenvalue of its one-letter
+continued-fraction matrix, and its square is $\beta(1)$ or $\beta(2)$. Outside
+the constant cases the three objects need not coincide. For example,
+
+\begin{equation}
+ [\overline{1,2}]=\frac{1+\sqrt3}{2}
+ \quad\text{has primitive polynomial}\quad
+ 2X^2-2X-1,
+ \label{eq:periodic-cf-distinction}
+\end{equation}
+
+so the continued-fraction value is not an algebraic integer. Its period
+matrix, by contrast, has the Pisot eigenvalue $2+\sqrt3$. For a nonperiodic
+directive the continued-fraction value need not even be algebraic. Thus a
+Pisot--Perron comparison between branches is meaningful only after the
+associated number has been specified. In this paper the relevant branch
+object is $\beta(m_0)$, and the exceptional property of the two units in
+\cref{eq:constant-directives} is their compatible half-step action, not
+Pisotness alone.
 
 These are the Fibonacci and Pell arms. The next proposition converts this
 into a statement about the cost of a directive word, that is, the number of
@@ -786,15 +897,276 @@ $322$, $198$ and $194$, so the alternating pattern grows strictly more slowly
 than the Pell pattern. We therefore make no extremality claim from below.
 \end{remark}
 
+\section{Two-square localisation and the Markoff-facing programme}
+\label{sec:farey-localisation}
+
+\subsection{What a two-square writing locates in the Farey tree}
+
+The branch scales answer only a radial question: how large a Markoff value is
+at a given cost. A two-square writing contains more information. We now make
+precise when it gives an exact Farey address and when it gives only a
+candidate.
+
+For coprime integers $0<p<q$, let $\ell(p,q)$ be the number of single
+subtractions in the subtractive Euclidean algorithm from $(p,q)$ to $(1,1)$.
+Write the canonical continued fraction as
+
+\begin{equation}
+ \frac qp=[c_0;c_1,\ldots,c_d],
+ \qquad c_d\geqslant2.
+ \label{eq:writing-continued-fraction}
+\end{equation}
+
+For a normalized Markoff occurrence, write $P/Q$ for its reduced Farey index,
+with $0<P<Q$, and $m_{P/Q}$ for its Markoff value.
+
+\begin{proposition}[Exact Farey recovery and arm benchmarks]
+\label{prop:farey-recovery}
+Let $M=p^2+q^2$ be a primitive positive two-square writing.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+ \item Its Euclidean cost is
+
+ \begin{equation}
+  \ell(p,q)=\sum_{j=0}^{d}c_j-1.
+  \label{eq:exact-euclidean-cost}
+ \end{equation}
+
+ Recording the side of every subtraction gives, in reverse order, the exact
+ root-to-leaf Stern--Brocot path of $q/p$, up to exchanging the two
+ coordinates.
+ \item If the writing is induced by a normalized Markoff occurrence of Farey
+ index $P/Q$, then
+
+ \begin{equation}
+  \ell(p,q)=P+Q-2.
+  \label{eq:farey-shell-cost}
+ \end{equation}
+
+ Its Euclidean half-directive, followed by the inverse
+ Christoffel--Thue--Morse construction, recovers $P/Q$ exactly. An arbitrary
+ primitive writing supplies only a candidate until this validity condition is
+ checked.
+ \item At cost $L\geqslant1$, all normalized Markoff occurrences lie on the
+ Farey shell $P+Q=L+2$. The Fibonacci endpoint of this shell is
+
+ \begin{equation}
+  \frac1{L+1},
+  \qquad
+  m_{1/(L+1)}=F_{2L+3}.
+  \label{eq:fibonacci-shell-endpoint}
+ \end{equation}
+
+ If $L=2k-1$ is odd, the shell point nearest the diagonal $P=Q$ is the Pell
+ occurrence
+
+ \begin{equation}
+  \frac{k}{k+1},
+  \qquad
+  m_{k/(k+1)}=P_{2k+1}=P_{L+2}.
+  \label{eq:pell-shell-endpoint}
+ \end{equation}
+
+ For $L=1$ it coincides with the Fibonacci endpoint. Every occurrence on an
+ odd shell satisfies
+
+ \begin{equation}
+  P_{L+2}\leqslant m_{P/Q}\leqslant F_{2L+3}.
+  \label{eq:odd-shell-arm-bracket}
+ \end{equation}
+
+ If $L$ is even, the formal diagonal point is not reduced and there is no Pell
+ occurrence on that shell. Its lower endpoint is $A_L^\ast/B_L^\ast$, where
+
+ \begin{equation}
+  A_L^\ast=\max\left\{j<\frac{L+2}{2}:\gcd(j,L+2)=1\right\},
+  \qquad B_L^\ast=L+2-A_L^\ast;
+  \label{eq:even-shell-endpoint}
+ \end{equation}
+
+ this is the reduced shell point nearest the diagonal $P=Q$, equivalently the
+ one with largest admissible numerator.
+ \item Every primitive positive writing of cost $L$, whether Markoff-valid or
+ not, obeys
+
+ \begin{equation}
+  M\leqslant F_{2L+3},
+  \label{eq:fibonacci-cost-envelope}
+ \end{equation}
+
+ with equality only for the unordered Fibonacci pair
+ $(F_{L+1},F_{L+2})$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Grouping consecutive subtractions on the same side gives the ordinary
+Euclidean quotients $c_0,\ldots,c_d$. The final quotient is shortened by one
+because the subtraction process stops at $(1,1)$ rather than $(1,0)$, which
+proves \cref{eq:exact-euclidean-cost}; retaining the sides is precisely the
+Stern--Brocot itinerary.
+
+For part (ii), use the occurrence construction of Reutenauer and Vuillon
+\cite[Sec.~2 and Theorems~1--2]{ReutenauerVuillon2017}. If $v$ is the ordinary
+directive at $P/Q$, its valid antipalindromic directive is
+$\theta(\operatorname{Pal}(av))=\widehat{u}u$, where
+$\operatorname{Pal}$ denotes iterated right palindromic closure,
+$\theta(a)=ab$, $\theta(b)=ba$, and $\widehat{u}$ denotes reversal followed by
+the exchange $a\leftrightarrow b$. To keep the two-square step self-contained,
+let
+
+\begin{equation}
+ L_a=\begin{pmatrix}1&1\\0&1\end{pmatrix},
+ \qquad
+ L_b=\begin{pmatrix}1&0\\1&1\end{pmatrix},
+ \qquad
+ \mathbf e=\begin{pmatrix}1\\1\end{pmatrix}
+\end{equation}
+
+be the incidence matrices and put $L_u\mathbf e=(r,s)^{\mathsf T}$. Since
+$L_{\widehat u}=L_u^{\mathsf T}$, the Christoffel incidence formula and the
+cited occurrence construction give
+
+\begin{equation}
+ M=\mathbf e^{\mathsf T}L_{\widehat u u}\mathbf e
+   =\mathbf e^{\mathsf T}L_u^{\mathsf T}L_u\mathbf e
+   =r^2+s^2.
+\end{equation}
+
+By the hypothesis of part (ii), the unordered pair $\{r,s\}$ is
+$\{p,q\}$. Thus the ordered occurrence count vector is either $(p,q)$ or
+$(q,p)$; exchanging the coordinates complements $u$.
+Consequently subtractive Euclid on the sorted pair recovers $u$ up to this
+orientation and gives $\ell(p,q)=\lvert u\rvert$. The normalized convention
+selects the orientation for which the inverse image below begins with the
+prescribed letter $a$. Since $\theta$ doubles length and the displayed
+antipalindrome has two equal halves,
+
+\begin{equation}
+ \lvert u\rvert=\lvert\operatorname{Pal}(av)\rvert.
+\end{equation}
+
+The incidence formula associated with the Farey index $P/Q$ gives
+$\lvert a\operatorname{Pal}(av)b\rvert=P+Q$. Removing the boundary letters
+proves \cref{eq:farey-shell-cost}. The Thue--Morse block code and finite
+palindromization are injective, and proper lower Christoffel words are in
+bijection with reduced Farey indices. Thus reversing the normalized
+construction recovers $P/Q$.
+
+Part (iii) now begins with $P+Q=L+2$. The fixed-sum ordering theorem
+\cite[Proposition~22]{LagisquetEtAl2021} says that the Markoff values strictly
+decrease as $P$ moves from $1$ towards the diagonal $P=Q$. The value
+at $1/(L+1)$ is the Fibonacci-arm value $F_{2L+3}$. When $L=2k-1$, the shell
+sum is $2k+1$, so its central reduced point is $k/(k+1)$, whose value is the
+Pell-arm value $P_{2k+1}$. This proves
+\cref{eq:odd-shell-arm-bracket}. When $L$ is even, $L+2$ is even and the
+diagonal point has equal numerator and denominator, so it is not a normalized
+reduced index. The largest admissible numerator below the diagonal is exactly
+$A_L^\ast$ of \cref{eq:even-shell-endpoint}, and fixed-sum monotonicity makes
+its fraction the lower endpoint.
+
+Finally, reverse the subtraction process from $(1,1)$. After $j$ additions,
+sorting the coordinates as $x_j\leqslant y_j$ gives inductively
+
+\begin{equation}
+ x_j\leqslant F_{j+1},
+ \qquad
+ y_j\leqslant F_{j+2}.
+\end{equation}
+
+At $j=L$ this yields
+
+\begin{equation}
+ M=p^2+q^2
+ \leqslant F_{L+1}^2+F_{L+2}^2
+ =F_{2L+3}.
+\end{equation}
+
+Equality in both coordinate bounds forces the Fibonacci choice at every
+nonsymmetric addition, proving the equality statement in part (iv).
+\end{proof}
+
+This proposition gives a sharp answer to two superficially similar
+localisation questions. If the valid writing is known, no approximation is
+needed: Euclid gives $\ell$, the full mixed itinerary, and the Farey point
+exactly. If only the integer $M$ is known, its primitive two-square writings
+give candidate itineraries. Proving that the occurrence-induced one is never
+beaten in cost is the unresolved weak-minimality step and cannot be supplied
+by a size comparison without resolving part of the Markoff uniqueness
+problem.
+
+The relevance of that selection problem to the ultimate programme can be
+stated as a short conditional reduction.
+
+\begin{proposition}[Reduction to weak two-square minimality]
+\label{prop:weak-minimality-reduction}
+Assume that, for every normalized non-endpoint Markoff occurrence, its
+occurrence-induced pair $(p,q)$ minimizes $\ell(p,q)$ among all primitive
+positive writings of the same Markoff value as a sum of two squares. Ties are
+allowed. Then the Markoff--Frobenius uniqueness conjecture holds.
+\end{proposition}
+
+\begin{proof}
+Suppose two normalized occurrences have the same Markoff value $M$, and let
+$(p,q)$ and $(p',q')$ be their induced writings. Applying the assumed
+minimality first to one occurrence and then to the other gives
+
+\begin{equation}
+ \ell(p,q)\leqslant\ell(p',q')
+ \qquad\text{and}\qquad
+ \ell(p',q')\leqslant\ell(p,q).
+\end{equation}
+
+The costs are equal. By \cref{eq:farey-shell-cost}, the two Farey indices
+$P/Q$ and $P'/Q'$ therefore have the same numerator--denominator sum. If they
+were distinct, the strict fixed-sum ordering
+\cite[Proposition~22]{LagisquetEtAl2021} would give distinct Markoff values,
+a contradiction. Hence the normalized Farey occurrences coincide. The
+boundary values $1$ and $2$ are immediate.
+\end{proof}
+
+The proposition deliberately assumes only non-strict minimality. It is not a
+theorem of the present paper that the occurrence-induced writing has this
+property. Rather, \cref{prop:weak-minimality-reduction} identifies a precise
+sufficient upstream statement that would turn the two-square/Farey dictionary
+into a proof of Markoff uniqueness. The arm estimates below explain why scale
+alone does not yet establish that statement.
+
+The arm points nevertheless calibrate the scale. Solving
+\cref{eq:fibonacci-shell-endpoint,eq:pell-shell-endpoint} asymptotically for
+$L$ gives
+
+\begin{equation}
+ L_{\mathrm F}(M)=\frac{\log M}{2\log\varphi}+O(1),
+ \qquad
+ L_{\mathrm P}(M)=\frac{\log M}{\log\lambda}+O(1),
+ \label{eq:arm-cost-scales}
+\end{equation}
+
+and their ratio tends to $2\log\varphi/\log\lambda=2\gamma$. On odd valid
+shells these are genuine endpoint scales by
+\cref{eq:odd-shell-arm-bracket}; for arbitrary run-$\{1,2\}$ directives the
+Pell scale is not a lower envelope, as \cref{rem:not-extremal} shows. Whenever
+the two arm estimates furnish a genuine valid-occurrence bracket, their
+multiplicative separation leaves an additive uncertainty proportional to
+$\log M$, not an $O(1)$ determination of $L$. For arbitrary run-$\{1,2\}$
+directives, only the Fibonacci side is a proved universal envelope. A fine
+estimate therefore requires additional branch information; a prefix of the
+actual Farey path is one natural choice. Such a prefix gives a Stern--Brocot
+cylinder. If the continuation thereafter follows one fixed branch, the Pisot
+estimate of \cref{rem:pisot-branch-scale} controls its periodic scale
+exponentially well; the prefix alone neither chooses that continuation nor
+supplies one fixed branch unit.
+
 \subsection{Dictionary}
 
 The correspondence between the word-combinatorial objects and the objects of
 this paper is exact, and is summarised in \cref{tab:dictionary}. Its first row
 is an identity rather than an analogy: by \cref{cor:writing-letter-counts} the
-letter counts are read off the writing by a congruence, and the two orderings
-of the writing are the two letter counts.
+letter counts are read off the writing by a congruence, and exchanging the
+order of the writing exchanges the two letter counts.
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{The word-combinatorial reading of the objects of this paper.}
 \label{tab:dictionary}
@@ -802,31 +1174,31 @@ of the writing are the two letter counts.
 \toprule
 Christoffel--Markoff side & This paper\\
 \midrule
-valid writing $m=p^2+q^2$ & seed $z=(u,v)$ with $\mathcal H(z)=u^2+v^2$\\
+valid occurrence writing $m=p^2+q^2$ & seed $z=(u,v)$ with $\mathcal H(z)=u^2+v^2$\\
 one step along the Pell arm & $\mathsf S(u,v)=(v,u+2v)$\\
 that step, in the unit & multiplication by $\lambda$\\
-Fibonacci arm & Fibonacci core $z_{q,\sigma}$\\
-letter counts $(m_a,m_b)$ & coordinates of $\varphi^{2k}$ or $\lambda^{2k}$\\
-cut values of the half directive word & the coefficients $F_r$, or $C_r$ and $P_r$\\
-directive-word cost & the exponents $q$ and $n$\\
+Fibonacci-arm writing $(F_{q+1},F_{q+2})$ & plus core $z_{q,+}$\\
+Fibonacci/Pell arm letter counts & coordinates of $\varphi^{2k}$ or $\lambda^{2k}$\\
+Fibonacci/Pell arm cut values & the coefficients $F_r$, or $C_r$ and $P_r$\\
+Fibonacci-arm cost & $q$ for the plus core $z_{q,+}$\\
+Pell-arm cost & $2k-1$ for $(P_k,P_{k+1})$\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The dictionary is already at work in this paper, without having been named.
-The identity $P_M=F_{q+1}^2+F_{q+2}^2=F_{2q+3}$ of \cref{eq:jminus1} says, in
-the left-hand column, that a Fibonacci-arm Markoff number, written as a sum
-of two squares, is a Pell number; and it is settled there by Alekseyev's
-Fibonacci--Pell intersection theorem \cite[Theorem~9]{Alekseyev2011}.
+Equation~\eqref{eq:jminus1} is the instance of this dictionary used by the
+main proof.
 
 \subsection{Consequence for the Markoff-facing programme}
 
-\Cref{thm:half-step-criterion,prop:no-half-step-34} close one route that
-would otherwise look promising. Given the general orbit/gap equivalence of
-\cref{thm:general-orbit-gap}, it is natural to try to prove the analogue of
-\cref{thm:classification-intro} on another branch of the Markoff tree, by
-transporting $\mathsf S$ there. That cannot be done: outside $m_0=1$ and
-$m_0=2$ there is no integral half-step to transport, because
-\cref{eq:half-step-criterion} fails, or, in the one remaining case, because
-the branch has the wrong initial data. Any extension must therefore change
-the mechanism, not merely its parameters.
+\Cref{thm:half-step-criterion,prop:no-half-step-34} show why a branchwise
+extension is not automatically obtained by changing a parameter. Given the general
+orbit/gap equivalence of \cref{thm:general-orbit-gap}, it is natural to seek an
+analogue of \cref{thm:classification-intro} on another branch by transporting
+$\mathsf S$. Any candidate must first have $3m_0-2$ square and must then admit
+a compatible integral action on its two-square sequence. The value $m_0=34$
+passes the first test, while the displayed fixed-$34$ ray fails the second.
+Other fixed-$34$ rays and further square-condition values are not globally
+excluded. The general Pisot branch recurrence alone supplies neither the
+half-step nor the norm--content geometry, so an extension needs a new
+compatibility mechanism, not merely a new growth unit.
