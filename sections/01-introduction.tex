@@ -249,18 +249,26 @@ prove that a hypothetical Markoff collision must enter the Fibonacci-core
 family in \cref{thm:orbit-intro}. The arithmetic theorem is complete on its
 stated domain; the upstream reduction remains open.
 
+For any fixed factored value $M$, all primitive two-square writings and their
+candidate Euclidean and Farey itineraries can be enumerated exactly. As
+\cref{rem:candidate-position-enumeration} explains, this finite localization
+does not supply the uniform obstruction needed to rule out two distinct valid
+occurrences for every $M$.
+
 The motivation does, however, distinguish the two sequences, and
-\cref{sec:two-arms} explains why. Each fixed branch of the Markoff tree carries
-a quadratic Pisot unit, the dominant root of $X^2-3m_0X+1$ for the Markoff
-number $m_0$ that the branch keeps. Pisot contraction therefore controls the
-scale on every branch; it does not single out Fibonacci and Pell. What the
-orbit bridge of \cref{sec:zero-defect} consumes is stronger: an integral
-square root acting compatibly on the two-square data. Comparing traces shows
-that any such half-step forces $3m_0-2$ to be a perfect square. The Fibonacci
-and Pell arms, carrying $\varphi$ and $\lambda$, provide the two explicit
-actions used here and are the two constant-directive branches. The necessary
-square condition is not proved to select them globally, and no such global
-classification is used in the paper.
+\cref{sec:two-arms} explains why. Along each branch that keeps one Markoff
+entry $m_0$ fixed, the integral unimodular Cohn monodromy has dominant
+eigenvalue equal to the quadratic Pisot unit that solves
+$X^2-3m_0X+1=0$. This eigenvalue is not, in general, the value of the
+corresponding infinite continued fraction. Its conjugate contraction controls
+the scale on every such branch; it does not single out Fibonacci and Pell.
+What the orbit bridge of \cref{sec:zero-defect} consumes is stronger: an
+integral square root acting compatibly on the two-square data. Comparing
+traces shows that any such half-step forces $3m_0-2$ to be a perfect square.
+The Fibonacci and Pell arms, carrying $\varphi$ and $\lambda$, provide the two
+explicit actions used here and are the two constant-directive branches. The
+necessary square condition is not proved to select them globally, and no such
+global classification is used in the paper.
 
 The local theory also draws a sharp methodological boundary. A natural
 plus-sign cross-gcd on genuine nearest windows contains arbitrary prescribed
@@ -323,7 +331,8 @@ even branch, and \cref{sec:odd-exponents} proves the odd exclusion.
 \Cref{sec:zero-defect} gives the general seed/unit integral conjugacy and the
 complete Fibonacci-core orbit theorem. \Cref{sec:local-clocks} develops the
 local rank criterion and simultaneous prime-power recurrence.
-\Cref{sec:two-arms} explains the branch Pisot scales and half-step obstruction.
+\Cref{sec:two-arms} explains the Pisot monodromy scales and half-step
+obstruction.
 \Cref{sec:farey-localisation} reconstructs the exact Farey cost from a valid
 two-square writing and isolates weak two-square minimality as a sufficient but
 open route to Markoff--Frobenius uniqueness. We close by stating the exact

@@ -493,14 +493,14 @@ it builds has the $17$ letters $a$ and $12$ letters $b$ that
 quantity that mentions neither the pair nor any palindrome.
 \end{remark}
 
-\subsection{Every branch carries a quadratic Pisot unit}
+\subsection{Fixed-entry branch monodromy has a quadratic Pisot eigenvalue}
 
 Fix a Christoffel word $w_0$ with Markoff number $m_0$, and follow the branch
 of the tree that keeps $m_0$ fixed, so that the node words are
 $w_0^{\,k}v_0$ for a fixed $v_0$. Write $m_k$ for the Markoff number of the
 $k$-th node and $u_k$ for its characteristic root.
 
-\begin{proposition}[Branch recurrence and its Pisot unit]
+\begin{proposition}[Branch recurrence and its Pisot eigenvalue]
 \label{prop:branch-recurrence}
 The vector $(m_a,m_b)_k=(m_k-u_k,u_k)$ satisfies
 
@@ -668,12 +668,13 @@ picture.
 \subsection{A stringent necessary condition for an integral half-step}
 
 \Cref{prop:branch-recurrence} says that a quadratic unit governs every
-branch. That is not what the proofs in this paper consume. What they consume
-is the semiconjugacy of \cref{prop:seed-semiconjugacy}: the map
-$\mathsf S$ advances the two-square data by one step, and $\mathsf S^2$
-realises $\beta$. In other words the argument needs a \emph{square root} of
-$\beta(m_0)$, acting integrally. The following theorem shows that this is a
-severe restriction.
+fixed-entry branch. That is not what the proofs in this paper consume. What
+they consume is the Pell-arm semiconjugacy of
+\cref{prop:seed-semiconjugacy}: the map $\mathsf S$ advances the two-square
+data by one step, and $\mathsf S^2$ realises
+$\beta(2)=\lambda^2$. An analogous construction at $m_0$ would therefore
+need a \emph{square root} of $\beta(m_0)$ acting integrally. The following
+theorem shows that this is a severe restriction.
 
 For clarity, the square relation is forced by any such fixed action. If
 $\mathsf T\in\mathrm{GL}_2(\Z)$ carries every positive two-square vector
@@ -781,7 +782,7 @@ The two arms are nevertheless canonical for the present paper because they
 are the two constant-directive branches and because their half-step actions
 are explicit.
 
-\subsection{The two arms are the two constant directive words}
+\subsection{The two arms are the two constant directive sequences}
 
 There is a second, purely combinatorial way to see the same pair, and it
 explains where $\gamma$ comes from.
@@ -796,15 +797,48 @@ are exactly two constant such sequences, and their values are
  \label{eq:constant-directives}
 \end{equation}
 
-Both values are Pisot units: their respective conjugates are
-$-\varphi^{-1}$ and $-\lambda^{-1}$. This does not contrast them with the
-fixed-branch units of \cref{eq:branch-perron}, which are Pisot on every branch.
+Recall that a Pisot number is a real algebraic integer greater than $1$ whose
+other conjugates have modulus less than $1$, while a Perron number is a real
+algebraic integer greater than $1$ that strictly dominates the moduli of its
+other conjugates. Both values in \cref{eq:constant-directives} are Pisot
+units: their respective conjugates are $-\varphi^{-1}$ and
+$-\lambda^{-1}$. This does not contrast them with the fixed-entry monodromy
+eigenvalues of \cref{eq:branch-perron}, which are Pisot on every such branch.
+
 There are in fact three spectral objects: the value of an infinite continued
 fraction, the dominant eigenvalue of a periodic directive matrix, and the
-fixed-branch unit $\beta(m_0)$. For a constant directive, the continued-
-fraction value equals the Perron eigenvalue of its one-letter
-continued-fraction matrix, and its square is $\beta(1)$ or $\beta(2)$. Outside
-the constant cases the three objects need not coincide. For example,
+fixed-entry branch unit $\beta(m_0)$. For a constant directive, the
+continued-fraction value equals the Perron--Frobenius eigenvalue of its
+one-letter continued-fraction matrix, and its square is $\beta(1)$ or
+$\beta(2)$. Outside the constant cases the three objects need not coincide.
+Indeed, put
+
+\begin{equation}
+ A(a)=\begin{pmatrix}a&1\\1&0\end{pmatrix},
+ \qquad
+ \mathsf P=A(a_1)\cdots A(a_r)
+ =\begin{pmatrix}A&B\\C&D\end{pmatrix}.
+ \label{eq:period-matrix-distinction}
+\end{equation}
+
+The continued-fraction fixed point $\xi=[\overline{a_1,\ldots,a_r}]$
+satisfies
+
+\begin{equation}
+ C\xi^2+(D-A)\xi-B=0,
+ \label{eq:periodic-cf-polynomial}
+\end{equation}
+
+whose primitive leading coefficient need not be $1$. The spectral radius
+$\rho(\mathsf P)$ instead satisfies the monic equation
+
+\begin{equation}
+ X^2-(A+D)X+(-1)^r=0.
+ \label{eq:period-matrix-polynomial}
+\end{equation}
+
+Its other eigenvalue is $(-1)^r/\rho(\mathsf P)$, so
+$\rho(\mathsf P)$ is a quadratic Pisot unit. For example,
 
 \begin{equation}
  [\overline{1,2}]=\frac{1+\sqrt3}{2}
@@ -813,12 +847,24 @@ the constant cases the three objects need not coincide. For example,
  \label{eq:periodic-cf-distinction}
 \end{equation}
 
-so the continued-fraction value is not an algebraic integer. Its period
-matrix, by contrast, has the Pisot eigenvalue $2+\sqrt3$. For a nonperiodic
-directive the continued-fraction value need not even be algebraic. Thus a
-Pisot--Perron comparison between branches is meaningful only after the
-associated number has been specified. In this paper the relevant branch
-object is $\beta(m_0)$, and the exceptional property of the two units in
+so this continued-fraction value is not an algebraic integer and hence is
+neither a Pisot nor a Perron number in the arithmetic sense. Its cyclic shift
+illustrates why the phase matters:
+
+\begin{equation}
+ [\overline{2,1}]=1+\sqrt3
+ \quad\text{has primitive polynomial}\quad
+ X^2-2X-2,
+ \label{eq:periodic-cf-cyclic-shift}
+\end{equation}
+
+and is itself a Pisot number. The two cyclic period matrices have the same
+Perron--Frobenius eigenvalue $2+\sqrt3$, which is a Pisot unit. For a
+nonperiodic directive the continued-fraction value need not even be algebraic.
+Thus a Pisot--Perron comparison between branches is meaningful only after the
+associated number and the continued-fraction phase have been specified. In
+this paper the relevant branch object is the monodromy eigenvalue
+$\beta(m_0)$, and the exceptional property of the two units in
 \cref{eq:constant-directives} is their compatible half-step action, not
 Pisotness alone.
 
@@ -1095,6 +1141,50 @@ beaten in cost is the unresolved weak-minimality step and cannot be supplied
 by a size comparison without resolving part of the Markoff uniqueness
 problem.
 
+\begin{remark}[Enumerating the candidate tree positions]
+\label{rem:candidate-position-enumeration}
+For a specified factored integer $M>2$ admitting a primitive positive
+two-square writing, primitivity forces
+
+\begin{equation}
+ M=2^\epsilon\prod_{j=1}^{r}p_j^{e_j},
+ \qquad
+ \epsilon\in\{0,1\},
+ \qquad
+ p_j\equiv1\pmod4,
+ \label{eq:gaussian-writing-factorisation}
+\end{equation}
+
+where the $p_j$ are distinct. Choose a Gaussian prime $\pi_j$ above each
+$p_j$. Unique factorisation in $\Z[i]$ shows that a primitive Gaussian
+integer of norm $M$ contains, for every $j$, either the complete block
+$\pi_j^{e_j}$ or the complete conjugate block
+$\overline{\pi_j}^{e_j}$. Splitting one block between the two conjugates would
+make $p_j$ divide both coordinates. Conversely, every choice of one complete
+block gives a primitive writing. Quotienting by Gaussian units and global
+conjugation therefore gives exactly
+
+\begin{equation}
+ 2^{r-1}
+ \label{eq:number-primitive-writings}
+\end{equation}
+
+normalized unordered primitive positive writings of $M$.
+
+Part~(i) of \cref{prop:farey-recovery} sends each writing to its complete
+subtractive-Euclidean path. The inverse Christoffel--Thue--Morse construction
+then tests whether that path has the required occurrence form, and a Cohn
+evaluation checks the proposed value. Thus every possible position arising
+from a writing of this fixed $M$ is explicitly enumerable.
+
+This procedure is a localization algorithm, not the missing obstruction. It
+depends on the factorisation of the particular $M$, gives no uniform bound on
+the number or geometry of the candidate paths, and does not prove that two
+distinct valid candidates cannot survive for some larger value. The global
+problem is to compare or exclude those candidates without enumerating one
+integer at a time; weak minimality is one sufficient mechanism.
+\end{remark}
+
 The relevance of that selection problem to the ultimate programme can be
 stated as a short conditional reduction.
 
@@ -1153,8 +1243,8 @@ $\log M$, not an $O(1)$ determination of $L$. For arbitrary run-$\{1,2\}$
 directives, only the Fibonacci side is a proved universal envelope. A fine
 estimate therefore requires additional branch information; a prefix of the
 actual Farey path is one natural choice. Such a prefix gives a Stern--Brocot
-cylinder. If the continuation thereafter follows one fixed branch, the Pisot
-estimate of \cref{rem:pisot-branch-scale} controls its periodic scale
+cylinder. If the continuation thereafter follows one fixed-entry branch, the
+Pisot estimate of \cref{rem:pisot-branch-scale} controls its periodic scale
 exponentially well; the prefix alone neither chooses that continuation nor
 supplies one fixed branch unit.
 
@@ -1199,6 +1289,6 @@ $\mathsf S$. Any candidate must first have $3m_0-2$ square and must then admit
 a compatible integral action on its two-square sequence. The value $m_0=34$
 passes the first test, while the displayed fixed-$34$ ray fails the second.
 Other fixed-$34$ rays and further square-condition values are not globally
-excluded. The general Pisot branch recurrence alone supplies neither the
+excluded. The general monodromy recurrence alone supplies neither the
 half-step nor the norm--content geometry, so an extension needs a new
 compatibility mechanism, not merely a new growth unit.

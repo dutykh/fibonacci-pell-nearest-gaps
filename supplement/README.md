@@ -41,6 +41,7 @@ The complete expected summaries are recorded in `expected-output.txt`.
 | Wider exact nearest-gap regression | `certificates/check_c0068_nearest_even_unit_gap_curator.py --q-max 2000` | Not used for completeness |
 | $7$- and $17$-clock theorem witnesses and rank data | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `certificates/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py` |
 | Two-arms section: Cohn normalisation, arm letter counts, branch recurrence with trace $3m_0$, failure of a half-step on the displayed fixed-$34$ ray, and the growth-rate trace comparison | `certificates/check_two_arms.py` | Self-contained; the two trace-criterion scans are finite verifications, and neither they nor the displayed-ray calculation classify all fixed-$34$ rays |
+| Complete fixed-value enumeration of primitive two-square writings and their candidate Stern--Brocot itineraries | Written Gaussian unique-factorisation and subtractive-Euclid argument in Remark 10.2 | No finite search supplies completeness; Cohn evaluation and the central-word test validate candidates but do not replace the Gaussian enumeration proof |
 | Exact filtering of the published $j=1$ near-square classification | `certificates/check_c0068_plus_j1_quartic_curator.py` | `certificates/check_j1_plus_branch_quartic_independent_audit_agent_j1.py` |
 
 The identifier `C0085` in the recorded output of
