@@ -64,18 +64,25 @@ exactly four rows: one canonical persistent family `(σ, q, d) = (1, 1, 3)` vali
 for all `t`, and three isolated time-zero hits at `(−1, 1, 1)`, `(−1, 2, 3)` and
 `(−1, 4, 5)`. There is no hit at a positive even anchor.
 
-**The pairing is forced, not chosen.** Every branch of the Markoff tree carries
-a quadratic Perron unit, the dominant root of `X² − 3m₀X + 1` for the Markoff
-number `m₀` that the branch keeps. What the orbit bridge consumes is not that
-unit but an integral square root of it, acting on two-square data, and
-comparing traces shows that such a square root forces `3m₀ − 2` to be a perfect
-square. Exactly two branches admit one: `m₀ = 1` and `m₀ = 2`, carrying `φ` and
-`λ`, which are the Fibonacci and Pell arms. The one further candidate that
-passes the trace test, `m₀ = 34`, carries no integral half-step at all. The
-constant `γ = log φ / log λ` that governs both certified reductions and the
-density theorem is the exchange rate between these two arms. Transporting the
-mechanism to another branch is therefore not a matter of changing parameters;
-there is nothing to transport.
+**Why `φ` and `λ`, and how far that is proved.** Every branch of the Markoff
+tree that keeps one entry `m₀` fixed carries an integral Cohn monodromy whose
+dominant eigenvalue is the quadratic Pisot unit solving `X² − 3m₀X + 1 = 0`.
+That eigenvalue sets the scale on every branch alike, so on its own it
+distinguishes none of them. What the orbit bridge consumes is stronger: an
+integral square root of that unit, acting compatibly on two-square data.
+Comparing traces shows that any such half-step forces `3m₀ − 2` to be a perfect
+square. The Fibonacci and Pell arms, `m₀ = 1` and `m₀ = 2`, carrying `φ` and
+`λ`, supply the two explicit half-steps used here, and they are also the two
+constant-directive branches. The square condition is necessary, not a
+classification. Over the two finite Markoff families scanned in the supplement
+it admits exactly one further value, `m₀ = 34`; one displayed ray fixing `34`
+is shown to carry no common integral half-step, but the remaining rays fixing
+`34`, and any further values meeting the condition, are not classified here.
+The constant `γ = log φ / log λ` that governs both the certified reductions and
+the density theorem is the exchange rate between the two arms. Transport to
+another branch would require both the square condition and a compatible action
+on that branch's two-square sequence, and neither is supplied by the general
+branch recurrence.
 
 The work is motivated by the Markoff–Frobenius uniqueness conjecture, and the
 final sections make the boundary explicit. **No reduction from a hypothetical
@@ -87,7 +94,7 @@ are complete on their stated domains; the upstream reduction remains open.
 ```
 .
 ├── DD-LV-Fibonacci-Pell-Gaps.tex        main file: preamble, abstract, \input list
-├── DD-LV-Fibonacci-Pell-Gaps.pdf        compiled manuscript (45 pages), tracked
+├── DD-LV-Fibonacci-Pell-Gaps.pdf        compiled manuscript (47 pages), tracked
 ├── references.bib                       bibliography, 23 entries, all cited
 ├── Makefile                             strict build; `make help` lists all targets
 ├── CITATION.cff                         citation metadata (Citation File Format 1.2.0)
@@ -205,9 +212,10 @@ more. The trace criterion `3m₀ − 2 = square` is a theorem, but the assertion
 that only `m₀ = 1`, `2` and `34` satisfy it is a scan over the `3502` Markoff
 numbers below `10⁶⁰` and over the `4097` produced by the Christoffel tree to
 depth `11`. Whether `3m − 2` is a perfect square for infinitely many Markoff
-numbers `m` is not known, and nothing in the manuscript depends on the answer:
-the exclusion of `m₀ = 34` is a separate exact argument about one explicit
-linear system.
+numbers `m` is not known, and nothing in the manuscript depends on the answer.
+The failure of a half-step on the displayed fixed-`34` ray is a separate exact
+argument about one explicit linear system, and it classifies neither the other
+rays fixing `34` nor any further value meeting the criterion.
 
 **Optional.** Magma is never required. The leading-exponent step rests on the
 published Alekseyev–Tengely classification. `supplement/magma/` preserves two
@@ -239,9 +247,9 @@ The tree in this repository was built and checked end to end:
 
 | Check | Result |
 | --- | --- |
-| `make rebuild` | exit 0, 45 pages |
+| `make rebuild` | exit 0, 47 pages |
 | Strict warning gates | clean |
-| Cross-references | 159 distinct labels referenced, no broken target, no duplicate label |
+| Cross-references | 155 distinct labels referenced, no broken target, no duplicate label |
 | Citation keys | 23 of 23 entries cited, every cited key present in `references.bib` |
 | `python3 -B supplement/run_all.py` | exit 0, output identical to `expected-output.txt` |
 | `supplement/PROVENANCE.md` | 25 of 25 SHA-256 digests match |
