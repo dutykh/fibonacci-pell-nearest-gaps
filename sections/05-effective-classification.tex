@@ -282,7 +282,7 @@ The point of this symmetric form is that no sign of the logarithmic form is
 assumed. We apply it first to the fixed shift, reducing $h$ or $q$, and then
 to the moving shift, which supplies the absolute bound for $q$.
 
-\subsection{Certified reductions of the two exponents}
+\subsection{Explicit reductions of the two exponents}
 
 Recall the phase constant $\gamma$ of \cref{eq:window-binet-phase} and set
 
@@ -379,7 +379,7 @@ and the rational number
  \label{eq:common-convergent}
 \end{equation}
 
-Exact rational intervals for square roots and logarithms certify
+Exact rational intervals for square roots and logarithms prove
 
 \begin{equation}
  \gcd(p,Q)=1,
@@ -389,7 +389,7 @@ Exact rational intervals for square roots and logarithms certify
  2Q\abs{Q\gamma-p}<1,
  \qquad
  \abs{Q\gamma-p}<\frac{26}{10^{36}}.
- \label{eq:convergent-certificate}
+ \label{eq:convergent-enclosure}
 \end{equation}
 
 The first three conditions are the hypotheses of
@@ -417,13 +417,13 @@ theorem the only rationals that good are the convergents of $\gamma$. The size
 condition $Q>6N_0$ then keeps the parasitic term $N_0\abs{Q\gamma-p}$ well
 below the value $1/2$ that $\dist{Q\mu_\sigma}$ can never exceed. None of this
 search enters the proof. Once the two integers are written down they are
-treated as given data, and \cref{eq:convergent-certificate} re-establishes by
+treated as given data, and \cref{eq:convergent-enclosure} re-establishes by
 exact rational arithmetic every property of them that is used. The search is
 heuristic; the verification is exact.
 \end{remark}
 
-Only the certified error is used below. For both signs, the same interval
-certificate gives
+Only the enclosed error is used below. For both signs, the same enclosure
+gives
 
 \begin{equation}
  \dist{Q\mu_\sigma}>\frac{82}{1000},
@@ -434,7 +434,7 @@ certificate gives
 \end{equation}
 
 where the second inequality follows from the first together with
-\cref{eq:convergent-error-scaled}. The same certificate gives
+\cref{eq:convergent-error-scaled}. The same enclosure gives
 
 \begin{equation}
  \kappa_\sigma(\lambda^2)^{48}>30Q.
@@ -449,7 +449,7 @@ Apply \cref{lem:absolute-reduction} with
  w=\min\{h,q\gamma\},\quad N_0=2\mathbin{\cdot}10^{32}.
 \end{equation}
 
-\Cref{eq:convergent-certificate,eq:fixed-eta,eq:fixed-cutoff}
+\Cref{eq:convergent-enclosure,eq:fixed-eta,eq:fixed-cutoff}
 then prove $\min\{h,q\gamma\}<48$. Since $\gamma>1/2$, either $h<48$,
 or $q<96$ and then
 
@@ -507,10 +507,10 @@ where again the second inequality follows from the first and
  \label{eq:moving-cutoff}
 \end{equation}
 
-The weakest certified interval occurs at $(\sigma,h)=(1,31)$, where
+The narrowest enclosure occurs at $(\sigma,h)=(1,31)$, where
 $\dist{Q\nu_{\sigma,h}}=0.01436\ldots$; it remains strictly above the
 displayed margin. This is also the reason the sharper enclosure in
-\cref{eq:convergent-certificate} is displayed: the Legendre bound alone
+\cref{eq:convergent-enclosure} is displayed: the Legendre bound alone
 would make $\kappa_{1,31}$ negative, and the reduction lemma would not
 apply.
 
@@ -522,7 +522,7 @@ for each pair with
  \mathcal C=27,\quad \rho=\varphi^2,\quad w=q,\quad N_0=2\mathbin{\cdot}10^{32}.
 \end{equation}
 
-\Cref{eq:convergent-certificate,eq:moving-eta,eq:moving-cutoff}
+\Cref{eq:convergent-enclosure,eq:moving-eta,eq:moving-cutoff}
 prove
 
 \begin{equation}
@@ -549,9 +549,14 @@ with the geometric tail bound
  \label{eq:log-tail}
 \end{equation}
 
-Square roots are bounded between consecutive rational grid points. Hence no
-binary floating-point comparison enters
-\cref{eq:convergent-certificate,eq:fixed-eta,eq:fixed-cutoff,eq:moving-eta,eq:moving-cutoff}.
+Square roots are bounded between consecutive rational grid points. Each
+comparison is then decided from the endpoints of the enclosing intervals: the
+lower endpoint of every $\kappa$ against zero, and the lower endpoint of each
+left-hand side against the upper endpoint of its right-hand side. Every
+inequality asserted below is therefore strict, and the outward rounding cannot
+reverse it. In particular,
+\cref{eq:convergent-enclosure,eq:fixed-eta,eq:fixed-cutoff,eq:moving-eta,eq:moving-cutoff}
+are decided by rational arithmetic alone.
 
 At this point the unbounded even-exponent problem has become finite: every
 hypothetical target has $q<90$. What remains is an exact recurrence
@@ -572,7 +577,10 @@ For the plus sign, the first integral power strictly above
 $D_{1,1}^2=\lambda^2$ is $\lambda^3>2\lambda^2$. For the minus sign, every
 positive integral power is at least
 $\lambda>2\lambda^{-2}=2D_{1,-1}^2$. Thus neither sign has a strict
-candidate at $q=1$.
+candidate at $q=1$; this boundary case is settled analytically, not by
+enumeration. The bound \cref{eq:q-90} is strict, so the index $q=90$ is
+excluded as well, and every remaining index of this parity branch, for both
+signs, lies in the range treated next.
 
 It remains to test $2\leqslant q<90$, $3\nmid q$, and both signs. For each
 row, exact recurrence arithmetic constructs $D_{q,\sigma}^2$ and the first

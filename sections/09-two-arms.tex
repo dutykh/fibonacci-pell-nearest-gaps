@@ -24,9 +24,8 @@ Nothing in this section is used in the proofs of
 included because it explains their shape, and because it delimits the
 generalisations that can and cannot be attempted.
 
-We are careful throughout to separate what is proved from what is only
-verified on a finite family. Finite checks are explicitly identified as such
-and are never used as hypotheses.
+Throughout, statements established only on a finite family are identified
+as such, and none of them is used as a hypothesis.
 
 \subsection{Background from the Christoffel--Markoff correspondence}
 
@@ -36,9 +35,8 @@ Frobenius's observation of 1913 \cite{Frobenius1913} and Cohn's matrix
 formulation. The one normalisation we need beyond the correspondence itself is
 $m=\tfrac13\operatorname{tr}M_w=(M_w)_{12}$. In the transposed convention this
 is \cite[Lemme~3.2]{Reutenauer2006}, which states that
-$3N_{21}=\operatorname{tr}N$ for the corresponding conjugate; the supplement
-also verifies the identity directly, in the convention used here, on every
-Christoffel word of depth at most eleven.
+$3N_{21}=\operatorname{tr}N$ for the corresponding conjugate; we use it in
+the convention fixed above.
 
 Throughout this section, a \emph{normalized Markoff occurrence} means the
 representative encoded by the proper lower Christoffel word
@@ -735,8 +733,8 @@ $4097$ produced by the Christoffel tree to depth $11$, the criterion
 $m_0=34$, with $3\cdot34-2=100$ and $\varepsilon=5+\sqrt{26}$. This is a
 verification on a finite family and not a theorem: we do not know whether
 $3m-2$ is a perfect square for infinitely many Markoff numbers $m$, and
-nothing below depends on the answer. The certificate is
-\texttt{check\_two\_arms.py} in the supplement.
+nothing below depends on the answer. This computation is recorded in the
+supplement.
 \end{remark}
 
 The third value can be tested on an explicit ray, and here the calculation is
@@ -926,7 +924,7 @@ $2\log\varphi/\log\lambda$.
 
 So $\gamma$ is not a computational artefact of the reduction. It is the
 asymptotic exchange rate between the directive-word costs of the two arms,
-and the rational $p/Q$ of \cref{eq:common-convergent} is a certified
+and the rational $p/Q$ of \cref{eq:common-convergent} is an explicit
 rational approximation to that exchange rate.
 
 \begin{remark}[What is not claimed]

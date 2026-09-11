@@ -108,19 +108,19 @@ the intrinsic selector
 The boundary $q\geqslant1$ is sharp: at $q=0$ one has
 $D_{0,\sigma}=\sqrt2$ and $\lambda-D_{0,\sigma}^2=\lambda^{-1}$.
 
-The proof is an exact, finite certificate built on an unbounded argument.
+The proof is a finite, exact verification resting on an unbounded argument.
 The parity selector first divides the proof into two genuinely different
 branches. For even $n$, algebraic reconstruction turns the coefficient
 content into a primitive factor rectangle. This gives the missing height
 separation $h<n<2q$ for the negative unit exponent $-h$. Two linear forms in
-logarithms then give $h=O(\log q)$ and $q<10^{32}$; certified
+logarithms then give $h=O(\log q)$ and $q<10^{32}$; explicit
 rational-interval reductions yield $h<192$ and $q<90$, after which exact
 recurrence arithmetic is exhaustive. For odd $n$, the selector forces
 $3\mid q$. Its factorisation has no analogue of $h<n$, so the proof must be
 reordered: a fixed-coefficient logarithmic form first bounds
 $\min\{h,q\log_\lambda\varphi\}$, where $\varphi=(1+\sqrt5)/2$, and only then
 can the moving-coefficient
-form bound $q$. The same certified reductions give $h<48$ or $q<96$, and
+form bound $q$. The same explicit reductions give $h<48$ or $q<96$, and
 the exact terminal list is empty.
 
 The scarcity in \cref{thm:classification-intro} does not come from scarcity
@@ -292,8 +292,8 @@ Markoff-facing arrow.
   \node[context,left=of target] (density) {positive-density\\candidate windows};
   \node[context,right=of target] (clocks) {unbounded local\\prime-power clocks};
   \node[proof,below=of target] (selector) {intrinsic parity\\selector};
-  \node[proof,below left=of selector] (even) {even branch:\\rectangle, heights,\\certified reduction};
-  \node[proof,below right=of selector] (odd) {odd branch:\\reordered heights,\\certified reduction};
+  \node[proof,below left=of selector] (even) {even branch:\\rectangle, heights,\\explicit reduction};
+  \node[proof,below right=of selector] (odd) {odd branch:\\reordered heights,\\explicit reduction};
   \node[proof,below=18mm of selector] (classify) {two targets only;\\no odd target};
   \node[proof,below left=of classify] (semiconj) {seed/unit\\integral conjugacy};
   \node[proof,below right=of classify] (direct) {direct Pell hits\\at time zero};
@@ -328,4 +328,3 @@ local rank criterion and simultaneous prime-power recurrence.
 \Cref{sec:two-arms} explains the Pisot monodromy scales and half-step
 obstruction. We close by stating the exact Markoff-facing boundary and further
 directions.
-\Cref{app:certificates} specifies the finite certificates and their coverage.

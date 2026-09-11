@@ -89,41 +89,33 @@
 \begin{document}
 
 \begin{abstract}
-Let $\lambda=1+\sqrt2$, let $(F_q)$ be the Fibonacci sequence, and put
-$D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2$ for
-$\sigma\in\{1,-1\}$. For all $q\geqslant1$ and all positive $n$, we classify the strict
-factor-two gaps $\Delta=\lambda^n-D_{q,\sigma}^2$ whose norm is minus the
-square of their content $g$. Exactly two occur:
-$(q,\sigma,n,g,\Delta/g)=(2,-1,2,6,\lambda^{-1})$ and
-$(4,1,6,40,\lambda)$. In particular, no solution has odd exponent. The underlying even windows, by contrast, occur with explicit positive
-densities governed by an irrational circle rotation.
+Let $\lambda=1+\sqrt2$, let $(F_q)$ be the Fibonacci sequence, and set
+$D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2$, $\sigma\in\{1,-1\}$. For all
+$q\geqslant1$ and all positive $n$, we classify the strict factor-two gaps
+$\Delta=\lambda^n-D_{q,\sigma}^2$ whose norm is minus the square of their
+content $g$. Exactly two occur:
+$(q,\sigma,n,g,\Delta/g)=(2,-1,2,6,\lambda^{-1})$ and $(4,1,6,40,\lambda)$. No
+solution has odd exponent. The even windows, by contrast, have explicit
+positive densities governed by an irrational rotation.
 
-The argument is unbounded in $q$; the exact computation enters only after
-certified analytic estimates have cut it to a finite domain. In the even
-branch, a primitive factor rectangle separates heights, giving $h<n<2q$ for
-the odd exponent $h\geqslant3$ of the normalised gap $\Delta=g\lambda^{-h}$.
-Two logarithmic forms give $h=O(\log q)$ and $q<10^{32}$, certified
-rational-interval reductions give $h<192$ and $q<90$, and exact arithmetic
-finishes. The odd branch has no such separation,
-so a fixed-form-first bootstrap is required; it reduces to $q<96$, where the
-terminal list is empty.
+The argument is unbounded in $q$: computation enters only after analytic
+estimates cut it to a finite domain. In the even branch a primitive factor
+rectangle separates heights, giving $h<n<2q$ for the odd exponent
+$h\geqslant3$ of the normalised gap $\Delta=g\lambda^{-h}$. Two logarithmic
+forms give $h=O(\log q)$ and $q<10^{32}$, rational-interval reductions
+$h<192$ and $q<90$, and exact arithmetic finishes. The odd branch has no such
+separation and needs a fixed-form-first bootstrap, reducing to $q<96$, where the
+list is empty.
 
-The map $\mathsf S(u,v)=(v,u+2v)$ is integrally conjugate to multiplication
-by $\lambda$ through $A_{(u,v)}=(v-u)+u\sqrt2$. This gives an exact orbit/gap
-equivalence and, for the two Fibonacci cores $(F_{q+1},F_{q+1}+\sigma F_q)$,
-a complete all-anchor classification: one persistent family and three
-isolated time-zero hits are the only Pell-orbit intersections. An exact local rank criterion makes compatible split-prime
-clocks recur to arbitrary depth, sharply obstructed at $241$: congruences
-alone cannot replace the norm--content equation. The integral Cohn monodromy
-along every fixed-entry Markoff branch has a quadratic Pisot-unit eigenvalue.
-On the two constant-directive arms, the golden ratio and $\lambda$ give
-explicit integral half-steps on the two-square data.
-Any analogous half-step on a branch fixing $m_0$ requires $3m_0-2$ to be a
-square; a finite scan finds one further value, $m_0=34$, whose branch unit has
-an algebraic-unit square root. The two-square sequence on one displayed
-fixed-$34$ ray has no common integral half-step. No global two-branch
-classification is claimed, and no reduction of a hypothetical Markoff
-collision to the Fibonacci-core norm--content system is asserted.
+The map $\mathsf S(u,v)=(v,u+2v)$ is integrally conjugate to multiplication by
+$\lambda$ through $A_{(u,v)}=(v-u)+u\sqrt2$, giving an exact orbit/gap
+equivalence and, for the two Fibonacci cores, a complete all-anchor
+classification: one persistent family and three isolated time-zero hits.
+Compatible split-prime clocks recur to arbitrary depth but are obstructed at
+$241$: congruences alone cannot replace the norm--content equation. The
+integral Cohn monodromy along every fixed-entry Markoff branch has a quadratic
+Pisot-unit eigenvalue. No global two-branch classification or
+Markoff-collision reduction is claimed.
 \end{abstract}
 
 \maketitle
@@ -138,14 +130,11 @@ collision to the Fibonacci-core norm--content system is asserted.
 \input{sections/08-local-clocks}
 \input{sections/09-two-arms}
 \input{sections/09-scope-outlook}
-\clearpage
-\appendix
-\input{sections/appendix-certificates}
 
 \section*{Code availability}
-The LaTeX sources, supplementary proof certificates, recorded reference
-outputs, and reproduction instructions accompanying this article are publicly
-available in the companion GitHub repository:
+The LaTeX sources, the programs carrying out the finite verifications
+described above, and their recorded output are publicly available in the
+companion GitHub repository:
 \begin{center}
  \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
 \end{center}
