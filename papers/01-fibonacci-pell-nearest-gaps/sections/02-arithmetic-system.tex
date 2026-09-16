@@ -15,7 +15,7 @@ candidate window is an Archimedean inequality; a target is a candidate whose
 two coefficient coordinates also satisfy the exact norm--content equation.
 Keeping those two levels separate is essential.
 
-\subsection{Quadratic integers and primitive-unit normalisation}
+\subsection{Quadratic integers and primitive-unit normalization}
 
 We use the Fibonacci sequence
 
@@ -86,7 +86,7 @@ arithmetic group
  \label{eq:norm-one-arithmetic-group}
 \end{equation}
 
-The norm-$-1$ integral fibre is the coset $\lambda T(\Z)$. Hence a target
+The norm-$-1$ integral fiber is the coset $\lambda T(\Z)$. Hence a target
 gap is a rational lattice multiple of a point in this coset, and division by
 the coefficient content recovers its primitive arithmetic-group direction.
 This also explains why the matrix in \cref{eq:unit-matrix} preserves content:
@@ -114,10 +114,25 @@ and define
 
 For $q\geqslant1$, both numbers are positive and $A_qB_q=k$. The two signs
 in \cref{eq:intro-D} are simply $D_{q,1}=A_q$ and
-$D_{q,-1}=B_q$.
+$D_{q,-1}=B_q$. Cassini's identity
+$F_{q-1}F_{q+1}-F_q^2=(-1)^q$ factors $k\mp(-1)^q$, and we record the two
+factorizations here because both are used twice below: with
+$\varepsilon=(-1)^q$,
 
-\begin{lemma}[Uniqueness and unit normalisation]
-\label{lem:normalisation}
+\begin{equation}
+\begin{aligned}
+ R_q-\varepsilon&=F_{q+1}F_{q+2},\\
+ R_q+\varepsilon&=F_{q-1}F_{q+4}.
+\end{aligned}
+\label{eq:cassini-factors}
+\end{equation}
+
+Substituting $\varepsilon=F_{q-1}F_{q+1}-F_q^2$ gives
+$R_q-\varepsilon=F_{q+1}(2F_{q+1}-F_{q-1})$ and
+$R_q+\varepsilon=F_{q-1}(2F_{q+2}+F_{q+1})$.
+
+\begin{lemma}[Uniqueness and unit normalization]
+\label{lem:normalization}
 For a fixed pair $(q,\sigma)$ with $q\geqslant1$, at most one positive
 integer $n$ satisfies
 
@@ -138,7 +153,7 @@ if and only if
 
 \begin{equation}
  \Delta=g\lambda^j
- \label{eq:normalised-unit}
+ \label{eq:normalized-unit}
 \end{equation}
 
 for a unique odd integer $j$. In that case $M=n-j$ is positive and
@@ -193,7 +208,7 @@ The Fibonacci number $F_q$ is even exactly when $3\mid q$, proving
 The selector is a conclusion, not an external admissibility hypothesis. The
 even branch automatically has $3\nmid q$, hence $f$ and $k$ are odd and
 $M$ is odd. Those are precisely the hypotheses used by the primitive
-reconstruction below. The odd branch has a different factorisation and will
+reconstruction below. The odd branch has a different factorization and will
 be treated in \cref{sec:odd-exponents}.
 
 \subsection{Candidate windows are abundant}
@@ -356,7 +371,7 @@ $(k^2-1)/4$ here would be invalid.
 
 \begin{lemma}[Primitive rectangle reconstructed from a target]
 \label{lem:rectangle}
-Assume that $n$ is even and that
+Let $q\geqslant2$, assume that $n$ is even and that
 \cref{eq:nearest-window,eq:norm-content} hold. With $M=n-j$,
 there is an odd integer $W$ such that
 
@@ -593,8 +608,10 @@ positivity gives
 These inequalities prove the two factor bounds in
 \cref{eq:factor-lower}. Finally, the
 definitions of $W$ show $g=C_M-W=2U$ on the plus branch and
-$g=C_M+W=2V$ on the minus branch. In each case the selected factor is the
-smaller of $U,V$, so
+$g=C_M+W=2V$ on the minus branch. Which factor is selected is decided by
+the sign of $W$, and $g<C_M$ makes that sign known: $W=C_M-g>0$ on the plus
+branch and $W=g-C_M<0$ on the minus branch. Since $V-U=W$ in both cases,
+the selected factor is the smaller of $U,V$, and these are distinct, so
 $g<2\sqrt{UV}=\sqrt{k^2-1}<k$.
 \end{proof}
 

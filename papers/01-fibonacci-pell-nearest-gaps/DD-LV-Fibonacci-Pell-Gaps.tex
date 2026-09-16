@@ -89,32 +89,32 @@
 \begin{document}
 
 \begin{abstract}
-Let $\lambda=1+\sqrt2$, let $(F_q)$ be the Fibonacci sequence, and set
-$D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2$, $\sigma\in\{1,-1\}$. For all
-$q\geqslant1$ and all positive $n$, we classify the strict factor-two gaps
-$\Delta=\lambda^n-D_{q,\sigma}^2$ whose norm is minus the square of their
-content $g$. Exactly two occur:
-$(q,\sigma,n,g,\Delta/g)=(2,-1,2,6,\lambda^{-1})$ and $(4,1,6,40,\lambda)$. No
-solution has odd exponent. The even windows, by contrast, have explicit
-positive densities governed by an irrational rotation.
+Let $\lambda=1+\sqrt2$ and, for an index $q$ and a sign $\sigma$, let
+$D_{q,\sigma}=\sigma F_q+F_{q+1}\sqrt2$, where $(F_q)$ is the Fibonacci
+sequence. We classify the gaps between a power of $\lambda$ and the
+square of such an element, in the strict window where the power lies
+between that square and twice it, whose norm is minus the square of
+their content. Over all indices, both signs and every positive exponent
+exactly two occur, at $q=2$ and $q=4$, with contents $6$ and $40$, and
+none has odd exponent. Candidate windows are by contrast plentiful, with
+explicit positive densities governed by an irrational rotation.
 
-The argument is unbounded in $q$: computation enters only after analytic
-estimates cut it to a finite domain. In the even branch a primitive factor
-rectangle separates heights, giving $h<n<2q$ for the odd exponent
-$h\geqslant3$ of the normalised gap $\Delta=g\lambda^{-h}$. Two logarithmic
-forms give $h=O(\log q)$ and $q<10^{32}$, rational-interval reductions
-$h<192$ and $q<90$, and exact arithmetic finishes. The odd branch has no such
-separation and needs a fixed-form-first bootstrap, reducing to $q<96$, where the
-list is empty.
+The argument is unbounded in the index, computation entering only after
+analytic estimates cut the problem to a finite domain. In the even
+branch a primitive factor rectangle separates the heights, two linear
+forms in logarithms bound the exponent logarithmically and the index by
+$10^{32}$, rational-interval reductions bring these down to $192$ and
+$90$, and exact arithmetic finishes. The odd branch admits no such
+separation and needs the two logarithmic stages in the opposite order.
 
-The map $\mathsf S(u,v)=(v,u+2v)$ is integrally conjugate to multiplication by
-$\lambda$ through $A_{(u,v)}=(v-u)+u\sqrt2$, giving an exact orbit/gap
-equivalence and, for the two Fibonacci cores, a complete all-anchor
-classification: one persistent family and three isolated time-zero hits.
-Compatible split-prime clocks recur to arbitrary depth but are obstructed at
-$241$: congruences alone cannot replace the norm--content equation. The
-integral Cohn monodromy along every fixed-entry Markoff branch has a quadratic
-Pisot-unit eigenvalue. No global two-branch classification or
+The shift $(u,v)\mapsto(v,u+2v)$ is integrally conjugate to
+multiplication by $\lambda$, which turns the classification into one
+about orbits and gives, for the two Fibonacci cores, a complete
+description over all anchors and times: one persistent family and three
+isolated hits. Compatible split-prime clocks recur to arbitrary depth
+yet are obstructed at $241$, so congruences alone cannot replace the
+norm--content equation, and the integral Cohn monodromy along every
+fixed-entry Markoff branch has a quadratic Pisot-unit eigenvalue. No
 Markoff-collision reduction is claimed.
 \end{abstract}
 
@@ -129,15 +129,18 @@ Markoff-collision reduction is claimed.
 \input{sections/07-zero-defect-bridge}
 \input{sections/08-local-clocks}
 \input{sections/09-two-arms}
-\input{sections/09-scope-outlook}
+\input{sections/10-scope-outlook}
 
-\section*{Code availability}
-The LaTeX sources, the programs carrying out the finite verifications
-described above, and their recorded output are publicly available in the
-companion GitHub repository:
-\begin{center}
- \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
-\end{center}
+\raggedbottom
+\section*{Code and data availability}
+The source code and the data supporting this article, with the instructions
+that repeat every calculation, are contained in the supplementary material of
+this article, which is available, together with that of the other articles of
+this series:
+
+{\centering
+\url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
+\par}
 
 \bibliographystyle{amsplain}
 \bibliography{references}

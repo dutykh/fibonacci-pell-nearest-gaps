@@ -26,9 +26,13 @@ abstract: >-
   manuscript classifies the strict factor-two Fibonacci-Pell nearest gaps whose
   quadratic norm equals minus the square of their coefficient content, finds
   exactly two and none with an odd exponent, and lists every Pell-orbit
-  intersection of the two signed Fibonacci cores.
+  intersection of the two signed Fibonacci cores. The second proves a stability
+  theorem for Euclidean costs along a finite weighted graph of
+  continued-fraction states and applies it to the Gaussian reflection attached
+  to 89, showing that every distinct reflected target of a genuine reduced
+  Markoff source has strictly larger cost.
 type: software
-version: "2.0.0"
+version: "2.1.0"
 date-released: "2026-09-16"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
@@ -43,6 +47,9 @@ keywords:
   - arithmetic dynamics
   - continued fractions
   - balanced words
+  - Sturmian words
+  - Christoffel words
+  - Gaussian integers
 authors:
   - family-names: Dutykh
     given-names: Denys
@@ -57,6 +64,17 @@ references:
     title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
     year: 2026
     notes: "First manuscript of the series; sources in papers/01-fibonacci-pell-nearest-gaps"
+    authors:
+      - family-names: Dutykh
+        given-names: Denys
+        affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+      - family-names: Vuillon
+        given-names: Laurent
+        affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+  - type: unpublished
+    title: "Endpoint costs and balanced near-minimizers under Gaussian reflections"
+    year: 2026
+    notes: "Second manuscript of the series; sources in papers/02-endpoint-costs-balanced-paths"
     authors:
       - family-names: Dutykh
         given-names: Denys

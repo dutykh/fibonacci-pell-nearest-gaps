@@ -1,0 +1,143 @@
+\section{Introduction}
+\label{sec:introduction}
+
+The Markoff equation\footnote{We use the spelling \emph{Markoff} for the
+equation and its numbers, and refer to the uniqueness question as the
+Markoff--Frobenius conjecture.}
+$$
+ a^2+b^2+c^2=3abc
+$$
+has a tree of positive integer solutions, generated from $(1,1,1)$ by
+permutations and by the replacement $(a,b,c)\mapsto(a,b,3ab-c)$. The
+Markoff--Frobenius conjecture asserts that the largest entry of a solution
+determines the other two. It remains open, and a recurring strategy is to
+attach to each occurrence of a largest entry in the tree an invariant finer
+than the entry itself, rigid enough to separate two occurrences that share
+their numerical value. The invariant studied here is a cost.
+
+Each occurrence carries a reduced fraction $P/Q$, its Farey slope, and
+determines a primitive representation of its label as a sum of two squares.
+The subtractive Euclidean algorithm assigns an integer cost to such a pair:
+the number of subtractions needed to bring the two coordinates to their
+common divisor, or equivalently the sum of the partial quotients of their
+ratio, minus one. For the occurrence pair that cost is exactly $P+Q-2$.
+The natural question is whether the same integer admits a cheaper primitive
+representation, and the comparison is subtle: a Gaussian reflection
+preserves the norm while changing many partial quotients at once.
+
+Reading the continued fraction of a source and applying the reflection is a
+walk through a finite set of integer matrices, along which the cost
+difference accumulates. Nonnegative weights on the cycles of such a graph
+control repeated motion, but a finite walk also begins and ends somewhere,
+and its initial and terminal charges survive any rebalancing of the edge
+weights. Our first result concerns exactly that situation; the second
+applies it to one Gaussian prime block.
+
+\subsection{The two results}
+
+The general theorem concerns a finite graph reading one binary letter on
+each edge. Suppose an exact potential makes all initial, edge and terminal
+weights nonnegative integers, and suppose each cyclic component of the
+zero-weight subgraph carries a single letter frequency. Denote the finite
+set of those frequencies by $\Theta$, assumed nonempty. For a balanced
+accepted word of length $n$ with $m$ heavy letters and completed cost
+$\Delta$, we prove
+\begin{equation}
+ \min_{\theta\in\Theta}|m-\theta n|<K(\Delta+1),
+ \label{eq:intro-stability}
+\end{equation}
+where $K$ is obtained explicitly from the condensation graph and from
+elementary count potentials inside its cyclic components. No
+irreducibility, determinism, or bound on the input length is required.
+
+The role of balance is precise. An unrestricted word can spend a long time
+in one recurrent component and then a long time in another, so that its
+overall frequency lies strictly between theirs. A balanced word cannot make
+such a macroscopic mixture unless the two frequencies are already close.
+This is what turns a statement about the convex hull of $\Theta$ into the
+finite-set estimate \eqref{eq:intro-stability}.
+
+Balance enters through a single compatible slope, valid simultaneously for
+every factor. That slope has a geometric meaning: the pairs consisting of a
+slope and an intercept that produce a given finite word form a convex region
+of the plane, and the compatible slopes are exactly its shadow on the slope
+axis. These regions are the faces of the arrangement through which Berstel
+and Pocchiola counted the finite factors of Sturmian words, so the estimate
+rests on one coordinate of a two-parameter picture.
+
+Our arithmetic application fixes the Gaussian block $89=8^2+5^2$. If a
+primitive source has norm divisible by $89$ exactly once, there is a single
+complementary allocation of this pair of conjugate Gaussian primes, modulo
+units and conjugation; we call the resulting comparison the complete
+norm-$89$ flip. For the entire language $q=\varepsilon\chi(w)2$, where
+$\chi$ doubles each digit, we prove that the flip cannot lower the cost,
+and we determine every word on which the cost is preserved:
+\begin{equation}
+ q=111\chi(s)2,\qquad s\in(12111\mid21111)^*.
+ \label{eq:intro-equality}
+\end{equation}
+The target exchanges the two five-letter tokens. The reduced-count
+condition satisfied by a genuine Markoff occurrence excludes every nonempty
+token sequence, so every distinct genuine target has strictly larger cost.
+
+The same finite graph has critical frequencies
+\begin{equation}
+ \Theta_{89}=\{0,1/5,1/3,1\}.
+ \label{eq:intro-critical}
+\end{equation}
+For a genuine source of Farey slope $P/Q$, the quantitative consequence is
+\begin{equation}
+ \min_{\theta\in\Theta_{89}}|P-\theta Q|\leqslant118\Delta+121.
+ \label{eq:intro-farey}
+\end{equation}
+The excess therefore grows linearly with $Q$ on every closed interval of
+slopes disjoint from $\Theta_{89}$. We construct an infinite sequence of
+genuine sources to which this conclusion applies: their norms have $89$-adic
+valuation exactly one, and both Farey coordinates tend to infinity.
+
+\subsection{Background and contribution}
+
+Finite transducers for homographic transformations of continued fractions
+originate in Raney's work, and their matrix-state interpretation continues
+to be useful in arithmetic applications
+\cite{Raney1973,DongDupontODorneyWaitkus2025}. Potential transformations of
+weighted automata, including the accompanying changes at initial and
+terminal states, are standard \cite{Mohri2009}. Finiteness of an automaton
+carries arithmetic information in other settings as well: over a finite
+field, the power series that are algebraic are precisely those whose
+coefficients a finite automaton can generate \cite{ChristolKamaeMendesFranceRauzy1980}.
+We make no use of that equivalence here, and return to it in
+\cref{sec:conclusion}. Critical classes and the
+eventual concentration of optimal paths are central in min-plus spectral
+theory \cite{Quadrat1997}, and the relation between cycle frequencies and
+convex rotation sets has a well-developed graph-theoretic interpretation;
+see \cite[Section 3]{BochiZhang2016}. We use these mechanisms explicitly and
+attribute them where they occur. What \eqref{eq:intro-stability} adds is a
+balance condition imposed on individual finite inputs, which replaces the
+convex hull of the critical frequencies by the frequencies themselves.
+
+The general statement proved here is the finite balanced-path estimate
+\eqref{eq:intro-stability}, with its endpoint hypotheses and an explicit
+condensation constant. We also record how narrow the arithmetic input is:
+of the roughly $n^3/\pi^2$ balanced words of length $n$, at most $3n+3$ are
+cores of genuine occurrences. The norm-$89$ application adds the endpoint
+inequality, the complete equality language and the quantitative consequence
+for genuine occurrences. We make no priority claim for the underlying
+potential method, for the classical balance lemma, or for the
+correspondence between central words and Markoff numbers.
+
+The proof of the endpoint inequality at $89$ is in part computer-assisted:
+it rests on finitely many integer inequalities attached to a finite graph,
+verified in exact arithmetic. \Cref{sec:endpoint} states precisely which
+finite assertion is verified and why it implies a statement about words of
+arbitrary length. The stability theorem of \cref{sec:balanced-stability} and
+the infinite family of \cref{sec:markoff-application} involve no computation
+over words or labels.
+
+The result compares a source with its complete norm-$89$ flip. A norm
+containing other Gaussian prime blocks can have further primitive
+representations, and no comparison with all of them is asserted here; nor
+is the critical set \eqref{eq:intro-critical} claimed to be sharp among
+genuine Markoff sources. These boundaries leave a concrete question for
+further work: which recurrent zero-cost components can a central source
+approach while retaining its arithmetic endpoint conditions?

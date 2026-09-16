@@ -1,84 +1,64 @@
 # Reproduction supplement
 
-This supplement supports the exact computer-assisted statements in
-`DD-LV-Fibonacci-Pell-Gaps.tex`. It is self-contained relative to the
-manuscript directory: the driver reads no source, data, or audit file from the
-surrounding research repository. Every checker uses only the Python standard
-library. The proof-bearing interval and enumeration decisions are made with
-exact integer, rational, or outward-rounded fixed-point arithmetic.
+**Authors:** Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
 
-## Run the certificates
+This supplement contains the exact computations behind the
+computer-assisted statements of the article. It is self-contained: nothing
+below reads a file from outside this directory, and every program uses only
+the Python standard library. All decisions that carry part of a proof are made
+in exact integer or rational arithmetic, or in outward-rounded fixed-point
+arithmetic where an interval is needed.
 
-From the manuscript directory `papers/01-fibonacci-pell-nearest-gaps`, run:
+## Running the checks
+
+From the directory that contains this supplement, run:
 
 ```sh
 python3 -B supplement/run_all.py
 ```
 
 The driver stops at the first failure and prints the command and its complete
-output. It resolves every executable below `supplement/certificates`, so the
+output. It resolves every executable below `supplement/checks`, so the
 manuscript directory can be copied and checked independently of the research
 repository. A successful run ends with the line
 
 ```text
-PASS: every manuscript certificate completed successfully.
+PASS: every check completed successfully.
 ```
 
 The complete expected summaries are recorded in `expected-output.txt`.
 
-## Claim-to-source map
+## Which computation supports which claim
 
-| Manuscript claim | Complete checker | Independent control |
+| Statement in the article | Computation | Second, independent computation |
 | --- | --- | --- |
-| First Matveev comparison and $h<2.4\cdot10^{14}(1+\log(2q))$ | Written proof and source constant regression `certificates/check_c0082_logarithmic_h_bound_curator.py` | Exact rational reconstruction in the logarithmic-bound part of `certificates/check_c0082_effective_advances_independent_audit_agent_ea.py` |
-| Moving coefficient, full norm, second Matveev constants, and $q<10^{32}$ | `certificates/check_c0082_full8_adjusted_form_agent_c.py` | `certificates/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py` and `certificates/check_full8_adjusted_dp_independent_agent_b.py` |
-| Common rational approximation, $h<192$, all $190$ moving shifts, $q<90$, and the two-row enumeration | `certificates/check_c0082_full8_dp_closure_agent_c.py` | `certificates/check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py` and `certificates/check_full8_adjusted_dp_independent_agent_b.py` |
-| All-exponent classification and empty odd terminal domain $q=3,6,\ldots,93$ | `certificates/check_all_exponent_nearest_gap_agent_aeng.py --q-max 2000` | `certificates/check_all_exponent_nearest_gap_independent_audit_agent_aei.py --q-max 2000`; the second checker independently reconstructs the integer arithmetic and does not import the first |
-| Exact densities of both, one-sign, and absent candidate windows | Written irrational-rotation proof and `certificates/check_candidate_window_density_curator.py --q-max 5000` | The finite counts are regression evidence only; the density theorem is unbounded because of Weyl equidistribution |
-| Complete all-anchor two-sign Fibonacci-core orbit list | `certificates/check_two_sign_odd_pell_orbit_independent_audit_agent_tsa.py` and `certificates/check_even_pell_anchor_orbits_agent_epa.py --q-max 5000` | `certificates/check_even_pell_anchor_orbits_independent_audit_agent_eaa.py --q-max 5000`, together with the all-exponent pair; bounded orbit searches are not the completeness proof |
-| General-seed semiconjugacy, canonical units, and anchored orbit/gap equivalence | `certificates/check_general_seed_orbit_nearest_gap_curator.py` | `certificates/check_general_seed_orbit_nearest_gap_independent_audit_agent_gsa.py` |
-| Uniform simultaneous local clocks, rank-parity criterion, and the obstruction at $241$ | Written rank/CRT/equidistribution proof and `certificates/check_uniform_local_clock_generalisation_agent_lcg.py` | The checker verifies exact ranks and witnesses; infinitude rests on the written proof |
-| Wider exact nearest-gap regression | `certificates/check_c0068_nearest_even_unit_gap_curator.py --q-max 2000` | Not used for completeness |
-| $7$- and $17$-clock theorem witnesses and rank data | `certificates/check_c0077_imprimitive_two_clock_recurrence_agent_cte.py` | `certificates/check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py` |
-| Two-arms section: Cohn normalisation, arm letter counts, branch recurrence with trace $3m_0$, failure of a half-step on the displayed fixed-$34$ ray, and the growth-rate trace comparison | `certificates/check_two_arms.py` | Self-contained; the two trace-criterion scans are finite verifications, and neither they nor the displayed-ray calculation classify all fixed-$34$ rays |
-| Exact filtering of the published $j=1$ near-square classification | `certificates/check_c0068_plus_j1_quartic_curator.py` | `certificates/check_j1_plus_branch_quartic_independent_audit_agent_j1.py` |
+| First Matveev comparison and `h < 2.4·10¹⁴ (1 + log(2q))` | Written proof and source constant regression `checks/check_logarithmic_h_bound.py` | Exact rational reconstruction in the logarithmic-bound part of `checks/check_effective_advances.py` |
+| Moving coefficient, full norm, second Matveev constants, and `q < 10³²` | `checks/check_adjusted_logarithmic_form.py` | `checks/check_terminal_reduction_second.py` and `checks/check_continued_fraction_closure_second.py` |
+| Common rational approximation, `h < 192`, all 190 moving shifts, `q < 90`, and the two-row enumeration | `checks/check_continued_fraction_closure.py` | `checks/check_terminal_reduction_second.py` and `checks/check_continued_fraction_closure_second.py` |
+| All-exponent classification and empty odd terminal domain `q = 3, 6, …, 93` | `checks/check_nearest_gap_classification.py --q-max 2000` | `checks/check_nearest_gap_classification_second.py --q-max 2000`; the second checker independently reconstructs the integer arithmetic and does not import the first |
+| Exact densities of both, one-sign, and absent candidate windows | Written irrational-rotation proof and `checks/check_window_densities.py --q-max 5000` | The finite counts are regression evidence only; the density theorem is unbounded because of Weyl equidistribution |
+| Complete all-anchor two-sign Fibonacci-core orbit list | `checks/check_two_sign_odd_pell_orbit.py` and `checks/check_even_pell_anchor_orbits.py --q-max 5000` | `checks/check_even_pell_anchor_orbits_second.py --q-max 5000`, together with the all-exponent pair; bounded orbit searches are not the completeness proof |
+| General-seed semiconjugacy, canonical units, and anchored orbit/gap equivalence | `checks/check_general_seed_orbit.py` | `checks/check_general_seed_orbit_second.py` |
+| Uniform simultaneous local clocks, rank-parity criterion, and the obstruction at 241 | Written rank/CRT/equidistribution proof and `checks/check_uniform_local_clocks.py` | The checker verifies exact ranks and witnesses; infinitude rests on the written proof |
+| Wider exact nearest-gap regression | `checks/check_even_unit_gap_criterion.py --q-max 2000` | Not used for completeness |
+| 7- and 17-clock theorem witnesses and rank data | `checks/check_two_clock_obstruction.py` | `checks/check_two_clock_obstruction_second.py` |
+| Two-arms section: Cohn normalisation, arm letter counts, branch recurrence with trace `3m₀`, failure of a half-step on the displayed fixed-34 ray, and the growth-rate trace comparison | `checks/check_two_arms.py` | Self-contained; the two trace-criterion scans are finite verifications, and neither they nor the displayed-ray calculation classify all fixed-34 rays |
+| Exact filtering of the published `j = 1` near-square classification | `checks/check_plus_branch_quartic.py` | `checks/check_plus_branch_quartic_second.py` |
 
-The identifier `C0085` in the recorded output of
-`check_c0082_full8_adjusted_form_agent_c.py` names the research-tree
-derivation of the Matveev prefactor $9.275\cdot10^{12}$. That prefactor is
-re-derived here from Matveev's constants with exact rational intervals inside
-`certificates/check_c0082_effective_advances_independent_audit_agent_ea.py`,
-and the specialisation it rests on is the Matveev lemma of the manuscript, so
-the condition recorded in that PASS line is discharged inside this supplement
-and does not depend on any file outside it.
+Each program can also be run on its own, from this directory; the table above
+gives the exact invocation, with its arguments, for every statement. The single
+command given under "Running the checks" performs all of them in order.
 
-The other internal identifiers that survive in shipped file names and PASS
-lines are research-tree claim numbers, not manuscript objects. They may be
-read as follows: `C0060` and `C0065`, the primitive factorisation and
-orientation congruences of the even branch; `C0068`, the nearest even-unit
-gap criterion; `C0070` and `C0073`, the half-unit trace conic and its
-consequences; `C0077`, the imprimitive two-clock recurrence; `C0080`, the
-exclusion of primitive norm one; `C0082`, the effective classification;
-`C0088`, the all-exponent classification itself. Nothing in the manuscript
-depends on these labels; they are retained only so that the vendored files
-remain byte-identical to their sources.
+The independent effective-advances program also reconstructs an earlier
+`4 + 4` support exclusion. That extra check is retained, but the present
+article uses this program only as an independent check of the first Matveev
+comparison.
 
-The run instructions and provenance pointers inside individual vendored
-files mention `math-sandbox/`, `scripts/` and `attempts/` paths. Those are
-historical annotations from the research tree and are not part of the
-distributed supplement. The only supported invocation is the one given under
-"Run the certificates" above.
-
-The independent effective-advances checker also reconstructs an earlier
-$4+4$ support exclusion. That extra check is retained as provenance, but the
-present manuscript uses this program only as an independent audit of the
-first Matveev comparison.
-
-The wider nearest-gap runs through $q=2000$, the density run through
-$q=5000$, and the bounded orbit comparisons are regression checks, not the
+The wider nearest-gap runs through `q = 2000`, the density run through
+`q = 5000`, and the bounded orbit comparisons are regression checks, not the
 source of completeness. Completeness comes from the manuscript's unbounded
-estimates followed by the exact even domain $q<90$ and odd domain
-$q=3,6,\ldots,93$, and from the exact anchored orbit/gap equivalence.
+estimates followed by the exact even domain `q < 90` and odd domain
+`q = 3, 6, …, 93`, and from the exact anchored orbit/gap equivalence.
 
 ## Optional Magma corroboration
 
@@ -88,16 +68,16 @@ of Alekseyev and Tengely, *Journal of Integer Sequences* 17 (2014), Article
 for `run_all.py`.
 
 The `magma` directory preserves two independent Magma V2.29-9 inputs and the
-two audit records containing their complete certificate-relevant transcripts,
+two records containing their complete transcripts,
 fixed seeds, version information, integral-point outputs, descent bounds, and
 full Mordell--Weil proof flags. See `magma/README.md` for the exact map.
 
 ## Arithmetic conventions
 
-- $F_0=0$, $F_1=1$, and $F_{n+2}=F_{n+1}+F_n$.
-- $P_0=0$, $P_1=1$, and $P_{n+2}=2P_{n+1}+P_n$.
-- $C_n=P_n+P_{n-1}$, with $P_{-1}=1$.
-- $\lambda=1+\sqrt2$.
+- `F(0) = 0`, `F(1) = 1`, and `F(n+2) = F(n+1) + F(n)`.
+- `P(0) = 0`, `P(1) = 1`, and `P(n+2) = 2 P(n+1) + P(n)`.
+- `C(n) = P(n) + P(n-1)`, with `P(-1) = 1`.
+- `λ = 1 + √2`.
 - A quadratic integer is represented by its two integer coefficients.
 - Every logarithm and square root that decides the effective classification
   is enclosed by rational endpoints or by an outward-rounded fixed-point
@@ -110,15 +90,16 @@ full Mordell--Weil proof flags. See `magma/README.md` for the exact map.
   rows without that locator, while the unbounded clock theorem rests on the
   written recurrence and equidistribution proof rather than on finite search.
 
-## Software and provenance
+## Software
 
 - Python 3.11 or later is recommended; no third-party package is required.
 - The optional integral-point reruns use Magma V2.29-9.
-- The certificate files are unmodified snapshots of the audited research
-  scripts. `PROVENANCE.md` records their source paths and SHA-256 digests.
-- The Python certificates have no nonlocal dependencies, invoke no network
-  service, and use no nondeterminism. Two new checkers import named sibling
-  certificates already vendored in the same directory; all other checkers
-  import only the standard library.
-- LaTeX compilation is separate and uses `make check` in the manuscript
-  directory.
+- The programs have no nonlocal dependencies, invoke no network service and
+  use no nondeterminism. Two of them import named sibling checks in this same
+  directory; all the others import only the standard library.
+
+Copyright (C) 2026 Dr. Denys Dutykh and Prof. Laurent Vuillon. The package is
+distributed under the GNU Lesser General Public License, version 2.1 (see
+`LICENSE`); please cite the article when using it (see `CITATION.cff`). The
+packages of all the articles of this series are collected at
+<https://github.com/dutykh/fibonacci-pell-nearest-gaps/>.

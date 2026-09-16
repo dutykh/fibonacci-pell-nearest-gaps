@@ -1,0 +1,19 @@
+\begin{tikzpicture}[>=Stealth,
+ state/.style={circle,draw,minimum size=8mm,inner sep=1pt},
+ every edge/.style={draw,->},every node/.style={font=\small}]
+\node[state] (s0) at (0,0) {$s_0$};
+\node[state,double,double distance=1.2pt] (s1) at (2.1,0) {$s_1$};
+\node[state] (s2) at (4.1,1.15) {$s_2$};
+\node[state] (s3) at (4.1,-1.15) {$s_3$};
+\node[state] (s4) at (6.2,0) {$s_4$};
+\node[state] (s5) at (3.1,-2.7) {$s_5$};
+\draw[->] (-1,0)--(s0);
+\path (s0) edge node[above] {$1:0$} (s1)
+ (s1) edge node[above left] {$1:1$} (s2)
+ (s1) edge node[below left] {$2:0$} (s3)
+ (s2) edge node[above right] {$2:-1$} (s4)
+ (s3) edge node[below right] {$1:0$} (s4)
+ (s5) edge[bend left=18] node[below left] {$1:0$} (s0);
+\draw[->] (s4.east) .. controls (8,0) and (8,-2.7) ..
+ node[right,pos=.52] {$1:0$} (s5.east);
+\end{tikzpicture}

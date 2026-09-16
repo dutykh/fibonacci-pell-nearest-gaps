@@ -1,0 +1,234 @@
+\section{Genuine Markoff sources and their balanced cores}\label{sec:markoff-sources}
+
+The reflection machine will accept continued fractions from a larger
+language than the one supplied by Markoff occurrences. We now identify
+the genuine sources inside that language. The distinction matters:
+balance controls long factors, whereas the exact occurrence also fixes
+the initial phase and the terminal digit.
+
+\subsection{The mechanical word and the Cohn normalization}
+
+Fix relatively prime integers $0<P<Q$. The lower Christoffel word
+$C_{P/Q}=c_0\cdots c_{Q-1}$ is defined by
+\begin{equation}\label{eq:source-mechanical}
+ c_i=b\quad\Longleftrightarrow\quad
+ \left\lfloor\frac{(i+1)P}{Q}\right\rfloor
+ -\left\lfloor\frac{iP}{Q}\right\rfloor=1.
+\end{equation}
+It has $P$ letters $b$ and $Q-P$ letters $a$; thus $Q$ is its
+total length. Its first letter is $a$ and its last is $b$, so write
+$C_{P/Q}=azb$. The interior $z$ is a palindrome. Indeed, for
+$1\leqslant j\leqslant Q-1$, coprimality gives
+$$
+ \left\lfloor\frac{(Q-j)P}{Q}\right\rfloor
+ =P-1-\left\lfloor\frac{jP}{Q}\right\rfloor.
+$$
+Applying this identity to two consecutive interior indices shows that
+$c_i=c_{Q-1-i}$ for $1\leqslant i\leqslant Q-2$.
+Such interiors are called central words; see
+\cite{BertheDeLucaReutenauer2008} for their standard word-theoretic
+description.
+
+Put
+\begin{equation}\label{eq:source-cohn-matrices}
+ A=M(1)^2=\begin{pmatrix}2&1\\1&1\end{pmatrix},\qquad
+ B=M(2)^2=\begin{pmatrix}5&2\\2&1\end{pmatrix},
+\end{equation}
+and let $\mu$ be the word morphism with $\mu(a)=A$ and $\mu(b)=B$.
+The Cohn--Christoffel correspondence identifies the normalized
+Markoff occurrence at $P/Q$ with the label
+\begin{equation}\label{eq:source-label}
+ m_{P/Q}=\frac13\operatorname{tr}\mu(C_{P/Q})
+        =\mu(C_{P/Q})_{12}.
+\end{equation}
+This is the classical correspondence with Markoff triples, not an
+assertion that distinct fractions have distinct labels
+\cite{Reutenauer2009}.
+The two initial Markoff values $1$ and $2$ lie outside this proper-word
+normalization and will not be needed below.
+
+\subsection{The primitive column and its exact cost}
+
+Use the digit product $M(q)$ from \eqref{eq:digit-matrix}. Identify
+$a,b$ with the numerical input letters $1,2$, so that $\chi(a)=11$ and
+$\chi(b)=22$. Reversal is denoted by a tilde.
+
+\begin{proposition}[The genuine source dictionary]\label{prop:genuine-source-dictionary}
+For every reduced $0<P<Q$, there is a canonical continued-fraction
+word
+\begin{equation}\label{eq:source-half}
+ q=\varepsilon\chi(w)2,\qquad
+ \varepsilon\in\{\varnothing,1,2\},
+\end{equation}
+whose first column $v=(y,x)^{\mathsf T}$ satisfies
+$y>x>0$, $\gcd(x,y)=1$, and $x^2+y^2=m_{P/Q}$.
+The core $w$ is a finite balanced binary word. Moreover,
+\begin{equation}\label{eq:source-counts}
+ \begin{aligned}
+ P&=|q|_2=1+\mathbf1_{\{\varepsilon=2\}}+2|w|_b,\\
+ Q&=|q|+1=2+\mathbf1_{\{\varepsilon\ne\varnothing\}}+2|w|.
+ \end{aligned}
+\end{equation}
+and its subtractive Euclidean cost is
+\begin{equation}\label{eq:source-cost}
+ \ell(v)=\sum_{j=1}^s q_j-1=P+Q-2.
+\end{equation}
+The complete word is determined by the central palindrome through
+\begin{equation}\label{eq:source-full-palindrome}
+ \widetilde q\,q=2\chi(z)2.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Split the central palindrome at its middle, in exactly one of the forms
+$$
+ z=\widetilde w\,w,\qquad
+ z=\widetilde w\,a\,w,\qquad
+ z=\widetilde w\,b\,w.
+$$
+The corresponding choices are $\varepsilon=\varnothing,1,2$.
+Since $A$ and $B$ are symmetric, in all three cases
+\begin{equation}\label{eq:source-half-factorization}
+ \mu(z)=H^{\mathsf T}H,\qquad
+ H=\begin{cases}
+       \mu(w),&\varepsilon=\varnothing,\\
+       M(\varepsilon)\mu(w),&\varepsilon\in\{1,2\}.
+    \end{cases}
+\end{equation}
+Let $e=(2,1)^{\mathsf T}=M(2)(1,0)^{\mathsf T}$. The first row of
+$A$ is $e^{\mathsf T}$ and the second column of $B$ is $e$.
+Consequently
+$$
+ \mu(azb)_{12}=e^{\mathsf T}\mu(z)e=\|He\|^2.
+$$
+For completeness, if
+$\mu(z)=\begin{pmatrix}a&b\\b&d\end{pmatrix}$, direct multiplication
+gives
+$$
+ \mu(azb)_{12}=4a+4b+d,
+ \qquad \operatorname{tr}\mu(azb)=3(4a+4b+d),
+$$
+which also verifies the equality of the two label conventions in
+\eqref{eq:source-label}.
+
+The matrix $H$ is integral and unimodular. Therefore $v=He$ is
+primitive. Its coordinates are positive, with the first larger than
+the second: every digit matrix $M(j)$ sends a positive column to one
+with this ordering. By construction $HM(2)=M(q)$, proving the norm
+claim. The last digit of $q$ is $2$, so $q$ is the canonical finite
+continued fraction of $y/x$. This also includes the empty center,
+where $q=2$ and $v=(2,1)^{\mathsf T}$.
+
+Reversing the digit word in each of the three middle cases gives
+\eqref{eq:source-full-palindrome} literally. In particular, the full
+word has length $2+2|z|=2Q-2$ and contains
+$2+2|z|_b=2P$ digits equal to $2$. Its two reversed halves have equal
+length and equal digit counts. Hence $|q|=Q-1$ and $|q|_2=P$,
+which gives \eqref{eq:source-counts}.
+
+Equation \eqref{eq:euclidean-cost} gives $\ell(v)=\sum q_j-1$.
+Since all digits are $1$ or $2$, their sum is $|q|+|q|_2=Q-1+P$,
+proving \eqref{eq:source-cost}.
+
+Finally, a binary word is \emph{balanced} if any two of its contiguous
+factors of equal length have numbers of $b$'s differing by at most one.
+For a length-$r$ factor of $C_{P/Q}$ starting at $i$, the number of
+$b$'s is, by telescoping \eqref{eq:source-mechanical},
+$$
+ \left\lfloor\frac{(i+r)P}{Q}\right\rfloor
+ -\left\lfloor\frac{iP}{Q}\right\rfloor.
+$$
+For fixed $r$ this is either $\lfloor rP/Q\rfloor$ or
+$\lceil rP/Q\rceil$. Thus $C_{P/Q}$ is balanced, as is every
+contiguous factor. The right half $w$ of $z$ is one such factor.
+\end{proof}
+
+The proof explains both roles of the source grammar. Pairing the digits
+produces an integer Gram square and an exact cost; the mechanical word
+supplies balance. No cyclic balance of an arbitrary central half is
+asserted. In particular, a repeated segment of a finite core must be
+analyzed with its actual initial and terminal states.
+
+Conversely, the conditions that $q$ has the form
+\eqref{eq:source-half}, that $w$ is balanced, and that the counts in
+\eqref{eq:source-counts} are coprime are only necessary conditions in
+this paper. An exact recognition test must also compare
+$\widetilde q\,q$ with $2\chi(z_{P/Q})2$, where $z_{P/Q}$ is the
+interior computed from \eqref{eq:source-mechanical}. If this equality
+holds, the first-column construction proves that the source is exactly
+the occurrence at $P/Q$. The reflection arguments below apply to a
+larger language when this final recognition test is not imposed.
+
+\subsection{How thin the genuine language is}
+
+Balance alone is a weak constraint compared with being a genuine core. The
+classical enumeration of the finite factors of Sturmian words makes the
+comparison exact. Those factors are precisely the balanced words, and there
+are $1+\sum_{i=1}^{n}(n-i+1)\varphi(i)$ of length $n$, with $\varphi$ the
+Euler function; Mignosi proved this, and Berstel and Pocchiola gave a
+geometric proof by duality and Euler's relation for planar graphs
+\cite{Mignosi1991,BerstelPocchiola1993}.
+
+\begin{proposition}[The genuine cores of a given length]
+\label{prop:thin-language}
+Fix $n\geqslant1$. The pairs $(\varepsilon,w)$ produced by
+\cref{prop:genuine-source-dictionary} with $\lvert w\rvert=n$ are in
+bijection with the reduced fractions $P/Q$, $0<P<Q$, having
+$Q\in\{2n+2,\,2n+3\}$. There are therefore exactly
+\begin{equation}
+ \varphi(2n+2)+\varphi(2n+3)\leqslant 3n+3
+ \label{eq:genuine-core-count}
+\end{equation}
+of them, whereas the balanced words of length $n$ number
+$1+\sum_{i=1}^{n}(n-i+1)\varphi(i)$, which is asymptotic to $n^3/\pi^2$.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:source-counts} one has
+$Q=2+\mathbf1_{\{\varepsilon\ne\varnothing\}}+2n$, so $\lvert w\rvert=n$
+forces $Q=2n+2$ when $\varepsilon=\varnothing$ and $Q=2n+3$ otherwise;
+conversely both values occur, the parity of $Q$ being the parity of
+$\lvert z\rvert=Q-2$ that decides the three middle cases in the proof of
+\cref{prop:genuine-source-dictionary}. That proof assigns to each reduced
+$P/Q$ exactly one pair, so the map is well defined. It is injective because
+the pair recovers the central word, $z=\widetilde w\,w$,
+$\widetilde w\,a\,w$ or $\widetilde w\,b\,w$ according as $\varepsilon$ is
+$\varnothing$, $1$ or $2$, and distinct reduced fractions have distinct
+central words. Counting reduced fractions with a prescribed denominator
+gives \eqref{eq:genuine-core-count}; the bound follows from
+$\varphi(2n+2)\leqslant n+1$, valid because $2n+2$ is even, together with
+$\varphi(2n+3)\leqslant2n+2$. Finally $\sum_{i\leqslant x}\varphi(i)\sim3x^2/\pi^2$,
+and summing this once more over $i\leqslant n$ gives the stated asymptotic.
+\end{proof}
+
+At length $n$ the reflection machine may therefore be fed any of about
+$n^3/\pi^2$ balanced words, of which at most $3n+3$ come from a genuine
+occurrence: a proportion $O(n^{-2})$. This is the precise sense in which the
+arithmetic language is narrower than the combinatorial one, and it locates
+where a sharper form of the results below would have to come from, since
+balance is blind to the distinction.
+
+A second consequence of genuineness is available at once, and it removes an
+auxiliary choice from the argument of \cref{sec:markoff-application}: the
+Farey slope of an occurrence may be used directly as a compatible slope for
+its core, with no recourse to the existence statement of
+\cref{lem:compatible-slope}.
+
+\begin{corollary}[The Farey slope is compatible]
+\label{cor:farey-compatible}
+Let $w$ be the core of a genuine reduced occurrence of slope $P/Q$. Then
+every nonempty factor $v$ of $w$ satisfies
+\begin{equation}
+ \bigl\lvert\,\lvert v\rvert_b-(P/Q)\lvert v\rvert\,\bigr\rvert<1.
+ \label{eq:farey-compatible}
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+The word $w$ is a factor of $C_{P/Q}$, so by the telescoping computation at
+the end of the proof of \cref{prop:genuine-source-dictionary} a factor $v$
+of length $r$ has $\lvert v\rvert_b$ equal to $\lfloor rP/Q\rfloor$ or
+$\lceil rP/Q\rceil$. Moreover $r\leqslant\lvert w\rvert<Q$ and
+$\gcd(P,Q)=1$, so $rP/Q$ is not an integer; each of the two values is
+therefore at distance strictly less than one from it.
+\end{proof}

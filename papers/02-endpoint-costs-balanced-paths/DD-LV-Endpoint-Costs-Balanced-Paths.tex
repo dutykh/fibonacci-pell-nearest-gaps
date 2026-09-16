@@ -1,0 +1,158 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=32mm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=green!40!black,urlcolor=blue!65!black]{hyperref}
+\usepackage{aliascnt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\cont}[1]{\operatorname{cont}\!\left(#1\right)}
+\newcommand{\height}[1]{h_{\mathrm{abs}}\!\left(#1\right)}
+\newcommand{\dist}[1]{\left\lVert#1\right\rVert}
+
+
+\newaliascnt{example}{theorem}
+\theoremstyle{definition}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\crefname{example}{example}{examples}
+\Crefname{example}{Example}{Examples}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\arcosh}{arcosh}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\frenchspacing
+
+
+
+\title[Endpoint costs and balanced near-minimizers]{Endpoint costs and balanced near-minimizers\\under Gaussian reflections}
+\author{Denys Dutykh}
+\address{Mathematics Department, Khalifa University of Science and Technology, PO Box 127788, Abu Dhabi, United Arab Emirates}
+\email{denys.dutykh@ku.ac.ae}
+\author{Laurent Vuillon}
+\address{Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chamb\'ery, France}
+\email{laurent.vuillon@univ-smb.fr}
+\hypersetup{pdftitle={Endpoint costs and balanced near-minimizers under Gaussian reflections},
+ pdfauthor={Denys Dutykh and Laurent Vuillon},
+ pdfsubject={Balanced finite paths, Euclidean cost and a norm-89 reflection theorem},
+ pdfkeywords={Markoff numbers, Gaussian integers, continued fractions, weighted graphs, balanced words, Sturmian words, return words}}
+\subjclass[2020]{Primary 68R15; Secondary 05C22, 11D25, 11J70, 68Q45}
+\keywords{Markoff numbers, Gaussian integers, continued fractions, weighted graphs, balanced words, Sturmian words, return words}
+\begin{document}
+\begin{abstract}
+A comparison of Euclidean costs along a finite graph of
+continued-fraction states depends on where the walk begins and ends as
+much as on the cycles it traverses. We prove a quantitative stability
+theorem for finite graphs carrying nonnegative integer initial, edge and
+terminal weights: if every cyclic component of the zero-weight subgraph
+has a single letter frequency, then the heavy-letter count of any
+balanced accepted word lies within an explicit multiple of its completed
+cost from that finite set of frequencies, the multiple being read off the
+condensation graph. Balance is what allows the finite set to replace its
+convex hull. The compatible slopes of a finite word are identified with the
+projection of a face of the arrangement by which Berstel and Pocchiola
+enumerated the factors of Sturmian words, which also measures how thin the
+arithmetic input is: of the balanced words of length $n$, only $O(n)$ of the
+roughly $n^3/\pi^2$ arise from a Markoff occurrence.
+
+We apply the theorem to the Gaussian reflection attached to $89=8^2+5^2$,
+acting on primitive sources whose norm has $89$-adic valuation exactly
+one. On an unrestricted paired-digit language this reflection never
+decreases subtractive-Euclidean cost, and we determine every word whose
+cost it preserves. Consequently every distinct reflected target of a
+genuine reduced Markoff source has strictly larger cost, by an amount
+that grows linearly with the denominator of the Farey slope outside any
+neighborhood of four critical slopes. An explicit infinite family of
+genuine sources realizes this growth. The proof of the inequality at $89$
+is in part computer-assisted; the stability theorem and the infinite
+family are not. These comparisons concern the complete norm-$89$ flip and
+do not establish global Markoff uniqueness.
+\end{abstract}
+\maketitle
+\input{sections/introduction}
+\input{sections/cost-and-reflections}
+\input{sections/markoff-sources}
+\input{sections/balanced-stability}
+\input{sections/endpoint-inequality}
+\input{sections/equality}
+\input{sections/markoff-application}
+\input{sections/conclusion}
+\raggedbottom
+\section*{Supplementary material}
+The supplementary material accompanying this article contains the exact
+computations used in the proofs of
+\cref{thm:endpoint-89,thm:equality-language,thm:axis-stability}: the closed
+state graph, its table of potentials, the cyclic components of the zero-slack
+subgraph, and instructions for repeating the calculations. The reconstruction
+of the graph and of its potential was carried out twice, by implementations
+sharing no code. The material also carries independent confirmations of two
+results that are proved analytically above and take no computational input:
+the letter counts, the cost and the balance of the dictionary of
+\cref{prop:genuine-source-dictionary}, together with a direct evaluation of the
+excess from its definition, and the polynomial identities behind
+\cref{thm:infinite-family}.
+
+\section*{Code and data availability}
+The source code and the data supporting this article, with the instructions
+that repeat every calculation, are contained in the supplementary material of
+this article, which is available, together with that of the other articles of
+this series:
+
+{\centering
+\url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
+\par}
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

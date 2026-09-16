@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite the article it accompanies."
+title: "Fibonacci-Pell nearest gaps: exact computations"
+type: software
+authors:
+  - family-names: Dutykh
+    given-names: Denys
+    affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+  - family-names: Vuillon
+    given-names: Laurent
+    affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+date-released: "2026-09-15"
+license: LGPL-2.1-only
+repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps/"
+preferred-citation:
+  type: article
+  title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
+  authors:
+    - family-names: Dutykh
+      given-names: Denys
+    - family-names: Vuillon
+      given-names: Laurent
+  year: 2026

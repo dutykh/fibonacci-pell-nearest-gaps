@@ -1,0 +1,213 @@
+\section{The endpoint inequality at norm 89}
+\label{sec:endpoint}
+
+\begin{theorem}[The norm-$89$ endpoint inequality]
+\label{thm:endpoint-89}
+Let $q=\varepsilon\chi(w)2$ be any word in \eqref{eq:regular-source}, put
+$v=M(q)e_1$, and assume $\ord_{89}(\|v\|^2)=1$. Then its complete norm-$89$
+flip satisfies $\Delta\geqslant0$.
+\end{theorem}
+
+The proof replaces the infinitely many admissible words by the finitely
+many states of a reduction graph, and then exhibits on that graph an
+integer potential making every step of the cost comparison nonnegative.
+The finiteness of the graph is not an empirical stopping observation: it
+is forced by the determinant.
+
+\subsection{From row subtraction to weighted transitions}
+
+Suppose a nonnegative integral matrix $S$ has two incomparable rows:
+neither dominates the other componentwise. After multiplying by $M(j)^2$,
+subtract a dominated row from the dominating row until the rows are again
+incomparable. These are the elementary row operations
+$$
+ (a,b;c,d)\longmapsto(a-c,b-d;c,d)
+ \quad\hbox{or}\quad
+ (a,b;c,d)\longmapsto(a,b;c-a,d-b).
+$$
+The notation lists the two rows separated by a semicolon. Every such
+subtraction is forced for \emph{every} positive continuation vector:
+componentwise domination implies domination after multiplication by that
+vector. The rows remain nonnegative, and the sum of the entries decreases,
+so this reduction terminates. If $k$ unit subtractions are emitted, assign
+the transition the weight
+\begin{equation}
+ w(S,j)=k-2j.
+ \label{eq:edge-weight}
+\end{equation}
+The subtracted $2j$ is exactly the source cost of the paired digit $jj$.
+
+Row exchange has no effect on Euclidean cost. We therefore identify a
+matrix with its row exchange and choose the representative with positive
+determinant. Every reduced representative takes the form
+\begin{equation}
+ S=\begin{pmatrix}r+u&b\\r&b+v\end{pmatrix},\qquad
+ r,b\geqslant0,\quad u,v\geqslant1.
+ \label{eq:crossed-state}
+\end{equation}
+
+\begin{lemma}[State invariants]
+\label{lem:state-invariants}
+Every state reachable from a seed has the crossed form
+\eqref{eq:crossed-state}, content one, and determinant
+\begin{equation}
+ rv+bu+uv=89^2.
+ \label{eq:finite-state-bound}
+\end{equation}
+In particular $r,b,u,v\leqslant89^2$, so only finitely many states occur.
+\end{lemma}
+
+\begin{proof}
+A seed arises from $R_\nu M(\varepsilon)$ by reading paired letters and
+performing row operations. The digit matrices are unimodular and
+$\det R_\nu=-89^2$, so a seed has determinant $\pm89^2$; the choice of the
+representative with positive determinant fixes the sign, and expanding
+\eqref{eq:crossed-state} gives \eqref{eq:finite-state-bound}. Row
+subtraction, row exchange and sign change are unimodular, and so are the
+digit matrices acting on the right; each therefore preserves both the
+determinant up to sign and the greatest common divisor of the entries.
+Since a seed has content one, so does every state reachable from it.
+Finally \eqref{eq:finite-state-bound} writes $89^2$ as a sum of three
+nonnegative products, and $u,v\geqslant1$, so each of $r,b,u,v$ is at most
+$89^2$.
+\end{proof}
+
+If the input ends in state $S$, its remaining vector is $Se$, where
+$e=(2,1)^{\mathsf T}$. The terminal charge is
+\begin{equation}
+ f(S)=\ell(Se)-1.
+ \label{eq:terminal-charge}
+\end{equation}
+We accept the terminal exactly when $\cont{Se}=89$. Unimodular row
+operations preserve vector content, so \cref{lem:primitive-flip} makes
+this the exact primitive endpoint test. The final one subtracted in
+\eqref{eq:terminal-charge} is the source cost of its last digit $2$.
+
+\subsection{Resolving every initial sign}
+
+The first row of each $R_\nu$ in \eqref{eq:reflections} is positive, but
+the second has opposite signs. Starting with $R_\nu M(\varepsilon)$,
+read paired letters until the second row has one weak sign componentwise.
+At that point its sign is fixed for every positive continuation. Change
+its sign if necessary, perform the forced row reduction, and enter the
+finite graph.
+
+This prefix procedure has eleven leaves. \Cref{tab:seeds} gives every
+leaf state and its seed weight. A seed that consumes the paired prefix
+$p$ and emits $k_0$ subtractions has weight
+\begin{equation}
+ w_0=k_0-\varepsilon-2\sum_{j\in p}j.
+ \label{eq:seed-weight}
+\end{equation}
+The optional digit is again interpreted as zero when absent.
+
+\begin{table}[tb]
+\centering
+\caption{Complete sign-resolution seeds. A state $(a,b;c,d)$ has the
+displayed first and second rows and positive determinant $89^2$.
+The prefix consists of paired input letters. These eleven leaves cover
+every continuing word after at most two such letters.}
+\label{tab:seeds}
+\begin{tabular}{ccclr}
+\toprule
+Branch & $\varepsilon$ & Prefix & State $S_0$ & $w_0$\\
+\midrule
+$R_0$ & $\varnothing$ & $1$ & $(121,41;37,78)$ & $-1$\\
+$R_0$ & $\varnothing$ & $2$ & $(223,10;33,37)$ & $0$\\
+$R_0$ & $1$ & $\varnothing$ & $(119,39;41,80)$ & $-1$\\
+$R_0$ & $2$ & $\varnothing$ & $(158,39;121,80)$ & $-2$\\
+$R_1$ & $\varnothing$ & $1$ & $(195,37;2,41)$ & $0$\\
+$R_1$ & $\varnothing$ & $21$ & $(68,33;67,149)$ & $10$\\
+$R_1$ & $\varnothing$ & $22$ & $(119,1;52,67)$ & $9$\\
+$R_1$ & $1$ & $1$ & $(43,2;17,185)$ & $4$\\
+$R_1$ & $1$ & $2$ & $(127,43;120,103)$ & $0$\\
+$R_1$ & $2$ & $1$ & $(233,20;35,37)$ & $3$\\
+$R_1$ & $2$ & $2$ & $(271,23;68,35)$ & $7$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The prefix tree has sixteen nodes, so besides the eleven leaves there are
+five words that stop earlier. They are the empty paired prefix with absent
+optional digit in each branch, the empty prefix with optional digit $1$ or
+$2$ in branch $R_1$, and prefix $2$ with absent optional digit in branch
+$R_1$. Appending the final digit $2$ gives raw contents
+$1,1,1,1,1$, respectively, so none is accepted. The seed table therefore
+covers every primitive source in the theorem, including short words, and
+no infinite sign-resolution branch is left over.
+
+\subsection{The potential and the proof}
+
+Starting from the eleven seeds, close the state set under the two
+transitions. The next statement describes the resulting graph. It is a
+finite assertion about integers, and it is the one place in this section
+where we appeal to a computation.
+
+\begin{proposition}[The closed graph and its potential]
+\label{prop:closed-graph}
+The closure of the eleven seeds of \cref{tab:seeds} under the two
+transitions has $11420$ states and $22840$ labeled edges, of which
+exactly $116$ states satisfy the primitive terminal condition. Let $\lambda(S)$
+denote the least weighted length of a path from a seed to $S$, each seed
+contributing its own weight $w_0$. Then
+\begin{equation}
+ \begin{aligned}
+ w_0-\lambda(S_0)&\geqslant0 &&\text{at all eleven seeds},\\
+ w(S,j)+\lambda(S)-\lambda(S')&\geqslant0 &&\text{on all $22840$ edges},\\
+ \lambda(S)+f(S)&\geqslant0 &&\text{at all $116$ primitive terminals}.
+ \end{aligned}
+ \label{eq:potential-inequalities}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+By \cref{lem:state-invariants} the state set is finite, and every quantity
+appearing in \eqref{eq:potential-inequalities} is an integer; the assertion
+is therefore a finite list of integer inequalities. We have verified it by
+computer, in exact integer arithmetic: the state set is closed under the
+two transitions, the minimum defining $d$ is attained and computed at
+every state, and the three families are then checked on the closed graph.
+The verification was carried out twice, independently, and the resulting
+table of values of $\lambda$ accompanies this article as supplementary
+material.
+\end{proof}
+
+The values of $\lambda$ may be negative; it is their transformed combinations in
+\eqref{eq:potential-inequalities} that are nonnegative.
+
+\begin{proof}[Proof of \cref{thm:endpoint-89}]
+Let $q$ be an accepted word, with seed state $S_0$ and terminal state
+$S_f$. Every operation emitted along its path is an actual unit
+subtraction on the reflected continuation: the two entries of $Sc$ can
+never be equal at an emitted step, since the dominating row minus the
+dominated one would then annihilate the positive continuation vector $c$,
+making a row of $S$ vanish against $c$ and forcing $\det S=0$, against
+\eqref{eq:finite-state-bound}; the unconsumed terminal cost is
+\eqref{eq:terminal-charge}, and the consumed source charges are exactly
+\eqref{eq:seed-weight} and \eqref{eq:edge-weight}. Consequently
+\begin{equation}
+ \begin{aligned}
+ \Delta
+ &=w_0+\sum_e w(e)+f(S_f)\\
+ &=\bigl(w_0-\lambda(S_0)\bigr)
+   +\sum_{e:S\to S'}\bigl(w(e)+\lambda(S)-\lambda(S')\bigr)
+   +\lambda(S_f)+f(S_f),
+ \end{aligned}
+ \label{eq:exact-endpoint-sum}
+\end{equation}
+the inserted potentials telescoping along the path. Every term on the
+second line is nonnegative by \cref{prop:closed-graph}. No bound on the
+length of $q$ entered the argument, so the inequality holds for arbitrary
+finite input length.
+\end{proof}
+
+\begin{remark}
+\label{rem:role-of-the-computation}
+It is worth separating the two contributions. The mathematics lies in
+\cref{lem:state-invariants} and in the telescoping identity
+\eqref{eq:exact-endpoint-sum}: the first makes the state set finite, the
+second turns three families of inequalities on that finite set into a
+statement about words of unbounded length. The computation contributes
+only the closed graph and the integer potential, and both are recomputed
+from the seeds rather than read from a stored table.
+\end{remark}

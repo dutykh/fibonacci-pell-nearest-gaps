@@ -51,10 +51,10 @@ supplement. Nothing below `papers/` reaches into anything else.
 
 ## The manuscripts
 
-| No | Manuscript | Directory | State |
-| --- | --- | --- | --- |
-| 1 | Fibonacci–Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity | [`papers/01-fibonacci-pell-nearest-gaps`](papers/01-fibonacci-pell-nearest-gaps) | complete, 47 pages, supplement of 21 checkers |
-| 2 | Endpoint costs and balanced near-minimizers under Gaussian reflections | `papers/02-endpoint-costs-balanced-paths` | being prepared for this repository |
+| No | Manuscript | Directory | Pages | Supplement |
+| --- | --- | --- | --- | --- |
+| 1 | Fibonacci–Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity | [`papers/01-fibonacci-pell-nearest-gaps`](papers/01-fibonacci-pell-nearest-gaps) | 46 | 21 exact programs |
+| 2 | Endpoint costs and balanced near-minimizers under Gaussian reflections | [`papers/02-endpoint-costs-balanced-paths`](papers/02-endpoint-costs-balanced-paths) | 20 | 3 exact computations over a complete finite graph |
 
 The first classifies, for every `q ⩾ 1`, every sign and every positive exponent
 `n`, the strict factor-two gaps between a power of the Pell unit `λ = 1 + √2`
@@ -64,9 +64,13 @@ and a companion theorem lists every Pell-orbit hit of the two signed Fibonacci
 cores. Its own README states the results and their boundary in full.
 
 The second proves a stability theorem for Euclidean costs along a finite graph
-of continued-fraction states, and applies it to the Gaussian reflection
-attached to `89 = 8² + 5²`, showing that every distinct reflected target of a
-genuine reduced Markoff source has strictly larger cost.
+of continued-fraction states: when each cyclic component of the zero-weight
+subgraph has a single letter frequency, the letter count of every balanced
+accepted word stays within an explicit multiple of its completed cost from that
+finite set. It applies the theorem to the Gaussian reflection attached to
+`89 = 8² + 5²`, showing that every distinct reflected target of a genuine
+reduced Markoff source has strictly larger cost, by an amount growing linearly
+with the denominator of the Farey slope away from four critical slopes.
 
 ## Repository layout
 
@@ -78,14 +82,25 @@ genuine reduced Markoff source has strictly larger cost.
 ├── Makefile       forwards every target to each manuscript below papers/
 │
 └── papers/
-    └── 01-fibonacci-pell-nearest-gaps/
+    ├── 01-fibonacci-pell-nearest-gaps/
+    │   ├── README.md                     the results, the boundary, the build
+    │   ├── Makefile                      strict build and reproduction targets
+    │   ├── DD-LV-Fibonacci-Pell-Gaps.tex main file
+    │   ├── DD-LV-Fibonacci-Pell-Gaps.pdf compiled manuscript, tracked
+    │   ├── references.bib                bibliography
+    │   ├── sections/                     one file per section
+    │   └── supplement/                   supplementary material
+    │
+    └── 02-endpoint-costs-balanced-paths/
         ├── README.md                     the results, the boundary, the build
         ├── Makefile                      strict build and reproduction targets
-        ├── DD-LV-Fibonacci-Pell-Gaps.tex main file
-        ├── DD-LV-Fibonacci-Pell-Gaps.pdf compiled manuscript, tracked
+        ├── DD-LV-Endpoint-Costs-Balanced-Paths.tex  main file
+        ├── DD-LV-Endpoint-Costs-Balanced-Paths.pdf  compiled manuscript, tracked
         ├── references.bib                bibliography
         ├── sections/                     one file per section
-        └── supplement/                   reproduction material
+        ├── figures/                      the figure sources
+        ├── tools/                        the strict build gate
+        └── supplement/                   supplementary material
 ```
 
 ## Building

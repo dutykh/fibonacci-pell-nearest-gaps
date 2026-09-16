@@ -13,7 +13,7 @@
 The nearest-gap equation is not an isolated algebraic coincidence. It is the
 exact image of an integral dynamical system under a quadratic-unit
 semiconjugacy. This section first proves that structural statement for a
-general seed, then specialises it to the two Fibonacci cores and obtains the
+general seed, then specializes it to the two Fibonacci cores and obtains the
 complete list in \cref{thm:orbit-intro}.
 
 For an integral seed $z=(u,v)$, put
@@ -310,7 +310,7 @@ is zero, so these seeds are correctly separated from
 \cref{thm:general-orbit-gap}.
 \end{remark}
 
-We now specialise to
+We now specialize to
 
 \begin{equation}
  z_{q,\sigma}=(F_{q+1},F_{q+1}+\sigma F_q).
@@ -336,35 +336,42 @@ $t\geqslant0$, the hit
  \label{eq:fibonacci-orbit-hit}
 \end{equation}
 
-occurs exactly in the four rows of \cref{eq:intro-orbit-list}.
+occurs exactly in the four rows of \cref{eq:intro-orbit-list}. In
+particular every anchor of a hit is odd, and the consecutive-Fibonacci core
+$z_{q,1}=(F_{q+1},F_{q+2})$ has no hit for $q\geqslant2$.
 \end{theorem}
 
 \begin{proof}
-First let $q\geqslant2$. Then
+First let $q\geqslant2$. As $\mathcal Q(z_{q,\sigma})=-R_q$,
+\cref{eq:cassini-factors} gives
 
 \begin{equation}
  \mathcal Q(z_{q,\sigma})^2-1
- =F_{q-1}F_{q+1}F_{q+2}F_{q+4}>0.
+ =\bigl(R_q-(-1)^q\bigr)\bigl(R_q+(-1)^q\bigr)
+ =F_{q-1}F_{q+1}F_{q+2}F_{q+4}>0,
  \label{eq:core-noncanonical}
 \end{equation}
 
-The strict window in \cref{thm:general-orbit-gap} first forces
+so the seed is noncanonical. Whenever
+\cref{thm:general-orbit-gap} is available, its strict window forces
 $d\geqslant2$: if $d=1$, it would give
 $A_{z_{q,\sigma}}^2<1$, whereas $A_{z_{q,\sigma}}>1$ for
-$q\geqslant2$. Hence an odd anchor here has $d\geqslant3$, so $d-1$ is a
-positive even exponent.
+$q\geqslant2$. Hence an odd anchor in those cases has $d\geqslant3$, so
+$d-1$ is a positive even exponent. This covers the plus sign at every time
+and the minus sign for $t\geqslant1$; the minus sign at $t=0$ is settled
+below by a height identity that needs no window.
 
 For the plus sign the seed is ordered, so
 \cref{thm:general-orbit-gap} applies at every time. If $d$ is odd, the gap
 exponent $d-1$ is even. The only plus target in
-\cref{thm:classification-intro} has normalised direction $\lambda$, whereas
+\cref{thm:classification-intro} has normalized direction $\lambda$, whereas
 the orbit bridge requires $\lambda^{-(2t+1)}$. Hence there is no plus hit.
 If $d$ is even, the gap exponent is odd, which is impossible by
 \cref{thm:classification-intro}. Thus the plus core has no hit for
 $q\geqslant2$.
 
 For the minus sign and $t\geqslant1$, the evolved seed is ordered, so the
-same bridge applies. At an odd anchor, the only minus target has normalised
+same bridge applies. At an odd anchor, the only minus target has normalized
 direction $\lambda^{-1}$; it would force $t=0$, a contradiction. At an even
 anchor, the exponent is odd and no target exists. Thus the minus core has no
 positive-time hit.

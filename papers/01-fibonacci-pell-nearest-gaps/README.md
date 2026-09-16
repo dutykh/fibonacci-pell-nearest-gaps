@@ -27,8 +27,8 @@ logarithms, `p`-adic valuations, arithmetic dynamics, Markoff uniqueness
 conjecture.
 
 This directory holds the complete LaTeX source of the manuscript, the compiled
-PDF, and a reproduction supplement of twenty-one exact checkers that can be
-re-run with nothing beyond a Python 3 installation. Every command below is run
+PDF, and supplementary material of twenty-one exact programs that can be re-run
+with nothing beyond a Python 3 installation. Every command below is run
 from this directory.
 
 ---
@@ -99,7 +99,7 @@ metadata are held once at the top of the repository.
 ```
 papers/01-fibonacci-pell-nearest-gaps/
 ├── DD-LV-Fibonacci-Pell-Gaps.tex        main file: preamble, abstract, \input list
-├── DD-LV-Fibonacci-Pell-Gaps.pdf        compiled manuscript (47 pages), tracked
+├── DD-LV-Fibonacci-Pell-Gaps.pdf        compiled manuscript (46 pages), tracked
 ├── references.bib                       bibliography, 23 entries, all cited
 ├── Makefile                             strict build; `make help` lists all targets
 ├── README.md                            this file
@@ -114,15 +114,16 @@ papers/01-fibonacci-pell-nearest-gaps/
 │   ├── 07-zero-defect-bridge.tex        seed/unit conjugacy, orbit theorem
 │   ├── 08-local-clocks.tex              p-adic ranks, Haar recurrence, limits
 │   ├── 09-two-arms.tex                  why φ and λ: trace criterion, dictionary
-│   └── 09-scope-outlook.tex             scope, Markoff boundary, next obstruction
+│   └── 10-scope-outlook.tex             scope, Markoff boundary, next obstruction
 │
-└── supplement/                          reproduction supplement
-    ├── run_all.py                       one-command driver for every checker
+└── supplement/                          supplementary material, self-contained
+    ├── run_all.py                       one-command driver for every check
     ├── README.md                        claim-to-source map, arithmetic conventions
     ├── expected-output.txt              recorded output of a successful run
-    ├── PROVENANCE.md                    research-tree origins, 25 SHA-256 digests
-    ├── certificates/                    21 exact standard-library checkers
-    └── magma/                           optional Magma inputs and transcripts
+    ├── checks/                           21 exact standard-library programs
+    ├── magma/                            optional Magma inputs and transcripts
+    ├── CITATION.cff                      citation metadata for the material alone
+    └── LICENSE                           GNU LGPL v2.1
 ```
 
 ## Building the manuscript
@@ -154,7 +155,7 @@ PDF is the only build product.
 Note that `make distclean` deletes the tracked PDF; run `make` afterwards to
 restore it before committing.
 
-## Reproducing the certificates
+## Reproducing the computations
 
 Requirements: Python 3.11 or later. No third-party package, no network access
 and no nondeterminism is involved.
@@ -163,12 +164,12 @@ and no nondeterminism is involved.
 python3 -B supplement/run_all.py
 ```
 
-The driver runs all twenty-one checkers in a fixed order, stops at the first
+The driver runs all twenty-one programs in a fixed order, stops at the first
 failure, and prints the failing command with its complete output. A successful
 run ends with
 
 ```text
-PASS: every manuscript certificate completed successfully.
+PASS: every check completed successfully.
 ```
 
 The complete reference output is recorded in `supplement/expected-output.txt`,
@@ -228,22 +229,15 @@ version information, fixed seeds, integral-point output and Mordell–Weil proof
 flags, as corroboration that can be inspected without the proprietary
 executable.
 
-## A note on the vendored certificates
+## A note on the supplementary material
 
-The files in `supplement/certificates/` and `supplement/magma/` are byte-for-byte
-snapshots of the audited research scripts, and their SHA-256 digests are pinned
-in `supplement/PROVENANCE.md`. They are intentionally never edited here, not even
-to reformat them or to add a header; when one of them changes it is re-copied
-from its source and its digest refreshed, which is why `PROVENANCE.md` records
-two vendoring dates. Their docstrings still name their original research-tree
-paths (`scripts/…`, `attempts/…`); that is provenance, and it is
-what makes the digests verifiable. To confirm that nothing has drifted, compare
-each file against its recorded digest:
-
-```sh
-cd supplement && sha256sum -c <(grep '^| `' PROVENANCE.md \
-  | awk -F'|' '{gsub(/[ `]/,"",$2); gsub(/[ `]/,"",$4); print $4"  "$2}')
-```
+The programs under `supplement/checks/` are written for this article and named
+after the statement each one supports, and the map from statement to program is
+in `supplement/README.md`. They read nothing outside the supplement directory,
+so the directory can be copied out and checked on its own, and it carries its
+own `LICENSE` and `CITATION.cff` so that it can be submitted to a journal that
+way. Two of them import a named sibling in the same directory; every other one
+imports only the standard library.
 
 ## Verified status
 
@@ -251,12 +245,11 @@ The tree in this repository was built and checked end to end:
 
 | Check | Result |
 | --- | --- |
-| `make rebuild` | exit 0, 47 pages |
+| `make rebuild` | exit 0, 46 pages |
 | Strict warning gates | clean |
 | Cross-references | 155 distinct labels referenced, no broken target, no duplicate label |
 | Citation keys | 23 of 23 entries cited, every cited key present in `references.bib` |
-| `python3 -B supplement/run_all.py` | exit 0, output identical to `expected-output.txt` |
-| `supplement/PROVENANCE.md` | 25 of 25 SHA-256 digests match |
+| `make checks` | exit 0, all 21 programs pass |
 
 ## Citation
 

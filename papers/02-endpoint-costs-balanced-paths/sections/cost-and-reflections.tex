@@ -1,0 +1,117 @@
+\section{Euclidean cost and a complete Gaussian flip}
+\label{sec:cost-reflections}
+
+\subsection{The cost convention}
+
+For a nonzero positive vector $v=(y,x)^{\mathsf T}$, let $\ell(v)$ be the
+number of unit subtractions in the algorithm that repeatedly subtracts
+the smaller coordinate from the larger and stops when the coordinates
+are equal. This definition is unchanged by interchanging coordinates or
+multiplying both by a positive integer. For a vector with nonzero signed
+coordinates, we apply it to their absolute values.
+
+Write
+\begin{equation}
+ M(j)=\begin{pmatrix}j&1\\1&0\end{pmatrix},\qquad
+ M(q_1\cdots q_r)=M(q_1)\cdots M(q_r),\qquad
+ e_1=\begin{pmatrix}1\\0\end{pmatrix}.
+ \label{eq:digit-matrix}
+\end{equation}
+For a positive continued-fraction word $q$ with final digit at least two,
+the first column of $M(q)$ is a primitive vector $(y,x)^{\mathsf T}$ with
+$y>x>0$. The usual canonical finite expansion of $y/x$ is $[q_1;\ldots,q_r]$.
+Division with remainder gives
+\begin{equation}
+ \ell(M(q)e_1)=q_1+\cdots+q_r-1.
+ \label{eq:euclidean-cost}
+\end{equation}
+Indeed, the successive divisions make $q_i$ subtractions until the last
+division, where the algorithm stops at equal coordinates and makes one
+fewer. The final minus one is part of our convention throughout.
+
+Let $\chi$ double each digit, so that $\chi(121)=112211$. Our regular source
+language is
+\begin{equation}
+ q=\varepsilon\chi(w)2,\qquad
+ \varepsilon\in\{\varnothing,1,2\},\quad w\in\{1,2\}^*.
+ \label{eq:regular-source}
+\end{equation}
+An empty optional digit contributes zero to a digit sum. If $w=j_1\cdots j_n$,
+then
+\begin{equation}
+ \ell(M(q)e_1)=\varepsilon+2\sum_{i=1}^n j_i+1.
+ \label{eq:paired-cost}
+\end{equation}
+The language in \eqref{eq:regular-source} is larger than the genuine
+Markoff source language. This enlargement makes the endpoint theorem
+stronger, while genuine sources will later supply balance and coprime
+Farey counts.
+
+\subsection{The two reflection numerators}
+
+The rational prime $89$ splits in the ring $\Z[i]$ of Gaussian integers.
+Fix once and for all the Gaussian prime above it given by
+\begin{equation}
+ \pi=8+5i,\qquad \bar\pi=8-5i,\qquad \pi\bar\pi=89.
+ \label{eq:gaussian-prime}
+\end{equation}
+The four associates $\pm\pi,\pm i\pi$ generate the same ideal, and
+$\bar\pi$ generates the other prime above $89$. Every choice made below is
+expressed through this one Gaussian integer, which makes the construction
+rigid: the coordinate pair $(8,5)$ of $\pi$ is itself the primitive vector
+of the source $q=1112$, identified in \cref{cor:genuine-strict} as the
+unique genuine source of vanishing excess. The two integral matrices
+\begin{equation}
+ R_0=\begin{pmatrix}39&80\\80&-39\end{pmatrix},\qquad
+ R_1=\begin{pmatrix}80&39\\39&-80\end{pmatrix}
+ \label{eq:reflections}
+\end{equation}
+satisfy $R_\nu^{\mathsf T}R_\nu=89^2I$ and $\det R_\nu=-89^2$.
+Under the identification $(y,x)^{\mathsf T}\leftrightarrow y+ix$, they act
+as $z\mapsto\pi^2\bar z$ and $z\mapsto i\bar\pi^2\bar z$, respectively.
+
+For a nonzero integral vector $u$, write $\cont{u}$ for the greatest common
+divisor of its coordinates, taken positive. The next lemma explains why
+the exact endpoint content, rather than divisibility alone, matters.
+
+\begin{lemma}[Exact primitive endpoint]
+\label{lem:primitive-flip}
+Let $v=(y,x)^{\mathsf T}$ be primitive, with $x,y>0$, and let
+$N=x^2+y^2$. Then $\ord_{89}(N)=1$ if and only if exactly one of $R_0v,R_1v$
+has content $89$. For this branch, the vector $R_\nu v/89$ is primitive,
+has nonzero coordinates and norm $N$. Modulo signs and coordinate order,
+it represents the complete flip of the Gaussian prime pair above $89$.
+\end{lemma}
+
+\begin{proof}
+The prime $89$ splits as $\pi\bar\pi$ in $\Z[i]$. Since $v$ is primitive,
+$z=y+ix$ cannot be divisible by both $\pi$ and $\bar\pi$. If $\pi^e$ divides
+$z$ exactly, with $e>0$, then the valuations of $\pi^2\bar z$ at
+$(\pi,\bar\pi)$ are $(2,e)$. Its rational content at $89$ is therefore
+$89^{\min(2,e)}$. The other branch has content prime to $89$. The roles
+reverse when $z$ is divisible by $\bar\pi$. When neither divides $z$,
+neither branch has content divisible by $89$.
+
+No rational prime other than $89$ can divide a reflected content: the
+matrix is invertible modulo every such prime. Since $N=z\bar z$ and only
+one of $\pi,\bar\pi$ divides $z$, the exponent $e$ is exactly
+$\ord_{89}(N)$. Thus content exactly $89$ is equivalent to $\ord_{89}(N)=1$. Division gives a primitive norm-$N$ vector.
+If one coordinate vanished, $N$ would be a square, contradicting
+$\ord_{89}(N)=1$.
+
+For example, if $z=\pi t$, the compatible branch divided by $89$ is
+$\pi\bar t$. Its conjugate is $\bar\pi t$, which exchanges precisely the
+allocation of $\pi$ and $\bar\pi$. Units and conjugation account for the
+irrelevant signs and coordinate order. This is the stated complete flip.
+\end{proof}
+
+For the branch selected by \cref{lem:primitive-flip}, define the completed
+cost excess
+\begin{equation}
+ \Delta=\ell(R_\nu v/89)-\ell(v).
+ \label{eq:completed-excess}
+\end{equation}
+The normalization by $89$ does not change the subtractive cost. It does,
+however, decide whether the terminal vector is the primitive
+representation being compared. If $\ord_{89}(N)\geqslant2$, the compatible
+raw content is $89^2$ and the present theorem does not apply.

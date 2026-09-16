@@ -1,0 +1,329 @@
+\section{Balanced finite paths near critical frequencies}
+\label{sec:balanced-stability}
+
+This section is independent of Gaussian arithmetic. It isolates the
+mechanism that turns a finite graph with nonnegative costs into a
+quantitative statement about the words of small cost it accepts.
+
+\subsection{One slope controls every factor}
+
+A finite binary word is \emph{balanced} if any two of its factors of the
+same length have heavy-letter counts differing by at most one. We denote
+the heavy letter by $b$ in this section. The following classical form of
+finite balance is useful because the same slope works for every factor.
+
+\begin{lemma}[A compatible slope]
+\label{lem:compatible-slope}
+For every nonempty finite balanced word $w$, there is an irrational
+$\beta\in(0,1)$ such that every factor $v$ satisfies
+\begin{equation}
+ \bigl||v|_b-\beta|v|\bigr|<1.
+ \label{eq:factor-discrepancy}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For two nonempty factors $u,v$, put $p=|u|$, $q=|v|$, $A=|u|_b$ and
+$B=|v|_b$. We first prove
+\begin{equation}
+ |qA-pB|<p+q
+ \label{eq:balance-determinant}
+\end{equation}
+by induction on $p+q$. If $p=q$, balance bounds the left side by $p$.
+Otherwise interchange the factors so that $p<q$, and write $v=v_1v_2$
+with $|v_1|=p$. Then
+$$
+ qA-pB=p(A-|v_1|_b)+(q-p)A-p|v_2|_b.
+$$
+Balance bounds the first term in absolute value by $p$, and the induction
+hypothesis bounds the remaining two terms together strictly by $q$.
+This proves \eqref{eq:balance-determinant}, which after division by $pq$
+is the factorial-balance inequality of the classical theory of Sturmian
+words \cite[Proposition 2.1.7]{Lothaire2002}.
+
+For each nonempty factor $v$, take the open interval with endpoints
+$(|v|_b-1)/|v|$ and $(|v|_b+1)/|v|$. Inequality
+\eqref{eq:balance-determinant} says that every two intervals overlap.
+There are finitely many intervals, so their largest lower endpoint is
+strictly smaller than their smallest upper endpoint. Every lower endpoint
+is below one and every upper endpoint is positive. The common intersection
+with $(0,1)$ is therefore nonempty and open. Any irrational $\beta$ in
+this intersection proves \eqref{eq:factor-discrepancy}.
+\end{proof}
+
+The passage from that inequality to a single compatible slope is also
+classical; see \cite[Chapter~2]{Lothaire2002}. We included the proof to
+keep the finite-path argument self-contained. The compatible slope need not equal the empirical density
+$|w|_b/|w|$. For instance, $00100010000$ is balanced, but its factor $10001$
+has discrepancy $12/11$ relative to that density. The common slope in
+\cref{lem:compatible-slope} avoids this finite-word endpoint error.
+
+\subsection{The slope interval as a projection}
+
+The interval constructed in the proof of \cref{lem:compatible-slope} is not
+an artefact of that proof. It is the shadow, on the slope axis, of a planar
+region attached to $w$, and the discrepancy condition is exactly what
+survives when the second parameter is eliminated.
+
+Read $b$ as $1$ and $a$ as $0$, and recall that the \emph{mechanical word}
+with slope $\beta$ and intercept $\gamma$ has $i$th letter
+$\lfloor\beta i+\gamma\rfloor-\lfloor\beta(i-1)+\gamma\rfloor$.
+
+\begin{proposition}[The compatible slopes are a projection]
+\label{prop:slope-projection}
+Let $w=w_1\cdots w_n$ be a nonempty binary word, put
+$k_i=\lvert w_1\cdots w_i\rvert_b$ for $0\leqslant i\leqslant n$, and set
+\begin{equation}
+ \mc F(w)=\bigl\{(\beta,\gamma)\in\R^2:\;
+   k_i\leqslant\beta i+\gamma<k_i+1,\quad 0\leqslant i\leqslant n\bigr\}.
+ \label{eq:parameter-region}
+\end{equation}
+Then $\mc F(w)$ is the set of parameters whose mechanical word of length $n$
+is $w$, and its image under $(\beta,\gamma)\mapsto\beta$ is
+\begin{equation}
+ J(w)=\bigl\{\beta\in\R:\;
+   \bigl\lvert\,\lvert v\rvert_b-\beta\lvert v\rvert\,\bigr\rvert<1
+   \text{ for every nonempty factor }v\text{ of }w\bigr\},
+ \label{eq:slope-interval}
+\end{equation}
+an open interval with rational endpoints. It is nonempty precisely when $w$
+is balanced, and the slope of \cref{lem:compatible-slope} is any irrational
+point of $J(w)\cap(0,1)$.
+\end{proposition}
+
+\begin{proof}
+The constraint at $i=0$ reads $0\leqslant\gamma<1$, so on $\mc F(w)$ one has
+$\lfloor\beta i+\gamma\rfloor=k_i$ for every $i$, and the successive
+differences of the $k_i$ are the letters of $w$; conversely those
+differences determine the $k_i$ from $k_0=0$. This is the first assertion.
+
+Eliminate $\gamma$. The system \eqref{eq:parameter-region} has a solution
+$\gamma$ for a given $\beta$ exactly when
+$$
+ \max_{0\leqslant i\leqslant n}\bigl(k_i-\beta i\bigr)
+ <\min_{0\leqslant j\leqslant n}\bigl(k_j+1-\beta j\bigr),
+$$
+that is, when $(k_i-k_j)-\beta(i-j)<1$ for all $i\neq j$, the case $i=j$
+being vacuous. For $i>j$ the factor $v=w_{j+1}\cdots w_i$ has
+$\lvert v\rvert_b=k_i-k_j$ and $\lvert v\rvert=i-j$, so the condition is
+$\lvert v\rvert_b-\beta\lvert v\rvert<1$; for $i<j$ the same factor, taken
+with the roles reversed, gives $\beta\lvert v\rvert-\lvert v\rvert_b<1$.
+The two families together are \eqref{eq:slope-interval}. Being a finite
+intersection of the open intervals with endpoints
+$(\lvert v\rvert_b\mp1)/\lvert v\rvert$, the set $J(w)$ is an open interval
+with rational endpoints.
+
+If $\beta\in J(w)$ and $u,v$ are factors of a common length $p$, then
+$\bigl\lvert\lvert u\rvert_b-\lvert v\rvert_b\bigr\rvert<2$, hence at most
+one by integrality, so $w$ is balanced; the converse is
+\cref{lem:compatible-slope}, whose proof exhibits a point of $J(w)$ in
+$(0,1)$. An open interval contains an irrational point.
+\end{proof}
+
+\begin{remark}[The two-parameter picture]
+\label{rem:duality}
+The regions $\mc F(w)$, for $w$ ranging over the balanced words of length
+$n$, are the faces of an arrangement of lines in the $(\beta,\gamma)$ plane:
+each constraint in \eqref{eq:parameter-region} is a half-plane, and the
+bounding lines are dual to the lattice points involved. Berstel and
+Pocchiola used exactly this duality, together with Euler's relation, to
+count the faces and so to recover Mignosi's enumeration of the finite
+factors of Sturmian words, of which there are
+$1+\sum_{i=1}^{n}(n-i+1)\varphi(i)$ of length $n$, with $\varphi$ the Euler
+function \cite{BerstelPocchiola1993,Mignosi1991}. In that reading,
+\cref{prop:slope-projection} says that
+\cref{lem:compatible-slope} computes the shadow of one face, and that the
+intercept is the coordinate being integrated out. The two parameters play
+complementary roles: over a fixed irrational slope the fibre of the
+projection is cut into $n+1$ cells, one for each factor of that length of a
+Sturmian word of that slope, whereas moving the slope changes the face, and
+so the word itself.
+\end{remark}
+
+\subsection{Endpoint weights and critical components}
+
+Let $G$ be a finite directed graph. Each edge reads exactly one letter in
+$\{a,b\}$; parallel edges and nondeterminism are allowed. Initial states
+have weights $I(s)$, terminal states have weights $T(s)$, and edges have
+weights $c(e)$. Assume all these weights are nonnegative integers.
+The completed weight of an accepted path is
+\begin{equation}
+ \Delta=I(s_0)+\sum_{e\text{ on the path}}c(e)+T(s_n).
+ \label{eq:abstract-cost}
+\end{equation}
+
+These weights may result from a potential transformation. If original
+weights are $w_0,w(e),f$ and a potential is $\lambda$, the relevant transformation is
+\begin{equation}
+ I(s_0)=w_0-\lambda(s_0),\quad
+ c(e)=w(e)+\lambda(s)-\lambda(t),\quad
+ T(s_n)=\lambda(s_n)+f(s_n).
+ \label{eq:weight-pushing}
+\end{equation}
+This is the usual weight-pushing transformation \cite[Section 6.3]{Mohri2009}. The terms telescope, preserving the completed cost. Nonnegative cycle
+weights alone do not guarantee nonnegative values of both transformed
+endpoint weights.
+
+Let $G_0$ retain the edges of weight zero. Its strongly connected components
+form an acyclic condensation graph $\mathcal D$. Call a component
+\emph{cyclic} if it contains a directed cycle, including a self-loop.
+Suppose each cyclic component $C_i$ admits a reduced rational number
+$\theta_i=p_i/d_i$, with $d_i>0$, and an integer function $H_i$ on its vertices such that
+\begin{equation}
+ d_i\mathbf1_{\{e\text{ reads }b\}}-p_i=H_i(t)-H_i(s)
+ \label{eq:count-potential}
+\end{equation}
+for every internal edge $e:s\longrightarrow t$. Put
+\begin{equation}
+ D_i=\frac{\max H_i-\min H_i}{d_i},\qquad
+ \Theta=\{\theta_i:C_i\text{ cyclic}\}.
+ \label{eq:critical-data}
+\end{equation}
+Summation around a cycle gives $0\leqslant\theta_i\leqslant1$.
+Summation along an internal path gives
+\begin{equation}
+ \bigl||v|_b-\theta_i|v|\bigr|\leqslant D_i.
+ \label{eq:internal-count-bound}
+\end{equation}
+
+Condition \eqref{eq:count-potential} is equivalent to all directed cycles
+in the component having the same letter frequency. To see the converse,
+assign to a vertex the sum of $d_i\mathbf1_b-p_i$ along a path from a fixed
+root. Two choices give the same sum: append a common return path, then
+decompose the resulting closed walks into cycles. This also shows how to
+check the condition by a finite list of edge identities.
+
+Give each cyclic vertex of $\mathcal D$ weight $D_i+1$, every other vertex
+weight zero and every condensation edge weight one. Define
+\begin{equation}
+ L=\max_{\gamma\text{ a directed path in }\mathcal D}
+ \left(\#\text{edges of }\gamma+
+       \sum_{C_i\in\gamma\text{ cyclic}}(D_i+1)\right),\qquad K=L+1.
+ \label{eq:condensation-budget}
+\end{equation}
+Paths consisting of a single vertex are included. The number $L$ is finite
+and is obtained by the usual longest-path recursion on an acyclic graph.
+
+It is convenient to allow a bounded number of letters to be read outside
+the graph. Fix an integer $h\geqslant0$, and suppose that an initial
+prefix and a final suffix of total length at most $h$ are consumed before
+entering and after leaving $G$, while \eqref{eq:abstract-cost} still
+records the completed cost of the whole word. The case in which no letter
+is omitted is $h=0$.
+
+\subsection{The stability theorem}
+
+We isolate first the counting step, because it uses only one property of a
+real number $\beta$, namely that it be compatible with $w$ in the sense of
+\eqref{eq:factor-discrepancy}, and not the particular slope furnished by
+\cref{lem:compatible-slope}. The arithmetic application in
+\cref{sec:markoff-application} will supply its own compatible slope.
+
+\begin{lemma}[The budget inequality]
+\label{lem:budget}
+Assume $\Theta\ne\varnothing$. Let $w$ be a nonempty word of length $n$, all
+but at most $h$ of whose letters are read by an accepted path, the
+remaining ones forming a prefix and a suffix consumed outside the graph.
+Let $\beta$ be a real number with
+$\bigl||v|_b-\beta|v|\bigr|<1$ for every nonempty factor $v$ of $w$, and put
+$\delta=\operatorname{dist}(\beta,\Theta)$. If $\delta\leqslant1$, then
+\begin{equation}
+ n\delta\leqslant h+\Delta+(\Delta+1)L.
+ \label{eq:budget}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $k$ be the number of positive-weight edges in the path. Integrality and
+nonnegative endpoint weights imply $k\leqslant\Delta$.
+
+Split the path into $k$ positive edges and $k+1$ possibly empty zero-edge
+segments. A zero segment visits each condensation vertex at most once.
+Inside a cyclic component, its internal subpath reads a factor $v$ of the
+full word, and the hypothesis on $\beta$ together with
+\eqref{eq:internal-count-bound} implies
+$$
+ \delta|v|\leqslant|\beta-\theta_i||v|<1+D_i.
+$$
+A noncyclic component is a singleton without an internal edge. Every
+remaining letter crosses a condensation edge and contributes at most one
+to $\delta$ times length, since $\delta\leqslant1$. Thus each zero segment
+contributes at most $L$. The positive edges contribute at most $k$, and
+the omitted boundary letters at most $h$. Consequently
+$n\delta\leqslant h+k+(k+1)L$, which is \eqref{eq:budget} because
+$k\leqslant\Delta$ and $L\geqslant0$.
+\end{proof}
+
+\begin{theorem}[Balanced finite-path stability]
+\label{thm:balanced-stability}
+Assume $\Theta\ne\varnothing$. Let $w$ be a balanced word all but at most
+$h$ of whose letters are read by an accepted path, the remaining ones
+forming a prefix and a suffix consumed outside the graph. Then
+\begin{equation}
+ \min_{\theta\in\Theta}\bigl||w|_b-\theta|w|\bigr|
+ <K(\Delta+1)+h.
+ \label{eq:stability-main}
+\end{equation}
+Both counts on the left refer to the whole word. In particular, when no
+letter is omitted the bound is $K(\Delta+1)$.
+\end{theorem}
+
+\begin{proof}
+The empty word is immediate. Otherwise put $n=|w|$, $m=|w|_b$, and choose
+$\beta$ from \cref{lem:compatible-slope}; it satisfies
+\eqref{eq:factor-discrepancy}, and
+$\delta=\operatorname{dist}(\beta,\Theta)\leqslant1$ because $\beta$ and
+every member of $\Theta$ lie in $[0,1]$. \Cref{lem:budget} applies. Choosing
+a member of $\Theta$ nearest to $\beta$ and applying
+\eqref{eq:factor-discrepancy} also to the whole word gives
+$$
+ \min_{\theta\in\Theta}|m-\theta n|
+ <1+n\delta\leqslant h+(\Delta+1)(L+1)
+ \leqslant h+K(\Delta+1).
+$$
+\end{proof}
+
+\begin{corollary}[Linear cost away from the critical set]
+\label{cor:linear-cost}
+Under the hypotheses of \cref{thm:balanced-stability}, if $n>0$ and
+$\operatorname{dist}(m/n,\Theta)\geqslant\eta>0$, then
+$$
+ \Delta>\frac{\eta n-h}{K}-1.
+$$
+Consequently, for a fixed $h$, every accumulation point of the empirical
+frequencies of balanced accepted words of bounded completed cost and
+unbounded length lies in $\Theta$.
+\end{corollary}
+
+If $G_0$ has no cyclic component, one must not take a minimum over an empty
+set. In this case each zero segment has at most $c-1$ edges, where $c$ is
+the number of components. The corresponding conclusion is the direct
+length bound $n\leqslant h+c(\Delta+1)-1$.
+
+\subsection{Why the finite set is stronger than its convex hull}
+
+Assume again that $\Theta\ne\varnothing$. Without balance, let
+$$
+ L_0=\max_{\gamma\subset\mathcal D}
+ \left(\#\text{edges of }\gamma+\sum_{C_i\in\gamma\text{ cyclic}}D_i\right).
+$$
+Assign frequency $\theta_i$ to every internal cyclic-component segment,
+and any fixed member of $\Theta$ to the remaining letters. The
+length-weighted average of these assigned frequencies belongs to
+$\operatorname{conv}\Theta$. Telescoping the internal count potentials
+therefore gives, for an arbitrary nonempty input,
+\begin{equation}
+ n\operatorname{dist}(m/n,\operatorname{conv}\Theta)
+ \leqslant h+k+(k+1)L_0.
+ \label{eq:convex-hull-bound}
+\end{equation}
+If all critical frequencies coincide, this already controls the count
+without balance.
+
+In general the finite set cannot replace its convex hull. Take a zero-cost
+$a$ loop at an initial state, a zero-cost $b$ loop at a terminal state,
+and a zero-cost $a$ edge between them. Both endpoint weights are zero.
+The critical set is $\{0,1\}$, yet the accepted words $a^{r+1}b^r$ have
+cost zero and count distance $r$ from that set. For $r\geqslant2$ these
+words are unbalanced. The example identifies exactly the obstruction
+removed by \cref{lem:compatible-slope}.

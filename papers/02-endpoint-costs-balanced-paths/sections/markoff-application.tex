@@ -1,0 +1,239 @@
+\section{Quantitative penalties for genuine Markoff sources}
+\label{sec:markoff-application}
+
+The equality graph describes paths with total excess zero. Near-minimizers
+can also visit zero-slack components that have a positive cost of entry
+or exit. To understand them, we must examine the entire zero-slack graph,
+not only the six states surviving the equality test.
+
+\subsection{The full critical set}
+
+We first record the structure of the zero-slack subgraph.
+
+\begin{table}[tb]
+\centering
+\caption{Every cyclic zero-slack component at norm $89$.
+The frequency $\theta_i$ counts paired letters equal to $2$.
+The oscillation $D_i$ is that of the rational count potential
+$g_i=H_i/d_i$. Every internal edge satisfies
+$\mathbf1_{\{j=2\}}-\theta_i=g_i(S')-g_i(S)$.}
+\label{tab:critical-components}
+\begin{tabular}{rrrr}
+\toprule
+Number of components & States per component & $\theta_i$ & $D_i$\\
+\midrule
+1 & 6 & $1/5$ & $1$\\
+2 & 3 & $1/3$ & $2/3$\\
+2 & 1 & $0$ & $0$\\
+2 & 1 & $1$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proposition}[The critical components at norm $89$]
+\label{prop:critical-components}
+The zero-slack subgraph of \eqref{eq:potential-inequalities} has $12684$
+edges and $11411$ strongly connected components, of which exactly seven
+are cyclic. Their frequencies and oscillations are those listed in
+\cref{tab:critical-components}, and every internal edge of each satisfies
+the count-potential identity \eqref{eq:count-potential}. The longest path
+in the condensation, weighted as in \eqref{eq:condensation-budget}, has
+\begin{equation}
+ L=58,\qquad K=59.
+ \label{eq:axis-constants}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+All of this concerns the finite graph of \cref{prop:closed-graph}, so it
+is again a finite assertion about integers, and we verified it by
+computer in exact arithmetic, twice and independently. A path realizing
+the maximum traverses $56$ condensation edges together with the
+six-state component, whose vertex weight is two; this accounts for the
+value of $L$. The states and internal edges of the seven cyclic
+components are listed in the supplementary material.
+\end{proof}
+
+\begin{theorem}[Norm-$89$ balanced stability]
+\label{thm:axis-stability}
+Under the hypotheses of \cref{thm:endpoint-89}, suppose the core $w$ is
+balanced. With $n=|w|$, $m=|w|_2$ and
+$\Theta_{89}=\{0,1/5,1/3,1\}$,
+\begin{equation}
+ \min_{\theta\in\Theta_{89}}|m-\theta n|
+ <59(\Delta+1)+2.
+ \label{eq:axis-core-bound}
+\end{equation}
+If the source is a genuine reduced occurrence of slope $P/Q$, then
+\begin{equation}
+ \min\{P,\,Q-P,\,|P-Q/5|,\,|P-Q/3|\}\leqslant118\Delta+121.
+ \label{eq:axis-farey-bound}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\Cref{prop:closed-graph} supplies the nonnegative integer weights
+required by \cref{thm:balanced-stability}, and
+\cref{prop:critical-components} gives $L=58$ and $K=59$. At most two paired
+letters are consumed in the sign-resolution prefix, so the theorem with
+$h=2$ gives \eqref{eq:axis-core-bound}.
+
+For a genuine occurrence the auxiliary slope can be dispensed with. By
+\cref{cor:farey-compatible} the Farey slope $P/Q$ is itself compatible with
+the core, so \cref{lem:budget} may be applied to $\beta=P/Q$. Its hypothesis
+$\delta\leqslant1$ holds with room to spare: the complementary intervals of
+$\Theta_{89}$ in $[0,1]$ are $[0,1/5]$, $[1/5,1/3]$ and $[1/3,1]$, whose
+half-lengths are $1/10$, $1/15$ and $1/3$, so
+\begin{equation}
+ \delta=\operatorname{dist}(P/Q,\Theta_{89})\leqslant\tfrac13 .
+ \label{eq:delta-third}
+\end{equation}
+The left side of \eqref{eq:axis-farey-bound} is exactly $Q\delta$. Writing
+$\mathbf1_{\ne}$ for the indicator of $\varepsilon\ne\varnothing$, the count
+dictionary \eqref{eq:source-counts} gives $Q=2n+2+\mathbf1_{\ne}$, whence
+$$
+ Q\delta=2n\delta+(2+\mathbf1_{\ne})\delta
+ \leqslant2\bigl(h+\Delta+(\Delta+1)L\bigr)+3\delta .
+$$
+With $h=2$, $L=58$ and \eqref{eq:delta-third} the right side is
+$2\bigl(2+\Delta+58(\Delta+1)\bigr)+1=2(59\Delta+60)+1=118\Delta+121$.
+\end{proof}
+
+The gain over the route through \eqref{eq:axis-core-bound}, which would
+give $118\Delta+124$, is small. What matters is that no slope other than
+the occurrence's own enters the argument: \cref{cor:farey-compatible}
+replaces an existence statement about balanced words by an identity about
+the Farey address, and this is the only place where the narrowness recorded
+in \cref{prop:thin-language} is actually used.
+
+\begin{corollary}[Slope-dependent linear penalty]
+\label{cor:farey-penalty}
+If a genuine source in \cref{thm:axis-stability} satisfies
+$\operatorname{dist}(P/Q,\Theta_{89})\geqslant\eta>0$, then
+$$
+ \Delta\geqslant\frac{\eta Q-121}{118}.
+$$
+Thus any sequence of genuine sources with bounded norm-$89$ excess and
+unbounded denominators can accumulate only at the four critical slopes.
+\end{corollary}
+
+\begin{proof}
+For each $\theta\in\Theta_{89}$ one has
+$|P-\theta Q|=Q\,|P/Q-\theta|\geqslant\eta Q$, so the left side of
+\eqref{eq:axis-farey-bound} is at least $\eta Q$; rearranging that
+inequality gives the bound. The last assertion is the contrapositive:
+along a sequence with $\Delta$ bounded and $Q\to\infty$ the quantity
+$(\eta Q-121)/118$ is eventually larger than any bound on $\Delta$, so no
+positive $\eta$ can persist.
+\end{proof}
+
+The constants arise from the full condensation and were not optimized
+using the genuine source language. In particular, the last assertion is
+a necessary condition on accumulation points, not an existence theorem
+at each critical slope.
+
+\subsection{An infinite arithmetic family with growing excess}
+
+\begin{theorem}[A genuine infinite family]
+\label{thm:infinite-family}
+There is an infinite sequence of genuine reduced Markoff occurrences
+$P_j/Q_j$ whose labels have exact $89$-adic valuation one, for which
+$P_j,Q_j\longrightarrow\infty$ and
+\begin{equation}
+ \frac{P_j}{Q_j}\longrightarrow
+ \rho=\frac{1+\Phi}{4+5\Phi},\qquad
+ \Phi=\frac{1+\sqrt5}{2}\quad\text{the golden ratio}.
+ \label{eq:family-limit}
+\end{equation}
+For all sufficiently large $j$, their complete norm-$89$ excesses satisfy
+\begin{equation}
+ \Delta_j\geqslant\frac{Q_j}{1180(4+5\Phi)}-\frac{121}{118}.
+ \label{eq:family-penalty}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Start with the Markoff triple $(1,34,89)$ and iterate
+\begin{equation}
+ F(a,b,c)=(b,c,3bc-a).
+ \label{eq:vieta-forward}
+\end{equation}
+The identity $a^2+b^2+c^2=3abc$ is preserved. If $1\leqslant a<b<c$,
+then $3bc-a>c$, so the positive triples continue forward in the Markoff
+tree and their maxima increase strictly.
+
+Modulo $89^2$, the same map is a permutation because it has the polynomial
+inverse
+$$
+ F^{-1}(a,b,c)=(3ab-c,a,b).
+$$
+The orbit of the initial residue triple is therefore periodic from its
+first term. Let $T>0$ be a period. For every $j\geqslant0$, the last
+coordinate of $F^{jT}(1,34,89)$ is congruent to $89$ modulo $89^2$.
+It consequently has valuation exactly one at $89$.
+
+The initial labels $34$ and $89$ occur at the adjacent Farey vertices
+$1/4$ and $1/5$; their other common neighbour $0/1$ has label one. The
+Vieta step is exactly the Farey mediant: the Christoffel word of the
+mediant of two Farey neighbours is the concatenation of their Christoffel
+words, so $\mu$ of the mediant is the product of the two matrices, and
+the Fricke identity $\tr(XY)+\tr(XY^{-1})=\tr X\,\tr Y$ turns this into
+$$
+ m_{\text{mediant}}=3m_\alpha m_\beta-m_{\text{other}}
+$$
+for the three labels concerned. Every step of \eqref{eq:vieta-forward}
+therefore replaces the older vertex by the mediant of the two retained
+vertices. Hence the two Farey columns follow
+Fibonacci addition from $(1,4)$ and $(1,5)$. Their determinant has absolute
+value one, so all resulting fractions are reduced. Both coordinates grow
+without bound, and their ratios tend to \eqref{eq:family-limit}. The
+subsequence at multiples of $T$ has the same limit.
+
+This limit lies strictly between $1/5$ and $1/4$. Its nearest critical
+slope is $1/5$, and
+$$
+ \rho-\frac15=\frac{1}{5(4+5\Phi)}>0.
+$$
+For sufficiently large $j$, the distance of $P_j/Q_j$ from $\Theta_{89}$
+is at least half this positive number. Apply \cref{cor:farey-penalty}
+with $\eta=1/[10(4+5\Phi)]$ to obtain
+\eqref{eq:family-penalty}.
+\end{proof}
+
+The argument needs neither the value of $T$ nor a conjecture about prime
+values of recurrence sequences. It is explicit in the sense that the
+family is described by a rule and not merely shown to exist; the period
+$T$ is large, so the members beyond the first are not small numbers. Its modular periodicity selects the
+required valuation, while the real Farey dynamics places the source
+slopes away from the critical set. These two elementary mechanisms
+make the quantitative theorem nonvacuous on genuine sources with
+unbounded numerators.
+
+\subsection{Why the equality slope alone is insufficient}
+
+The six-state equality graph has frequency $1/5$, but the full critical
+graph also contains the state
+$$
+ S=\begin{pmatrix}101&19\\19&82\end{pmatrix}
+  =\begin{pmatrix}10&1\\1&9\end{pmatrix}^{\!2}.
+$$
+This state commutes with $M(1)^2$. Exactly two forced row subtractions
+return it after one light paired letter, so the loop has zero cost.
+A fixed entry and primitive exit give the explicit family
+\begin{equation}
+ q_j=\chi(21221122112\,1^j\,2122121)2,\qquad j\geqslant0.
+ \label{eq:zero-light-family}
+\end{equation}
+The prefix enters $S$ with cumulative weight $15$. The suffix reaches
+$(109,49;43,92)$ with additional weight $20$; its terminal vector is
+$89(3,2)^{\mathsf T}$ and its terminal charge is $1$.
+Thus every member has exact norm valuation one at $89$ and completed
+excess $36$. Its inferred counts are $P=21$ and $Q=38+2j$.
+This rules out a cost bound proportional only to $|Q-5P|$ on the full
+regular language.
+
+Every displayed core contains both $11$ and $22$, so it is unbalanced.
+The family is consequently not a family of genuine Markoff sources and
+does not contradict \cref{thm:axis-stability}. It explains why the
+zero-slack graph outside the exact equality language cannot simply be
+discarded when studying near-minimizers.

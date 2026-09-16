@@ -1,0 +1,131 @@
+\section{The complete equality language}
+\label{sec:equality}
+
+The potential proves more than nonnegativity. Equality in
+\eqref{eq:exact-endpoint-sum} forces every transformed weight along the
+path to vanish, and this reduces an inequality over $11420$ states to a
+language on six of them.
+
+\begin{theorem}[Equality and the reflected word]
+\label{thm:equality-language}
+Under the hypotheses of \cref{thm:endpoint-89}, equality $\Delta=0$
+holds exactly when
+$$
+ q=111\chi(s)2,\qquad s\in(12111\mid21111)^*.
+$$
+The target is $111\chi(\iota(s))2$, where $\iota$ exchanges the two
+five-letter tokens, preserving their order in the token sequence.
+\end{theorem}
+
+\subsection{Exhausting the zero-slack paths}
+
+Retain every edge whose transformed weight is zero. In this graph, keep
+the states that are both reachable from a zero-slack seed and able to reach
+a zero-slack primitive terminal. The complete calculation gives exactly
+the states in \cref{tab:equality-states}. The only surviving seed is
+branch $R_0$, optional digit $1$, with empty paired prefix and state $s_0$.
+The only surviving terminal is $s_1$.
+
+\begin{table}[htbp]
+\centering
+\caption{The full equality graph. The last column is the terminal charge
+$f(S)$ when the state is a primitive terminal; a dash means the state is
+not such a terminal. Only $s_0$ is an initial state and only $s_1$ is accepting.}
+\label{tab:equality-states}
+\begin{tabular}{clrc}
+\toprule
+State & Matrix $S$ & $\lambda(S)$ & $f(S)$\\
+\midrule
+$s_0$ & $(119,39;41,80)$ & $-1$ & --\\
+$s_1$ & $(115,37;47,84)$ & $-1$ & $1$\\
+$s_2$ & $(89,21;0,89)$ & $0$ & --\\
+$s_3$ & $(89,0;68,89)$ & $-1$ & --\\
+$s_4$ & $(131,21;47,68)$ & $-1$ & --\\
+$s_5$ & $(121,37;41,78)$ & $-1$ & --\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Every edge is shown in \cref{fig:equality-graph}. From $s_0$, the first
+letter must be $1$, reaching $s_1$. The two first-return words at $s_1$
+are exactly $12111$ and $21111$. Thus the accepted paired words are
+$1(12111\mid21111)^*$. The optional initial digit $1$ converts this
+to the asserted source language, which proves necessity.
+
+That the returns at $s_1$ are two in number, and not one or three, is what
+makes the equality language a free monoid on two generators, and hence what
+makes the count relation $Q=5P$ of \cref{cor:genuine-strict} rigid. The
+same numerical signature characterizes Sturmian words, whose every factor
+has exactly two return words \cite{Vuillon2001,JustinVuillon2000}. The two notions are
+distinct: returns to a factor of an infinite word on one side, first
+returns to a state of a weighted graph on the other. We assert no
+implication between them. Both tokens above nevertheless carry one heavy
+letter in five, which is the frequency $\theta=1/5$ that these same six
+states contribute to the critical set of \cref{sec:markoff-application}.
+
+\begin{figure}[tb]
+\centering
+\input{figures/equality-graph}
+\caption{All zero-slack accepted paths at norm $89$. An arrow label
+$j:w$ gives the paired input letter and its original edge weight;
+the transformed weight is zero on every displayed arrow.
+The seed is $s_0$ and the double circle marks the only accepting state
+$s_1$. Its two first-return words are $12111$ and $21111$.}
+\label{fig:equality-graph}
+\end{figure}
+
+\subsection{An exact token exchange}
+
+The literal reflected word follows from small matrix identities. Put
+\begin{equation}
+ Q_0=M(1)^3,\qquad
+ K=\begin{pmatrix}47&84\\68&-47\end{pmatrix},\qquad
+ H=\begin{pmatrix}89&68\\0&-89\end{pmatrix}.
+ \label{eq:token-intertwiners}
+\end{equation}
+Direct multiplication gives
+\begin{equation}
+ R_0Q_0=Q_0K,\qquad KM(2)=M(2)H.
+ \label{eq:boundary-intertwiners}
+\end{equation}
+Writing $G_t=M(\chi(t))$, the two return identities are
+\begin{equation}
+ KG_{12111}=G_{21111}K,\qquad
+ KG_{21111}=G_{12111}K.
+ \label{eq:token-exchange}
+\end{equation}
+Induction over the token sequence therefore yields
+\begin{equation}
+ R_0M(111\chi(s)2)=M(111\chi(\iota(s))2)H.
+ \label{eq:full-token-identity}
+\end{equation}
+The first column of $H$ is $89e_1$. Hence the reflected first column
+is $89$ times the primitive positive continuant column of the displayed
+target. The source and target have equal digit sums. This proves
+sufficiency and the target formula in \cref{thm:equality-language},
+including exact primitive acceptance, for every token sequence.
+
+\begin{corollary}[Strict cost increase for genuine sources]
+\label{cor:genuine-strict}
+Let $v$ be the canonical source of a reduced Markoff occurrence, with
+$\ord_{89}(\|v\|^2)=1$. Every distinct complete norm-$89$ target has cost
+at least $\ell(v)+1$. The only genuine equality source is
+$q=1112$, with $v=(8,5)^{\mathsf T}$, which the flip fixes.
+\end{corollary}
+
+\begin{proof}
+If an equality word contains $j$ five-letter tokens, its inferred counts
+are
+$$
+ P=1+2j,\qquad Q=5+10j=5P.
+$$
+A genuine reduced occurrence has $\gcd(P,Q)=1$ by definition, and
+\cref{prop:genuine-source-dictionary} identifies the counts of its word
+with that $P$ and $Q$. Therefore $j=0$. The base column is $(8,5)^{\mathsf T}$
+and \eqref{eq:full-token-identity} fixes it after division by $89$.
+All other genuine sources have positive integral excess.
+\end{proof}
+
+The proof uses coprime counts only after exhausting the equality
+language. It does not use the converse assertion that a balanced paired
+word with coprime counts is automatically a genuine occurrence.

@@ -1,0 +1,122 @@
+% Fibonacci-Pell nearest gaps: an all-exponent classification and
+% quadratic-unit orbit rigidity
+%
+% Authors:
+%   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+%   and Technology, Abu Dhabi, UAE)
+%   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
+%   France)
+%
+\section{Scope, connections, and the next obstruction}
+\label{sec:outlook}
+
+The first arithmetic conclusion of this paper is complete on its stated
+domain: for every $q\geqslant1$, both signs, and every positive exponent,
+the strict Fibonacci--Pell norm--content system has exactly the two rows in
+\cref{eq:two-solutions}, and the proof is unbounded in $q$, closing only
+after the analytic bounds have reduced both parity branches to exhaustive
+finite domains. The second conclusion is likewise complete:
+\cref{thm:complete-fibonacci-orbits} gives all orbit hits for both signed
+Fibonacci cores, every positive Pell anchor, and every nonnegative time.
+
+The surrounding results explain why these classifications are rigid. At the
+Archimedean place, candidate windows are abundant and their exact densities
+are Haar measures of interval intersections on a phase circle; at split
+finite places, compatible Fibonacci and companion ranks can synchronize to
+arbitrary prescribed depth. Neither phenomenon sees the oriented primitive
+unit direction, whereas the global norm--content equation sees both
+coefficient coordinates at once, and it is this orientation that enables
+the primitive rectangle and the logarithmic-form argument. The separation
+is therefore not local versus computational, but measure-theoretic
+abundance versus global Diophantine rigidity.
+
+The algebraic structures exposed here have precise roles: the norm torus,
+its negative-norm torsor, the integral unit group, and the Lorentzian
+symmetric-square representation all act directly in the proofs, while the
+biquadratic field $\Q(\sqrt2,\sqrt5)$ supplies the two conjugations used in
+the norm and height arguments. Further frameworks would become relevant
+only after an explicit map or invariant connects them to the classified
+system.
+
+There is, however, a genuine algebraic-geometric object behind the parent
+problem. Over $\Z$, the Markoff equation defines the affine cubic scheme
+
+\begin{equation}
+ \mathcal M
+ =\operatorname{Spec}
+ \Z[a,b,c]/(a^2+b^2+c^2-3abc),
+ \label{eq:markoff-scheme}
+\end{equation}
+
+and the Vieta involutions, such as
+
+\begin{equation}
+ (a,b,c)\longmapsto(a,b,3ab-c),
+ \label{eq:vieta-involution}
+\end{equation}
+
+are integral automorphisms of this cubic. After the scaling
+$(x,y,z)=(3a,3b,3c)$, its equation becomes
+$x^2+y^2+z^2-xyz=0$, the Fricke trace surface with commutator trace $-2$.
+This is also a concrete algebraic-topological bridge: the fundamental group
+of a one-holed torus is the free group $F_2$, and the three coordinates are
+traces of two generators and their product in an
+$\mathrm{SL}_2$-representation. Goldman shows that the reflection
+
+\[
+ (x,y,z)\longmapsto(x,y,xy-z)
+\]
+
+comes from the extended mapping-class group of the surface
+\cite[Sections~2.1--2.2 and Appendix~A-3]{Goldman2003}, and scaling back
+gives exactly \cref{eq:vieta-involution}. On the discrete side, taking
+positive Markoff triples as vertices and Vieta moves as edges gives the
+mutation graph and its familiar descent tree; Christoffel words and integral
+necklaces encode its arithmetic vertices
+\cite{Reutenauer2026,Fisac2025}. Topology thus explains the symmetry, graph
+theory records the orbits, and combinatorics labels the vertices. These
+connections are exact but are not hidden inputs: we construct no morphism
+from a hypothetical collision locus on $\mathcal M$ to the Fibonacci
+nearest-gap system.
+
+The most immediate arithmetic extension starts instead from
+\cref{thm:general-orbit-gap}. For every noncanonical positive seed, an orbit
+hit is equivalent to a strict norm--content gap for the seed-dependent
+quadratic integer $A_z$. The Fibonacci cores are one coefficient locus, and
+on it we obtain a complete classification; noncanonical cores with
+$\mathcal Q(z)^2>1$ lead to more general continuant-dependent coefficients.
+The next problem is to reconstruct enough primitive geometry from those
+coefficients to retain effective heights without assuming the very collision
+one hopes to exclude. It belongs in a separate paper, since it needs new
+arithmetic rather than more exposition around the two-row theorem.
+
+The moving-coefficient logarithmic form should also be understood at the
+level of mechanism. Grouping all terms of the same dominant growth before
+applying a logarithmic-form estimate is established practice in exponential
+Diophantine equations
+\cite{DdamuliraLucaRakotomalala2016,BravoDasHerreraSaunders2026}; what is
+specific here is the coefficient \cref{eq:moving-coefficient}, its exact
+full norm \cref{eq:A-norm}, and the explicit reduction turning those
+identities into a classification. We claim no priority for the strategy.
+
+The Markoff-facing bottleneck is therefore sharp. Downstream of the
+Fibonacci-core hypothesis, the gaps and all positive-anchor orbits are
+classified; upstream, one must prove that a repeated largest Markoff number
+yields one of these cores, find a competing core, or classify the gaps with
+$\mathcal Q(z)^2>1$.
+
+One tempting fourth route meets a sharp obstruction. The map $\mathsf S$ is
+an integral square root of the Pell arm's monodromy Pisot unit
+$\beta(2)=\lambda^2$, and \cref{thm:half-step-criterion} shows that an
+analogous half-step on the branch through $m_0$ can exist only when
+$3m_0-2$ is a perfect square.
+One displayed ray fixing $m_0=34$ shows that the arithmetic condition alone
+does not guarantee compatibility: its two-square data admit no common
+integral half-step, though other fixed-$34$ rays are not classified here.
+Transport to another branch would need both the square condition and a
+compatible action on that ray's two-square sequence, and the branch
+recurrence alone supplies neither that compatibility nor its failure.
+
+The frontier is precise: local abundance versus global rigidity. Progress on
+Markoff uniqueness requires crossing the missing upstream arrow in
+\cref{fig:logic}.

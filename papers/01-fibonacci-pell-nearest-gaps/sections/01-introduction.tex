@@ -13,7 +13,7 @@
 How often can the square of a Fibonacci quadratic integer lie just below a
 power of the fundamental Pell unit, with the small difference pointing in a
 primitive negative-norm unit direction? This question combines an
-Archimedean nearest-neighbour condition with an exact norm--content condition.
+Archimedean nearest-neighbor condition with an exact norm--content condition.
 The former occurs with positive density; the latter will leave only two
 rows.
 
@@ -108,15 +108,16 @@ the intrinsic selector
 The boundary $q\geqslant1$ is sharp: at $q=0$ one has
 $D_{0,\sigma}=\sqrt2$ and $\lambda-D_{0,\sigma}^2=\lambda^{-1}$.
 
-The proof is a finite, exact verification resting on an unbounded argument.
+Computation enters the proof only at the very end; everything that reduces
+the problem to a finite domain is unbounded in $q$.
 The parity selector first divides the proof into two genuinely different
 branches. For even $n$, algebraic reconstruction turns the coefficient
 content into a primitive factor rectangle. This gives the missing height
 separation $h<n<2q$ for the negative unit exponent $-h$. Two linear forms in
 logarithms then give $h=O(\log q)$ and $q<10^{32}$; explicit
-rational-interval reductions yield $h<192$ and $q<90$, after which exact
-recurrence arithmetic is exhaustive. For odd $n$, the selector forces
-$3\mid q$. Its factorisation has no analogue of $h<n$, so the proof must be
+rational-interval reductions yield $h<192$ and $q<90$, after which the
+finitely many remaining pairs are settled by exact recurrence arithmetic. For odd $n$, the selector forces
+$3\mid q$. Its factorization has no analogue of $h<n$, so the proof must be
 reordered: a fixed-coefficient logarithmic form first bounds
 $\min\{h,q\log_\lambda\varphi\}$, where $\varphi=(1+\sqrt5)/2$, and only then
 can the moving-coefficient
@@ -210,12 +211,12 @@ carry the argument: one controls Pell norms, while the other separates the
 dominant and conjugate Fibonacci terms in the logarithmic forms. Finally,
 the local results combine $p$-adic rank lifting with an Archimedean irrational
 rotation. These are operational connections: each supplies an invariant,
-factorisation, height, or recurrence mechanism used below.
+factorization, height, or recurrence mechanism used below.
 
 Interactions between the Fibonacci and Pell sequences have been studied from
 several directions. Alekseyev determined the exact intersection of the two
 sequences \cite{Alekseyev2011}, and Bravo, Herrera and Luca extended the
-question to common values of their generalised analogues
+question to common values of their generalized analogues
 \cite{BravoHerreraLuca2021}. Pomeo and Bravo measured how closely a Pell
 number can approach a Fibonacci number \cite{PomeoBravo2024}, Luca and Zottor
 classified the Fibonacci numbers occurring among the $Y$-coordinates of Pell
@@ -318,7 +319,7 @@ Markoff-facing arrow.
  \label{fig:logic}
 \end{figure}
 
-The paper is organised as follows. \Cref{sec:system} develops the
+The paper is organized as follows. \Cref{sec:system} develops the
 quadratic-unit dictionary, the exact window densities, and the primitive
 factor rectangle. \Cref{sec:leading,sec:height,sec:classification} prove the
 even branch, and \cref{sec:odd-exponents} proves the odd exclusion.

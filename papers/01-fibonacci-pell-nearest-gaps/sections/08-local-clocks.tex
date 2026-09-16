@@ -48,7 +48,7 @@ This cross-gcd is defined on every row in \cref{eq:local-window}; the
 norm--content equation is not assumed.
 
 \begin{lemma}[Two exact phase factorizations]
-\label{lem:cross-gcd-factorisations}
+\label{lem:cross-gcd-factorizations}
 For $3\nmid q$,
 
 \begin{equation}
@@ -60,23 +60,15 @@ For $3\nmid q$,
  G(q,m)=
  \gcd(F_{q-1},C_{m-1})\gcd(F_{q+4},C_{m+2}).
 \end{aligned}
-\label{eq:cross-gcd-factorisations}
+\label{eq:cross-gcd-factorizations}
 \end{equation}
 \end{lemma}
 
 \begin{proof}
 Put $\varepsilon=(-1)^q$ and
-$E=2F_{q+1}P_m-F_qC_m$. Cassini's identity gives
-
-\begin{equation}
-\begin{aligned}
- R_q-\varepsilon&=F_{q+1}F_{q+2},\\
- R_q+\varepsilon&=F_{q-1}F_{q+4}.
-\end{aligned}
-\label{eq:local-cassini-factors}
-\end{equation}
-
-Direct reduction gives
+$E=2F_{q+1}P_m-F_qC_m$, and recall the Cassini factorizations
+$R_q-\varepsilon=F_{q+1}F_{q+2}$ and $R_q+\varepsilon=F_{q-1}F_{q+4}$ of
+\cref{eq:cassini-factors}. Direct reduction gives
 
 \begin{equation}
 \begin{aligned}
@@ -110,8 +102,8 @@ Thus $3$ cannot occur in an aligned gcd. The product identity follows prime
 by prime and valuation by valuation.
 \end{proof}
 
-The factorisation replaces one two-coordinate gcd by two aligned recurrence
-clocks. We now determine exactly which primes can synchronise in one of
+The factorization replaces one two-coordinate gcd by two aligned recurrence
+clocks. We now determine exactly which primes can synchronize in one of
 these clocks to arbitrary depth.
 
 Let $p$ be an odd prime with $(2/p)=1$ that divides some $C_j$. Define
@@ -216,7 +208,7 @@ Then infinitely many $q=q_0+Q\ell$ satisfy
 \end{equation}
 
 with every prime power carried by its prescribed factor in
-\cref{eq:cross-gcd-factorisations}. Among the progression
+\cref{eq:cross-gcd-factorizations}. Among the progression
 $q=q_0+Q\ell$, this selected family has relative natural density
 
 \begin{equation}
@@ -233,7 +225,7 @@ $\vartheta X/(MQ)+o(X)$.
 \begin{proof}
 The congruences and \cref{eq:rank-laws} place each prescribed prime power in
 the required Fibonacci--companion pair of
-\cref{eq:cross-gcd-factorisations}. They remain valid on the progression
+\cref{eq:cross-gcd-factorizations}. They remain valid on the progression
 $q=q_0+Q\ell$.
 
 It remains to meet the Archimedean window with the required value of $m$.
@@ -255,7 +247,7 @@ Binet's formula gives
 The irrationality of $\gamma$ was proved in
 \cref{thm:candidate-density}; hence $Q\gamma/M$ is irrational. Weyl
 equidistribution on the circle $\R/M\Z$ shows that the limiting phase lies
-in the cyclic interval $(m_0-\vartheta,m_0)$ with normalised Haar measure
+in the cyclic interval $(m_0-\vartheta,m_0)$ with normalized Haar measure
 $\vartheta/M$. Its boundary has Haar measure zero, and the Binet error tends
 to zero. Membership in this interval is exactly
 $m(q)\equiv m_0\pmod M$ together with \cref{eq:local-window}. This proves
@@ -289,7 +281,7 @@ The criterion also reaches primes outside that residue class: $z_F(17)=9$ is
 odd, so $17$ satisfies condition~(i) although $17\equiv1\pmod8$. Assigning
 $7$ to $\gcd(F_{q+1},C_{m(q)})$ and $17$ to $\gcd(F_{q+2},C_{m(q)+1})$, that
 is to the two different factors of
-\cref{lem:cross-gcd-factorisations}, gives, for every $a,b\geqslant1$,
+\cref{lem:cross-gcd-factorizations}, gives, for every $a,b\geqslant1$,
 infinitely many rows with
 
 \begin{equation}
@@ -326,7 +318,7 @@ forbidden. This choice is compatible with the required parity by the Chinese
 remainder theorem modulo $6$.
 \Cref{prop:local-transfer} then gives infinitely many rows at every depth.
 Conversely, the Fibonacci and companion indices paired in
-\cref{eq:cross-gcd-factorisations} have opposite parity. If both ranks are
+\cref{eq:cross-gcd-factorizations} have opposite parity. If both ranks are
 even, no pair can contain $p$. This proves the equivalence.
 
 Now let $p\equiv7\pmod8$ and choose $r$ with $r^2\equiv2\pmod p$. For
@@ -389,6 +381,6 @@ assertion that every split prime occurs are all false as global substitutes
 for the norm--content equation.
 \end{remark}
 
-This local--global contrast is the organising principle of the final
+This local--global contrast is the organizing principle of the final
 discussion, which situates the exact theorems relative to the parent Markoff
 problem.

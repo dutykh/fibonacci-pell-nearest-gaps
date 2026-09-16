@@ -1,0 +1,62 @@
+\section{Further questions}
+\label{sec:conclusion}
+
+The completed norm-$89$ comparison illustrates two distinct sources of
+rigidity. The endpoint potential makes cost nonnegative on a large regular
+language. Its equality graph then forces a count relation incompatible
+with a reduced genuine occurrence, except at the fixed base source.
+Finite balance adds a quantitative constraint: long paths with small
+completed excess must have frequency close to a recurrent zero-cost
+component.
+
+Three questions remain particularly concrete. First, one can seek a
+description of endpoint potentials that persists as the Gaussian block
+varies. Any such statement must retain both primitive content and the
+actual source and terminal charges. The present proof exhibits one explicit potential at $89$ and supplies no
+potential uniform in the block.
+
+Second, the graph frequencies $0,1/5,1/3,1$ need not all be attainable as
+limits of genuine sources with bounded excess. The exact mechanical
+recognition condition is stronger than finite balance and coprime
+counts. Incorporating it into the critical-component analysis could
+remove some exceptional slopes or improve the constants. The current
+theorem makes neither assertion.
+
+Third, minimization on an entire Gaussian fiber requires comparing
+allocations involving other prime blocks. Strict increase under one
+complete flip is a useful local statement about this arithmetic orbit,
+but it does not compare every primitive representation of the same norm.
+The infinite family in \cref{thm:infinite-family} provides genuine
+instances where this one-block penalty becomes large; understanding
+how several blocks interact remains a separate problem.
+
+Two further directions were suggested to us, and both concern the finite
+graph rather than the arithmetic. The first is the decomposition used in
+the proof of \cref{lem:budget}, which cuts an accepted path at its
+positive-weight edges and treats each zero-weight segment separately. That
+is a first-return decomposition relative to the zero-slack subgraph, and the
+theory of return words gives a sharper vocabulary for such decompositions
+than the condensation budget \eqref{eq:condensation-budget} does: the
+budget charges every component of a longest condensation path, whereas a
+return-word induction would charge only the components a given word
+actually revisits. Whether that replaces the constant $K=59$ by something
+close to the six-state component alone is the concrete question.
+
+The second is the algebraic reading of finiteness recalled in
+\cref{sec:introduction}. Over a finite field, a power series is algebraic
+exactly when a finite automaton generates its coefficients
+\cite{ChristolKamaeMendesFranceRauzy1980}, and the reflection graph of
+\cref{sec:endpoint} is a finite automaton attached to an arithmetic
+operation. The analogy stops there, since that equivalence is a
+positive-characteristic phenomenon and our labels are ordinary integers; we
+do not know whether some series formed from the costs $\Delta$ along the
+graph satisfies an algebraic relation, and we have not found a formulation
+in which the question is more than suggestive.
+
+The general theorem in \cref{thm:balanced-stability} can be used outside
+the Markoff setting. It takes as input a finite graph whose initial, edge
+and terminal weights are nonnegative integers and whose zero-weight
+cyclic components each carry a single letter frequency, and it returns an
+explicit bound on the letter count of every balanced word the graph
+accepts. Separating that mechanism from the arithmetic seems to us the
+most transferable part of this article.

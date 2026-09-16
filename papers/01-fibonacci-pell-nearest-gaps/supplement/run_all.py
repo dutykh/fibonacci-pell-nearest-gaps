@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Run the exact standard-library certificates used by the manuscript."""
+# Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
+# and Technology, Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont
+# Blanc, CNRS, LAMA, Chambery, France).
+# Copyright (C) 2026 Dr. Denys Dutykh and Prof. Laurent Vuillon.
+# Distributed under the GNU Lesser General Public License, version 2.1;
+# see the LICENSE file of this package.
+"""Run the exact standard-library checks used by the article."""
 
 from __future__ import annotations
 
@@ -9,52 +15,52 @@ from pathlib import Path
 
 
 MANUSCRIPT = Path(__file__).resolve().parents[1]
-CERTIFICATES = Path(__file__).resolve().parent / "certificates"
+CHECKS = Path(__file__).resolve().parent / "checks"
 
 COMMANDS: list[tuple[str, ...]] = [
     ("check_two_arms.py",),
-    ("check_c0082_logarithmic_h_bound_curator.py",),
-    ("check_c0082_effective_advances_independent_audit_agent_ea.py",),
-    ("check_c0082_full8_adjusted_form_agent_c.py",),
-    ("check_c0082_full8_dp_closure_agent_c.py",),
-    ("check_c0082_full8_complete_exclusion_independent_audit_agent_fra.py",),
-    ("check_full8_adjusted_dp_independent_agent_b.py",),
-    ("check_all_exponent_nearest_gap_agent_aeng.py", "--q-max", "2000"),
+    ("check_logarithmic_h_bound.py",),
+    ("check_effective_advances.py",),
+    ("check_adjusted_logarithmic_form.py",),
+    ("check_continued_fraction_closure.py",),
+    ("check_terminal_reduction_second.py",),
+    ("check_continued_fraction_closure_second.py",),
+    ("check_nearest_gap_classification.py", "--q-max", "2000"),
     (
-        "check_all_exponent_nearest_gap_independent_audit_agent_aei.py",
+        "check_nearest_gap_classification_second.py",
         "--q-max",
         "2000",
     ),
-    ("check_candidate_window_density_curator.py", "--q-max", "5000"),
-    ("check_two_sign_odd_pell_orbit_independent_audit_agent_tsa.py",),
-    ("check_even_pell_anchor_orbits_agent_epa.py", "--q-max", "5000"),
+    ("check_window_densities.py", "--q-max", "5000"),
+    ("check_two_sign_odd_pell_orbit.py",),
+    ("check_even_pell_anchor_orbits.py", "--q-max", "5000"),
     (
-        "check_even_pell_anchor_orbits_independent_audit_agent_eaa.py",
+        "check_even_pell_anchor_orbits_second.py",
         "--q-max",
         "5000",
     ),
-    ("check_general_seed_orbit_nearest_gap_curator.py",),
-    ("check_general_seed_orbit_nearest_gap_independent_audit_agent_gsa.py",),
-    ("check_uniform_local_clock_generalisation_agent_lcg.py",),
-    ("check_c0068_nearest_even_unit_gap_curator.py", "--q-max", "2000"),
-    ("check_c0077_imprimitive_two_clock_recurrence_agent_cte.py",),
-    ("check_c0077_imprimitive_two_clock_recurrence_independent_audit_agent_cia.py",),
-    ("check_c0068_plus_j1_quartic_curator.py",),
-    ("check_j1_plus_branch_quartic_independent_audit_agent_j1.py",),
+    ("check_general_seed_orbit.py",),
+    ("check_general_seed_orbit_second.py",),
+    ("check_uniform_local_clocks.py",),
+    ("check_even_unit_gap_criterion.py", "--q-max", "2000"),
+    ("check_two_clock_obstruction.py",),
+    ("check_two_clock_obstruction_second.py",),
+    ("check_plus_branch_quartic.py",),
+    ("check_plus_branch_quartic_second.py",),
 ]
 
 
 def main() -> int:
     for specification in COMMANDS:
-        script = CERTIFICATES / specification[0]
+        script = CHECKS / specification[0]
         if not script.is_file():
-            print(f"MISSING: supplement/certificates/{script.name}", file=sys.stderr)
+            print(f"MISSING: supplement/checks/{script.name}", file=sys.stderr)
             return 2
         command = [sys.executable, "-B", str(script), *specification[1:]]
         display = [
             "python3",
             "-B",
-            f"supplement/certificates/{script.name}",
+            f"supplement/checks/{script.name}",
             *specification[1:],
         ]
         print(f"\n$ {' '.join(display)}", flush=True)
@@ -62,7 +68,7 @@ def main() -> int:
         if result.returncode:
             print(f"FAILED with exit status {result.returncode}", file=sys.stderr)
             return result.returncode
-    print("\nPASS: every manuscript certificate completed successfully.")
+    print("\nPASS: every check completed successfully.")
     return 0
 
 

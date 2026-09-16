@@ -92,11 +92,12 @@ $v_\sigma v'_\sigma=1+\sigma\sqrt2$. Direct coefficient estimates give
  \label{eq:A-R-bounds}
 \end{equation}
 
-The proof is at $q\geqslant7$, so $\varphi^{2q}\geqslant\varphi^{14}$. Since
-$\varphi>8/5$ one has
+The proof is at $q\geqslant7$, so $\varphi^{2q}\geqslant\varphi^{14}$. Adding
+the identity $\varphi^{14}=377\varphi+233$ to its conjugate gives
+$\varphi^{14}+\varphi^{-14}=377+466=843$, so that
 
 \begin{equation}
- \varphi^{14}=377\varphi+233>842,
+ \varphi^{14}=377\varphi+233=843-\varphi^{-14}>842,
  \label{eq:phi14}
 \end{equation}
 
@@ -105,7 +106,7 @@ $\abs{e^{\Lambda_1}-1}<20\varphi^{-2q}$ to the displayed logarithmic bound.%
 \footnote{The coefficients here are not accidental. The Christoffel word
 attached to the Markoff number $F_{15}=610$ has exactly $F_{14}=377$ letters
 $a$ and $F_{13}=233$ letters $b$; see \cref{sec:two-arms}.}
-Normalising \cref{eq:moving-main} and using \cref{eq:A-R-bounds} yields the
+Normalizing \cref{eq:moving-main} and using \cref{eq:A-R-bounds} yields the
 logarithmic form
 
 \begin{equation}
@@ -247,7 +248,7 @@ where $\mathcal C>0$, $\rho>1$, and $w>0$ are real. Put
 
 \begin{equation}
  \kappa=\dist{Q\mu}-N_0\abs{Q\gamma-p},
- \label{eq:eta}
+ \label{eq:kappa}
 \end{equation}
 
 where $\dist{x}$ is the distance from $x$ to the nearest integer. If
@@ -367,7 +368,7 @@ Take
 
 \begin{equation}
  N_0=2\mathbin{\cdot}10^{32}
- \label{eq:M0}
+ \label{eq:N0}
 \end{equation}
 
 and the rational number
@@ -392,8 +393,9 @@ Exact rational intervals for square roots and logarithms prove
  \label{eq:convergent-enclosure}
 \end{equation}
 
-The first three conditions are the hypotheses of
-\cref{lem:absolute-reduction}; the fourth is the quantitative enclosure that
+The third condition implies the hypothesis $\abs{Q\gamma-p}<1/2$ of
+\cref{lem:absolute-reduction}; the first two come with the convergent and
+are not needed by it. The fourth is the quantitative enclosure that
 the margins below actually consume. It is strictly stronger than the
 Legendre bound $\abs{Q\gamma-p}<1/(2Q)$, which by itself would leave
 $N_0\abs{Q\gamma-p}<22/1000$ and would not suffice. With the displayed
@@ -430,7 +432,7 @@ gives
  \qquad
  \kappa_\sigma
  =\dist{Q\mu_\sigma}-N_0\abs{Q\gamma-p}>\frac7{100},
- \label{eq:fixed-eta}
+ \label{eq:fixed-kappa}
 \end{equation}
 
 where the second inequality follows from the first together with
@@ -449,7 +451,7 @@ Apply \cref{lem:absolute-reduction} with
  w=\min\{h,q\gamma\},\quad N_0=2\mathbin{\cdot}10^{32}.
 \end{equation}
 
-\Cref{eq:convergent-enclosure,eq:fixed-eta,eq:fixed-cutoff}
+\Cref{eq:convergent-enclosure,eq:fixed-kappa,eq:fixed-cutoff}
 then prove $\min\{h,q\gamma\}<48$. Since $\gamma>1/2$, either $h<48$,
 or $q<96$ and then
 
@@ -496,7 +498,7 @@ The same $p/Q$ satisfies, for every one of the $190$ shifts,
  \qquad
  \kappa_{\sigma,h}
  =\dist{Q\nu_{\sigma,h}}-N_0\abs{Q\gamma-p}>\frac9{1000}
- \label{eq:moving-eta}
+ \label{eq:moving-kappa}
 \end{equation}
 
 where again the second inequality follows from the first and
@@ -522,7 +524,7 @@ for each pair with
  \mathcal C=27,\quad \rho=\varphi^2,\quad w=q,\quad N_0=2\mathbin{\cdot}10^{32}.
 \end{equation}
 
-\Cref{eq:convergent-enclosure,eq:moving-eta,eq:moving-cutoff}
+\Cref{eq:convergent-enclosure,eq:moving-kappa,eq:moving-cutoff}
 prove
 
 \begin{equation}
@@ -555,7 +557,7 @@ lower endpoint of every $\kappa$ against zero, and the lower endpoint of each
 left-hand side against the upper endpoint of its right-hand side. Every
 inequality asserted below is therefore strict, and the outward rounding cannot
 reverse it. In particular,
-\cref{eq:convergent-enclosure,eq:fixed-eta,eq:fixed-cutoff,eq:moving-eta,eq:moving-cutoff}
+\cref{eq:convergent-enclosure,eq:fixed-kappa,eq:fixed-cutoff,eq:moving-kappa,eq:moving-cutoff}
 are decided by rational arithmetic alone.
 
 At this point the unbounded even-exponent problem has become finite: every

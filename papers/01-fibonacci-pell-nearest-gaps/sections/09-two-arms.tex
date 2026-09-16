@@ -22,7 +22,7 @@ analogous action on another branch must pass a stringent trace obstruction.
 Nothing in this section is used in the proofs of
 \cref{thm:classification-intro,thm:orbit-intro,thm:local-clocks}. It is
 included because it explains their shape, and because it delimits the
-generalisations that can and cannot be attempted.
+generalizations that can and cannot be attempted.
 
 Throughout, statements established only on a finite family are identified
 as such, and none of them is used as a hypothesis.
@@ -32,7 +32,7 @@ as such, and none of them is used as a hypothesis.
 We use the classical dictionary between Christoffel words and Markoff
 numbers in the form given by Reutenauer \cite{Reutenauer2026}, whose origin is
 Frobenius's observation of 1913 \cite{Frobenius1913} and Cohn's matrix
-formulation. The one normalisation we need beyond the correspondence itself is
+formulation. The one normalization we need beyond the correspondence itself is
 $m=\tfrac13\operatorname{tr}M_w=(M_w)_{12}$. In the transposed convention this
 is \cite[Lemme~3.2]{Reutenauer2006}, which states that
 $3N_{21}=\operatorname{tr}N$ for the corresponding conjugate; we use it in
@@ -65,7 +65,7 @@ then $M_w\in\mathrm{SL}_2(\Z)$ has positive entries and
  A+D=3m,
  \qquad
  1\leqslant D\leqslant m,
- \label{eq:cohn-normalisation}
+ \label{eq:cohn-normalization}
 \end{equation}
 
 where $m$ is the Markoff number attached to $w$. Two consequences are used
@@ -252,7 +252,7 @@ $gm_1$,
 
 A positive integer divisible by $gm_1$ and equal to $m_1$ forces $g=1$.
 
-\emph{Normalisation.} Changing $(x,y)$ into $(-x,-y)$ leaves
+\emph{Normalization.} Changing $(x,y)$ into $(-x,-y)$ leaves
 \cref{eq:thue-pair} unchanged, so we may assume $y>0$. If $x>0$, take
 $(p,q)=(x,y)$. If $x<0$, put $p=y$ and $q=-x$, both positive; multiplying
 $x\equiv uy$ by $u$ and using $u^2\equiv-1$ gives $ux\equiv-y$, that is
@@ -326,8 +326,8 @@ out to be the coordinates of a power of the fundamental unit.
 \subsection{Letter counts on the two arms are unit coordinates}
 
 The leftmost branch of the Christoffel tree consists of the words $a^kb$
-and produces the Fibonacci Markoff numbers; the rightmost consists of the
-words $ab^k$ and produces the Pell Markoff numbers. On both, the letter
+with $k\geqslant0$ and produces the Fibonacci Markoff numbers; the rightmost
+consists of the words $ab^k$ and produces the Pell Markoff numbers. On both, the letter
 counts are not merely reminiscent of the fundamental unit: they are its
 coordinates.
 
@@ -494,9 +494,11 @@ quantity that mentions neither the pair nor any palindrome.
 \subsection{Fixed-entry branch monodromy has a quadratic Pisot eigenvalue}
 
 Fix a Christoffel word $w_0$ with Markoff number $m_0$, and follow the branch
-of the tree that keeps $m_0$ fixed, so that the node words are
-$w_0^{\,k}v_0$ for a fixed $v_0$. Write $m_k$ for the Markoff number of the
-$k$-th node and $u_k$ for its characteristic root.
+of the tree that keeps $m_0$ fixed. Its node words are $w_0^{\,k}v_0$ or
+$v_0w_0^{\,k}$ for a fixed $v_0$, according to the side on which it extends:
+the Fibonacci arm gives $a^kb$, the Pell arm gives $ab^k$, and only the
+order the branch produces is Cohn normalized. Write $m_k$ for the Markoff
+number of the $k$-th node and $u_k$ for its characteristic root.
 
 \begin{proposition}[Branch recurrence and its Pisot eigenvalue]
 \label{prop:branch-recurrence}
@@ -520,16 +522,19 @@ order of discriminant $9m_0^2-4$.
 \end{proposition}
 
 \begin{proof}
-Write $\mathsf C_k=M_{w_0^{\,k}v_0}$ for the Cohn matrix of the $k$-th node. Since
-the Cohn correspondence is multiplicative on concatenation,
-$\mathsf C_k=M_{w_0}^{\,k}M_{v_0}$.
+Write $\mathsf C_k$ for the Cohn matrix of the $k$-th node. Since the Cohn
+correspondence is multiplicative on concatenation,
+$\mathsf C_k=M_{w_0}^{\,k}M_{v_0}$ on a branch extending to the right and
+$\mathsf C_k=M_{v_0}M_{w_0}^{\,k}$ on one extending to the left. We write the
+first case out; the second is the mirror image of it throughout.
 
 \emph{Step 1: the matrix recurrence.} The matrix $M_{w_0}$ lies in
 $\mathrm{SL}_2(\Z)$ and has trace $3m_0$ by
-\cref{eq:cohn-normalisation}. Its characteristic polynomial is therefore
+\cref{eq:cohn-normalization}. Its characteristic polynomial is therefore
 $x^2-3m_0x+1$, and Cayley--Hamilton gives
 $M_{w_0}^2=3m_0M_{w_0}-I$. Multiplying on the right by
-$M_{w_0}^{\,k-1}M_{v_0}$ yields
+$M_{w_0}^{\,k-1}M_{v_0}$, or in the mirror case on the left by
+$M_{v_0}M_{w_0}^{\,k-1}$, yields
 
 \begin{equation}
  \mathsf C_{k+1}=3m_0\mathsf C_k-\mathsf C_{k-1},
@@ -539,7 +544,7 @@ $M_{w_0}^{\,k-1}M_{v_0}$ yields
 an identity between matrices, hence between each of their four entries
 separately.
 
-\emph{Step 2: the two entries we need.} By \cref{eq:cohn-normalisation}, the
+\emph{Step 2: the two entries we need.} By \cref{eq:cohn-normalization}, the
 Markoff number is the $(1,2)$ entry, $m_k=(\mathsf C_k)_{12}$, and the $(1,1)$ entry
 is $(\mathsf C_k)_{11}$. Both obey the scalar recurrence
 $x_{k+1}=3m_0x_k-x_{k-1}$, by Step 1.
@@ -548,8 +553,8 @@ $x_{k+1}=3m_0x_k-x_{k-1}$, by Step 1.
 \cref{eq:characteristic-root}, $u_k=(\mathsf C_k)_{11}-2m_k$. A fixed integer linear
 combination of two solutions of a linear recurrence is again a solution, so
 $u_k$ satisfies $x_{k+1}=3m_0x_k-x_{k-1}$. The constancy of the coefficient
-$2$ is exactly the normalisation $1\leqslant D\leqslant m$ recorded in
-\cref{eq:cohn-normalisation}, which holds at every node.
+$2$ is exactly the normalization $1\leqslant D\leqslant m$ recorded in
+\cref{eq:cohn-normalization}, which holds at every node.
 
 \emph{Step 4: assembling the vector.} Both coordinates of
 $(m_a,m_b)_k=(m_k-u_k,u_k)$ are integer linear combinations of $m_k$ and
@@ -557,7 +562,7 @@ $u_k$, so both satisfy the same recurrence, which is
 \cref{eq:branch-recurrence}. Its characteristic polynomial is
 $x^2-3m_0x+1$; since $m_0\geqslant1$ the discriminant $9m_0^2-4$ is positive
 and is not a square. Indeed, if it were $d^2$, then
-$(3m_0-d)(3m_0+d)=4$, whose only positive factorisation into factors of the
+$(3m_0-d)(3m_0+d)=4$, whose only positive factorization into factors of the
 same parity would force $3m_0=2$. The dominant root is
 \cref{eq:branch-perron}, and its other conjugate is
 
@@ -636,14 +641,15 @@ uniqueness criteria, which run modulo $3c\pm2$ rather than modulo $c$:
 $3c-2$, $3c+2$ is a prime power, four times a prime power, or eight times a
 prime power, and \cite[Theorem~2.3]{Srinivasan2009} settles every Markoff
 number whose $3c-2$ or $3c+2$ has a prime power for greatest odd divisor. The
-two hypotheses coincide on Markoff numbers, because $3c\pm2$ is odd for odd
-$c$, while for even $c$ the quotients $(3c-2)/4$ and $(3c+2)/8$ are odd
-integers \cite[Lemma~4.2]{Srinivasan2009}.
+two hypotheses coincide on Markoff numbers: for odd $c$ both $3c-2$ and
+$3c+2$ are odd, so each equals its own greatest odd divisor, while for even
+$c$ the quotients $(3c-2)/4$ and $(3c+2)/8$ are odd integers
+\cite[Lemma~4.2(3)]{Srinivasan2009}.
 
 Srinivasan works in exactly the order met here. Her uniqueness criterion
-\cite[Theorem~5.4]{Srinivasan2009} asks that every ambiguous form lying in the
-principal genus of the class group of discriminant $9c^2-4$ correspond to a
-divisor of $3c-2$, and for a $c$ that is not a prime power she proves that
+\cite[Theorem~5.4]{Srinivasan2009} asks, for an odd Markoff number $c$, that
+every ambiguous form lying in the principal genus of the form class group of
+discriminant $9c^2-4$ correspond to a divisor of $3c-2$, and for a $c$ that is not a prime power she proves that
 Markoff uniqueness at $c$ is \emph{equivalent} to a statement about
 $\Q(\sqrt{9c^2-4})$ \cite[Theorem~5.3]{Srinivasan2009}. The order attached to
 a branch is therefore not an artefact of our construction; it is where the
@@ -669,19 +675,21 @@ picture.
 fixed-entry branch. That is not what the proofs in this paper consume. What
 they consume is the Pell-arm semiconjugacy of
 \cref{prop:seed-semiconjugacy}: the map $\mathsf S$ advances the two-square
-data by one step, and $\mathsf S^2$ realises
+data by one step, and $\mathsf S^2$ realizes
 $\beta(2)=\lambda^2$. An analogous construction at $m_0$ would therefore
 need a \emph{square root} of $\beta(m_0)$ acting integrally. The following
 theorem shows that this is a severe restriction.
 
-For clarity, the square relation is forced by any such fixed action. If
+Heuristically, the square relation is forced by any such fixed action. If
 $\mathsf T\in\mathrm{GL}_2(\Z)$ carries every positive two-square vector
 $z_k$ of a growing fixed-$m_0$ ray to $z_{k+1}$, its dominant eigenvalue
 $\varepsilon>1$ is a quadratic unit. Since
 $m_k=\lVert z_k\rVert^2$ has growth rate $\beta(m_0)$ by
 \cref{prop:branch-recurrence}, while $\lVert\mathsf T^kz_0\rVert^2$ has
-growth rate $\varepsilon^2$, necessarily
-$\beta(m_0)=\varepsilon^2$.
+growth rate $\varepsilon^2$, one expects
+$\beta(m_0)=\varepsilon^2$. Making this precise would need $\mathsf T$
+hyperbolic and $z_0$ off its contracting eigenline, so the relation enters
+the theorem below as a hypothesis rather than as a consequence.
 
 \begin{theorem}[Trace criterion for a half-step]
 \label{thm:half-step-criterion}
@@ -734,7 +742,7 @@ $m_0=34$, with $3\cdot34-2=100$ and $\varepsilon=5+\sqrt{26}$. This is a
 verification on a finite family and not a theorem: we do not know whether
 $3m-2$ is a perfect square for infinitely many Markoff numbers $m$, and
 nothing below depends on the answer. This computation is recorded in the
-supplement.
+supplementary material.
 \end{remark}
 
 The third value can be tested on an explicit ray, and here the calculation is
@@ -944,7 +952,7 @@ than the Pell pattern. We therefore make no extremality claim from below.
 \subsection{Dictionary}
 
 The correspondence between the word-combinatorial objects and the objects of
-this paper is exact, and is summarised in \cref{tab:dictionary}. Its first row
+this paper is exact, and is summarized in \cref{tab:dictionary}. Its first row
 is an identity rather than an analogy: by \cref{cor:writing-letter-counts} the
 letter counts are read off the writing by a congruence, and exchanging the
 order of the writing exchanges the two letter counts.
