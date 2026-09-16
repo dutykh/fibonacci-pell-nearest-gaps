@@ -1,5 +1,5 @@
-# Fibonacci-Pell nearest gaps: an all-exponent classification and
-# quadratic-unit orbit rigidity
+# Around the Markoff uniqueness conjecture: a series of manuscripts and their
+# reproduction material.
 #
 # Authors:
 #   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
@@ -7,64 +7,65 @@
 #   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
 #   France)
 #
-LATEXMK := latexmk
-PYTHON  := python3
-MAIN := DD-LV-Fibonacci-Pell-Gaps
-SOURCES := $(MAIN).tex references.bib $(wildcard sections/*.tex)
+# This file builds nothing itself. It discovers the manuscript directories
+# below papers/ and forwards each target to the Makefile each one carries, so
+# a new manuscript joins the series without an edit here. Every manuscript
+# directory is expected to provide the five common targets
+#
+#   all      build the manuscript PDF
+#   check    force a full rebuild under that manuscript's strict gates
+#   checks   run the reproduction programs of its supplement
+#   release  rebuild and then run the reproduction programs
+#   clean    remove the build intermediates
+#
+# and may provide further targets of its own, reachable with
+# make -C papers/<directory> <target>.
 
-.PHONY: all help rebuild clean distclean check certificates release
+PAPERS := $(sort $(notdir $(patsubst %/,%,$(dir $(wildcard papers/*/Makefile)))))
 
-# The build is gated on a warning-free log. Two warnings are whitelisted by
-# exact text, and only those two:
-#   * the pdfTeX font-expansion notice, which is emitted before first use and
-#     has no effect on the output;
-#   * amsplain's missing-pages warnings for the three entries whose publisher
-#     locator is an article number rather than a page range: PomeoBravo2024
-#     (online-first, no volume, issue or pages), AlekseyevTengely2014 (Journal
-#     of Integer Sequences, Article 14.6.6), LucaZottor2023 (Article 49) and
-#     Reutenauer2006 (Seminaire Lotharingien de Combinatoire, Article B54h).
-#     Pagination is not invented to silence them.
-define compile_and_check
-$(LATEXMK) -pdf -interaction=nonstopmode -halt-on-error $(MAIN).tex
-@test -s $(MAIN).log
-@test -s $(MAIN).blg
-@! grep -E "LaTeX (Font )?Warning:|Package .* Warning:|Class .* Warning:|Underfull \\\\[hv\\\\]box|Overfull \\\\[hv\\\\]box|Missing character:" $(MAIN).log
-@! grep -E "pdfTeX warning" $(MAIN).log | grep -Fv "pdfTeX warning (font expansion): font should be expanded before its first use"
-@! grep -E "multiply defined" $(MAIN).log
-@! grep -E "^Warning--" $(MAIN).blg | grep -Fv "missing pages in PomeoBravo2024" | grep -Fv "missing pages in AlekseyevTengely2014" | grep -Fv "missing pages in LucaZottor2023" | grep -Fv "missing pages in Reutenauer2006"
-@! grep -n -P '\\(?:leq?|geq?)(?!slant|[A-Za-z])' $(MAIN).tex sections/*.tex
-$(LATEXMK) -c $(MAIN).tex
-$(RM) $(MAIN).bbl
-endef
+.PHONY: all help list check checks release clean $(PAPERS)
 
-all: $(MAIN).pdf
+all: $(addprefix build-,$(PAPERS))
 
 help:
-	@echo 'Targets:'
-	@echo '  all           build $(MAIN).pdf (default)'
-	@echo '  rebuild       force a full rebuild with the same strict checks'
-	@echo '  check         alias for rebuild; fails on any LaTeX or BibTeX warning'
-	@echo '  certificates  run every exact Python certificate in supplement/'
-	@echo '  release       rebuild the manuscript, then run every certificate'
-	@echo '  clean         remove LaTeX intermediates, keep the PDF'
-	@echo '  distclean     remove intermediates AND the tracked PDF'
+	@echo 'Series targets, applied to every manuscript below papers/:'
+	@echo '  all        build every manuscript PDF (default)'
+	@echo '  check      force a full rebuild of every manuscript'
+	@echo '  checks     run the reproduction programs of every supplement'
+	@echo '  release    rebuild every manuscript, then run every supplement'
+	@echo '  clean      remove build intermediates everywhere'
+	@echo '  list       list the manuscript directories that were discovered'
+	@echo ''
+	@echo 'One manuscript at a time:'
+	@echo '  make <directory>                build that manuscript'
+	@echo '  make -C papers/<directory> help its own targets'
+	@echo ''
+	@echo 'Discovered manuscripts:'
+	@$(foreach p,$(PAPERS),echo '  $(p)';)
 
-$(MAIN).pdf: $(SOURCES)
-	$(compile_and_check)
+list:
+	@$(foreach p,$(PAPERS),echo '$(p)';)
 
-rebuild:
-	$(compile_and_check)
+check: $(addprefix check-,$(PAPERS))
+checks: $(addprefix checks-,$(PAPERS))
+release: $(addprefix release-,$(PAPERS))
+clean: $(addprefix clean-,$(PAPERS))
 
-check: rebuild
+# For each discovered manuscript, a bare target that builds it and one
+# forwarding target per verb of the common contract.
+define paper_rules
+.PHONY: build-$(1) check-$(1) checks-$(1) release-$(1) clean-$(1)
+$(1): build-$(1)
+build-$(1):
+	$$(MAKE) -C papers/$(1) all
+check-$(1):
+	$$(MAKE) -C papers/$(1) check
+checks-$(1):
+	$$(MAKE) -C papers/$(1) checks
+release-$(1):
+	$$(MAKE) -C papers/$(1) release
+clean-$(1):
+	$$(MAKE) -C papers/$(1) clean
+endef
 
-certificates:
-	$(PYTHON) -B supplement/run_all.py
-
-release: rebuild certificates
-
-clean:
-	$(LATEXMK) -c $(MAIN).tex
-	$(RM) $(MAIN).bbl
-
-distclean:
-	$(LATEXMK) -C $(MAIN).tex
+$(foreach p,$(PAPERS),$(eval $(call paper_rules,$(p))))

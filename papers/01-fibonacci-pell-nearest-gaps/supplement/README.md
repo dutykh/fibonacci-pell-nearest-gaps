@@ -9,7 +9,7 @@ exact integer, rational, or outward-rounded fixed-point arithmetic.
 
 ## Run the certificates
 
-From `manuscripts/fibonacci-pell-nearest-gaps`, run:
+From the manuscript directory `papers/01-fibonacci-pell-nearest-gaps`, run:
 
 ```sh
 python3 -B supplement/run_all.py

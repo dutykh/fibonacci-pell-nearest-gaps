@@ -1,5 +1,5 @@
-# Fibonacci-Pell nearest gaps: an all-exponent classification and
-# quadratic-unit orbit rigidity
+# Around the Markoff uniqueness conjecture: manuscripts and reproduction
+# material.
 #
 # Authors:
 #   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
@@ -7,8 +7,9 @@
 #   Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery,
 #   France)
 #
-# Ignore rules for the LaTeX manuscript build and the Python certificate
-# supplement. The compiled manuscript PDF is tracked on purpose, so there is
+# Ignore rules for the LaTeX builds and the Python supplements of every
+# manuscript below papers/. No pattern is anchored, so each applies at any
+# depth. The compiled manuscript PDFs are tracked on purpose, so there is
 # deliberately no *.pdf rule below.
 
 # ---------------------------------------------------------------------------

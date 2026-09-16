@@ -1,5 +1,5 @@
-# Fibonacci-Pell nearest gaps: an all-exponent classification and
-# quadratic-unit orbit rigidity
+# Around the Markoff uniqueness conjecture: manuscripts and reproduction
+# material.
 #
 # Authors:
 #   Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science
@@ -8,33 +8,41 @@
 #   France)
 #
 # Citation metadata in Citation File Format 1.2.0. GitHub renders the
-# "Cite this repository" button from this file.
+# "Cite this repository" button from this file. It describes the repository as
+# a whole; each manuscript below papers/ is cited on its own, and its README
+# gives the entry for it.
 
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
-title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
+message: "If you use this work, please cite the repository as below, and the individual manuscript you rely on."
+title: "Around the Markoff uniqueness conjecture: manuscripts and reproduction material"
 abstract: >-
-  Manuscript source and reproduction supplement for a complete classification
-  of the strict factor-two Fibonacci-Pell nearest gaps whose quadratic norm
-  equals minus the square of their coefficient content. Exactly two such gaps
-  occur, and none has an odd exponent. The companion orbit theorem lists every
-  Pell-orbit intersection of the two signed Fibonacci cores. The repository
-  contains the LaTeX sources, the compiled manuscript, and twenty-one exact
-  standard-library certificates with recorded reference output and pinned
-  provenance digests.
+  Manuscript sources and reproduction supplements for a series of papers on the
+  Markoff-Frobenius uniqueness conjecture, which asks whether a Markoff number
+  determines its Markoff triple. Each manuscript settles one face of the
+  question completely on an explicitly stated domain: analytic estimates reduce
+  an unbounded problem to a finite one, and an exact computation in integer or
+  rational arithmetic, reproducible from the supplement that travels with the
+  manuscript, finishes it. None of them claims the conjecture. The first
+  manuscript classifies the strict factor-two Fibonacci-Pell nearest gaps whose
+  quadratic norm equals minus the square of their coefficient content, finds
+  exactly two and none with an odd exponent, and lists every Pell-orbit
+  intersection of the two signed Fibonacci cores.
 type: software
-version: "1.0.0"
-date-released: "2026-08-24"
+version: "2.0.0"
+date-released: "2026-09-16"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
 keywords:
+  - Markoff uniqueness conjecture
+  - Markoff numbers
   - Fibonacci numbers
   - Pell equations
   - quadratic units
   - linear forms in logarithms
   - p-adic valuations
   - arithmetic dynamics
-  - Markoff uniqueness conjecture
+  - continued fractions
+  - balanced words
 authors:
   - family-names: Dutykh
     given-names: Denys
@@ -44,14 +52,15 @@ authors:
     given-names: Laurent
     affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
     email: laurent.vuillon@univ-smb.fr
-preferred-citation:
-  type: unpublished
-  title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
-  year: 2026
-  authors:
-    - family-names: Dutykh
-      given-names: Denys
-      affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
-    - family-names: Vuillon
-      given-names: Laurent
-      affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+references:
+  - type: unpublished
+    title: "Fibonacci-Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity"
+    year: 2026
+    notes: "First manuscript of the series; sources in papers/01-fibonacci-pell-nearest-gaps"
+    authors:
+      - family-names: Dutykh
+        given-names: Denys
+        affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+      - family-names: Vuillon
+        given-names: Laurent
+        affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
