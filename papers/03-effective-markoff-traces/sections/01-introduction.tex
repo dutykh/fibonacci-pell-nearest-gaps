@@ -1,0 +1,108 @@
+\section{Introduction}
+
+A simple closed geodesic on the modular punctured torus carries an
+integer: its hyperbolic trace divided by three. The integers obtained
+in this way are the Markov numbers. Their construction remembers a
+curve, a rational slope, or a position in a tree of Markov triples.
+The number itself forgets this information. The Markov--Frobenius
+uniqueness conjecture~\cite{Frobenius1913} asks whether that loss of information creates
+any ambiguity beyond the symmetries already present in the construction.
+In its geometric form, it asks whether two simple closed geodesics of
+equal length on the modular torus must be related by an isometry.
+
+This paper studies the question with a parameter attached to the
+\emph{pair} of curves. Choose one curve as the first element $A$ of a
+simple basis $(A,B)$. The second curve then has primitive homology
+$(h,N)$. For a normalized representative $2\leqslant h<N$, write $N=hk+t$ with
+$k\geqslant1$ and $0<t<h$, and a Christoffel word represents it as
+$h$ occurrences of $A$ separated by gaps $B^k$ and $B^{k+1}$.
+We fix the occurrence count $h$ and allow both the gap quotient $k$
+and the integral character of the basis to vary. The question is whether
+the trace of this word can equal the trace of $A$. The endpoint cases
+$N=1$ and $h=1$ are covered separately by a reflection argument.
+
+There are two obstacles to making this a finite problem. First, a
+basis with very large traces can still represent a curve of small trace
+when it is far from the minimum of its Markov ray. Second, equality
+of traces must be separated from equality explained by an isometry of
+the surface. An arbitrary change of homology basis answers neither
+question. Our argument centers each ray at its actual integral minimum,
+bounds all remaining indices and parameters, and retains the marking
+throughout the resulting finite calculation.
+
+\subsection{Main conclusions}
+
+Our main quantitative result is Theorem~\ref{thm:finite-decision}.
+For each $h\geqslant2$, every primitive mechanical trace equality in
+the preceding family lies in a fully explicit domain with $O(h^5)$
+exact comparisons on $O(h^3)$-bit integers. The isometry status of
+every equality is decided by twelve fixed integral actions. This is a
+polynomial bound in the numerical value of $h$, rather than in the
+length of its binary encoding.
+
+The two parameter estimates behind this result are particularly simple.
+Write $p=\tr B/3$ after centering the ray. If the base index $l$ of
+the product is positive, then
+$$
+ p<4^{h+1}.
+$$
+If $l=0$, mechanical balance gives
+$$
+ p<(100h^2)^{h+1}.
+$$
+These are analytic bounds, valid over all positive integral Markov
+characters. Although their heights
+are large, the number of Markov occurrences below them is small enough
+for a polynomial decision bound. Counting occurrences instead of scanning
+integer labels is an essential part of the argument.
+
+The finite applications give two complete rigidity statements:
+all primitive occurrence families $2\leqslant h\leqslant6$ contain
+only isometric equalities, and every equal-length simple pair with
+intersection number at most $24$ is isometric. No upper bound on the common trace is assumed. Both proofs combine the analytic
+reductions with an exact finite computation, together with separate
+arguments for the remaining intersection-$19$ and intersection-$23$
+types; the computation is
+described where it is used, and the data it produces accompany the
+article as supplementary material. Section~\ref{sec:rigidity} specifies the geometric normalization
+and the precise scope of these conclusions.
+
+\subsection{Why a comparison with commuting traces helps}
+
+The mechanism is an integrality contradiction. If $s>1$, the commuting
+baselines
+$$
+ B_i=\frac{s^i+s^{-i}}3
+$$
+satisfy $3B_aB_b-B_{a+b}=B_{|a-b|}$. Their indices therefore follow
+the Euclidean algorithm under Vieta mutation. When the indices reach
+zero, the corresponding baseline is $B_0=2/3$.
+Actual positive integral Markov triples obey the same polynomial
+mutation, but lie on a different level of the trace cubic. If their
+errors relative to the baselines remain sufficiently small, the final
+actual entry would be a positive integer below one.
+
+The comparison has a nonzero forcing term, so small initial errors
+alone do not suffice. At positive product index, the quotient form of
+Vieta mutation keeps a weighted error bounded by the same constant at
+every step. At minimum index, cyclic balance first bounds the mixed
+matrix paths. The equality then improves the relevant block exponents
+to positive multiples of a greatest common divisor. Passing to spectral
+coordinates turns a mutation into subtraction with a small additive
+error, whose propagation is controlled by the integer rows of the
+Euclidean algorithm. This is the reason for using two complementary
+error estimates.
+
+\input{sections/00-literature}
+
+\subsection{Organization}
+
+Section~\ref{sec:rays} fixes the curve, word and ray conventions.
+Section~\ref{sec:gap} bounds the product index and the original gap
+quotient using positive paths and a quadratic norm.
+Sections~\ref{sec:positive} and~\ref{sec:spectral} prove the two
+parameter bounds. Section~\ref{sec:decision} gives the complete finite
+domain and its isometry test. Section~\ref{sec:rigidity} applies the
+procedure to the stated families; the exceptional intersection argument
+and the description of the finite domains are in the appendix.
+The final section explains which part of the uniqueness problem remains.

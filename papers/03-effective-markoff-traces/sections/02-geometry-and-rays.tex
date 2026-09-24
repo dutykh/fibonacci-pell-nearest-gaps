@@ -1,0 +1,177 @@
+\section{Simple curves, mechanical words, and positive Markov rays}
+\label{sec:rays}
+
+\subsection{The geometric normalization}
+
+We use the complete hyperbolic metric of curvature $-1$ on the modular
+once-punctured torus $T$. A convenient holonomy basis is
+\begin{equation}\label{eq:root-basis}
+ E=\begin{pmatrix}2&1\\1&1\end{pmatrix},\qquad
+ F=\begin{pmatrix}2&-1\\-1&1\end{pmatrix}.
+\end{equation}
+Its commutator has trace $-2$. The image of $\langle E,F\rangle$ in
+$\mathrm{PSL}_2(\R)$ uniformizes $T$. An essential simple closed curve
+means a nonperipheral, unoriented simple free homotopy class; its geodesic
+representative has length
+\begin{equation}\label{eq:length-trace}
+ \ell(\gamma)=2\arcosh\bigl(\abs{\tr\gamma}/2\bigr).
+\end{equation}
+Thus equal length is precisely equal absolute trace. We choose positive
+lifts for the simple generators occurring below.
+
+The classical Markov dictionary identifies positive normalized traces
+of a simple basis and its product with positive integral solutions of
+\begin{equation}\label{eq:markoff}
+ a^2+b^2+c^2=3abc.
+\end{equation}
+Here and throughout, a normalized trace is the ordinary matrix trace
+divided by three. Changing one vertex of a Farey triangle replaces one
+coordinate, say $c$, by $3ab-c$. This follows directly from the
+$\mathrm{SL}_2$ identity
+$$
+ \tr(XY)+\tr(XY^{-1})=\tr X\,\tr Y.
+$$
+The initial traces in \eqref{eq:root-basis} give $(1,1,1)$.
+Conversely, largest-coordinate descent generates all positive integral
+solutions of \eqref{eq:markoff}; Section~\ref{sec:decision} makes this
+construction explicit. We use the classical geometric identification of
+these traces with simple curves, as developed by Cohn and Goldman
+\cite{Cohn1971,Goldman2003}. Equal numerical labels at different
+occurrences of this construction are never identified in our algorithm.
+
+\subsection{Which words represent simple curves?}
+
+Fix oriented simple basis curves $(A,B)$ meeting once, with homology
+columns $\alpha,\beta\in H_1(T;\Z)\simeq\Z^2$. Essential simple classes
+are in bijection with primitive vectors, up to sign. Their geometric
+intersection number is
+\begin{equation}\label{eq:intersection-determinant}
+ i(v,w)=\abs{\det(v,w)}.
+\end{equation}
+In particular, a pair of distinct classes can be written in a common
+integral basis as $(1,0)$ and $(h,N)$, where $N>0$, $0\leqslant h<N$,
+and $\gcd(h,N)=1$. Changing the complementary basis vector changes $h$
+by a multiple of $N$. Reversing orientations and interchanging the two
+curves gives the residue orbit
+\begin{equation}\label{eq:residue-orbit}
+ \{h,-h,h^{-1},-h^{-1}\}\pmod N.
+\end{equation}
+This is a change of marking of the pair. It does not assert that these
+changes of marking are isometries of the fixed surface.
+
+Suppose $2\leqslant h<N$, and write $N=hk+t$, with $k\geqslant1$,
+$0<t<h$, and $\gcd(h,t)=1$. The primitive simple class of slope
+$(h,N)$ is represented, up to cyclic conjugacy, by the mechanical word
+\begin{equation}\label{eq:mechanical-word}
+ W_{h,k,t}(A,B)=\prod_{i=1}^h AB^{k+\epsilon_i},\qquad
+ \epsilon_i=\left\lfloor\frac{it}{h}\right\rfloor
+             -\left\lfloor\frac{(i-1)t}{h}\right\rfloor.
+\end{equation}
+Its $h$ gaps contain exactly $t$ ones. This is the Christoffel
+cutting-sequence description of a primitive straight line on a torus;
+see \cite{Reutenauer2009}. One can see the formula by counting the
+horizontal grid lines crossed in each successive vertical strip.
+Coprimality makes the sequence a single primitive period. Translating
+the starting point changes only the cyclic conjugacy class. Inverting
+one coordinate reverses and complements the corresponding gap pattern.
+
+We call $h$ the \emph{occurrence count} in this marking. The mechanical
+condition matters: an arbitrary word with primitive abelianization need
+not be a simple curve. Some analytic estimates below hold for every
+binary pattern, but only mechanical patterns enter the simple-curve
+decision procedure.
+
+\subsection{Centering a Markov ray at its minimum}
+
+Keep $B$ fixed and replace $A$ by $AB^j$, for $j\in\Z$. If
+$\tr B=3p$, put $u_j=\tr(AB^j)/3$. The trace identity and
+\eqref{eq:markoff} give
+\begin{equation}\label{eq:ray-recurrence}
+ u_{j+1}=3pu_j-u_{j-1},\qquad
+ p^2+u_j^2+u_{j+1}^2=3pu_ju_{j+1}.
+\end{equation}
+These are positive integers at every integral index: each adjacent
+triple is a positive Markov triple, and its Vieta replacement is
+$(p^2+u_j^2)/u_{j+1}>0$. We call this a positive integral Markov ray.
+The following elementary normalization will be used repeatedly.
+
+\begin{lemma}[The positive ray model]\label{lem:ray-model}
+Let $p\geqslant1$ and let $(u_j)_{j\in\Z}$ be a positive integral
+Markov ray. Define
+\begin{equation}\label{eq:ray-parameters}
+ D=9p^2-4,\qquad \lambda=\frac{3p+\sqrt D}{2},\qquad K=\frac{p^2}{D}.
+\end{equation}
+After shifting an index at which $u_j$ is minimal to zero, there are
+positive conjugate elements $c,d\in\Q(\sqrt D)$ such that
+\begin{equation}\label{eq:ray-spectral}
+ u_j=c\lambda^j+d\lambda^{-j},\qquad cd=K,\qquad
+ \lambda^{-1}\leqslant c/d\leqslant\lambda.
+\end{equation}
+Furthermore, $\sqrt D\,c$ and $\sqrt D\,d$ are algebraic integers, and
+\begin{equation}\label{eq:ray-elementary-bounds}
+ \frac52p<\lambda<3p,\qquad
+ 5p^2\leqslant D<9p^2,\qquad
+ \frac19<K\leqslant\frac15,\qquad c,d<\sqrt p.
+\end{equation}
+A marked realization with this ray is simultaneously conjugate over
+$\R$ to
+\begin{equation}\label{eq:ray-positive-matrices}
+ A_0=\begin{pmatrix}3c&2/\sqrt D\\2/\sqrt D&3d\end{pmatrix},\qquad
+ B=\begin{pmatrix}\lambda&0\\0&\lambda^{-1}\end{pmatrix}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The integer $D$ lies strictly between $(3p-1)^2$ and $(3p)^2$, so
+it is not a square. The characteristic roots of the recurrence are
+$\lambda$ and $\lambda^{-1}$, and
+$$
+ c=\frac{u_1-\lambda^{-1}u_0}{\sqrt D},\qquad
+ d=\frac{\lambda u_0-u_1}{\sqrt D}.
+$$
+Conjugation sends $\lambda$ to $\lambda^{-1}$ and $\sqrt D$ to
+$-\sqrt D$, so it exchanges $c,d$. Substituting the Markov equation
+gives $cd=p^2/D>0$. Since $c+d=u_0>0$, both are positive. The
+expressions also show that $\sqrt D\,c$ and $\sqrt D\,d$ are
+algebraic integers: $\lambda^{\pm1}$ are roots of the monic
+polynomial $X^2-3pX+1$.
+
+The ray tends to infinity at both ends and therefore has an integral
+minimum. The inequalities $u_0\leqslant u_1,u_{-1}$ are exactly
+$c/d\geqslant\lambda^{-1}$ and $c/d\leqslant\lambda$.
+The bounds for $D,K,\lambda$ follow from their definitions; in
+particular $\sqrt{9p^2-4}>2p$. Hence
+$c^2,d^2\leqslant K\lambda<3p/5<p$.
+
+Finally diagonalize the hyperbolic matrix $B$. The traces of $A_0$
+and $A_0B$ determine its diagonal entries to be $3c,3d$. Its
+unit determinant forces the off-diagonal product to equal
+$9cd-1=4/D>0$. A real diagonal conjugation, including a sign change
+if necessary, makes both off-diagonal entries $2/\sqrt D$.
+\end{proof}
+
+\begin{lemma}[The integral minimum bound]\label{lem:integer-minimum}
+If $x=u_0$ is a minimum of a positive integral Markov ray, then
+\begin{equation}\label{eq:integer-minimum-bound}
+ (3p-2)x^2\leqslant p^2.
+\end{equation}
+For $p\geqslant3$ this strengthens to $3x^2\leqslant p$.
+\end{lemma}
+
+\begin{proof}
+The two neighbors of $x$ are the roots of
+$f(T)=T^2-3pxT+p^2+x^2$. Both are at least $x$, so $f(x)\geqslant0$,
+which gives \eqref{eq:integer-minimum-bound}. For $p\geqslant2$,
+$$
+ 3x^2\leqslant\frac{3p^2}{3p-2}
+ =p+\frac{2p}{3p-2}\leqslant p+1.
+$$
+If $3x^2>p$, integrality forces $3x^2=p+1$. Substituting $p=3x^2-1$ into
+\eqref{eq:integer-minimum-bound}, $x^2\leqslant1$. It would therefore
+force $p=2,x=1$, where $3x^2=3>2$ actually occurs. Thus the stronger
+bound holds for $p\geqslant3$; the exceptional minimum $(p,x)=(2,1)$
+must be retained separately.
+\end{proof}
+
+At $p=1,2$ the minimum is $x=1$. These two initial cases will be
+included explicitly in the finite decision domain.

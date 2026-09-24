@@ -1,0 +1,118 @@
+\section{What remains after effective finiteness}
+\label{sec:outlook}
+
+The results separate two questions that are often conflated. At each
+fixed occurrence count, equality is completely decidable by a finite
+calculation with an explicit polynomial bound. To settle Markov
+uniqueness, one must control the entire sequence of these finite
+questions as the count grows. Theorem~\ref{thm:finite-decision} answers
+the first question and supplies a precise setting for the second.
+
+The restriction is geometric, not just computational. The residue orbit
+\eqref{eq:residue-orbit} is invariant under a common change of marking
+of the pair. A change of basis can simplify the matrix character or the
+word, but cannot in general reduce the least representative of that
+orbit. Thus the method does not become a proof of uniqueness by
+repeatedly choosing a new convenient basis. The remaining intersection
+range is also unbounded: the result through $24$ is a uniform theorem
+at those intersections, not an estimate on all possible intersections.
+
+\begin{example}[Isometric pairs at every occurrence count]
+\label{ex:unbounded-isometric-family}
+For any $h\geqslant2$, take root homology columns
+$v=(h+1,1)$ and $b=(-1,0)$. They form a simple marking since
+$\det(v,b)=1$. The actual order-three action $G$ from
+Proposition~\ref{prop:isometry-group} satisfies
+$$
+ Gv=(-1,h)=hv+(h^2+h+1)b.
+$$
+Thus an isometric equal-length pair has original type
+$(k,t)=(h+1,1)$ at every occurrence count. For
+$N=h^2+h+1$, the sign-and-inversion orbit is
+$\{h,h+1,N-h,N-h-1\}$, whose least positive representative is $h$.
+These pairs therefore retain unbounded least occurrence count under
+common changes of marking.
+\end{example}
+
+\subsection{An unbounded family beyond the finite cover}
+
+Proposition~\ref{prop:intersection-twentythree} is the second member of a
+family, and the family is infinite. Keep $X=AB^3$ and $Y=AB^4$, and for
+$n\geqslant0$ compare $A$ with $X(X^nY)^2$. The pair $(X,X^nY)$ is again a
+simple basis, so the second word is primitive and simple; its homology is
+$(2n+3,6n+11)$, and its two long gaps are separated by $n$ and $n+1$ short
+ones, so the cyclic gap pattern is mechanical. Both the occurrence count and
+the intersection number therefore grow without bound along the family. At
+$n=0$ the pair is the three-occurrence type $(k,t)=(3,2)$, settled by
+\cref{thm:small-occurrences}; at $n=1$ it is the residue-five pair at
+intersection seventeen, also settled there; at $n=2$ it is
+\cref{prop:intersection-twentythree}.
+
+We have proved that $\tr A\ne\tr(X(X^nY)^2)$ for every $n\geqslant0$ and every
+positive integral marked character, so that the residue $h$ at intersection
+$3h+2$ carries no equal-length pair for any odd $h\geqslant3$. The argument
+beyond $n=2$ is not the one used here: it replaces the fixed elimination by a
+spectral representation of the fixed-coordinate ray, with uniform bounds on
+its terminal core, and it is accompanied by an elementary congruence filter
+modulo nine which by itself already removes every quotient divisible by four
+and every quotient congruent to six modulo twelve. Because that machinery is
+of a different kind and about as long as the present article, it is written up
+separately. We record the statement here because it shows what the finite
+cover of \cref{thm:small-intersections} does not see: an unbounded prescribed
+family can be excluded outright, while the cover itself stops at twenty-four.
+
+This does not bound the occurrence count of an arbitrary equality, and it does
+not cover every residue at the intersections it meets.
+
+The error estimates point to a more specific analytic question. An
+isometric equality can occur inside the finite domain and must be
+retained. Any uniform refinement must therefore distinguish the actual
+symmetry equations from a possible nonisometric equality. Excluding all
+equalities at large occurrence count would be too strong. A promising
+next step is to characterize equality in the dominant-state and
+Euclidean-descent constraints in terms of the twelve actions of
+Proposition~\ref{prop:isometry-group}. The present bounds establish
+neither that characterization nor a bound on the first possible
+nonisometric occurrence count.
+
+There is a second reformulation of the same uniqueness question, arithmetic
+rather than geometric, and it is worth recording here because it shows from a
+different side why a bound on the occurrence count is the missing ingredient
+and not a technicality. A simple curve is presented by a Christoffel word, and
+Frobenius attached to the corresponding Markov number $m$ a square root of $-1$
+modulo $m$~\cite{Frobenius1913}. That root is not an abstract residue: it is a
+letter count. Writing a proper Christoffel word as $a\operatorname{Pal}(d)b$
+for a directive word $d$, with $q$ letters $a$ and $s$ letters $b$, the word
+directed by the doubled directive $\widehat d\,d$, where $\widehat d$ is the
+reversal complement, has length exactly $m=q^2+s^2$ and precisely $sq^{-1}$
+letters $b$; and, the incidence matrix of a doubled directive being a Gram
+matrix and hence symmetric, that same number says where the word splits in its
+standard factorization into two Christoffel words. The classical dictionary
+behind these statements is the involution theory of Christoffel words and
+Sturmian morphisms~\cite[Section~3]{BertheDeLucaReutenauer2008} together with
+Reutenauer's correspondence~\cite{Reutenauer2009}; the proofs of the two
+statements just quoted are given in a companion article of this series. A
+combinatorial proof that a Markov number is a sum of two squares was obtained
+independently by L.~Vuillon and A.~De~Luca (personal communication, 2026).
+
+Read through that dictionary, uniqueness becomes the assertion that a Markov
+number determines the primitive representation $m=q^2+s^2$ of every occurrence
+carrying it. Since $m$ has $2^{\omega(m)-1}$ primitive representations, with
+$\omega$ the number of distinct prime divisors, the question is empty when $m$
+is a prime power or twice one, which recovers the classical results in that
+range and explains why they stop there. What it does not supply is any control
+as $\omega(m)$ grows, and in particular no bound on the occurrence count. The
+reformulation and the present theorems therefore fail in the same place, from
+opposite directions: the arithmetic side decides a single label and cannot
+follow a family, while \cref{thm:finite-decision} decides a whole family at a
+fixed count and cannot follow the count.
+
+The contribution of the method is that the trace comparison keeps
+three kinds of structure visible at once: the positive paths of the
+word, the integral Vieta orbit of its character, and the marking that
+recognizes a surface symmetry. The positive paths and integral Vieta
+orbit produce the terminal contradiction and hence the parameter bounds;
+the marking identifies the symmetries among the retained equalities.
+Together they reduce an unbounded search in matrix entries and gap
+lengths to an explicit family of finite geometric decisions, while
+leaving the remaining uniform question identifiable.

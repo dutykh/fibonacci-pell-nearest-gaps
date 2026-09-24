@@ -1,0 +1,89 @@
+\subsection{Relation to earlier work}
+\label{sec:literature}
+
+The correspondence between Markov arithmetic and the geometry of the
+punctured torus is classical. Cohn related Markov forms to simple
+geodesics~\cite{Cohn1971}, and Reutenauer gave a constructive bijection
+between proper Christoffel words and proper Markov
+triples~\cite[Theorem~1]{Reutenauer2009}. These correspondences retain a
+whole triple or a marked curve. They do not assert that its largest
+coordinate, or the trace of the curve alone, determines it. We use the
+classical dictionaries to enumerate marked occurrences and retain their
+homology throughout the calculation.
+
+The parameter in this paper is attached to a pair of curves. After choosing
+one member as a basis element, the other has primitive homology
+$(h,hk+t)$ and a prescribed Christoffel gap pattern. This differs from
+fixing a numerator in one global Farey parametrization. The ordering
+theorems of Lagisquet, Pelantov{\'a}, Tavenas and Vuillon~\cite{LagisquetEtAl2021}
+and of Lee, Li, Rabideau and Schiffler~\cite{LeeEtAl2023} compare Markov
+values along specified directions in that global parametrization.
+Our bounds allow the integral character of the chosen basis to vary.
+Changing the basis transforms both curves and their character; it cannot
+be used to reset the first curve while leaving its trace equation unchanged.
+
+Effective finiteness on character varieties is also established. Whang
+proves effective bounds for integral points on geometrically irreducible
+nonintegrable curves in relative character varieties, and describes the
+multitwist exceptions in the more general nondegenerate
+case~\cite[Theorems~1.2--1.3]{Whang2020}. Applied to a fixed trace-equality
+curve, this method requires verification of the exceptional hypotheses
+component by component. The present argument gives explicit bounds in
+the pair parameter $h$ and a direct finite comparison domain, without
+computing those algebraic curves. Its quantitative conclusion is
+$O(h^5)$ trace comparisons on $O(h^3)$-bit integers. This is a bound in
+the numerical value of $h$, and does not bound $h$ itself.
+
+The geometric part uses equally classical structure. The length of a
+primitive simple class on a punctured torus is determined by its primitive
+homology vector, and these lengths extend to a norm~\cite{McShaneRivin1995}.
+McShane and Parlier prove that, with the boundary length fixed, the locus
+where two distinct simple curves have equal length is an embedded
+path~\cite[Theorem~1.3]{McShaneParlier2008}. We use this theorem
+for the reflection cases. The remaining arithmetic classifications retain
+the full marking and test the actual finite isometry group of the modular
+torus. Homological equivalence under an arbitrary change of basis is not
+an isometry test at a fixed metric.
+
+The comparison model for the analytic estimates has a useful interpretation
+on the Cayley cubic. For full traces, put
+$$
+F(X,Y,Z)=X^2+Y^2+Z^2-XYZ.
+$$
+The Fricke identity gives $F=\operatorname{tr}[A,B]+2$, so the cusped
+Markov character lies on $F=0$~\cite{Goldman2003}. Commuting diagonal
+matrices instead give
+$$
+(X,Y,Z)=(u+u^{-1},v+v^{-1},uv+(uv)^{-1}),\qquad F=4.
+$$
+The torus cover and monomial action on this second level are
+classical~\cite[Sections~1.5 and~2.1]{CantatLoray2009}. Taking
+$(u,v)=(s^a,s^b)$ turns a Vieta move into subtraction of the exponents.
+The same polynomial move preserves the actual Markov level separately.
+Our estimates control the discrepancy along these two evolutions;
+after division of the traces by three, their level difference is $4/9$.
+There is no identification of the two character surfaces in this argument.
+
+Positive trace expansions and quadratic norm gaps have substantial prior
+uses. Fisac's necklace formula already records the dependence of a trace
+on cyclic runs~\cite[Theorem~1.1 and Section~4]{Fisac2025}.
+Altassan and Luca use Binet expansions and quadratic norms to bound
+solutions of Markov-type equations in Lucas
+sequences~\cite[Theorem~1.1 and Lemmas~2.1--2.2]{AltassanLuca2021}.
+Their sequences have specified initial values. Here a centered Markov ray
+has coefficients satisfying $cd=p^2/(9p^2-4)$, and these coefficients
+vary with the integral character. The needed estimates therefore retain
+both coefficients, all mixed matrix paths and the actual Vieta mutations.
+At minimum index, mechanical balance controls the mixed paths, while
+spectral-angle errors propagate through the Euclidean algorithm with
+polynomial amplification. The contradiction is an actual positive
+integer forced below one.
+
+Finally, arithmetic restrictions on the largest Markov entry, such as
+Button's ideal-theoretic criteria~\cite{Button2001}, organize partial
+uniqueness by a different parameter. The applications here concern complete
+families of relative curve positions: occurrence counts two through six,
+and all intersections at most twenty-four. No upper bound on the common
+Markov value is assumed in these classifications. These classifications and
+the effective decision procedure leave open whether a nonisometric equality
+occurs at some larger occurrence count.

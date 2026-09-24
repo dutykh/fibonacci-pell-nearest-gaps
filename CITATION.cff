@@ -30,10 +30,14 @@ abstract: >-
   theorem for Euclidean costs along a finite weighted graph of
   continued-fraction states and applies it to the Gaussian reflection attached
   to 89, showing that every distinct reflected target of a genuine reduced
-  Markoff source has strictly larger cost.
+  Markoff source has strictly larger cost. The third gives, for every fixed
+  occurrence count, a complete decision procedure for equal traces of simple
+  closed geodesics on the modular torus, with an exact isometry test, and shows
+  that all such equalities are isometric for occurrence counts two to six and
+  for intersection numbers at most twenty-four.
 type: software
-version: "2.1.0"
-date-released: "2026-09-16"
+version: "2.2.0"
+date-released: "2026-09-24"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
 keywords:
@@ -50,6 +54,10 @@ keywords:
   - Sturmian words
   - Christoffel words
   - Gaussian integers
+  - simple closed geodesics
+  - modular torus
+  - Vieta involutions
+  - effective Diophantine methods
 authors:
   - family-names: Dutykh
     given-names: Denys
@@ -75,6 +83,17 @@ references:
     title: "Endpoint costs and balanced near-minimizers under Gaussian reflections"
     year: 2026
     notes: "Second manuscript of the series; sources in papers/02-endpoint-costs-balanced-paths"
+    authors:
+      - family-names: Dutykh
+        given-names: Denys
+        affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+      - family-names: Vuillon
+        given-names: Laurent
+        affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+  - type: unpublished
+    title: "Effective trace bounds and rigidity for simple curves on the modular torus"
+    year: 2026
+    notes: "Third manuscript of the series; sources in papers/03-effective-markoff-traces"
     authors:
       - family-names: Dutykh
         given-names: Denys

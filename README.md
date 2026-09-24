@@ -55,6 +55,7 @@ supplement. Nothing below `papers/` reaches into anything else.
 | --- | --- | --- | --- | --- |
 | 1 | Fibonacci–Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity | [`papers/01-fibonacci-pell-nearest-gaps`](papers/01-fibonacci-pell-nearest-gaps) | 46 | 21 exact programs |
 | 2 | Endpoint costs and balanced near-minimizers under Gaussian reflections | [`papers/02-endpoint-costs-balanced-paths`](papers/02-endpoint-costs-balanced-paths) | 20 | 3 exact computations over a complete finite graph |
+| 3 | Effective trace bounds and rigidity for simple curves on the modular torus | [`papers/03-effective-markoff-traces`](papers/03-effective-markoff-traces) | 33 | 14 exact programs: occurrence classification, polynomial proofs, residue cover |
 
 The first classifies, for every `q ⩾ 1`, every sign and every positive exponent
 `n`, the strict factor-two gaps between a power of the Pell unit `λ = 1 + √2`
@@ -71,6 +72,14 @@ finite set. It applies the theorem to the Gaussian reflection attached to
 `89 = 8² + 5²`, showing that every distinct reflected target of a genuine
 reduced Markoff source has strictly larger cost, by an amount growing linearly
 with the denominator of the Farey slope away from four critical slopes.
+
+The third studies equal traces of simple closed geodesics on the modular
+once-punctured torus, with the number `h` of occurrences of one curve in the
+Christoffel word of the other held fixed. For every `h ⩾ 2` it gives a complete
+decision procedure, with `O(h⁵)` exact comparisons, and an exact test for
+surface isometry. Every primitive occurrence family with `2 ⩽ h ⩽ 6` contains
+only isometric equalities, and every equal-length pair of simple curves with
+intersection number at most 24 is isometric.
 
 ## Repository layout
 
@@ -91,11 +100,22 @@ with the denominator of the Farey slope away from four critical slopes.
     │   ├── sections/                     one file per section
     │   └── supplement/                   supplementary material
     │
-    └── 02-endpoint-costs-balanced-paths/
+    ├── 02-endpoint-costs-balanced-paths/
+    │   ├── README.md                     the results, the boundary, the build
+    │   ├── Makefile                      strict build and reproduction targets
+    │   ├── DD-LV-Endpoint-Costs-Balanced-Paths.tex  main file
+    │   ├── DD-LV-Endpoint-Costs-Balanced-Paths.pdf  compiled manuscript, tracked
+    │   ├── references.bib                bibliography
+    │   ├── sections/                     one file per section
+    │   ├── figures/                      the figure sources
+    │   ├── tools/                        the strict build gate
+    │   └── supplement/                   supplementary material
+    │
+    └── 03-effective-markoff-traces/
         ├── README.md                     the results, the boundary, the build
         ├── Makefile                      strict build and reproduction targets
-        ├── DD-LV-Endpoint-Costs-Balanced-Paths.tex  main file
-        ├── DD-LV-Endpoint-Costs-Balanced-Paths.pdf  compiled manuscript, tracked
+        ├── DD-LV-Effective-Markov-Traces.tex  main file
+        ├── DD-LV-Effective-Markov-Traces.pdf  compiled manuscript, tracked
         ├── references.bib                bibliography
         ├── sections/                     one file per section
         ├── figures/                      the figure sources
@@ -135,7 +155,9 @@ One manuscript at a time is reached by its directory name, as `make
 
 Requirements are stated by each manuscript. In general they amount to a TeX
 Live installation with `latexmk` and `bibtex`, and Python 3.11 or later with no
-third-party package, no network access and no nondeterminism.
+network access and no nondeterminism. The supplements need no third-party
+package, except that of the third manuscript, whose three symbolic checks use
+SymPy.
 
 ## What a manuscript directory contains
 

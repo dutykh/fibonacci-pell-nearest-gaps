@@ -1,0 +1,285 @@
+\section{Positive trace paths and a uniform gap bound}
+\label{sec:gap}
+
+The first task is to bound the distance, along a Markov ray, between
+the single curve and the factors of the comparison word. Positivity
+controls the contribution of all matrix paths except one. An algebraic
+norm then prevents the coefficient of that path from agreeing exactly
+with the leading coefficient of the single curve. The resulting bound
+depends only on the number of occurrences of the first generator.
+
+\begin{theorem}[The gap bound]\label{thm:gap-bound}
+Let $(A,B)$ be a marked modular-torus basis with positive integral
+normalized Markov traces. Let $h\geqslant2$, $k\geqslant1$, and let
+$\epsilon_1,\ldots,\epsilon_h\in\{0,1\}$ have sum $t$, where
+$1\leqslant t<h$. If
+\begin{equation}\label{eq:gap-original-equality}
+ \tr A=\tr\prod_{i=1}^h AB^{k+\epsilon_i},
+\end{equation}
+then
+\begin{equation}\label{eq:gap-final-bound}
+ k\leqslant b(h):=3h^2+3h-2+\left\lfloor\frac{3h}{2}\right\rfloor.
+\end{equation}
+No balance or coprimality hypothesis on the gap pattern is required
+for this trace inequality. For the primitive simple-curve application,
+the pattern is cyclically mechanical and $\gcd(h,t)=1$.
+\end{theorem}
+
+\subsection{The positive model and the two index orientations}
+
+We use the minimum-ray normalization from Section~\ref{sec:rays}.
+In particular,
+\begin{equation}\label{eq:gap-ray-data}
+ \begin{gathered}
+ u_j=c\lambda^j+d\lambda^{-j},\qquad
+ D=9p^2-4,\qquad \lambda=\frac{3p+\sqrt D}{2},\qquad
+ K=cd=\frac{p^2}{D},\\
+ \lambda^{-1}\leqslant c/d\leqslant\lambda,\qquad
+ c,d<\sqrt p,\qquad
+ \frac52p<\lambda<3p,\qquad
+ 5p^2\leqslant D<9p^2,\qquad \frac19<K\leqslant\frac15.
+ \end{gathered}
+\end{equation}
+Here $p$ and every $u_j$ are positive integers, and $u_0$ is a minimum
+over all integral indices. Real conjugation gives the trace model
+\begin{equation}\label{eq:gap-positive-model}
+ A_0=\begin{pmatrix}3c&2/\sqrt D\\2/\sqrt D&3d\end{pmatrix},
+ \qquad B=\begin{pmatrix}\lambda&0\\0&\lambda^{-1}\end{pmatrix}.
+\end{equation}
+Indeed the diagonal entries of the shifted first generator are $3c,3d$.
+Its off-diagonal product is $9cd-1=4/D>0$, so a diagonal conjugation
+makes both off-diagonal entries equal to $2/\sqrt D$. This is a change
+of matrix coordinates, not an isometry assertion. Every $A_0B^j$ is
+strictly positive, even for negative $j$, and has determinant one.
+Every product used below consequently has trace greater than two.
+
+After translating the minimum to zero, let the original single generator
+have index $n_0$ and the product have base index $j_0$. Then
+$j_0-n_0=k$. If $j_0\geqslant0$, put $l=j_0$. If $j_0<0$, reverse
+the whole ray and use
+\begin{equation}\label{eq:gap-complement}
+ -j_0-\epsilon_i=(-j_0-1)+(1-\epsilon_i).
+\end{equation}
+Thus $l=-j_0-1\geqslant0$, the gap bits are complemented, and their
+sum changes from $t$ to $h-t$. Both sums lie strictly between zero and
+$h$. We henceforth use $t$ for the sum in the resulting orientation.
+Write the single index as $\eps m$, with $m\geqslant0$. The original
+quotient is recovered by one of the two formulas
+\begin{equation}\label{eq:gap-reconstruction}
+ k=l-\eps m
+ \quad\hbox{or}\quad k=\eps m-l-1,
+ \qquad k\leqslant l+m.
+\end{equation}
+The second formula accompanies the complementary pattern. These
+formulas retain both directions of the ray and every possible position
+of its minimum.
+
+The single index cannot be zero in \eqref{eq:gap-original-equality}.
+Before reversal, that case would have $n_0=0$ and $j_0=k\geqslant1$.
+The constant upper-state contribution to the product trace divided by
+three is
+$$
+ \frac{(3c\lambda^{j_0})^h\lambda^t}{3}.
+$$
+The minimum ratio gives $c^2\geqslant K/\lambda$, and $9K>1$, so
+$3c\lambda>\sqrt\lambda$. Since $h\geqslant2$ and $t\geqslant1$,
+this contribution alone exceeds
+$$
+ \lambda^2/3>\frac{25}{12}p^2>2\sqrt p>c+d=u_0.
+$$
+Every other contribution is positive. Equality is therefore impossible,
+and from now on $m\geqslant1$.
+
+\subsection{The exact path expansion}
+
+Put
+\begin{equation}\label{eq:gap-word-trace}
+ V_l=\frac13\tr\prod_{i=1}^h A_0B^{l+\epsilon_i}.
+\end{equation}
+A term in the trace is specified by a cyclic choice of upper and lower
+states at the $h$ factor boundaries. Let $j$ be its number of lower
+positions, let $2r$ be its number of transitions, and let $e$ count the
+long-gap positions among its lower positions. The number of transitions
+is even because the path closes. Its exact contribution is
+\begin{equation}\label{eq:gap-path-term}
+ \frac{(3c)^{h-j-r}(3d)^{j-r}(4/D)^r}{3}
+ \lambda^{(h-2j)l+t-2e}.
+\end{equation}
+The exponents $h-j-r$ and $j-r$ count diagonal steps and are
+nonnegative. All terms in \eqref{eq:gap-path-term} are positive.
+Using $cd=p^2/D$, the same coefficient can be written as
+\begin{equation}\label{eq:gap-transition-factor}
+ \frac{(3c)^{h-j}(3d)^j}{3}\sigma^r,
+ \qquad \sigma=\frac4{9p^2}<1.
+\end{equation}
+The two paths without transitions contribute
+\begin{equation}\label{eq:gap-constant-paths}
+ X_l=3^{h-1}c^h\lambda^{hl+t},\qquad
+ X_l^-=3^{h-1}d^h\lambda^{-hl-t}.
+\end{equation}
+Write $V_l=X_l+\mathcal R_l$, where $\mathcal R_l>0$.
+
+The relative contribution of a path is
+\begin{equation}\label{eq:gap-relative-path}
+ \sigma^r(d/c)^j\lambda^{-2jl-2e}.
+\end{equation}
+It is at most $\lambda^{j(1-2l)}$. There are $\binom hj$ indexed
+state paths with $j$ lower positions, irrespective of their transition
+counts. Summing gives
+\begin{equation}\label{eq:gap-binomial-bound}
+ 1<\frac{V_l}{X_l}\leqslant
+ \begin{cases}
+ (1+\lambda^{-1})^h,&l\geqslant1,\\
+ (1+\lambda)^h,&l=0.
+ \end{cases}
+\end{equation}
+This use of the binomial theorem is an analytic sum for arbitrary $h$;
+it does not require listing the $2^h$ paths.
+
+We shall also need an absolute remainder estimate. Every path in
+$\mathcal R_l$ has at least one lower position, so its exponent in
+\eqref{eq:gap-path-term} is at most $(h-2)l+t$. Every entry of $A_0$
+is less than $3\sqrt p$. Hence
+\begin{equation}\label{eq:gap-absolute-remainder}
+ 0<\mathcal R_l<(2^h-1)3^{h-1}p^{h/2}
+ \lambda^{(h-2)l+t}.
+\end{equation}
+The constant lower-state path is included in this estimate.
+
+\begin{lemma}[Positivity of the leading discrepancy]
+\label{lem:positive-discrepancy}
+Suppose a positive word of $h\geqslant2$ factors in the model
+\eqref{eq:gap-positive-model}, with any integral diagonal gaps, has
+normalized trace $u_{\eps m}$, where $m\geqslant1$. Let $X$ denote
+either of its constant-state contributions. If
+$Y=a\lambda^m$, with $a=c$ for $\eps=1$ and $a=d$ for $\eps=-1$,
+then $Y>X$.
+\end{lemma}
+
+\begin{proof}
+The two constant contributions have product
+$C=3^{2h-2}K^h=K(9K)^{h-1}>K$. The normalized word trace therefore
+exceeds $X+C/X$. On the other hand the single trace is $Y+K/Y$, and
+the minimum ratio gives $Y^2/K\geqslant\lambda^{2m-1}>1$.
+If $Y\leqslant X$, monotonicity of $z+K/z$ on $z>\sqrt K$ yields
+$$
+ V>X+C/X>X+K/X\geqslant Y+K/Y,
+$$
+a contradiction. The argument applies separately to either constant
+path; it does not require that the chosen one dominate the other.
+\end{proof}
+
+\subsection{A finite window for the single exponent}
+
+At an equality $V_l=u_{\eps m}$, write
+$$
+ (a,b)=\begin{cases}(c,d),&\eps=1,\\(d,c),&\eps=-1,
+ \end{cases}
+ \qquad q=m-hl-t,\qquad H=\lceil h/2\rceil.
+$$
+The two possible values of $c^h/a$ are
+$K^{(h-1)/2}(c/d)^{(h-1)/2}$ and
+$K^{(h-1)/2}(c/d)^{(h+1)/2}$. Consequently
+\begin{equation}\label{eq:gap-coefficient-window}
+ \lambda^{-(h+1)/2}
+ <3^{h-1}\frac{c^h}{a}
+ \leqslant\left(\frac3{\sqrt5}\right)^{h-1}
+ \lambda^{(h+1)/2}.
+\end{equation}
+Since $m\geqslant1$, the reciprocal term in the single entry gives
+\begin{equation}\label{eq:gap-single-leading-ratio}
+ 1\leqslant\frac{u_{\eps m}}{a\lambda^m}
+ \leqslant1+\lambda^{-1}<\frac32.
+\end{equation}
+Equations \eqref{eq:gap-coefficient-window} and
+\eqref{eq:gap-single-leading-ratio}, together with $V_l>X_l$, imply
+$$
+ \lambda^q>\frac23\lambda^{-(h+1)/2}
+ >\lambda^{-(h+2)/2}.
+$$
+The last inequality follows from $\lambda>5/2>9/4$. Thus the integral
+exponent satisfies $q\geqslant-H$.
+
+For $l\geqslant1$, use \eqref{eq:gap-binomial-bound} for the upper
+estimate. The inequalities
+$1+\lambda^{-1}<7/5$ and $21/(5\sqrt5)<2<\lambda$ give
+$\lambda^q<\lambda^{(3h+1)/2}$. For $l=0$, the binomial estimate
+has an extra factor $\lambda^h$. Integer rounding, for both parities
+of $h$, therefore gives the complete window
+\begin{equation}\label{eq:gap-phase-window}
+ -\left\lceil\frac h2\right\rceil\leqslant q\leqslant
+ \begin{cases}
+ \lfloor3h/2\rfloor,&l\geqslant1,\\
+ \lfloor5h/2\rfloor,&l=0.
+ \end{cases}
+\end{equation}
+
+\subsection{The algebraic norm bounds the product index}
+
+Rearrange the equality as
+\begin{equation}\label{eq:gap-leading-discrepancy}
+ \lambda^{hl+t}\Delta=\mathcal R_l-b\lambda^{-m},
+ \qquad \Delta=a\lambda^q-3^{h-1}c^h.
+\end{equation}
+The two terms defining $\Delta$ have norms, in $\Q(\sqrt D)$,
+$K$ and $K(9K)^{h-1}$, respectively. They differ because $9K>1$.
+Thus $\Delta\ne0$; this also follows, with its sign, from
+Lemma~\ref{lem:positive-discrepancy}. The norm argument additionally
+gives a quantitative separation.
+
+The integer $D$ lies strictly between $(3p-1)^2$ and $(3p)^2$, so it
+is nonsquare. The number $\lambda$ is an algebraic-integer unit, and
+$\sqrt D\,c$, $\sqrt D\,d$ are algebraic integers by the exact ray
+formulas. Hence $(\sqrt D)^h\Delta$ is an algebraic integer, whether
+or not $D$ is squarefree. Its nonzero integral norm gives
+\begin{equation}\label{eq:gap-norm-lower}
+ |\Delta\overline\Delta|\geqslant D^{-h}.
+\end{equation}
+Conjugation exchanges $c,d$ and replaces $\lambda$ by $\lambda^{-1}$.
+Using \eqref{eq:gap-phase-window}, $c,d<\sqrt p$, and
+$H\leqslant h-1$, we obtain
+\begin{align*}
+ |\overline\Delta|
+ &<3^H p^{H+1/2}+3^{h-1}p^{h/2}\\
+ &\leqslant2\cdot3^{h-1}p^{H+1/2}.
+\end{align*}
+Since $D<9p^2$, equation~\eqref{eq:gap-norm-lower} implies
+\begin{equation}\label{eq:gap-discrepancy-lower}
+ |\Delta|>
+ \frac1{2\cdot3^{3h-1}p^{2h+H+1/2}}.
+\end{equation}
+Meanwhile \eqref{eq:gap-absolute-remainder}, $b<\sqrt p$ and
+$m\geqslant1$ show that the absolute value of the right side of
+\eqref{eq:gap-leading-discrepancy} is less than
+$2^h3^{h-1}p^{h/2}\lambda^{(h-2)l+t}$. Combining the two estimates
+and cancelling positive powers of $\lambda$ gives
+\begin{equation}\label{eq:gap-index-inequality}
+ \lambda^{2l}
+ <2^{h+1}3^{4h-2}p^{5h/2+H+1/2}
+ \leqslant2^{h+1}3^{4h-2}p^{3h+1}.
+\end{equation}
+The last step uses $H\leqslant(h+1)/2$. Now
+$$
+ 2^{h+1}3^{4h-2}=\frac29\,162^h,
+ \qquad (5/2)^6=\frac{15625}{64}>162.
+$$
+If $l\geqslant3h$, the lower bound $\lambda>(5/2)p$ contradicts
+\eqref{eq:gap-index-inequality}, since $6h\geqslant3h+1$. Therefore
+\begin{equation}\label{eq:gap-product-index-bound}
+ l\leqslant3h-1.
+\end{equation}
+For $l\geqslant1$, equations~\eqref{eq:gap-reconstruction} and
+\eqref{eq:gap-phase-window} give
+$$
+ k\leqslant l+m=(h+1)l+t+q
+ \leqslant(h+1)(3h-1)+h-1+\lfloor3h/2\rfloor=b(h).
+$$
+For $l=0$ they give the smaller bound
+$k\leqslant h-1+\lfloor5h/2\rfloor$. This proves
+Theorem~\ref{thm:gap-bound}.
+
+The conclusion bounds the gap at fixed $h$, rather than the occurrence
+count itself. More importantly for the next sections, it supplies the
+complete index domain \eqref{eq:gap-phase-window}--\eqref{eq:gap-product-index-bound}
+without imposing a numerical cutoff on the Markov parameter $p$.
+The remaining task is to bound that parameter independently of the ray.

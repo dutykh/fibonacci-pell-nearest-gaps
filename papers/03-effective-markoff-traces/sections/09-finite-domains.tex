@@ -1,0 +1,382 @@
+\section{The finite domains and the intersection-nineteen argument}
+\label{sec:finite-domains}
+
+The finite part of the rigidity theorem has two different roles. For a fixed occurrence count, the analytic bounds reduce the problem to a finite list of minimum seeds and trace comparisons. At intersection nineteen, four polynomial sign conditions establish inequalities on entire unbounded integer cones. We describe the two separately, because a finite trace comparison never substitutes for an argument valid on an unbounded cone.
+
+\subsection{The finite occurrence domains}
+\label{subsec:occurrence-domains}
+
+For a given occurrence count $h$, put
+$$
+ H_+(h)=4^{h+1}-1,\qquad H_0(h)=(100h^2)^{h+1}-1.
+$$
+The parameter bounds in the main text give
+\begin{align}
+ l\geqslant1:\quad &p\leqslant H_+(h),\quad 1\leqslant l\leqslant3h-1,\quad
+ -\left\lceil\frac h2\right\rceil\leqslant q\leqslant\left\lfloor\frac{3h}2\right\rfloor,
+ \label{eq:positive-domain}\\
+ l=0:\quad &p\leqslant H_0(h),\quad
+ -\left\lceil\frac h2\right\rceil\leqslant q\leqslant\left\lfloor\frac{5h}2\right\rfloor.
+ \label{eq:minimum-domain}
+\end{align}
+For each $1\leqslant t<h$ with $\gcd(h,t)=1$, set $m=hl+t+q$, retain only $m\geqslant1$, and compare both $u_m$ and $u_{-m}$ with the literal Christoffel product. Reversing the minimum ray changes the word as well as the single index. If that index is $n=\pm m$, the original quotient and remainder are
+\begin{equation}
+ (k,t_{\rm orig})=
+ \begin{cases}
+ (l-n,t),&l-n\geqslant1,\\
+ (n-l-1,h-t),&n-l-1\geqslant1.
+ \end{cases}
+ \label{eq:original-type}
+\end{equation}
+These alternatives are disjoint; rows satisfying neither are outside the original positive-quotient problem.
+
+Lemma~\ref{lem:seed-completeness} provides a finite tree of occurrences, not a set of numerical labels. At a node $(a,b,p)$ with a basis $(U,V)$ having character $3(a,b,p)$, the two minimum-ray choices are $A=U$ and $B=(UV)^{\pm1}$. Their initial values are $x=a$ and respectively $y=3pa-b$ or $y=b$. Both satisfy $x\leqslant y$ and $x\leqslant3px-y$. The traversal preserves distinct nodes with the same numerical maximum. Thus it never assumes the label uniqueness motivating the paper.
+
+The traces are computed in two independent ways. The first multiplies the integral matrices of each seed. The second generates the Markov tree afresh and works in the character algebra with basis $(I,X,Y,XY)$. If $x_1=\tr X$, $y_1=\tr Y$, $z_1=\tr(XY)$, right multiplication acts by
+\begin{align}
+ (a,b,c,d)X={}&\bigl(-b+(z_1-x_1y_1)c-y_1d,\,
+ a+x_1b+y_1c+z_1d,\,x_1c+d,\,-c\bigr),
+ \label{eq:character-X}\\
+ (a,b,c,d)Y={}&\bigl(-c,-d,a+y_1c,b+y_1d\bigr).
+ \label{eq:character-Y}
+\end{align}
+The trace is $2a+x_1b+y_1c+z_1d$. Here
+$$
+ x_1=3u_l,\quad y_1=3u_{l+1},\quad z_1=3(3u_lu_{l+1}-p).
+$$
+The second calculation therefore shares neither the matrix arithmetic nor the seed traversal of the first. For every equality one records the full marked character and the two primitive homology vectors and exhibits one of the isometries of Proposition~\ref{prop:isometry-group} carrying the first vector to the second; equality of numerical labels is not itself an isometry test. The equality records are in the supplementary material.
+
+\subsection{The remaining residue at intersection nineteen}
+\label{subsec:intersection-nineteen}
+
+The occurrence theorem covers every nonreflection residue at intersection at most twenty-four except one orbit at nineteen and one at twenty-three. The first is treated here and the second in \ref{subsec:intersection-twentythree}. Write $X=AB^2$, $Y=AB^3$. Representatives of this orbit are
+\begin{equation}
+ U=(XY^{-1})^2X,\qquad V=(XY^2)^2Y.
+ \label{eq:i19-words}
+\end{equation}
+Their vectors in the $(X,Y)$ basis are $(3,-2)$ and $(2,5)$, with determinant nineteen. In the original basis they are $(1,0)$ and $(7,19)$.
+
+Throughout this subsection the letters $A,B,C,D$ name the coefficients of the eliminated quadratic, and $R,T$ two auxiliary polynomials in the single variable $s$. None of them carries the meaning it has in the main text, where $A,B$ are the two basis matrices and $T$ the modular torus; the two settings never meet, because the argument that follows is purely polynomial. The shifted variables $u,v,w$ are likewise local to the computation in which each appears.
+
+\begin{proposition}
+\label{prop:intersection-nineteen}
+Let $(X,Y)$ be a positively marked modular-torus basis, and let $U,V$ be the primitive classes in \eqref{eq:i19-words}. If $\tr U=\tr V$, then
+$$
+ \frac13\bigl(\tr X,\tr Y,\tr(XY)\bigr)=(1,1,1).
+$$
+Both traces are $87$, and an order-three modular isometry carries one curve to the other.
+\end{proposition}
+
+\begin{proof}
+Put $(r,s,t)=\frac13(\tr X,\tr Y,\tr(XY))$. These are positive integers with $r^2+s^2+t^2=3rst$. Define
+\begin{equation}
+ P(r,s,t)=\bigl(9(3rs-t)^2-1\bigr)r-3(3rs-t)s.
+ \label{eq:i19-P}
+\end{equation}
+Cayley--Hamilton gives $m:=\tr U/3=P(r,s,t)$ and $n:=\tr V/3=P(s,t,r)$. We treat both orders of $r,s$.
+
+\smallskip\noindent\emph{The order $r\geqslant s$.}
+Set $p=3rs-t$. Eliminating $p$ gives the necessary equation
+\begin{equation}
+ Q(r,s)=81r^5\bigl(r-R(s)\bigr)+27r^4+A(s)r^3+B(s)r^2-C(s)r+D(s)=0,
+ \label{eq:i19-Q}
+\end{equation}
+where
+\begin{align*}
+ R(s)&=729s^7-567s^5+126s^3-7s,\\
+ A(s)&=32805s^7-13851s^5+1134s^3+9s,\\
+ B(s)&=324s^4+1,\\
+ C(s)&=3645s^7-567s^5+27s^3+2s,\\
+ D(s)&=6561s^{10}-1458s^8+243s^6-9s^4+s^2.
+\end{align*}
+To include degenerate elimination coefficients, put $f=p^2+r^2+s^2-3prs$. Polynomial division gives $m-n=Hf+Lp+N_0$, with
+\begin{align*}
+ H&=9(r+s-9s^3),\\
+ L&=27r^2s+243rs^4-81rs^2+3r-3s,\\
+ N_0&=s-r-9r^2s(9s^2-1)(9s^2-2)-H(r^2+s^2).
+\end{align*}
+The identity $Q=N_0^2+3rsLN_0+(r^2+s^2)L^2$ proves necessity even at $L=0$; there has been no division by $L$.
+
+Write $u=r-s$. Direct expansion gives
+\begin{equation}
+ Q(s+u,s)=81u^6-\sum_{j=1}^5d_j(s)u^j
+ -729s^6(s^2-1)(9s^2-2)^2,
+ \label{eq:i19-descartes}
+\end{equation}
+where all five $d_j$ are positive for $s\geqslant1$. This is a finite assertion about integer coefficients: each $d_j(1+v)$ has nonnegative coefficients and a positive constant. The coefficient lists are in the supplementary material, where they are regenerated from the literal words rather than read. Descartes' rule gives exactly one positive root in $u$. For $s=1$ one first removes the factor $u$, after which there is again one sign change.
+
+Let $w=R(s)-1$. The following inequalities hold for every $s\geqslant1$:
+\begin{equation}
+ w>s,\quad C>0,\quad A>C,\quad B>0,\quad D>0,
+ \qquad A<81w,\quad B<2w,\quad D<w^2.
+ \label{eq:i19-endpoint-margins}
+\end{equation}
+Indeed each of
+$$
+ C,\ A-C,\ B,\ D,\ R-s-1,\ 81(R-1)-A,\
+ 2(R-1)-B,\ (R-1)^2-D
+$$
+has nonnegative coefficients after $s=1+v$, with a positive constant. These eight full expansions accompany the five preceding ones. Also $w\geqslant280$, since, for $v=s^2-1$,
+$$
+ R(s)-281s^7=sv(336+777v+448v^2)\geqslant0.
+$$
+We have $Q(R(s),s)>0$, because $AR^3>CR$. At the other endpoint,
+$$
+ Q(w,s)<-81w^5+108w^4+2w^3+w^2
+ \leqslant-\frac{211}{4}w^4<0;
+$$
+the second inequality already holds for $w\geqslant2$. The unique root with $r>s$ lies strictly between $R(s)-1$ and $R(s)$, and cannot be integral.
+
+On the diagonal, $Q(s,s)=-729s^6(s^2-1)(9s^2-2)^2$, so $r=s=1$. The remaining equation gives $p=1$ or $p=2$. Their trace-label pairs are respectively $(m,n)=(5,194)$ and $(29,29)$. Thus only $p=2$, or $t=1$, is an equality. In particular, a root of the eliminated polynomial alone is insufficient.
+
+\smallskip\noindent\emph{The order $s>r$.}
+We preserve the actual Markov sheet by positive Vieta mutations. Recall that for an ordered positive integral Markov triple $a\leqslant b<c$, its replacement $3ab-c$ is positive and at most $b$; equality occurs only at the initial repeated-entry triples. To see the upper bound, evaluate $z^2-3abz+a^2+b^2$ at $z=b$; the value is $a^2-(3a-2)b^2\leqslant0$. Positivity follows from $c(3ab-c)=a^2+b^2$.
+
+Keep $p=3rs-t$ and put $z=3st-r$. If $t\geqslant r$, then
+$$
+ z-p=(3s+1)(t-r)\geqslant0,\qquad z\geqslant(3s-1)t.
+$$
+Since $s\geqslant2$ and $s-r\geqslant1$,
+\begin{align*}
+ n-m&\geqslant(9z^2-1)(s-r)-3zt+3ps\\
+ &>9z^2-1-\frac{3z^2}{3s-1}
+ \geqslant\frac{42}{5}z^2-1>0.
+\end{align*}
+Equality therefore forces $t<r<s$, and $r\geqslant2$. Make two mutations
+$$
+ w=3rt-s,\qquad v=3tw-r.
+$$
+Descent gives $w<r$ and $v\leqslant\max(t,w)$. If $w\geqslant t$, then
+$$
+ r=3tw-v\geqslant(3t-1)w\geqslant(3t-1)t.
+$$
+Also $p>(3s-1)r$, whence $pr>4(3s-1)>3s+1$ and $r/p<1$. These imply $p^2r>3ps+r$, and consequently $m>8p^2r$, whereas $n<9z^2s$. Using
+$$
+ tp-rz=r^2-t^2>0,\qquad s<3tr,
+$$
+we obtain
+$$
+ \frac mn>\frac89\left(\frac pz\right)^2\frac rs
+ >\frac{8r^2}{27t^3}
+ \geqslant\frac{8(3t-1)^2}{27t}
+ \geqslant\frac{32}{27}>1.
+$$
+The last step uses $(3t-1)^2-4t=(t-1)(9t-1)\geqslant0$. This contradiction proves $t>w$. Descent now also gives $v<t$, so the next mutation
+$$
+ a=3wv-t
+$$
+satisfies $1\leqslant a\leqslant\max(w,v)$.
+
+Define the single polynomial
+\begin{equation}
+ \begin{gathered}
+ T=3wv-a,\qquad R_1=3Tw-v,\qquad S_1=3TR_1-w,\\
+ \mathscr D(a,w,v)=P(R_1,S_1,T)-P(S_1,T,R_1).
+ \end{gathered}
+ \label{eq:i19-descended-polynomial}
+\end{equation}
+At our actual triple $(R_1,S_1,T)=(r,s,t)$, so $\mathscr D=m-n$ exactly. Its total degree is nineteen and it has 151 nonzero terms. No factor or denominator has been removed.
+
+For distinct $w,v$, Table~\ref{tab:i19-cones} covers all positive integers $a,w,v$ with $a\leqslant\max(w,v)$. Each parameter $A,B,C$ is a nonnegative integer. Expanding \eqref{eq:i19-descended-polynomial} under these four substitutions gives the indicated strict coefficient signs, including a nonzero constant of the same sign. Thus the polynomial has that strict sign throughout the entire cone, which contradicts $m=n$.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}lll r@{}}
+\toprule
+Order & $(a,w,v)$ & Sign & Terms\\
+\midrule
+$a\leqslant w<v$ & $(A+1,A+B+1,A+B+C+2)$ & negative & 1234\\
+$w<a\leqslant v$ & $(A+B+2,A+1,A+B+C+2)$ & negative & 659\\
+$a\leqslant v<w$ & $(A+1,A+B+C+2,A+B+1)$ & positive & 1436\\
+$v<a\leqslant w$ & $(A+B+2,A+B+C+2,A+1)$ & positive & 1091\\
+\bottomrule
+\end{tabular}
+\caption{The four descended integer cones. For $A,B,C\geqslant0$, every nonzero coefficient, including the constant, has the listed sign. All 4420 coefficients are supplied as exact integers.}
+\label{tab:i19-cones}
+\end{table}
+
+It remains to consider $v=w$. A repeated entry in a positive integral Markov triple equals one: $t^2=w^2(3t-2)$ gives $w\mid t$ by prime valuations; writing $t=bw$ gives $b^2+2=3bw$, so $b\mid2$, and substitution yields $w=1$ and $t\in\{1,2\}$. Since $t>w$, only $t=2$ remains. Inverting the literal mutations gives $(r,s,t)=(5,29,2)$, but
+$$
+ P(5,29,2)-P(29,2,5)=945951\ne0.
+$$
+There is no equality in the second ordering.
+
+\smallskip\noindent\emph{The surviving equality is isometric.}
+At $(r,s,t)=(1,1,1)$ take
+$$
+ E=\begin{pmatrix}2&1\\1&1\end{pmatrix},\qquad
+ F=\begin{pmatrix}2&-1\\-1&1\end{pmatrix},\qquad
+ K_0=\begin{pmatrix}0&1\\-1&1\end{pmatrix},
+$$
+in the notation of the proof of Proposition~\ref{prop:isometry-group}. They satisfy $K_0EK_0^{-1}=F$, $K_0FK_0^{-1}=(EF)^{-1}$ and $K_0^3=-I$, so $K_0$ is an actual modular-torus normalizer. Its homology action is the matrix $G$ of \eqref{eq:twelve-actions}, and
+$$
+ G=\begin{pmatrix}0&-1\\1&-1\end{pmatrix}
+ \quad\hbox{satisfies}\quad G\binom{3}{-2}=\binom25.
+$$
+It maps the two primitive classes in \eqref{eq:i19-words} to one another. Marked-character conjugacy transports this isometry to the original basis. Direct traces give $87$ for both words and the original character $3(29,2,5)$.
+\end{proof}
+
+\subsection{The remaining residue at intersection twenty-three}
+\label{subsec:intersection-twentythree}
+
+Write $X=AB^3$, $Y=AB^4$. The mechanical pattern of homology $(7,23)$ is
+the cyclic class of $X^3YX^2Y$: its seven gaps are five threes and two
+fours, with the two long gaps as evenly separated as the pattern allows.
+The pair $(X,X^2Y)$ is again a simple basis, and in it that word is
+$X(X^2Y)^2$, so the literal word, and not merely its abelianization,
+represents a primitive simple class. The two classes compared are
+therefore
+\begin{equation}
+ U=A,\qquad V=X^3YX^2Y=X(X^2Y)^2 ,
+ \label{eq:i23-words}
+\end{equation}
+with homology vectors $(1,0)$ and $(7,23)$ in the original basis.
+Note also that $XY^{-1}=ABA^{-1}$ up to inversion, so $(r,s,p)$ below is
+again a positive integral Markov triple, now for the basis $(X,Y)$.
+
+As in \ref{subsec:intersection-nineteen}, the letters $A,B$ and the
+auxiliary polynomials below are local to this subsection.
+
+\begin{proposition}
+\label{prop:intersection-twentythree}
+Let $(A,B)$ be a positively marked modular-torus basis and let $U,V$ be
+the primitive classes in \eqref{eq:i23-words}. Then $\tr U\ne\tr V$ in
+every positive integral marked character. Consequently the orbit
+$\{7,10,13,16\}$ modulo twenty-three carries no equal-length pair.
+\end{proposition}
+
+\begin{proof}
+Put $p=\tfrac13\tr B$, $r=\tfrac13\tr X$ and $s=\tfrac13\tr Y$. These are
+positive integers with $p^2+r^2+s^2=3prs$. The trace recurrence for
+$X^jY$ and the identity $\tr(XW^2)=\tr W\,\tr(XW)-\tr X$ with $W=X^2Y$
+give
+\begin{equation}
+ m:=\tfrac13\tr U=(27p^3-6p)r-(9p^2-1)s,
+ \label{eq:i23-m}
+\end{equation}
+and, with $a=\tfrac13\tr(X^2Y)$ and $b=\tfrac13\tr(X^3Y)$, that is
+$$
+ a=(9r^2-1)s-3pr,\qquad
+ b=(27r^3-6r)s-(9r^2-1)p,
+$$
+the competing label $n:=\tfrac13\tr V=3ab-r$. Positive integral Vieta
+dynamics keeps all of $p,r,s,a,b$ positive, and equality of lengths means
+$m=n$.
+
+Reduce $F=m-n$ modulo $\mathcal M=p^2+r^2+s^2-3prs$, viewed as a monic
+quadratic in $p$. The remainder is $Lp-N$ with
+\begin{align*}
+ L&=3(81r^4s+81r^3s^2-9r^3-27r^2s-18rs^2-2r+s),\\
+ N&=729r^5s^2-81r^5+81r^4s-324r^3s^2+9r^3+81r^2s^3\\
+ &\quad-9r^2s+27rs^2-r-9s^3-s.
+\end{align*}
+Multiplying $\mathcal M=0$ by $L^2$ therefore turns every equality into
+\begin{equation}
+ Q(r,s)=N^2-3rsNL+(r^2+s^2)L^2=0 .
+ \label{eq:i23-Q}
+\end{equation}
+No division has been performed, so \eqref{eq:i23-Q} remains necessary when
+$L=0$. We prove the stronger statement that $Q$ has no positive integral
+zero at all, with no Markov hypothesis on $(r,s)$.
+
+\smallskip\noindent\emph{One real root in each ordering.}
+For real $a\geqslant1$ write
+$$
+ Q(a,a+u)=81u^6-\sum_{j=0}^{5}b_j(a)u^j,\qquad
+ Q(a+u,a)=6561u^{10}-\sum_{j=0}^{9}c_j(a)u^j .
+$$
+Every $b_j$ and every $c_j$ is positive on $a\geqslant1$: after removing
+the factor $a^{j\bmod2}$ and substituting $z=a^2-1$, each becomes a
+polynomial in $z$ with positive coefficients, and the fifteen coefficient
+lists are in the supplementary material. The constant terms are therefore
+negative and the leading terms positive, so Descartes' rule gives exactly
+one positive root of each shifted polynomial. On the diagonal
+$Q(a,a)<0$.
+
+\smallskip\noindent\emph{The root with larger second coordinate.}
+Let
+$$
+ R=6561r^9-6561r^7+2187r^5-270r^3+9r,
+$$
+which is $\tfrac13\tr(C^9)$ whenever $\det C=1$ and $\tr C=3r$. The
+identity
+$$
+ R-1926r^9=r(r^2-1)(4635r^6-1926r^4+261r^2-9)
+$$
+has a positive last factor for $r\geqslant1$, because
+$4635r^6-1926r^4\geqslant2709r^4$ and $261r^2>9$; hence
+$R-1\geqslant1925r^9>r$. Grouping,
+$$
+ Q=81s^5(s-R)+A_4s^4+A_3s^3+A_2s^2+A_1s+A_0
+$$
+with $A_4=324r^2+27$, $A_2=972r^4+1$,
+$A_0=6561r^{10}-729r^8+567r^6+18r^4+r^2$,
+$$
+\begin{aligned}
+ A_3&=295245r^9-164025r^7+19683r^5+486r^3-63r,\\
+ A_1&=-32805r^9+3645r^7+729r^5-54r^3+2r .
+\end{aligned}
+$$
+Here $A_0,A_2,A_4>0$, while $A_3\geqslant131157r^9$ and
+$A_1\geqslant-32859r^9$, so $A_3s^3+A_1s>0$ for $s\geqslant1$ and
+$Q(r,R)>0$. At $w=R-1\geqslant1925r^9$, discarding every negative
+contribution in the remainder and dividing by $w^5$,
+$$
+ \frac{Q(r,w)}{w^5}\leqslant-81+\frac{351}{1925}+\frac{315414}{1925^2}
+ +\frac{973}{1925^3}+\frac{4376}{1925^4}+\frac{7147}{1925^5}<-80<0,
+$$
+each term obtained by replacing lower powers of $r\geqslant1$ by the
+largest numerator power and using $w\geqslant1925r^9$. The positive sum is
+exactly $1009966664583171/3776205576171875<1$. The unique root above
+$s=r$ thus lies strictly between $R-1$ and $R$, so no integral $s$ meets
+it when $r$ is an integer.
+
+\smallskip\noindent\emph{The root with larger first coordinate.}
+Let $T=81s^5-45s^3+5s$, which is $\tfrac13\tr(C^5)$ at $\det C=1$,
+$\tr C=3s$. From $T-41s^5=5s(s^2-1)(8s^2-1)$ we get
+$T-1\geqslant40s^5>s$. Grouping the same polynomial in $r$,
+$$
+\begin{aligned}
+ Q={}&6561r^9(r-T)-729r^8+B_7r^7+567r^6+B_5r^5\\
+ &+(972s^2+18)r^4+B_3r^3+(324s^4+1)r^2+B_1r+B_0,
+\end{aligned}
+$$
+with
+$$
+\begin{aligned}
+ B_7&=531441s^5-164025s^3+3645s, &
+ B_5&=-177147s^5+19683s^3+729s,\\
+ B_3&=21870s^5+486s^3-54s, &
+ B_1&=-729s^5-63s^3+2s,
+\end{aligned}
+$$
+and $B_0=81s^6+27s^4+s^2$. At $r=T$ the first grouped pair is
+$-729r^8+B_7r^7=r^7(472392s^5-131220s^3)\geqslant341172s^5r^7$, which
+exceeds the largest possible negative contribution $-177147s^5r^5$ of
+$B_5r^5$; and $B_3\geqslant21816s^5$ with $B_1\geqslant-792s^5$ give
+$B_3r^3+B_1r>0$. Every other term is positive, so $Q(T,s)>0$. At
+$w=T-1\geqslant40s^5$, discarding negative terms and dividing by $w^9$,
+$$
+ \frac{Q(w,s)}{w^9}\leqslant-6561+\frac{535086}{40^2}+\frac{567}{40^3}
+ +\frac{20412}{40^4}+\frac{990}{40^5}+\frac{22356}{40^6}
+ +\frac{325}{40^7}+\frac2{40^8}+\frac{109}{40^9}<-6226<0,
+$$
+the positive sum being $87672906826504189/262144000000000<335$. The unique
+root above $r=s$ lies between $T-1$ and $T$.
+
+Neither ordering and neither diagonal admits a positive integral zero of
+$Q$, so $m=n$ is impossible.
+\end{proof}
+
+The two analytic propositions of this appendix differ in their
+conclusions, and the difference is worth stating. At intersection
+nineteen one equality survives and is isometric; at intersection
+twenty-three none survives at all. Together with the occurrence theorem
+and the reflection lemma they close the cover at twenty-four, because
+every unit modulo twenty-four is a reflection residue.
+
+\subsection{What the polynomial computation establishes}
+
+The computation supporting Proposition~\ref{prop:intersection-nineteen} reconstructs both literal traces from \eqref{eq:character-X}--\eqref{eq:character-Y}, with inverse letters handled by $X^{-1}=(\tr X)I-X$, and then confirms the elimination identity, the five Descartes coefficient signs, the eight endpoint margins and both diagonal roots. The computation supporting Proposition~\ref{prop:intersection-twentythree} is of the same kind and no larger: it confirms the reduction of $F$ modulo $\mathcal M$, the necessary equation \eqref{eq:i23-Q}, the fifteen positive coefficient lists in $z=a^2-1$, the two power-trace identities for $R$ and $T$, the four grouped sign estimates, and the two exact rational margins. The degree-nineteen polynomial \eqref{eq:i19-descended-polynomial} and its four substitutions are expanded separately, in sparse integer arithmetic; every exponent triple and coefficient is regenerated before comparison. The repeated-entry endpoint and the normalizer identities are confirmed in the same way.
+
+These finite computations establish positivity only on the stated cones. The proofs above establish why every hypothetical equality reaches one of those cones and why the surviving homology action is an isometry. In particular, no census of Markov triples and no numerical approximation of a root enters either proposition: both roots are located between two consecutive integers by exact inequalities.

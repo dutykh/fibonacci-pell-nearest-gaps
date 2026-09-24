@@ -1,0 +1,20 @@
+% Vector figure source. Included directly by the manuscript; no external data.
+\begin{tikzpicture}[
+ box/.style={draw,rounded corners=2pt,align=center,text width=49mm,
+              minimum height=13mm,inner sep=4pt,font=\small},
+ route/.style={-{Stealth[length=2mm]},thick},
+ control/.style={densely dashed,gray!75!black,{Stealth[length=1.5mm]}-{Stealth[length=1.5mm]}}
+ ]
+ \node[box] (actual) at (0,0) {Positive integral Markov triple\\$F=0$};
+ \node[box] (terminal) at (7.6,0) {Positive integral terminal entry\\$L_0\geqslant1$};
+ \node[box] (baseline) at (0,-2.7) {Commuting baseline triple\\$F=4$};
+ \node[box] (zero) at (7.6,-2.7) {Zero exponent\\$B_0=2/3$};
+ \draw[route] (actual) -- node[above,font=\footnotesize,align=center]
+ {Vieta\\mutations} (terminal);
+ \draw[route] (baseline) -- node[below,font=\footnotesize,align=center]
+ {Euclidean\\subtraction} (zero);
+ \draw[control] (actual) -- node[right,font=\footnotesize,align=left]
+ {initial error forced\\small by trace equality} (baseline);
+ \draw[control] (terminal) -- node[right,font=\footnotesize,align=left]
+ {controlled error\\forces $L_0<1$} (zero);
+\end{tikzpicture}

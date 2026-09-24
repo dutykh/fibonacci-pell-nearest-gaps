@@ -1,0 +1,121 @@
+\section{Rigidity at small occurrence count and intersection}
+\label{sec:rigidity}
+
+The preceding bounds are effective for every fixed occurrence count. Their first applications give a geometric conclusion: throughout the small families considered here, equal length comes from a symmetry of the surface. The computation enters only to finish a domain that has already been proved finite and complete, and to exhibit the symmetry of every pair that survives it.
+
+\begin{theorem}[Small occurrence counts]
+\label{thm:small-occurrences}
+Let $(A,B)$ be any positively lifted simple basis of the modular punctured torus. Let $2\leqslant h\leqslant6$, $k\geqslant1$, and $1\leqslant t<h$ with $\gcd(h,t)=1$. If
+$$
+ \tr A=\tr W_{h,k,t}(A,B),
+$$
+then an isometry of the modular torus carries the primitive class of $A$ to that of $W_{h,k,t}(A,B)$.
+\end{theorem}
+
+\begin{proof}
+Theorem~\ref{thm:finite-decision} supplies every minimum seed, product index, pattern, and signed single index required for the equality. The exact evaluations of this domain are summarized in Table~\ref{tab:small-occurrences}. Each equality record retains its full marked character and both primitive homology vectors in the standard modular basis. In every record one of the twelve matrices of Proposition~\ref{prop:isometry-group} maps the first vector to the second. This is an actual surface isometry, since the matrices are the homology actions of the explicitly realized modular normalizers. Primitive homology determines the unoriented simple class.
+
+This is a finite assertion about integers, and we verified it by computer in exact arithmetic. The verification was carried out twice, independently: once by multiplying the integral matrices of each seed, and once by generating the Markov tree afresh and evaluating the word in the universal character algebra, so that the second calculation shares neither the matrix arithmetic nor the traversal of the first. Section~\ref{subsec:occurrence-domains} records the domain, the orientation conventions and the two trace formulas, and the equality records themselves are in the supplementary material. What makes the conclusion hold for every marked character and every $k$, rather than for labels below some threshold, is the domain theorem rather than the computation.
+\end{proof}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}rlrr@{}}
+\toprule
+$h$ & Realized original types $(k,t)$ & Oriented seeds & Comparisons\\
+\midrule
+2 & $(1,1), (3,1)$ & $(12,134)$ & $2\,208$\\
+3 & $(2,1), (2,2), (4,1)$ & $(20,292)$ & $14\,408$\\
+4 & $(1,1), (1,3), (3,1), (3,3), (5,1)$ & $(26,522)$ & $35\,352$\\
+5 & $(1,2), (1,3), (4,1), (4,4), (6,1)$ & $(32,836)$ & $136\,400$\\
+6 & $(1,1), (5,1), (5,5), (7,1)$ & $(46,1\,238)$ & $127\,324$\\
+\bottomrule
+\end{tabular}
+\caption{The realized types and the size of each finite domain. Each seed pair lists the counts for $l\geqslant1$ and $l=0$, respectively; no equal numerical maxima are merged. Every listed type occurs, and every equality has an explicit isometry witness. Types not listed have no equality in any marked modular character.}
+\label{tab:small-occurrences}
+\end{table}
+
+The theorem concerns an infinite family for each $h$, and its finite output need not consist of a single orbit or a single trace. Nor does it assert that every word with the same two letter counts is simple. The mechanical pattern and the full marked character are essential to its scope.
+
+For $h=2,3,4,5,6$ respectively there are $6,8,13,13,10$ equalities with an original quotient $k\geqslant1$, counted with the duplicate descriptions that tied minima produce. The full characters realizing each type in Table~\ref{tab:small-occurrences}, together with the isometry carrying one class to the other, are listed in the supplementary material. Thus the table gives a complete classification despite the unbounded range of possible traces. The count $h=6$ is not consumed by the application in the next subsection, which meets only $h\leqslant5$; it is proved here because the classification is natural to state for the whole range the finite decision reaches.
+
+\subsection{An integral reflection criterion}
+
+A second mechanism covers certain residues at arbitrarily large intersection. It uses the topology of equal-length loci, rather than a bound on Markov parameters.
+
+\begin{lemma}[Reflection residues]
+\label{lem:reflection-residues}
+Let two distinct primitive unoriented simple classes on a once-punctured torus have vectors $(1,0)$ and $(r,N)$, with $N>0$ and $\gcd(r,N)=1$. If $r^2\equiv1\pmod N$, then on every complete finite-area hyperbolic metric, equality of their lengths forces an orientation-reversing isometry exchanging them.
+\end{lemma}
+
+\begin{proof}
+The unique rational map interchanging the two displayed vectors is
+\begin{equation}
+ R=\begin{pmatrix}r&(1-r^2)/N\\N&-r\end{pmatrix}.
+ \label{eq:rigidity-reflection}
+\end{equation}
+It satisfies $R^2=I$ and $\det R=-1$. The congruence makes it integral, hence an involution in the extended mapping class group. It exchanges the two simple classes because primitive homology determines them.
+
+We use the fixed-boundary theorem of McShane and Parlier: the equal-length locus of two distinct simple classes on a one-holed torus, at a fixed boundary length, is an embedded path with both ends on the Thurston boundary \cite[Theorem~1.3]{McShaneParlier2008}. Their convention includes a cusp as boundary, so the theorem applies at boundary length zero. In particular, the locus $\mathcal E$ inside punctured-torus Teichm\"uller space is a connected embedded one-manifold without boundary. This fixed-boundary assertion is stronger than what would follow from merely intersecting an ambient connected hypersurface with a slice; it is the precise property used here. We do not need the theorem's description of the endpoints. It should be said that the same authors prove that the surfaces failing the Markov isometry property are dense once the boundary length is allowed to vary, and conclude from this that the uniqueness conjecture is probably not tractable by hyperbolic geometry alone \cite[Theorem~1.4]{McShaneParlier2008}. Nothing here contradicts that: the input used above is the fixed-boundary statement at boundary length zero, and it produces an isometry only for the residues satisfying the congruence hypothesis, the remaining residues being handled by the arithmetic of the preceding sections.
+
+Identify this Teichm\"uller space with the upper half-plane, using the conformal compactification to a marked elliptic curve. In the equivariant period coordinate, the involution acts by
+$$
+ \tau\longmapsto\frac{r\overline\tau+(1-r^2)/N}{N\overline\tau-r}.
+$$
+Its fixed locus is the semicircle
+$$
+ \mathcal F=\left\{x+iy:\ (x-r/N)^2+y^2=N^{-2},\ y>0\right\}.
+$$
+This is a nonempty closed embedded line in the upper half-plane. A fixed conformal structure realizes $R$ by an anticonformal automorphism; uniqueness of the complete hyperbolic metric in that structure makes it an isometry. Hence $\mathcal F\subset\mathcal E$.
+
+A nonempty closed embedded one-manifold contained in a connected embedded one-manifold is also open there. Indeed a small parametrized interval in the first manifold maps continuously and injectively into a coordinate interval of the second; strict monotonicity gives a neighborhood of its central point. Applied here, this shows that $\mathcal F$ is both open and closed in $\mathcal E$, so $\mathcal F=\mathcal E$. Every equal-length structure therefore realizes the required isometry.
+\end{proof}
+
+This criterion does not classify all isometries relating equal-length pairs. For example, the order-three isometry at intersection nineteen in Proposition~\ref{prop:intersection-nineteen} belongs to another mechanism. The congruence is used as a sufficient condition, and no failed congruence is used to discard a possible equality.
+
+\subsection{The complete cover through intersection twenty-four}
+
+\begin{theorem}[Small intersections]
+\label{thm:small-intersections}
+Two essential simple closed geodesics of equal length on the modular punctured torus, with geometric intersection at most twenty-four, are related by an isometry. Consequently, any equal-length pair in distinct isometry orbits has intersection at least twenty-five.
+\end{theorem}
+
+\begin{proof}
+Distinct essential simple classes on a punctured torus have positive intersection. Normalize their vectors to $(1,0)$ and $(r,N)$. The sign-and-inversion orbit \eqref{eq:residue-orbit} exhausts the permitted changes of marking of an unordered unoriented pair. Reflection residues are covered by Lemma~\ref{lem:reflection-residues}. For every remaining orbit at $N\leqslant24$, Table~\ref{tab:small-intersection-cover} gives its least positive representative.
+
+Every listed representative $h\leqslant5$ satisfies $N=hk+t$ with $k\geqslant1$ and $0<t<h$ coprime to $h$. The corresponding simple curve is the literal word \eqref{eq:mechanical-word}, so Theorem~\ref{thm:small-occurrences} applies in the changed marking. Its actual isometry transports back to the original pair. Two representatives are left: $7$ at $N=19$, which is Proposition~\ref{prop:intersection-nineteen}, and $7$ at $N=23$, which is Proposition~\ref{prop:intersection-twentythree}. At $N=24$ every unit squares to one modulo $24$, so the reflection lemma alone settles that intersection. These cases exhaust all unit residues. At $N=1$ the integral reflection formula applies directly.
+
+The partition of the residues into orbits, the integral matrix realizing each sign or inversion change, and the mechanical gap pattern, remainder and quotient at every application of the occurrence theorem, are all finite assertions about integers below $25$; they were verified by computer in exact arithmetic. No Markov label is evaluated at this step.
+\end{proof}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}rl@{\qquad}rl@{}}
+\toprule
+$N$ & Nonreflection representatives & $N$ & Nonreflection representatives\\
+\midrule
+1 & none & 12 & none\\
+2 & none & 13 & $2,3,5$\\
+3 & none & 14 & $3$\\
+4 & none & 15 & $2$\\
+5 & $2$ & 16 & $3$\\
+6 & none & 17 & $2,3,4,5$\\
+7 & $2$ & 18 & $5$\\
+8 & none & 19 & $2,3,4,7$\\
+9 & $2$ & 20 & $3$\\
+10 & $3$ & 21 & $2,4$\\
+11 & $2,3$ & 22 & $3,5$\\
+ & & 23 & $2,3,4,5,7$\\
+ & & 24 & none\\
+\bottomrule
+\end{tabular}
+\caption{The complete sign-and-inversion orbit cover through intersection twenty-four, after removing all residues with $r^2\equiv1\pmod N$. Every representative at most five is covered by the occurrence theorem; the two representatives seven are the analytic intersection-nineteen and intersection-twenty-three cases. At twenty-four every unit is a reflection residue.}
+\label{tab:small-intersection-cover}
+\end{table}
+
+The first residue orbits beyond this cover are the two at intersection twenty-five,
+$$
+ \mathcal O_{25}(7)=\{7,18\},\qquad
+ \mathcal O_{25}(9)=\{9,11,14,16\}.
+$$
+The remaining nonreflection orbits modulo twenty-five have representatives $2,3,4$ and are already covered. The first of the two is the pair $\{r,-r^{-1}\}$ of a residue with $r^2\equiv-1$, which is why the sign-and-inversion orbit has two elements instead of four; the second has full size. The effective theorem supplies a finite decision for occurrence counts seven and nine, but the present classification has not executed those domains. An unclassified orbit is not evidence that a nonisometric equality exists there. The global Markov--Frobenius uniqueness problem remains open.

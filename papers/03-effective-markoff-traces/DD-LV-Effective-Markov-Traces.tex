@@ -1,0 +1,151 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=32mm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=green!40!black,urlcolor=blue!65!black]{hyperref}
+\usepackage{aliascnt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\cont}[1]{\operatorname{cont}\!\left(#1\right)}
+\newcommand{\height}[1]{h_{\mathrm{abs}}\!\left(#1\right)}
+\newcommand{\dist}[1]{\left\lVert#1\right\rVert}
+
+
+\newaliascnt{example}{theorem}
+\theoremstyle{definition}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\crefname{example}{example}{examples}
+\Crefname{example}{Example}{Examples}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\arcosh}{arcosh}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\frenchspacing
+
+\title[Effective trace bounds on the modular torus]{Effective trace bounds and rigidity\\for simple curves on the modular torus}
+
+\author{Denys Dutykh}
+\address{Mathematics Department, Khalifa University of Science and Technology, PO Box 127788, Abu Dhabi, United Arab Emirates}
+\email{denys.dutykh@ku.ac.ae}
+
+\author{Laurent Vuillon}
+\address{Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chamb\'ery, France}
+\email{laurent.vuillon@univ-smb.fr}
+
+
+\hypersetup{
+ pdftitle={Effective trace bounds and rigidity for simple curves on the modular torus},
+ pdfauthor={Denys Dutykh and Laurent Vuillon},
+ pdfsubject={Quantitative Vieta descent, effective trace comparison and simple-curve rigidity},
+ pdfkeywords={Markov equation, simple closed geodesics, Christoffel words, Vieta involutions, effective Diophantine methods}
+}
+\subjclass[2020]{Primary 11D25, 30F60; Secondary 11J06, 68R15}
+\keywords{Markov equation, simple closed geodesics, Christoffel words, Vieta involutions, effective Diophantine methods}
+\begin{document}
+\begin{abstract}
+We study equal traces of primitive simple curves on the modular
+once-punctured torus, with the relative occurrence count fixed and the
+integral Markov character allowed to vary. For every occurrence count we
+give a complete decision procedure, polynomial in that count, together
+with an exact test for surface isometry. The proof combines positive
+matrix paths with a controlled comparison between actual Markov triples
+and commuting trace triples: positive quotient mutation bounds the error
+at positive product index, while at minimum index mechanical balance and
+spectral coordinates control its propagation along the Euclidean
+algorithm. Both parameter bounds are analytic, valid over all positive
+integral characters, and are stated explicitly in the text. An exact
+finite computation classifies all primitive occurrence families with
+between two and six occurrences; every equal pair in these families is
+isometric. Two further arguments give the same conclusion for every pair
+of intersection number at most twenty-four, so that a nonisometric
+equality would need intersection at least twenty-five. These results
+leave the occurrence count unbounded and do not resolve Markov
+uniqueness.
+\end{abstract}
+\maketitle
+\input{sections/01-introduction}
+\input{sections/02-geometry-and-rays}
+\input{sections/03-gap-reduction}
+\input{sections/04-positive-vieta}
+\input{sections/05-spectral-minimum}
+\input{sections/06-finite-decision}
+\input{sections/07-rigidity}
+\input{sections/08-outlook}
+\appendix
+\input{sections/09-finite-domains}
+\section*{Supplementary material}
+The supplementary material accompanying this article contains the exact computations used in the proofs
+of \cref{thm:small-occurrences,thm:small-intersections} and
+\cref{prop:intersection-nineteen,prop:intersection-twentythree}: the
+equality records with their isometry witnesses, the residue cover, the
+polynomial coefficient lists, and instructions for repeating the
+verification.
+
+\section*{Code and data availability}
+{\clubpenalty=0 \widowpenalty=0
+The source code and the data supporting this article, with the instructions
+that repeat every calculation, are contained in the supplementary material of
+this article, which is available, together with that of the other articles of
+this series, at
+\par}
+\begin{center}
+  \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
+\end{center}
+
+\section*{Conflict of interest}
+The authors declare that they have no conflict of interest.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

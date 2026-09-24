@@ -1,0 +1,423 @@
+\section{Mechanical minimum patterns and spectral descent}
+\label{sec:spectral}
+
+When the product index is zero, the estimate used in the preceding
+section loses its factor $\lambda^{-1}$ per lower-state visit. A
+different input is needed. Cyclic balance controls each contiguous
+block of lower states, and the equality itself turns this control into
+an integer gap in the block exponent. We then measure the Vieta error
+in the spectral coordinate $\arcosh(3L/2)$. In that coordinate a
+mutation is almost a subtraction, and the integer coefficients of
+the Euclidean algorithm control the accumulated error.
+
+\begin{theorem}[The minimum-index parameter bound]
+\label{thm:minimum-bound}
+In the minimum-ray model \eqref{eq:gap-ray-data}--\eqref{eq:gap-positive-model},
+let $h\geqslant2$ and let $\epsilon_1,\ldots,\epsilon_h$ be a cyclic
+mechanical binary pattern with $1\leqslant t=\sum_i\epsilon_i<h$.
+If
+\begin{equation}\label{eq:spectral-minimum-equality}
+ V_0=\frac13\tr\prod_{i=1}^h A_0B^{\epsilon_i}=u_{\eps m},
+ \qquad m\geqslant1,
+\end{equation}
+then
+\begin{equation}\label{eq:spectral-final-bound}
+ p<(100h^2)^{h+1}.
+\end{equation}
+The analytic statement does not require $\gcd(h,t)=1$.
+\end{theorem}
+
+Here cyclic mechanical means that, for some intercept $\omega$, the
+bits are successive differences of
+$\lfloor it/h+\omega\rfloor$, extended periodically with period $h$.
+For every proper cyclic interval of $j$ positions, its number $e$ of
+ones therefore satisfies
+\begin{equation}\label{eq:spectral-balance}
+ |e-tj/h|<1.
+\end{equation}
+Indeed the difference from $tj/h$ is the difference of the fractional
+parts at the two endpoints. This strict interval estimate is the only
+mechanical-word property used in the proof.
+
+\subsection{Choose a dominant state before estimating the error}
+
+Set $\kappa=9K=1+e_0$, where $e_0=4/D$, as in
+\eqref{eq:positive-kappa}. Choose the larger of the two constant-state
+contributions to $V_0$. If it is the upper contribution, put $\gamma=1$
+and $(c_0,d_0)=(c,d)$. Otherwise interchange the two matrix coordinates,
+put $\gamma=-1$ and $(c_0,d_0)=(d,c)$, and use signed gaps
+$\gamma\epsilon_i$ with the displayed diagonal matrix $B$.
+This operation leaves the word trace unchanged. The represented ray
+is now $u_i$ or $u_{-i}$ respectively, and the signed single index is
+$\gamma\eps m$. In particular its magnitude and minimum normalization
+are unchanged. These transformations are changes of the trace model;
+no surface isometry is asserted.
+
+Put
+\begin{equation}\label{eq:spectral-dominant-data}
+ \begin{gathered}
+ \tau=\gamma t,\qquad
+ X=3^{h-1}c_0^h\lambda^\tau,\qquad
+ C=K\kappa^{h-1},\\
+ \rho=d_0/c_0,\qquad Z=C/X^2\leqslant1,
+ \qquad \sigma=4/(9p^2).
+ \end{gathered}
+\end{equation}
+The other constant contribution is $C/X$. If $\mathcal M$ denotes
+the sum of all mixed path contributions, then
+\begin{equation}\label{eq:spectral-trace-split}
+ V_0=X(1+Z)+\mathcal M.
+\end{equation}
+For a mixed path, the proper set of lower positions consists of $r$
+nonempty contiguous cyclic blocks. Let $j$ be its total size and $e$
+its total number of original one bits. The path expansion of
+Section~\ref{sec:gap} gives the exact relative weight
+\begin{equation}\label{eq:spectral-block-weight}
+ w=\sigma^r\rho^j\lambda^{-2\gamma e}.
+\end{equation}
+
+For a block of size $j_i$ and one-count $e_i$, the number
+$1+\gamma(e_i-tj_i/h)$ is positive by
+\eqref{eq:spectral-balance}. It is a multiple of $1/h$, and hence
+at least $1/h$. Since
+$Z=\rho^h\lambda^{-2\gamma t}$, multiplying these block estimates
+in \eqref{eq:spectral-block-weight} gives
+\begin{equation}\label{eq:spectral-coarse-block-weight}
+ w\leqslant a_0^r z_0^j,
+ \qquad a_0=\sigma\lambda^2\lambda^{-2/h}<4\lambda^{-2/h},
+ \qquad z_0=Z^{1/h}\leqslant1.
+\end{equation}
+The exponent gain is paid once per lower block, rather than once per
+position. This distinction will also control the number of relevant paths.
+
+\subsection{Sum paths by their transitions}
+
+For positive scalars $a,z$, consider
+$$
+ T(a,z)=\begin{pmatrix}1&\sqrt{az}\\\sqrt{az}&z\end{pmatrix},
+ \qquad \Phi_h(a,z)=\tr T(a,z)^h-1-z^h.
+$$
+A mixed cyclic state path with $j$ lower positions and $2r$ transitions
+contributes exactly $a^rz^j$ to this trace. All coefficients are positive.
+Choosing its $2r$ transition edges and an initial state gives exactly
+$2\binom h{2r}$ such paths when the lower-state size is not prescribed.
+It follows that
+\begin{equation}\label{eq:spectral-partition-function}
+ \begin{aligned}
+ \Psi_h(a):=\Phi_h(a,1)
+ &=2\sum_{r=1}^{\lfloor h/2\rfloor}\binom h{2r}a^r\\
+ &=(1+\sqrt a)^h+(1-\sqrt a)^h-2.
+ \end{aligned}
+\end{equation}
+For $h^2a<1$, the inequality $2\binom h{2r}\leqslant h^{2r}$
+gives the useful rational bound
+\begin{equation}\label{eq:spectral-partition-bound}
+ \Psi_h(a)\leqslant\frac{h^2a}{1-h^2a}.
+\end{equation}
+Thus \eqref{eq:spectral-coarse-block-weight} gives, before any
+small-discrepancy assumption,
+\begin{equation}\label{eq:spectral-first-path-bound}
+ \mathcal M/X\leqslant\Phi_h(a_0,z_0)\leqslant\Psi_h(a_0).
+\end{equation}
+This is a sum of positive indexed paths, so cyclic repetitions or a
+nonprimitive period do not change its validity.
+
+Suppose henceforth, for a contradiction, that
+\begin{equation}\label{eq:spectral-threshold-assumption}
+ p\geqslant S^{h+1},\qquad S=100h^2.
+\end{equation}
+Then $\lambda>S^{h+1}$ and $h^2a_0<4h^2/S^2<1/16$.
+Equations \eqref{eq:spectral-partition-bound} and
+\eqref{eq:spectral-first-path-bound} imply
+\begin{equation}\label{eq:spectral-coarse-mixed}
+ \mathcal M/X<\frac{64h^2}{15S^2}<\frac1{16}.
+\end{equation}
+Let $a$ be the leading coefficient of the single entry in the
+transformed ray, so $a$ is $c_0$ or $d_0$, and put $Y=a\lambda^m$.
+Lemma~\ref{lem:positive-discrepancy} gives $Y>X$.
+The minimum ratio also gives $Y>\sqrt\lambda/3$.
+By \eqref{eq:spectral-trace-split}, $Z\leqslant1$ and
+\eqref{eq:spectral-coarse-mixed}, we have $V_0<3X$; hence
+$X>\sqrt\lambda/9$. Since $C<2^h$ and $S\geqslant400>32$,
+\begin{equation}\label{eq:spectral-opposite-constant}
+ Z<\frac{81\cdot2^h}{\lambda}
+ <\frac{81}{32\cdot16^h}\leqslant\frac{81}{8192}<\frac1{16}.
+\end{equation}
+The exact equality $Y+K/Y=V_0$ now shows that
+\begin{equation}\label{eq:spectral-small-delta}
+ 0<\delta:=Y/X-1<Z+\mathcal M/X<\frac18.
+\end{equation}
+The opposite constant path was not discarded: its smallness follows
+only after using equality and the integral minimum normalization.
+
+\subsection{Balance becomes a gap in an integer exponent}
+
+Define
+\begin{equation}\label{eq:spectral-phase-normalization}
+ q=m-\tau,\qquad
+ n=\begin{cases}h-1,&a=c_0,\\h+1,&a=d_0.
+ \end{cases}
+\end{equation}
+This internal offset may differ from $m-t$, because the dominant-state
+choice can have $\gamma=-1$. The original enumeration convention of
+\eqref{eq:gap-phase-window} is unchanged.
+As in \eqref{eq:positive-coefficient-normalization}, exact rearrangement
+gives
+\begin{equation}\label{eq:spectral-coefficient-normalization}
+ \begin{gathered}
+ c_0=\frac{\lambda^{q/n}}3\alpha,\qquad
+ d_0=\frac{\lambda^{-q/n}}3\beta,\qquad \beta=\kappa/\alpha,\\
+ \alpha=\begin{cases}
+ (1+\delta)^{-1/n},&a=c_0,\\
+ [\kappa/(1+\delta)]^{1/n},&a=d_0.
+ \end{cases}
+ \end{gathered}
+\end{equation}
+Here $e_0=4/D<1/8$, but there is no assumption that $\delta<e_0$.
+Positive-root monotonicity gives
+\begin{equation}\label{eq:spectral-coefficient-bounds}
+ \begin{gathered}
+ 8/9<\alpha<9/8,\qquad 1<\beta<81/64,\\
+ |\alpha-1|,|\beta-1|<2(e_0+\delta),\qquad
+ \max(\alpha/\beta,\beta/\alpha)<3/2.
+ \end{gathered}
+\end{equation}
+For completeness, $\alpha$ lies between $1/(1+\delta)$ and $\kappa$,
+and $1<\beta\leqslant\kappa(1+\delta)$. These bounds imply the
+displayed error estimates; the ratio bound follows from
+$(81/64)/(8/9)=729/512<3/2$.
+If $q=0$, then $u_0=(\alpha+\beta)/3<51/64<1$, impossible.
+
+Set
+\begin{equation}\label{eq:spectral-gcd-scale}
+ s=\lambda^{1/n}>S,\qquad j_0=|q|>0,
+ \qquad g=\gcd(n,j_0).
+\end{equation}
+The minimum ratio and \eqref{eq:spectral-coefficient-bounds} give
+$s^{2j_0-n}<3/2$ whenever $2j_0-n$ is positive. Since $s>4$,
+integrality implies $1\leqslant j_0\leqslant n/2$.
+As in the preceding section, $n=1$ is thereby excluded immediately.
+The remaining cases have $n\geqslant2$, and
+$2h/n\leqslant3$: this is immediate for $h\geqslant3$; at $h=2$
+the only remaining choice is $n=3$.
+
+For each proper lower block define the integers
+\begin{equation}\label{eq:spectral-integer-activities}
+ F_i=n+qj_i+\gamma ne_i,
+ \qquad E=hq+n\tau=hm+(n-h)\tau.
+\end{equation}
+Since $m\geqslant1$, $n-h=\pm1$ and $\tau=\pm t$,
+$E\geqslant h-t>0$. Moreover
+\begin{equation}\label{eq:spectral-activity-positive}
+ F_i=n\{1+\gamma(e_i-tj_i/h)\}+Ej_i/h>0.
+\end{equation}
+Both $E$ and every $F_i$ are multiples of $g$, so $E\geqslant g$
+and $\sum_iF_i\geqslant rg$. This is where the actual equality
+improves the coarse denominator $h$ in
+\eqref{eq:spectral-coarse-block-weight} to the integer divisor $g$.
+
+Put $R=\beta/\alpha>1$ and $a_g=\sigma\lambda^2s^{-2g}$.
+Rewriting the exact weight gives
+\begin{equation}\label{eq:spectral-normalized-block-weight}
+ w=(\sigma\lambda^2)^rR^j s^{-2\sum_iF_i}
+ \leqslant a_g^rR^j,
+ \qquad Z=R^h s^{-2E}.
+\end{equation}
+The coefficient normalization also gives
+$$
+ R=\kappa^{\zeta}(1+\delta)^{2/n},\qquad
+ \zeta=\begin{cases}1,&a=c_0,\\1-2/n,&a=d_0.
+ \end{cases}
+$$
+In the case $a=d_0$ one has $n=h+1\geqslant3$ by
+\eqref{eq:spectral-phase-normalization}, so $1/3\leqslant\zeta\leqslant1$ in both
+cases. Since
+$he_0\leqslant4h/(5p^2)<1/2$, the binomial/geometric estimate yields
+$\kappa^h<1/(1-he_0)<2$. Together with $2h/n\leqslant3$ this gives
+\begin{equation}\label{eq:spectral-ratio-power}
+ R^h<2(9/8)^3<3.
+\end{equation}
+Equations \eqref{eq:spectral-partition-bound},
+\eqref{eq:spectral-normalized-block-weight} and
+\eqref{eq:spectral-ratio-power}, with
+$h^2a_g<4h^2/S^2<1/16$, imply
+\begin{equation}\label{eq:spectral-refined-delta}
+ 0<\delta<3s^{-2g}+3\Psi_h(a_g)
+ <\left(3+\frac{64}{5}h^2\right)s^{-2g}.
+\end{equation}
+Also $e_0=4s^{-2n}/(1-s^{-2n})^2<5s^{-2n}$. Thus
+\begin{equation}\label{eq:spectral-total-coefficient-error}
+ e_0+\delta<\left(8+\frac{64}{5}h^2\right)s^{-2g}
+ \leqslant15h^2s^{-2g},
+\end{equation}
+where the last inequality holds for every $h\geqslant2$.
+
+Take the actual ray neighbor of $u_0$ at index
+$-\operatorname{sign}(q)$ in the transformed ray. These two entries
+and $p$ form a positive integral Markov triple with baseline indices
+$(j_0,n-j_0,n)$. Using the scalar baselines
+\eqref{eq:positive-baselines}, the exact coefficients give
+\begin{equation}\label{eq:spectral-initial-label-errors}
+ L_n=p=B_n,\qquad
+ |L_i-B_i|<20h^2s^{i-2g},\qquad i=j_0,n-j_0.
+\end{equation}
+Unlike \eqref{eq:positive-initial-errors}, this error is measured at
+the fixed divisor scale $g$, rather than at the initial maximum index
+$n$. Direct propagation of relative errors would therefore lose a
+factor at each mutation. Spectral coordinates avoid that loss.
+
+\subsection{The exact spectral error of a Vieta mutation}
+
+For a real label $L>2/3$, define
+\begin{equation}\label{eq:spectral-angle}
+ \theta(L)=\arcosh(3L/2).
+\end{equation}
+Then $\theta(B_i)=i\log s$ for $i>0$.
+Let $L_a,L_b,L_c$ be a positive integral Markov triple, with $L_c$
+strictly largest, and put $A=\theta(L_a)$, $B'=\theta(L_b)$.
+Solving the quadratic in the third full trace gives
+\begin{equation}\label{eq:spectral-large-root}
+ \frac32L_c=\cosh A\cosh B'
+       +\sqrt{\sinh^2A\sinh^2B'-1}.
+\end{equation}
+The Vieta partner $L_d=3L_aL_b-L_c$ is therefore determined by
+\begin{equation}\label{eq:spectral-small-root}
+ \begin{aligned}
+ \frac32L_d&=\cosh(A-B')+\epsilon(A,B'),\\
+ \epsilon(A,B')&=
+ \frac1{\sinh A\sinh B'+\sqrt{\sinh^2A\sinh^2B'-1}}.
+ \end{aligned}
+\end{equation}
+The square root is real and positive: $L_a,L_b\geqslant1$ give
+$\sinh^2A,\sinh^2B'\geqslant5/4$. The sign in
+\eqref{eq:spectral-large-root} is forced by the largest-entry
+hypothesis. Indeed, if $x\geqslant y\geqslant3$ are the other
+full traces, then the trace quadratic evaluated at $z=x$ is
+$$
+ x^2(2-y)+y^2\leqslant y^2(3-y)\leqslant0.
+$$
+A third trace strictly greater than $x$ must be its larger root.
+The expression for $\epsilon$ follows by rationalizing the difference
+$\sinh A\sinh B'-\sqrt{\sinh^2A\sinh^2B'-1}$.
+
+At a nonterminal baseline stage let $a>b\geqslant g$,
+$c=a+b$, and $d=a-b$. Suppose all three angle errors from their
+baselines are less than $1/8$. Since each distinct-index gap is at
+least $g\log s$, the actual entries have the same strict ordering as
+their baseline indices. In particular \eqref{eq:spectral-large-root}
+uses the correct root, and $A>B'$.
+For $i\geqslant g$, $\abs v\leqslant1/4$ and $s\geqslant4$,
+\begin{equation}\label{eq:spectral-sinh-bound}
+ \sinh(i\log s-v)
+ \geqslant\frac38s^i(1-2s^{-2i})
+ \geqslant\frac{21}{64}s^i>\frac14s^i.
+\end{equation}
+Here $\exp(-1/4)>3/4$ and $\exp(1/2)<2$, as follows from their
+power series. Apply this estimate to $A$, $B'$ and $A-B'$. The
+inverse-cosh mean-value estimate in \eqref{eq:spectral-small-root}
+then gives an exact additive error relation
+\begin{equation}\label{eq:spectral-additive-forcing}
+ \theta(L_d)=A-B'+\eta,
+ \qquad 0<\eta<64s^{-2a}\leqslant64s^{-4g}.
+\end{equation}
+Indeed $\eta\leqslant\epsilon(A,B')/\sinh(A-B')$, and the three
+sinh factors are bounded below by
+$s^a/4,s^b/4,s^{a-b}/4$. Equation~\eqref{eq:spectral-additive-forcing}
+is the reason to use spectral rather than relative label errors.
+
+\subsection{Euclidean rows give a polynomial error bound}
+
+\begin{lemma}[Coefficients along subtractive Euclid]
+\label{lem:euclidean-row-bound}
+Start with positive integer indices $a,b$ of gcd $g$, and put
+$N=(a+b)/g$. Under repeated subtraction of the smaller index from
+the larger, every signed coefficient row expressing a current index
+in terms of the starting pair has $\ell^1$ norm at most $N$.
+The same bound applies to propagation from any intermediate stage.
+If the two initial coordinate errors are bounded by $e_*$ and every
+additive update error is bounded by $f_*$, then all later coordinate
+errors are bounded by
+\begin{equation}\label{eq:spectral-row-error-bound}
+ Ne_*+N(N-1)f_*<Ne_*+N^2f_*.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Track the two coefficient rows $r,s$, initially $(1,0),(0,1)$.
+They remain unimodular. In each coordinate $i$, the weak opposite-sign
+condition $r_i s_i\leqslant0$ is preserved: replacing $r$ by $r-s$
+changes the product to $r_i s_i-s_i^2\leqslant0$.
+Consequently $|r-s|=|r|+|s|$ componentwise. Each new absolute row
+dominates both rows that produced it.
+
+Include the final subtraction of equal indices, producing zero and
+$g$. If $A_*=a/g$ and $B_*=b/g$, the zero row is a primitive
+integer relation on the coprime pair $(A_*,B_*)$, hence is
+$\pm(B_*,-A_*)$. It dominates every preceding absolute row and has
+$\ell^1$ norm $N$. This proves the row bound.
+At any intermediate stage the gcd is still $g$, while the normalized
+sum is at most $N$, so the same proof applies to every remaining tail.
+There are at most $N-1$ subtractions, since each decreases the normalized
+sum by at least one. Propagating each additive error along its remaining
+tail and summing proves \eqref{eq:spectral-row-error-bound}.
+Coordinate exchanges have norm one and require no additional estimate.
+\end{proof}
+
+We now apply the lemma to the angle errors, with initial nonlargest
+indices $j_0,n-j_0$. The actual index-$n$ entry has zero initial
+error. From \eqref{eq:spectral-initial-label-errors}, every point on
+the segment between $L_i$ and $B_i$ is at least $s^i/4$, because
+$20h^2s^{-2g}<1/12$. On this segment
+$$
+ \theta'(L)=\frac1{\sqrt{L^2-4/9}}<8s^{-i}.
+$$
+The initial angle errors are therefore bounded by
+$e_*=160h^2s^{-2g}$. We have $N=n/g\leqslant h+1\leqslant2h$.
+If the errors stay below $1/8$, equation~\eqref{eq:spectral-additive-forcing}
+permits $f_*=64s^{-4g}$. The bound from
+Lemma~\ref{lem:euclidean-row-bound} is then
+\begin{equation}\label{eq:spectral-bootstrap-margin}
+ Ne_*+N^2f_*
+ <\frac{320h^3}{S^2}+\frac{256h^2}{S^4}
+ \leqslant\frac2{125}+\frac{256}{10^8}<\frac1{16}.
+\end{equation}
+The constant $2/125$ includes the boundary $h=2$.
+
+This proves the assumed error bound by a first-violation argument.
+Initially all errors are below $1/8$. Before a first violating move,
+the previously proved ordering selects the larger root at every stage,
+and every forcing is bounded by \eqref{eq:spectral-additive-forcing}.
+The row estimate then bounds the new error by
+\eqref{eq:spectral-bootstrap-margin}, a contradiction. Only the two
+nonlargest baseline coordinates are updated as a subtractive pair.
+The third entry is initially exact, and thereafter is an unchanged
+entry from the previous pair, so it has the same error bound. There is
+no extra independent error from a discarded large coordinate.
+
+\subsection{The terminal contradiction}
+
+The subtractive Euclidean algorithm reaches $(g,g,2g)$.
+The two index-$g$ angles then satisfy $|A-B'|<1/8$, while each is
+at least $g\log s-1/16$. By \eqref{eq:spectral-sinh-bound},
+$\epsilon(A,B')<16s^{-2g}<1/16$.
+The actual index-$2g$ entry is still strictly largest, so its positive
+integral Vieta partner satisfies \eqref{eq:spectral-small-root}.
+Using $\cosh(1/4)<\sum_{j\geqslant0}(1/4)^{2j}=16/15$, we obtain
+$$
+ 0<L_d<\frac23\left(\frac{16}{15}+\frac1{16}\right)
+       =\frac{271}{360}<1.
+$$
+This contradicts positive integrality. It includes the equal-index
+starting case $j_0=n/2$, with no nonterminal steps. Together with the
+earlier direct exclusion of $n=1$, it proves
+Theorem~\ref{thm:minimum-bound}.
+
+Two different estimates were needed. The first used cyclic balance
+before any approximation assumption to select a small discrepancy.
+The second used the exact equality to make all block exponents
+positive multiples of $g$. Spectral subtraction then transported the
+resulting error with polynomial coefficients. The theorem supplies a
+finite parameter range at every prescribed occurrence count; it does
+not assert that a constant-state path dominates uniformly when $h$
+grows on a fixed ray. The next section turns the two parameter bounds
+into a complete finite comparison and isometry decision.

@@ -1,0 +1,246 @@
+\section{Positive product indices and a uniform Vieta estimate}
+\label{sec:positive}
+
+At a positive product index, every lower-state visit pays a factor of
+at least $\lambda^{-1}$. This makes the leading discrepancy small.
+Equality then places an actual integral Markov triple close to a
+triple of commuting matrix traces. The latter follows the Euclidean
+algorithm exactly. We follow it with actual Vieta mutations, using
+the positive quotient formula to keep the error uniformly bounded.
+
+\begin{figure}[tb]
+ \centering
+ \input{figures/vieta-comparison}
+ \caption{The two trace evolutions in the proof. Here
+ $F(X,Y,Z)=X^2+Y^2+Z^2-XYZ$ uses full traces, whereas $L_i$ and
+ $B_i$ are traces divided by three. Both evolutions use Vieta mutation
+ on their own invariant level. Error control compares them without
+ identifying the levels; at the final step it contradicts positive
+ integrality. The corresponding normalized forcing is $4/9$.}
+ \label{fig:vieta-comparison}
+\end{figure}
+
+\begin{theorem}[The positive-index parameter bound]
+\label{thm:positive-bound}
+In the minimum-ray model \eqref{eq:gap-ray-data}--\eqref{eq:gap-positive-model},
+let $h\geqslant2$, $1\leqslant t<h$, and let the gap bits be arbitrary
+with sum $t$. If $l\geqslant1$ and $V_l=u_{\eps m}$ for an integer
+$m\geqslant1$, then
+\begin{equation}\label{eq:positive-final-bound}
+ p<4^{h+1}.
+\end{equation}
+Both signs of the single index are included. The gap pattern need not
+be mechanical.
+\end{theorem}
+
+\subsection{A small positive discrepancy determines rational exponents}
+
+Use the quantities from Section~\ref{sec:gap}, and put
+$$
+ Q=3^{h-1}c^h,\qquad q=m-hl-t,\qquad
+ \delta=\frac{a\lambda^q}{Q}-1,
+ \qquad (a,b)=\begin{cases}(c,d),&\eps=1,\\(d,c),&\eps=-1.
+ \end{cases}
+$$
+Lemma~\ref{lem:positive-discrepancy} gives $\delta>0$. The exact
+equality also gives $\delta<\mathcal R_l/X_l$. A mixed path with $j$
+lower positions has at least two transitions. Its relative weight
+\eqref{eq:gap-relative-path} is at most $\sigma\lambda^{-j}$.
+The all-lower path is bounded separately by $\lambda^{-h-2}$, because
+$l,t\geqslant1$. Hence
+\begin{equation}\label{eq:positive-discrepancy-bound}
+ 0<\delta<\frac4{9p^2}\{(1+\lambda^{-1})^h-1\}
+                  +\lambda^{-h-2}.
+\end{equation}
+If $p\geqslant h$, then $h/\lambda<2/5$. The elementary geometric
+majorant $\binom hj\leqslant h^j$ gives
+$$
+ (1+\lambda^{-1})^h-1<\frac{h/\lambda}{1-h/\lambda}
+ <\frac{5h}{3\lambda}.
+$$
+Since $h\geqslant2$, we may bound the last term in
+\eqref{eq:positive-discrepancy-bound} by
+$\lambda^{-4}<16/(625p^4)$. Therefore
+\begin{equation}\label{eq:positive-small-delta}
+ 0<\delta<\frac1{p^3}\left(\frac{8h}{27}+\frac{16}{625}\right)
+ <\frac h{p^3}.
+\end{equation}
+For $p\geqslant3h$, define
+\begin{equation}\label{eq:positive-kappa}
+ e_0=\frac4D,\qquad \kappa=9K=1+e_0.
+\end{equation}
+Then $0<\delta<1/(3p^2)<e_0<1/8$.
+
+The defining equation $a\lambda^q=(1+\delta)3^{h-1}c^h$ now fixes
+the coefficients up to a small multiplicative error. If $a=c$, set
+$n=h-1$; if $a=d$, set $n=h+1$. In either case
+\begin{equation}\label{eq:positive-coefficient-normalization}
+ \begin{gathered}
+ c=\frac{\lambda^{q/n}}3\alpha,\qquad
+ d=\frac{\lambda^{-q/n}}3\beta,\qquad \beta=\kappa/\alpha,\\
+ \alpha=
+ \begin{cases}
+ (1+\delta)^{-1/n},&a=c,\\
+ [\kappa/(1+\delta)]^{1/n},&a=d.
+ \end{cases}
+ \end{gathered}
+\end{equation}
+These are exact formulas, not asymptotic expansions. In the first case
+$\alpha=(1+\delta)^{-1/n}$ satisfies $1-e_0<\alpha<1$, while
+$\beta=\kappa(1+\delta)^{1/n}$ satisfies $1<\beta<(1+e_0)^2<1+3e_0$;
+the upper bound for $\beta$ comes from
+$(1+\delta)^{1/n}\leqslant1+\delta<1+e_0$, not from the lower bound on
+$\alpha$, which would give only $(1+e_0)/(1-e_0)$.
+In the second case $1<\alpha,\beta<1+e_0$, because $\delta<e_0$.
+Thus, in both cases,
+\begin{equation}\label{eq:positive-coefficient-errors}
+ |\alpha-1|,|\beta-1|<3e_0,
+ \qquad \max(\alpha/\beta,\beta/\alpha)<2.
+\end{equation}
+If $q=0$, these estimates would give
+$u_0=(\alpha+\beta)/3<2(1+3e_0)/3<1$, contradicting integrality.
+
+Put $s=\lambda^{1/n}$ and $j=|q|>0$. The minimum ratio in
+\eqref{eq:gap-ray-data} gives
+\begin{equation}\label{eq:positive-index-normalization}
+ s^{2j-n}\leqslant
+ \begin{cases}
+ \beta/\alpha,&q>0,\\
+ \alpha/\beta,&q<0.
+ \end{cases}
+\end{equation}
+For $s\geqslant4$, the integer $2j-n$ cannot be positive.
+Consequently $1\leqslant j\leqslant n/2$. In particular the case
+$n=1$, which can occur when $h=2$, is already impossible. Every
+remaining case has $n\geqslant2$.
+
+Define the commuting baselines
+\begin{equation}\label{eq:positive-baselines}
+ B_i(s)=\frac{s^i+s^{-i}}3,\qquad i\geqslant0.
+\end{equation}
+We abbreviate these scalar quantities to $B_i$ when $s$ is fixed;
+they are distinct from the generator matrix $B$. The actual neighboring
+Markov triple is
+$$
+ x=u_0,\qquad z=u_{-\operatorname{sign}(q)},\qquad p=B_n.
+$$
+Its baseline indices are respectively $j,n-j,n$. For example, when
+$q>0$, the two terms of $z$ have exponents $-(n-j)$ and $n-j$;
+when $q<0$, the same statement holds with $\alpha,\beta$ interchanged.
+Thus \eqref{eq:positive-coefficient-errors} gives, for both entries,
+\begin{equation}\label{eq:positive-initial-errors}
+ |L_i-B_i|<e_0(s^i+s^{-i}),\qquad i=j,n-j,
+ \qquad L_n=p=B_n.
+\end{equation}
+The factor three in \eqref{eq:positive-coefficient-errors} cancels
+the division by three in the Binet formulas.
+
+\subsection{A positive quotient suppresses the mutation error}
+
+\begin{lemma}[A uniform Vieta neighborhood]\label{lem:uniform-vieta}
+Let $n\geqslant2$, $1\leqslant j<n$, and $s\geqslant4$.
+There is no positive integral Markov triple with entries labeled by
+the indices $(j,n-j,n)$ such that
+\begin{equation}\label{eq:positive-vieta-hypothesis}
+ |L_i-B_i(s)|\leqslant5s^{i-2n}
+ \quad\hbox{for each of its three entries}.
+\end{equation}
+The baseline indices need not initially be in the order of the actual
+integer entries.
+\end{lemma}
+
+\begin{proof}
+For positive indices $a,b$, put $c=a+b$ and $d=|a-b|$.
+The commuting baselines satisfy
+\begin{equation}\label{eq:positive-baseline-identities}
+ 3B_aB_b-B_c=B_d,
+ \qquad B_a^2+B_b^2-B_cB_d=\frac49.
+\end{equation}
+Both identities follow by expanding $s^i+s^{-i}$. In particular their
+Markov defect is $4/9$, which must be retained in any error estimate.
+For the actual triple, Vieta mutation instead gives
+\begin{equation}\label{eq:positive-quotient-mutation}
+ L_d=3L_aL_b-L_c=\frac{L_a^2+L_b^2}{L_c}.
+\end{equation}
+The first formula proves integrality; the second proves positivity.
+The resulting triple is again Markov. No ordering of the actual
+entries is needed for these conclusions.
+
+At maximum baseline index $c=a+b$, we maintain
+\begin{equation}\label{eq:positive-error-invariant}
+ |L_i-B_i|\leqslant5s^{i-2c}
+ \quad\hbox{for all three entries}.
+\end{equation}
+It holds initially at $c=n$. Exchange $a,b$ if necessary to have
+$a\geqslant b$, so $d=a-b$. Write $E_i=L_i-B_i$. Combining
+\eqref{eq:positive-baseline-identities} and
+\eqref{eq:positive-quotient-mutation} gives the exact error equation
+\begin{equation}\label{eq:positive-quotient-error}
+ L_c(L_d-B_d)
+ =2B_aE_a+E_a^2+2B_bE_b+E_b^2-B_dE_c+\frac49.
+\end{equation}
+The quadratic errors are included. Since $c\geqslant2$,
+\begin{equation}\label{eq:positive-denominator}
+ L_c\geqslant\left(\frac13-5s^{-2c}\right)s^c
+ \geqslant\left(\frac13-\frac5{256}\right)s^c>0.
+\end{equation}
+For every $i\geqslant0$, including the possible terminal index zero,
+$B_i\leqslant(2/3)s^i$. Equation~\eqref{eq:positive-error-invariant}
+therefore bounds the numerator in \eqref{eq:positive-quotient-error} by
+\begin{align*}
+ &10s^{-2b}+\frac{20}{3}s^{-2a}
+   +25s^{-2c}(s^{-2a}+s^{-2b})+\frac49\\
+ &\qquad\leqslant\frac{50}{3}s^{-2}+50s^{-6}+\frac49\\
+ &\qquad\leqslant\frac{50}{48}+\frac{50}{4096}+\frac49
+ <5\left(\frac13-\frac5{256}\right).
+\end{align*}
+The last strict margin is $1303/18432>0$. Dividing by
+\eqref{eq:positive-denominator} yields
+\begin{equation}\label{eq:positive-new-error}
+ |L_d-B_d|<5s^{-c}=5s^{d-2a}.
+\end{equation}
+If $a>b$, the new maximum baseline index is $a<c$. The new entry
+satisfies exactly \eqref{eq:positive-error-invariant} at that index,
+and the unchanged entries satisfy its weaker new bounds. Thus the
+constant five does not grow with the number of mutations.
+
+Repeated subtraction of positive indices terminates at $(g,g,2g)$,
+where $g=\gcd(j,n)\geqslant1$. Make one further actual mutation.
+The preceding estimates also hold for $a=b=g$ and $d=0$, giving
+$$
+ \left|L_0-\frac23\right|<5s^{-2g}\leqslant\frac5{16}.
+$$
+But $L_0$ is a positive integer and
+$L_0<2/3+5/16=47/48<1$. This contradiction also covers the case
+$j=n/2$, where the terminal mutation is the first move.
+\end{proof}
+
+\subsection{Completion of the parameter bound}
+
+Suppose $p\geqslant4^{h+1}$. Then $p>3h$, so the coefficient
+normalization above applies, and for either choice of $n\leqslant h+1$,
+$$
+ s=\lambda^{1/n}>4^{(h+1)/n}\geqslant4.
+$$
+If $n=1$ there is already a contradiction in
+\eqref{eq:positive-index-normalization}. Otherwise $n\geqslant2$,
+and the exact identity $\sqrt D=\lambda-\lambda^{-1}$ gives
+$$
+ e_0=\frac{4s^{-2n}}{(1-s^{-2n})^2}.
+$$
+For $i\geqslant1$, $s\geqslant4$ and $n\geqslant2$,
+\begin{equation}\label{eq:positive-initial-uniform-bound}
+ e_0(s^i+s^{-i})
+ \leqslant\frac{17}{16}\frac4{(1-1/256)^2}s^{i-2n}
+ =\frac{16384}{3825}s^{i-2n}<5s^{i-2n}.
+\end{equation}
+Thus \eqref{eq:positive-initial-errors} gives the prohibited triple
+of Lemma~\ref{lem:uniform-vieta}. This proves
+Theorem~\ref{thm:positive-bound}.
+
+The role of integrality is concentrated at the end of the argument.
+The commuting baselines follow the subtractive Euclidean algorithm to
+$B_0=2/3$. Positive quotient mutation keeps an actual Markov orbit close
+enough that its terminal entry would also lie below one. This controls
+all positive product indices with a single error constant, rather than
+estimating a growing sequence of differences of large traces.
