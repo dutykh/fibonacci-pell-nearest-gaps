@@ -1,0 +1,158 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=32mm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+\input{figures/palette}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=green!40!black,urlcolor=blue!65!black]{hyperref}
+\usepackage{aliascnt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\newaliascnt{conjecture}{theorem}
+\newtheorem{conjecture}[conjecture]{Conjecture}
+\aliascntresetthe{conjecture}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{theorem}{theorem}{theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{proposition}{propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{lemma}{lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{corollary}{corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{conjecture}{conjecture}{conjectures}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{definition}{definition}{definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{remark}{remarks}
+\Crefname{remark}{Remark}{Remarks}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\cont}[1]{\operatorname{cont}\!\left(#1\right)}
+\newcommand{\height}[1]{h_{\mathrm{abs}}\!\left(#1\right)}
+\newcommand{\dist}[1]{\left\lVert#1\right\rVert}
+
+
+\newaliascnt{example}{theorem}
+\theoremstyle{definition}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\crefname{example}{example}{examples}
+\Crefname{example}{Example}{Examples}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\arcosh}{arcosh}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\frenchspacing
+
+\title[Rational reflections and palindromic words]{Rational reflections and palindromic words\\in the Cohn monoid}
+
+\author{Denys Dutykh}
+\address{Mathematics Department, Khalifa University of Science and Technology, PO Box 127788, Abu Dhabi, United Arab Emirates}
+\email{denys.dutykh@ku.ac.ae}
+
+\author{Laurent Vuillon}
+\address{Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chamb\'ery, France}
+\email{laurent.vuillon@univ-smb.fr}
+
+
+\hypersetup{
+ pdftitle={Rational reflections and palindromic words in the Cohn monoid},
+ pdfauthor={Denys Dutykh and Laurent Vuillon},
+ pdfsubject={Standard morphisms, exact word decoding and palindromic Gram reflections},
+ pdfkeywords={palindromic closure, standard morphisms, Thue-Morse morphism, Cohn matrices, Markov equation, rational reflections, Frobenius root}
+}
+\subjclass[2020]{Primary 68R15; Secondary 11D25, 11A55}
+\keywords{palindromic closure, standard morphisms, Thue--Morse morphism, Cohn matrices, Markov equation, rational reflections, Frobenius root}
+\begin{document}
+\begin{abstract}
+We study the rational reflection that a palindrome $p$ defines for the two Cohn matrices. For
+the reflection of every palindrome we classify all finite words whose terminal columns are taken
+to other word columns: they are exactly the concatenations of the blocks $ab\,p$ and $ba\,p$, and
+the reflection exchanges these blocks; the projective relation lifts to exact equality.
+Consequently two palindromes have equal Gram labels and a root midpoint at the ratio of the centre
+exactly when they are exchanged around it, with no hypothesis on a common prefix. Every nontrivial
+such pair has nonprimitive completed letter counts, so that no two distinct central occurrences
+collide at such a midpoint, and an explicit quadruple of palindromes shows that the midpoint cannot
+be dropped. At a standard centre a second proof, by projective cylinders, gives the quantitative
+information used away from the midpoint. The exchange conjugates one Gaussian factor of the common
+label, and exchanges around nested centres compose into cubes of palindromes with a common label;
+the quadruple is the first square, and the midpoints of its two diagonals are shifted from the
+centre by half the width of its short rungs. In the Thue--Morse coding of Reutenauer and Vuillon, the Gram label of a
+palindrome is the length of an explicit Christoffel word, and the Gram root is its number of
+letters $b$, which also fixes where its standard factorization cuts. An exact enumeration of all
+palindromes with label below $10^{26}$ finds no coincidence of labels that these exchanges do not
+produce, and every class it finds is a single exchange or a square, in support of a conjecture
+whose proof would imply Frobenius--Markov uniqueness. In the same coding the length of the
+directing word is half the sum of the partial quotients of the label divided by the root; twins on
+a reflection axis have directing words of the same length, and for Markov words the equality of
+these lengths under a coincidence of numbers is equivalent to uniqueness. Away from the midpoint we
+derive the exact two-sided reflection equation, an integral midpoint defect valid for both label
+parities, and a fourth-power bound on the common-ancestor label when the parent imbalance is
+bounded. These are proved structural restrictions; they do not resolve the uniqueness conjecture.
+\end{abstract}
+\maketitle
+\input{sections/01-introduction}
+\input{sections/02-standard-words-and-grams}
+\input{sections/03-reflection-decoder}
+\input{sections/04-midpoint-classification}
+\input{sections/05-displaced-reflections}
+\input{sections/06-outlook}
+\raggedbottom
+\section*{Supplementary material}
+The supplementary material accompanying this article contains the exact computations used in the proofs
+of \cref{thm:word-decoder,thm:palindromic-classification,thm:displaced-ancestor-bound},
+the worked examples of \cref{tab:pairs}, the identities and constants of the decoder at every
+palindromic centre in \cref{subsec:centre-decoder}, the nested cubes of \cref{subsec:nested}, the
+enumeration of twins of \cref{sec:outlook}, the identities of \cref{subsec:lengths}, the data of
+the three figures, and instructions for repeating the verification.
+\section*{Code and data availability}
+The source code and the data supporting this article, with the instructions
+that repeat every calculation, are contained in the supplementary material of
+this article, which is available, together with that of the other articles of
+this series:
+
+{\centering
+\url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
+\par}
+
+\section*{Conflict of interest}
+The authors declare that they have no conflict of interest.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

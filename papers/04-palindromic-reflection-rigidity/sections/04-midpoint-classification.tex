@@ -1,0 +1,785 @@
+\section{Complete classification at the ancestor midpoint}
+\label{sec:midpoint}
+
+The decoder concerns columns. The original arithmetic question concerns
+Gram matrices with the same first diagonal entry. The bridge between
+them is a full matrix conjugacy, which we prove before invoking the word
+theorem. This avoids any choice of a square root of a Gram matrix or of
+a middle letter in an odd palindrome.
+
+\begin{lemma}[The Gram bridge]\label{lem:gram-bridge}
+Fix a directive $d$ and two palindromes $z_X,z_Y$. Write
+$M_i=M(F_d(z_i))$ and $\rho_i=\rho(F_d(z_i))$.
+The following conditions are equivalent:
+\begin{align}
+ M_X=M_Y=M,\qquad \rho_X+\rho_Y&=2r_0M;
+ \label{eq:ancestor-midpoint-condition}\\
+ \nu_d(z_Y)&=R_d\nu_d(z_X)R_d.
+ \label{eq:full-reflection-conjugacy}
+\end{align}
+Under these conditions,
+$\nu_d(z_Y)e=R_d\nu_d(z_X)e$.
+\end{lemma}
+
+\begin{proof}
+For a symmetric determinant-one matrix
+$\left(\begin{smallmatrix}M&\rho\\\rho&H\end{smallmatrix}\right)$,
+conjugation by $J_0$ as a bilinear form gives
+$$
+ J_0^{\mathsf T}
+ \begin{pmatrix}M&\rho\\\rho&H\end{pmatrix}J_0
+ =\begin{pmatrix}
+ M&2r_0M-\rho\\
+ 2r_0M-\rho&4r_0^2M-4r_0\rho+H
+ \end{pmatrix}.
+$$
+The lower-right entry is uniquely determined by the other entries and
+the determinant, because $M>0$. Hence
+\eqref{eq:ancestor-midpoint-condition} is equivalent to
+$\mc G(F_d(z_Y))=J_0^{\mathsf T}\mc G(F_d(z_X))J_0$.
+Substitute \eqref{eq:image-gram}, multiply by $P^{-1}$ on both sides,
+and use $R_d=PJ_0P^{-1}$ to obtain
+$$
+ G\nu_d(z_Y)=R_d^{\mathsf T}G\nu_d(z_X)R_d
+ =GR_d\nu_d(z_X)R_d.
+$$
+Cancel the invertible matrix $G$. All steps are reversible, proving
+the equivalence. Finally $R_de=e$ gives the column identity.
+\end{proof}
+
+\begin{theorem}[Palindromic pairs at the ancestor midpoint]
+\label{thm:palindromic-classification}
+Fix any finite directive $d$. Two binary palindromes $z_X,z_Y$
+satisfy \eqref{eq:ancestor-midpoint-condition} if and only if, for
+some word $w\in\{ab,ba\}^*$,
+\begin{equation}\label{eq:classified-palindromes}
+ z_X=\widetilde w w,
+ \qquad z_Y=\widetilde{\widehat w}\,\widehat w.
+\end{equation}
+The word $w$ is uniquely determined by the ordered pair.
+If it contains $k$ blocks, then
+\begin{equation}\label{eq:classified-counts}
+ c(F_d(z_X))=c(F_d(z_Y))
+ =(2k+1)L_d\binom11.
+\end{equation}
+The case $k=0$ consists of two copies of the ancestor $g_d$.
+Every case $k>0$ consists of two distinct, noncentral palindromes.
+\end{theorem}
+
+\begin{proof}
+The Gram bridge and \cref{thm:word-decoder}, applied to the
+whole words $z_X,z_Y$, show that
+$z_X\in\{ab,ba\}^*$ and $z_Y=\widehat{z_X}$.
+Because $z_X$ has even length and is a palindrome, each of its two
+letter counts is even. A word of $m$ blocks $ab,ba$ has $m$ copies
+of each letter. Thus $m=2k$ is even, and the midpoint of $z_X$
+falls between blocks. Its second half is a unique word
+$w\in\{ab,ba\}^*$ and $z_X=\widetilde w w$.
+Block exchange commutes with reversal: reversing a block interchanges
+$ab$ and $ba$, and reversing a sequence reverses the order of its
+blocks. Consequently
+$z_Y=\widetilde{\widehat w}\,\widehat w$.
+
+Conversely, the block intertwining identities in
+\eqref{eq:decoder-intertwiners} imply
+$R_d\nu_d(x)R_d=\nu_d(\widehat x)$ for every
+$x\in\{ab,ba\}^*$. Apply this with $x=\widetilde w w$ and then
+use the Gram bridge. This proves the converse at the matrix level,
+including the equality of labels.
+
+Both preimages in \eqref{eq:classified-palindromes} have $2k$ copies
+of each letter. Formula~\eqref{eq:completed-count-transport} proves
+\eqref{eq:classified-counts}. If $k>0$, these completed counts have
+greatest common divisor $2k+1>1$, whereas every central word has
+primitive completed counts. The words are distinct because block
+exchange changes their first letter, and $F_d$ is injective. The
+empty case follows from $F_d(\eps)=g_d$.
+\end{proof}
+
+\begin{corollary}[Exclusion for central occurrences]
+\label{cor:no-central-midpoint}
+Let $d,t_X,t_Y$ be finite directives. If the central words
+$\operatorname{Pal}(dt_X)$ and $\operatorname{Pal}(dt_Y)$ have the
+same Gram label $M$ and their roots sum to $2M\rho_0/M_0$, then
+$t_X=t_Y=\eps$. In particular, a pair of distinct central words
+with equal labels cannot have its root midpoint at a common
+standard ancestor's root parameter.
+\end{corollary}
+
+\begin{proof}
+Use $z_i=\operatorname{Pal}(t_i)$ in the theorem. The images are
+central, so only $k=0$ is possible. The palindromization recurrence
+strictly increases length at every nonempty directive step; hence
+$\operatorname{Pal}(t_i)=\eps$ implies $t_i=\eps$.
+\end{proof}
+
+\subsection{Exact examples and the role of primitivity}
+
+At the empty directive, $G=I$, $(M_0,\rho_0)=(5,2)$ and
+$$
+ R_\eps=\frac15\begin{pmatrix}3&4\\4&-3\end{pmatrix}.
+$$
+Take $w=ab$. Then $z_X=baab$ and $z_Y=abba$, and direct evaluation gives
+\begin{equation}\label{eq:small-gram-pair}
+ \mc G(baab)=\begin{pmatrix}1130&467\\467&193\end{pmatrix},
+ \qquad
+ \mc G(abba)=\begin{pmatrix}1130&437\\437&169\end{pmatrix}.
+\end{equation}
+Both determinants are one and
+$467+437=2\cdot1130\cdot(2/5)$.
+This is a real equality of integral Gram labels. Its completed
+counts are $(3,3)$, so the theorem explains exactly why it is
+irrelevant to a collision between distinct central occurrences.
+
+The same preimages give a pair for every directive, and the whole table
+is one formula. It holds around every palindrome, standard or not.
+
+\begin{table}[tb]
+\centering
+\caption{Images of the fixed palindromes $baab$ and $abba$. Here
+$(M_0,\rho_0)$ belongs to the standard ancestor $\operatorname{Pal}(d)$,
+$M$ is the common image label, and $\rho_-<\rho_+$ are the image
+roots. Every row satisfies $(\rho_-+\rho_+)/(2M)=\rho_0/M_0$.
+The completed counts have greatest common divisor three in every row.}
+\label{tab:pairs}
+\small
+\setlength{\tabcolsep}{9pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}crrrrr@{}}
+\toprule
+$d$ & $M_0$ & $\rho_0$ & $M$ & $\rho_-$ & $\rho_+$ \\
+\midrule
+$\eps$ & 5 & 2 & 1130 & 437 & 467 \\
+$a$ & 13 & 5 & $19\,786$ & 7571 & 7649 \\
+$b$ & 29 & 12 & $219\,530$ & $90\,753$ & $90\,927$ \\
+$ab$ & 194 & 75 & $65\,712\,650$ & $25\,403\,793$ & $25\,404\,957$ \\
+$ba$ & 433 & 179 & $730\,645\,066$ & $302\,043\,659$ & $302\,046\,257$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{proposition}[The one-block pair in closed form]
+\label{prop:one-block-closed-form}
+Let $p$ be a palindrome with Gram label $M_p$ and Gram root $\rho_p$. The words
+$p\,ba\,p\,ab\,p$ and $p\,ab\,p\,ba\,p$ have the common Gram label and the two Gram roots
+\begin{equation}\label{eq:one-block-closed-form}
+ M=M_p\bigl(9M_p^2+1\bigr),
+ \qquad
+ \rho_\pm=\bigl(9M_p^2+1\bigr)\rho_p\pm3M_p ,
+\end{equation}
+the sign being $+$ for $p\,ba\,p\,ab\,p$ and $-$ for $p\,ab\,p\,ba\,p$. In particular the two
+roots differ by exactly $6M_p$, and their mean is $M\rho_p/M_p$. For $p=\operatorname{Pal}(d)$
+the two words are $F_d(baab)$ and $F_d(abba)$, and $(M_p,\rho_p)=(M_0,\rho_0)$.
+\end{proposition}
+
+\begin{proof}
+Put $W=\mu(p)$ and $\mc G_p=PWP=\left(\begin{smallmatrix}m&r\\r&h\end{smallmatrix}\right)$, a
+symmetric matrix with $mh-r^2=1$, where $m=M_p$ and $r=\rho_p$. Then
+$\mu(p\,ba\,p\,ab\,p)=W\,BA\,W\,AB\,W$, and inserting $P^{-1}P$ between the factors gives
+$$
+ \mc G(p\,ba\,p\,ab\,p)=\mc G_p\,K\,\mc G_p\,K^{\mathsf T}\mc G_p,
+ \qquad
+ K=P^{-1}BAP^{-1}=\begin{pmatrix}3&-1\\1&0\end{pmatrix},
+$$
+where $K^{\mathsf T}=P^{-1}ABP^{-1}$ because $A$, $B$ and $P$ are symmetric. A direct multiplication gives
+$$
+ K\mc G_pK^{\mathsf T}=\begin{pmatrix}9m-6r+h&3m-r\\3m-r&m\end{pmatrix},
+ \qquad
+ \mc G_pK\mc G_pK^{\mathsf T}=\begin{pmatrix}9m^2-3mr+1&3m^2\\9mr-3r^2+3&3mr+1\end{pmatrix},
+$$
+where $mh=r^2+1$ was used in the second product. Multiplying by the first column
+$(m,r)^{\mathsf T}$ of $\mc G_p$, the first column of the Gram matrix is
+$$
+ \binom{(9m^2-3mr+1)m+3m^2r}{(9mr-3r^2+3)m+(3mr+1)r}
+ =\binom{m(9m^2+1)}{(9m^2+1)r+3m}.
+$$
+The second word is obtained by exchanging the blocks, so its Gram matrix is
+$$
+ \mc G(p\,ab\,p\,ba\,p)=\mc G_p\,K^{\mathsf T}\mc G_p\,K\,\mc G_p ,
+$$
+and in the same way
+$$
+ K^{\mathsf T}\mc G_pK=\begin{pmatrix}9m+6r+h&-3m-r\\-3m-r&m\end{pmatrix},
+ \qquad
+ \mc G_pK^{\mathsf T}\mc G_pK=\begin{pmatrix}9m^2+3mr+1&-3m^2\\9mr+3r^2-3&1-3mr\end{pmatrix},
+$$
+and the first column of its Gram matrix is
+$$
+ \binom{(9m^2+3mr+1)m-3m^2r}{(9mr+3r^2-3)m+(1-3mr)r}
+ =\binom{m(9m^2+1)}{(9m^2+1)r-3m}.
+$$
+The mean of the two roots is $(9m^2+1)r=Mr/m$. For $p=\operatorname{Pal}(d)$, \eqref{eq:literal-standard-identities}
+gives $\phi_d(ba)=ba\,p$ and $\phi_d(ab)=ab\,p$, so that
+$F_d(baab)=p\,\phi_d(ba)\phi_d(ab)=p\,ba\,p\,ab\,p$, and likewise for $abba$.
+\end{proof}
+
+Every row of \cref{tab:pairs} is \eqref{eq:one-block-closed-form}
+evaluated at the ancestor of that row. The entries were also obtained
+directly from the literal words, and the determinant, midpoint and count
+identities are confirmed by exact integer arithmetic in the
+supplementary material; the theorem, including its exhaustion statement,
+depends on neither.
+
+The theorem uses neither an odd-label hypothesis nor a factorization
+of the common label. It also includes all three possible middle types
+of a palindrome: empty, $a$, and $b$. Their apparent difference
+disappears because the full-word decoder forces every reflected
+preimage in the midpoint case to have the even form
+\eqref{eq:classified-palindromes}. This is the main structural gain
+of passing from square-root factors to whole Gram matrices.
+
+\subsection{Every palindrome is a centre}
+\label{subsec:any-centre}
+
+\Cref{prop:one-block-closed-form} uses nothing about the centre beyond the symmetry and the
+determinant of its Gram matrix, and the same is true of the construction half of
+\cref{thm:palindromic-classification}. Fix a palindrome $p$ and put
+$$
+ G=\mu(p),\quad M_p=e^{\mathsf T}Ge,\quad \rho_p=(Ge)_1,\quad
+ K_p=2ee^{\mathsf T}G-M_pI,\quad R_p=K_p/M_p .
+$$
+For blocks $W_1,\dots,W_n\in\{ab,ba\}$ write
+$$
+ x_p=p\,W_1\,p\,W_2\,p\cdots p\,W_n\,p ,
+$$
+and let $\widehat x_p$ be the word obtained by exchanging every block. The word $x_p$ is a
+palindrome exactly when $n=2k$ is even and $W_{2k+1-i}$ is the exchange of $W_i$ for every
+$i$, since a middle block would have to equal its own exchange. We then say that $x_p$ is
+\emph{structured around} $p$, and $\widehat x_p$ is structured around $p$ as well.
+
+\begin{proposition}[Block exchange around an arbitrary palindrome]
+\label{prop:any-centre}
+For every palindrome $p$ and all blocks $W_1,\dots,W_n\in\{ab,ba\}$,
+$$
+ \begin{gathered}
+ K_p\,\mu(W_1p\cdots W_np)=\mu(\widehat W_1p\cdots\widehat W_np)\,K_p ,\\
+ R_p\,\mu(W_1p\cdots W_np)\,e=\mu(\widehat W_1p\cdots\widehat W_np)\,e .
+ \end{gathered}
+$$
+Moreover $e^{\mathsf T}\mu(x_p)e=e^{\mathsf T}\mu(\widehat x_p)e$; for palindromic block words
+these are the Gram labels. If $x_p$ is structured around $p$ with $2k$ blocks and common label $M$, then
+$\mu(\widehat x_p)=R_p^{\mathsf T}\mu(x_p)R_p$, the roots satisfy
+$\rho(x_p)+\rho(\widehat x_p)=2M\rho_p/M_p$, and both words have completed counts
+$(2k+1)\,c(p)$. For $k\geqslant1$ the two words are distinct and neither is central.
+\end{proposition}
+
+\begin{proof}
+The derivation of \eqref{eq:decoder-intertwiners} uses only that $G$ is symmetric, through
+$\tr(ABG)=3e^{\mathsf T}Ge$, and that the products have determinant one, through the
+Cayley--Hamilton identity. With $G=\mu(p)$ it gives $K_p\,ABG=BAG\,K_p$ and
+$K_p\,BAG=ABG\,K_p$. Hence $K_p\Pi=\widehat\Pi K_p$ for $\Pi=\mu(W_1p)\cdots\mu(W_np)$ and its
+exchange $\widehat\Pi$, which is the displayed identity; applying it to $e$ and using
+$K_pe=M_pe$ gives the column identity. Moreover $K_pe=2e(e^{\mathsf T}Ge)-M_pe=M_pe$ and
+$e^{\mathsf T}GK_p=M_pe^{\mathsf T}G$. Since $\mu(x_p)=G\Pi$,
+$$
+ M_p\,e^{\mathsf T}\mu(\widehat x_p)e=e^{\mathsf T}G\widehat\Pi K_pe=e^{\mathsf T}GK_p\Pi e
+ =M_p\,e^{\mathsf T}\mu(x_p)e .
+$$
+Next, $(ee^{\mathsf T}G)^2=M_pee^{\mathsf T}G$ gives $K_p^2=M_p^2I$, so
+$\widehat\Pi=R_p\Pi R_p$; and $GR_pG^{-1}=R_p^{\mathsf T}$ because $G$ is symmetric. Therefore
+$\mu(\widehat x_p)=GR_p\Pi R_p=R_p^{\mathsf T}\mu(x_p)R_p$. Since $P$ is symmetric, this gives
+$\mc G(\widehat x_p)=(P^{-1}R_pP)^{\mathsf T}\,\mc G(x_p)\,(P^{-1}R_pP)$. Since $P^{-1}e=e_1$ and
+$e^{\mathsf T}GP=e_1^{\mathsf T}PGP=(M_p,\rho_p)$,
+$$
+ P^{-1}R_pP=\frac{2e_1(M_p,\rho_p)-M_pI}{M_p}=\begin{pmatrix}1&2\rho_p/M_p\\0&-1\end{pmatrix},
+$$
+and the computation in the proof of \cref{lem:gram-bridge} shows that the congruence by this
+matrix takes a Gram matrix with first column $(M,\rho)$ to one with first column
+$(M,\,2M\rho_p/M_p-\rho)$. This is the root relation. The word $x_p$ contains $2k+1$ copies of
+$p$ and $2k$ blocks, each with one letter of each kind, which gives the completed counts.
+For $k\geqslant1$ their greatest common divisor is at least $2k+1$, while central words have
+coprime completed counts by \cref{lem:standard-identities}; and the two words differ at the
+first letter of the first block.
+\end{proof}
+
+The exchange also has a transparent arithmetic. Recall that the roots $r$ of $-1$ modulo a
+label $M$ correspond bijectively to the primitive Gaussian integers $x+iy$ of norm $M$ taken
+up to units, through $r\equiv xy^{-1}\pmod M$, and that replacing $r$ by $-r$ replaces $x+iy$
+by its conjugate.
+
+\begin{proposition}[The arithmetic of an exchange]
+\label{prop:exchange-arithmetic}
+Let $x_p$ be structured around $p$ with $2k\geqslant2$ blocks and common label $M$. Then
+$M_p$ divides $M$, the quotient $N=M/M_p$ is prime to $M_p$, and
+$$
+ \rho(x_p)\equiv\rho(\widehat x_p)\equiv\rho_p\pmod{M_p},
+ \qquad
+ \rho(x_p)+\rho(\widehat x_p)\equiv0\pmod N .
+$$
+The exchange therefore keeps the Gaussian factor of norm $M_p$ and conjugates the factor of
+norm $N$.
+\end{proposition}
+
+\begin{proof}
+As in the proof of \cref{prop:one-block-closed-form}, inserting $P^{-1}P$ between the factors
+gives $\mc G(x_p)=\mc G_pY_1\mc G_pY_2\cdots Y_n\mc G_p$, where $\mc G_p=\mc G(p)$ and $Y_i$ is
+$K$ when $W_i=ba$ and $K^{\mathsf T}$ when $W_i=ab$. Directly from these two matrices,
+$e_2^{\mathsf T}K=e_1^{\mathsf T}$, $e_2^{\mathsf T}K^{\mathsf T}=-e_1^{\mathsf T}$,
+$Ke_2=-e_1$ and $K^{\mathsf T}e_2=e_1$; and modulo $M_p$, entrywise,
+$e_1^{\mathsf T}\mc G_p\equiv\rho_pe_2^{\mathsf T}$ and $\mc G_pe_1\equiv\rho_pe_2$, because the
+first row of $\mc G_p$ is $(M_p,\rho_p)$. Reading $M(x_p)=e_1^{\mathsf T}\mc G(x_p)e_1$ from the
+left, each factor $\mc G_pY_i$ turns a multiple of $e_1^{\mathsf T}$ into $\pm\rho_p$ times
+$e_1^{\mathsf T}$, so $M(x_p)\equiv\pm\rho_p^{\,n}\,e_1^{\mathsf T}\mc G_pe_1=\pm\rho_p^{\,n}M_p\equiv0$.
+Reading $\rho(x_p)=e_2^{\mathsf T}\mc G(x_p)e_1$ from the right, the column starts as
+$\rho_pe_2$, and each factor $\mc G_pY_i$ multiplies a multiple of $e_2$ by $\rho_p$ and by
+$-1$ if $W_i=ba$, $+1$ if $W_i=ab$. Hence
+$\rho(x_p)\equiv\rho_p^{\,2k+1}(-1)^{j}$, where $j$ is the number of blocks $ba$. For a
+structured word the blocks pair off as $W_i$ and its exchange, so $j=k$; and
+$\rho_p^2\equiv-1$ because $\det\mc G_p=1$. Hence $\rho(x_p)\equiv(-1)^k(-1)^k\rho_p=\rho_p$,
+and the same holds for $\widehat x_p$.
+
+For the coprimality write $\rho(x_p)=\rho_p+M_ps$ and $\rho(\widehat x_p)=\rho_p+M_ps'$. By
+\cref{prop:any-centre} their sum is $2\rho_pN$, so $M_p(s+s')=2\rho_p(N-1)$. A prime dividing
+both $M_p$ and $N$ divides neither $N-1$ nor $\rho_p$, which is prime to $M_p$, so it must
+divide $2$; then $4$ divides $M=M_pN$. But $M$ is a sum of two coprime squares, the squared
+norm of the first column of $T$, and such a sum is $1$ or $2$ modulo $4$. Hence
+$\gcd(M_p,N)=1$, and $\rho(x_p)+\rho(\widehat x_p)=2\rho_pN\equiv0\pmod N$. By the Chinese
+remainder theorem the two roots agree modulo $M_p$ and are opposite modulo $N$; a root and
+its negative select conjugate Gaussian primes, which gives the last assertion.
+\end{proof}
+
+With the centre $p=baab$, whose label is $1130$ and root $467$, the closed form
+\eqref{eq:one-block-closed-form} gives the label $1130\cdot11\,492\,101=12\,986\,074\,130$ and
+the roots $5\,366\,814\,557$ and $5\,366\,807\,777$. Since $baab$ is not central, this pair lies
+outside \cref{tab:pairs}, and the same label shows that the midpoint condition of
+\cref{thm:palindromic-classification} cannot be removed.
+
+\begin{remark}[The midpoint hypothesis cannot be dropped]
+\label{rem:quadruple}
+Exactly four palindromes carry the label of the example above,
+$M=12\,986\,074\,130$, namely
+$$
+ \begin{aligned}
+ Z_1&=baab\,ba\,baab\,ab\,baab, &\qquad Z_2&=baab\,ab\,baab\,ba\,baab,\\
+ Z_3&=abba\,ba\,abba\,ab\,abba, &\qquad Z_4&=abba\,ab\,abba\,ba\,abba.
+ \end{aligned}
+$$
+The pairs $(Z_1,Z_2)$ and $(Z_3,Z_4)$ are exchanges around $baab$ and $abba$. Read in blocks of
+two letters, all four words lie in $\{ab,ba\}^*$, and $(Z_1,Z_4)$ and $(Z_2,Z_3)$ are exchanges
+around the empty word, with eight blocks each. The remaining pairs $(Z_1,Z_3)$ and $(Z_2,Z_4)$
+have equal labels and lie in the image of the empty directive, but neither word is the block
+exchange of the other: their root midpoints are $2/5\pm3390/M$ instead of the ancestor
+ratio $2/5$. Without the midpoint hypothesis, the conclusion of
+\cref{thm:palindromic-classification} fails. A label can also be carried by more than two
+palindromes, and two palindromes with the same label need not be exchanges of each other.
+\end{remark}
+
+The four words form a single class under exchanges, each around its own centre, and the two
+pairs that are not exchanges have their midpoints shifted off every centre. The next subsection
+shows that a midpoint at the ratio of a palindrome forces an exchange around it, at every centre,
+and \cref{subsec:nested} explains the shifted midpoints.
+
+\subsection{Decoding at every palindromic centre}
+\label{subsec:centre-decoder}
+
+\Cref{prop:any-centre} produces pairs of word columns related by the reflection $R_p$ of any
+palindrome $p$. We now prove that there are no others, for every palindrome and all finite words,
+and deduce the classification of \cref{thm:palindromic-classification} at every centre, without
+the hypotheses of a common standard image and of a common prefix. The argument is shorter than that
+of \cref{sec:decoder}. It works with the letters $a$ and $b$ in the slope coordinate, reads the
+first two letters of each word, and then reads the whole centre letter by letter through the
+transposed reflection. Beyond the symmetry of $\mu(p)$, the only number attached to the centre
+that enters the estimates is the window in which its ratio lies; the letters of the centre are read
+one at a time, by estimates valid for every word.
+
+We write $t(v)=v_1/v_2$ for the slope of a column $v$, with $t(v)=\infty$ when $v_2=0$, and $t(w)$
+for the slope of $\mu(w)e$; a matrix acts on slopes by fractional linear transformation. Two
+nonzero columns span the same line exactly when their slopes agree. By \cref{sec:decoder}, every
+word slope lies in $\mathcal J=[8/5,29/12]$, with $t(\varepsilon)=2$, $t(aw)\in A(\mathcal J)=[21/13,70/41]$
+and $t(bw)\in B(\mathcal J)=[50/21,169/70]$, because $t(cw)=\mu(c)(t(w))$ and the two maps are
+increasing on $\mathcal J$. So $t(w)<2$, $t(w)=2$ or $t(w)>2$ according as $w$ begins with $a$, is
+empty, or begins with $b$, and no word slope is infinite, nonpositive, smaller than $21/13$ or
+larger than $169/70$. We call this the \emph{first-letter rule}.
+
+Fix a palindrome $p$ and write $G=\mu(p)$, $M=M_p$, $\rho=\rho_p$, $K=K_p$ and $\tau=2\rho/M$.
+Since $Ge=(\rho,M-2\rho)^{\mathsf T}$ and $e^{\mathsf T}G=(Ge)^{\mathsf T}$,
+\begin{equation}\label{eq:centre-K}
+ K=\begin{pmatrix}4\rho-M&4M-8\rho\\2\rho&M-4\rho\end{pmatrix},\qquad
+ K^{\mathsf T}=\begin{pmatrix}4\rho-M&2\rho\\4M-8\rho&M-4\rho\end{pmatrix}.
+\end{equation}
+Five facts follow by direct computation. First, $K^2=M^2I$, $Ke=Me$ and $GK=K^{\mathsf T}G$, as in
+the proof of \cref{prop:any-centre}; hence $K^{\mathsf T}Ge=GKe=M\,Ge$, and
+$K^{\mathsf T}(1,-2)^{\mathsf T}=2Ge\,e^{\mathsf T}(1,-2)^{\mathsf T}-M(1,-2)^{\mathsf T}=-M(1,-2)^{\mathsf T}$.
+Second, multiplying \eqref{eq:centre-K} by $AB$, $BA$ and $A$,
+\begin{equation}\label{eq:centre-intertwining}
+ KAB=BAK^{\mathsf T},\qquad KBA=ABK^{\mathsf T},\qquad
+ B^{-1}KA=M\begin{pmatrix}0&1\\1&-1-\tau\end{pmatrix};
+\end{equation}
+for instance both upper-left entries in the first identity equal $12(4\rho-M)+7(4M-8\rho)=16M-8\rho$.
+Third, the slope $t(p)=\rho/(M-2\rho)$ lies in $\mathcal J$ and $\tau=2t(p)/(2t(p)+1)$ increases
+with it, so $16/21\leqslant\tau\leqslant29/35$, the values at $8/5$ and at $29/12$. Fourth, for a
+real $t$, with $\eta=1+\tau(t-2)$,
+\begin{equation}\label{eq:centre-slopes}
+ K\binom t1=M\binom{2\eta+2-t}{\eta},\qquad
+ K^{\mathsf T}\binom t1=M\binom{(2\tau-1)t+\tau}{(4-4\tau)t+1-2\tau}.
+\end{equation}
+Fifth, a relation $[T\mu(x)e]=[\mu(y)e]$ with $T^2$ a nonzero multiple of $I$ is symmetric in $x$
+and $y$: applying $T$ to both sides gives $[\mu(x)e]=[T\mu(y)e]$.
+
+\begin{lemma}[The first two letters]
+\label{lem:centre-first-letters}
+Let $p$ be a palindrome and $x,y$ words with $[K_p\mu(x)e]=[\mu(y)e]$. Then $x$ is empty if and
+only if $y$ is empty; if they are not empty, their first letters differ; and if $x$ begins with
+$a$, then $x=ab\,x_1$ and $y=ba\,y_1$ for words $x_1,y_1$ with $[K_p^{\mathsf T}\mu(x_1)e]=[\mu(y_1)e]$.
+\end{lemma}
+
+\begin{proof}
+\emph{First letters.} Let $t=t(x)$. Since $t-2\geqslant-2/5$ and $\tau\leqslant29/35$, the number
+$\eta=1+\tau(t-2)$ is at least $1-58/175=117/175>0$. By \eqref{eq:centre-slopes} the column
+$K\mu(x)e$ is a positive multiple of $(2\eta+2-t,\eta)^{\mathsf T}$, so
+$t(y)=2+(2-t(x))/\eta$, and $t(y)-2$ has the sign of $2-t(x)$, zero included. The first-letter
+rule gives the first two assertions.
+
+\emph{The second letter of $x$.} Let $x=ax'$, so that $y=by'$. Multiplying
+$[KA\mu(x')e]=[B\mu(y')e]$ by $B^{-1}$ and using \eqref{eq:centre-intertwining}, the column
+$B^{-1}KA\mu(x')e$ is a positive multiple of $(1,\,t(x')-1-\tau)^{\mathsf T}$, so
+$t(y')=1/(t(x')-1-\tau)$, read as $\infty$ when the denominator vanishes. If $x'$ were empty, then
+$t(y')=1/(1-\tau)\geqslant21/5>169/70$. If $x'$ began with $a$, then
+$t(x')\leqslant70/41<37/21\leqslant1+\tau$, and $t(y')$ would be negative. Neither is a word slope,
+so $x'=bx_1$.
+
+\emph{The second letter of $y$.} Now $[KAB\mu(x_1)e]=[B\mu(y')e]$, and
+\eqref{eq:centre-intertwining} turns it into $[AK^{\mathsf T}\mu(x_1)e]=[\mu(y')e]$. By
+\eqref{eq:centre-slopes}, with $t=t(x_1)\geqslant8/5$, the column $K^{\mathsf T}\mu(x_1)e$ is a
+positive multiple of $((2\tau-1)t+\tau,\,(4-4\tau)t+1-2\tau)^{\mathsf T}$. Its first entry is
+positive because $\tau>1/2$, and its second entry increases with $t$ and is at least
+$(37-42\tau)/5\geqslant11/25$ at $t=8/5$. So $K^{\mathsf T}\mu(x_1)e$ has a positive slope $s$, and
+$t(y')=A(s)$ lies strictly between $1$ and $2$. By the first-letter rule $y'=ay_1$, and cancelling
+$A$ gives $[K^{\mathsf T}\mu(x_1)e]=[\mu(y_1)e]$.
+\end{proof}
+
+The transposed reflection $K^{\mathsf T}$ fixes the column $Ge$ of the centre and reverses
+$(1,-2)^{\mathsf T}$. The next lemma shows that such a reflection can relate two word columns only if
+both words begin as the centre does.
+
+\begin{lemma}[One letter of a fixed word]
+\label{lem:centre-one-letter}
+Let $T$ be a real matrix and $\kappa\neq0$ with $Tu=\kappa u$ and $Tv=-\kappa v$, where $u=\mu(q)e$
+for a nonempty word $q$ with first letter $c$, and $v$ is a column whose slope $\omega$ lies in
+$[-1,-2/5]$. If $x$ and $y$ are words with $[T\mu(x)e]=[\mu(y)e]$, then both begin with $c$.
+\end{lemma}
+
+\begin{proof}
+Put $\theta=t(q)$, which lies in $A(\mathcal J)$ if $c=a$ and in $B(\mathcal J)$ if $c=b$, and
+$\Omega=-\omega\in[2/5,1]$. For a real $t\neq\omega$ let $\sigma(t)=(t-\theta)/(t-\omega)$. Writing
+$(t,1)^{\mathsf T}=\alpha(\theta,1)^{\mathsf T}+\beta(\omega,1)^{\mathsf T}$ with
+$\alpha=(t-\omega)/(\theta-\omega)$ and $\beta=(\theta-t)/(\theta-\omega)$, one has
+$T(t,1)^{\mathsf T}=\kappa(\alpha(\theta,1)^{\mathsf T}-\beta(\omega,1)^{\mathsf T})$, and when
+its slope $t'$ is finite, $\sigma(t')=\beta/\alpha=-\sigma(t)$. The relation gives $t(y)=t'$ for
+$t=t(x)$, so $\sigma(t(y))=-\sigma(t(x))$. On $(\omega,\infty)$, which contains every word slope,
+$\sigma$ is increasing, with derivative $(\theta-\omega)/(t-\omega)^2$, and $\sigma<1$.
+
+\emph{The case $c=a$.} Suppose that $x$ does not begin with $a$, so $t(x)\geqslant2$ and
+$\sigma(t(x))\geqslant\sigma_0=(2-\theta)/(2+\Omega)>0$. Solving $\sigma(t(y))=-\sigma(t(x))$ for
+$t(y)$ and using that $\sigma\mapsto\sigma/(1+\sigma)$ increases,
+$$
+ t(y)=\theta-\frac{\sigma(t(x))}{1+\sigma(t(x))}(\theta+\Omega)
+ \leqslant\theta-\frac{\sigma_0}{1+\sigma_0}(\theta+\Omega)
+ =\theta-(2-\theta)\,\frac{\theta+\Omega}{4-\theta+\Omega}.
+$$
+The last quotient increases with $\Omega$, because $\theta<2$, and with $\theta$, so it is at least
+its value $131/181$ at $\theta=21/13$, $\Omega=2/5$. With $\theta\leqslant70/41$ and
+$2-\theta\geqslant12/41$ this gives
+$t(y)\leqslant70/41-(12/41)(131/181)=11098/7421<21/13$, which is the slope of no word.
+
+\emph{The case $c=b$.} Suppose that $x$ does not begin with $b$, so $t(x)\leqslant2<\theta$ and
+$-\sigma(t(x))\geqslant\sigma_0=(\theta-2)/(2+\Omega)>0$; also $\sigma_0\leqslant29/168<1$. Since
+$t(y)$ is a word slope, it lies in $(\omega,\infty)$, so $-\sigma(t(x))=\sigma(t(y))<1$. Solving as
+before, and using that $\sigma\mapsto\sigma/(1-\sigma)$ increases on $[0,1)$,
+$$
+ t(y)\geqslant\theta+\frac{\sigma_0}{1-\sigma_0}(\theta+\Omega)
+ =\theta+(\theta-2)\,\frac{\theta+\Omega}{4-\theta+\Omega}.
+$$
+The last quotient now decreases with $\Omega$, because $\theta>2$, and increases with $\theta$, so it
+is at least its value $71/55$ at $\theta=50/21$, $\Omega=1$. With $\theta\geqslant50/21$ and
+$\theta-2\geqslant8/21$ this gives $t(y)\geqslant50/21+(8/21)(71/55)=158/55>169/70$, which is the
+slope of no word.
+
+In both cases $x$ begins with $c$. The columns $u$ and $v$ have different slopes, so $T^2=\kappa^2I$,
+the relation is symmetric, and the same argument shows that $y$ begins with $c$.
+\end{proof}
+
+\begin{lemma}[Reading the centre]
+\label{lem:centre-reading}
+Let $p$ be a palindrome. If two words $x$ and $y$ satisfy
+$[K_p^{\mathsf T}\mu(x)e]=[\mu(y)e]$, then $x=p\,x_0$ and $y=p\,y_0$, where the words $x_0$ and
+$y_0$ satisfy $[K_p\mu(x_0)e]=[\mu(y_0)e]$.
+\end{lemma}
+
+\begin{proof}
+Write $p=c_1\cdots c_n$, and for $0\leqslant j\leqslant n$ put $\Pi_j=\mu(c_1\cdots c_j)$ and
+$T_j=\Pi_j^{-1}K^{\mathsf T}\Pi_j$. Then $T_0=K^{\mathsf T}$ and $T_n=G^{-1}K^{\mathsf T}G=K$. For
+$j<n$ let $q_j=c_{j+1}\cdots c_n$, a nonempty word with first letter $c_{j+1}$ and
+$\Pi_j\mu(q_j)=G$. Then $T_j\mu(q_j)e=\Pi_j^{-1}K^{\mathsf T}Ge=M\mu(q_j)e$, and the column
+$v_j=\Pi_j^{-1}(1,-2)^{\mathsf T}$ satisfies $T_jv_j=-Mv_j$. Its slope $\omega_j$ lies in
+$[-1,-2/5]$. Indeed $\omega_0=-1/2$ and $\omega_j=\mu(c_j)^{-1}(\omega_{j-1})$; for $t<0$,
+$$
+ A^{-1}(t)=\frac{t-1}{2-t}\in\Bigl(-1,-\frac12\Bigr),\qquad
+ B^{-1}(t)=\frac{t-2}{5-2t}\in\Bigl(-\frac12,-\frac25\Bigr),
+$$
+because $A^{-1}(t)+1=1/(2-t)>0$, $A^{-1}(t)+1/2=t/(2(2-t))<0$, $B^{-1}(t)+1/2=1/(2(5-2t))>0$ and
+$B^{-1}(t)+2/5=t/(5(5-2t))<0$; induction on $j$ concludes.
+
+Put $x^{(0)}=x$ and $y^{(0)}=y$, and suppose that $[T_j\mu(x^{(j)})e]=[\mu(y^{(j)})e]$ for some
+$j<n$. \Cref{lem:centre-one-letter}, applied to $T_j$ with $q=q_j$ and $\kappa=M$, shows that
+$x^{(j)}$ and $y^{(j)}$ both begin with $c_{j+1}$. Writing $x^{(j)}=c_{j+1}x^{(j+1)}$ and
+$y^{(j)}=c_{j+1}y^{(j+1)}$ and multiplying by $\mu(c_{j+1})^{-1}$ gives
+$[T_{j+1}\mu(x^{(j+1)})e]=[\mu(y^{(j+1)})e]$. After $n$ steps $x=p\,x^{(n)}$ and $y=p\,y^{(n)}$, and
+the relation for $T_n=K$ is the claim with $x_0=x^{(n)}$ and $y_0=y^{(n)}$.
+\end{proof}
+
+\begin{theorem}[Decoding at every palindromic centre]
+\label{thm:centre-decoder}
+For every palindrome $p$ and all finite words $x$ and $y$, the empty word included, the lines
+$[R_p\mu(x)e]$ and $[\mu(y)e]$ coincide if and only if $x\in\{ab\,p,\ ba\,p\}^*$ and $y$ is
+obtained from $x$ by exchanging every block. In that case $R_p\mu(x)e=\mu(y)e$ exactly.
+\end{theorem}
+
+\begin{proof}
+The implication from right to left and the exact equality are \cref{prop:any-centre}: for a block
+word $x$ and its exchange $\widehat x$, $K\mu(x)=\mu(\widehat x)K$, and $Ke=Me$. For the converse we
+argue by induction on $\abs x+\abs y$. Suppose $[K\mu(x)e]=[\mu(y)e]$. If one of the words is empty,
+both are, by \cref{lem:centre-first-letters}, and the empty word is a block word equal to its
+exchange. Otherwise their first letters differ. If $x$ begins with $a$,
+\cref{lem:centre-first-letters} gives $x=ab\,x_1$, $y=ba\,y_1$ and
+$[K^{\mathsf T}\mu(x_1)e]=[\mu(y_1)e]$, and \cref{lem:centre-reading} gives $x_1=p\,x''$,
+$y_1=p\,y''$ and $[K\mu(x'')e]=[\mu(y'')e]$. Since $\abs{x''}+\abs{y''}<\abs x+\abs y$, the
+induction hypothesis shows that $x''$ is a block word and $y''$ its exchange, so $x=ab\,p\,x''$ is a
+block word and $y=ba\,p\,y''$ is its exchange. If $x$ begins with $b$, the relation is symmetric,
+because $K^2=M^2I$; the previous case applied to $(y,x)$ gives $y=ab\,p\,y''$ and $x=ba\,p\,x''$ with
+$[K\mu(y'')e]=[\mu(x'')e]$, hence $[K\mu(x'')e]=[\mu(y'')e]$, and the induction hypothesis concludes
+in the same way.
+\end{proof}
+
+For a standard centre $p=\operatorname{Pal}(d)$ one has $ab\,p=\phi_d(ab)$ and $ba\,p=\phi_d(ba)$ by
+\eqref{eq:literal-standard-identities}, so the theorem contains \cref{thm:word-decoder} and shows
+moreover that no word outside the image of $\phi_d$ is related to a word column by $R_d$. The proof
+uses neither the standard letters $U$, $V$ nor the cylinders of \cref{sec:decoder}; those cylinders
+are still needed in \cref{sec:displaced}, where they measure how far a column moves when the
+midpoint is displaced. The theorem has the following consequence for palindromes.
+
+\begin{corollary}[Classification at every centre]
+\label{cor:centre-classification}
+Let $p$, $Z$ and $Z'$ be palindromes. Then $M(Z)=M(Z')$ and $\rho(Z)+\rho(Z')=2M(Z)\rho_p/M_p$ if and
+only if $Z=p\,X$ and $Z'=p\,\widehat X$ for a block word $X\in\{ab\,p,\ ba\,p\}^*$. In that case either
+$Z=Z'=p$, or $Z$ is structured around $p$ and $Z'$ is its exchange, and the two words have the same
+numbers of letters $a$ and $b$. In particular two distinct central words never have equal labels
+with root midpoint at the ratio of a palindrome.
+\end{corollary}
+
+\begin{proof}
+Put $J_\tau=\left(\begin{smallmatrix}1&\tau\\0&-1\end{smallmatrix}\right)$ with $\tau=2\rho_p/M_p$;
+by the proof of \cref{prop:any-centre}, $P^{-1}R_pP=J_\tau$. The computation in the proof of
+\cref{lem:gram-bridge} shows that $J_\tau^{\mathsf T}\mathcal G(Z)J_\tau$ is symmetric of
+determinant one with first row $(M(Z),\,\tau M(Z)-\rho(Z))$, and a symmetric matrix of determinant
+one with positive upper-left entry is determined by its first row. So the two conditions on labels
+and roots hold if and only if $\mathcal G(Z')=J_\tau^{\mathsf T}\mathcal G(Z)J_\tau$, that is, since $P$
+is symmetric, $\mu(Z')=R_p^{\mathsf T}\mu(Z)R_p$. If this holds, then
+$\mu(Z')e=R_p^{\mathsf T}\mu(Z)e$ because $R_pe=e$, and \cref{lem:centre-reading} gives $Z=p\,X$ and
+$Z'=p\,Y$ with $[K_p\mu(X)e]=[\mu(Y)e]$; by \cref{thm:centre-decoder}, $X$ is a block word and
+$Y=\widehat X$. Conversely, if $Z=p\,X$ and $Z'=p\,\widehat X$, then $K_p\mu(X)=\mu(\widehat X)K_p$ and
+$K_p^2=M_p^2I$ give $\mu(\widehat X)=R_p\mu(X)R_p$, so
+$\mu(Z')=G\,R_p\mu(X)R_p=R_p^{\mathsf T}G\mu(X)R_p=R_p^{\mathsf T}\mu(Z)R_p$. Since $Z$ is a palindrome
+and every block has length $\abs p+2$, comparing $Z$ with its reversal shows that $X$ has an even
+number $2k$ of blocks with $W_{2k+1-i}=\widehat W_i$; so either $k=0$, or $Z$ is structured around
+$p$ and $Z'$ is its exchange. Exchanging blocks does not change the letter counts. Finally a word
+structured with $k\geqslant1$ has completed counts $(2k+1)\,c(p)$, which are not coprime, so it is
+not central.
+\end{proof}
+
+The centre in the corollary is determined by the pair: the fraction $\rho_p/M_p$ is reduced,
+because $\rho_p^2\equiv-1\pmod{M_p}$, so it gives $M_p$ and $\rho_p$, hence the Gram matrix of $p$
+and, the Cohn coding being injective, the palindrome $p$ itself. The corollary contains
+\cref{thm:palindromic-classification}: when $Z=F_d(z_X)$ and $Z'=F_d(z_Y)$ and $p=\operatorname{Pal}(d)$,
+the block word $X$ lies in $\phi_d(\{ab,ba\}^*)$, and the injectivity of $F_d$ returns the pair
+$(\widetilde ww,\widetilde{\widehat w}\,\widehat w)$. \Cref{rem:quadruple} shows that the hypothesis on
+the midpoint cannot be dropped.
+
+\subsection{Nested centres and shifted midpoints}
+\label{subsec:nested}
+
+The quadruple of \cref{rem:quadruple} raises two questions: why do four palindromes share a
+label, and why are the midpoints of two of its pairs shifted off every centre? The answer is that
+exchanges around nested centres compose. When the centre of an exchange is itself one of two
+exchanged palindromes, the words built around the two of them form a square of twins, and nesting
+$r$ levels gives a cube with $2^r$ vertices. The shift of a midpoint is then the geometry of two
+reflections of the ratio axis, which compose to a translation.
+
+It is convenient to name the words of \cref{subsec:any-centre} by their blocks. A \emph{block
+sequence} is a finite sequence $B=(B_1,\dots,B_n)$ with $B_i\in\{ab,ba\}$; we write
+$\widehat B=(\widehat B_1,\dots,\widehat B_n)$, and we call $B$ \emph{structured} when $n=2k\geqslant2$
+and $B_{n+1-i}=\widehat B_i$ for every $i$. For a word $q$ put
+$$
+ q\langle B\rangle=q\,B_1\,q\,B_2\,q\cdots q\,B_n\,q .
+$$
+The words structured around a palindrome $p$ are exactly the words $p\langle B\rangle$ with $B$
+structured, and the exchange of $p\langle B\rangle$ around $p$ is $p\langle\widehat B\rangle$. For
+block sequences $X=(X_1,\dots,X_n)$ and $Y=(Y_1,\dots,Y_m)$ let
+$$
+ X\ast Y=(X,\,Y_1,\,X,\,Y_2,\,\dots,\,X,\,Y_m,\,X)
+$$
+be the block sequence in which the blocks of $X$ are written $m+1$ times, separated by
+$Y_1,\dots,Y_m$; it has $(m+1)n+m$ blocks.
+
+\begin{lemma}[Reading through an inner centre]
+\label{lem:nested-reading}
+For every word $q$ and all block sequences $X$ and $Y$,
+$$
+ \bigl(q\langle X\rangle\bigr)\langle Y\rangle=q\langle X\ast Y\rangle,
+ \qquad \widehat{X\ast Y}=\widehat X\ast\widehat Y .
+$$
+If $X$ and $Y$ are structured, then so is $X\ast Y$.
+\end{lemma}
+
+\begin{proof}
+The word $Q=q\langle X\rangle$ begins and ends with $q$. In $Q\langle Y\rangle=Q\,Y_1\,Q\cdots Y_m\,Q$
+every junction reads $\cdots X_n\,q\,Y_j\,q\,X_1\cdots$, so the whole word is $q$ followed by the
+blocks $X_1,\dots,X_n,Y_1,X_1,\dots,X_n,Y_2,\dots,Y_m,X_1,\dots,X_n$, each of them followed by one
+copy of $q$. This is $q\langle X\ast Y\rangle$. The second identity holds block by block. For the
+last assertion let $X$ have $n=2k$ blocks and $Y$ have $m=2j$ blocks. Reading $X\ast Y$ backwards
+gives $(\overleftarrow X,Y_m,\overleftarrow X,\dots,Y_1,\overleftarrow X)$, where
+$\overleftarrow X=(X_n,\dots,X_1)$. Structure of $X$ means $\overleftarrow X=\widehat X$, and
+structure of $Y$ means $Y_{m+1-i}=\widehat Y_i$, so the reversed sequence is
+$(\widehat X,\widehat Y_1,\widehat X,\dots,\widehat Y_m,\widehat X)=\widehat X\ast\widehat Y$, which
+is $\widehat{X\ast Y}$ by the second identity. Its number of blocks, $(m+1)n+m$, is even and at
+least two.
+\end{proof}
+
+\begin{theorem}[Cubes of nested exchanges]
+\label{thm:nested-cubes}
+Let $p$ be a palindrome, let $r\geqslant1$, and let $B_1,\dots,B_r$ be structured block sequences,
+$B_i$ with $2k_i$ blocks. For $s\in\{0,1\}^r$ put $B_i^s=B_i$ if $s_i=0$ and $B_i^s=\widehat B_i$
+if $s_i=1$, and define
+$$
+ Q_0^s=p,\qquad Q_i^s=Q_{i-1}^s\langle B_i^s\rangle\quad(1\leqslant i\leqslant r),\qquad Z^s=Q_r^s .
+$$
+For $1\leqslant i\leqslant r$ let $f_i\in\{0,1\}^r$ have its entries equal to one exactly in the
+positions $i,\dots,r$, and write $s+f_i$ for the sum modulo two. Then:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the $2^r$ words $Z^s$ are pairwise distinct palindromes, all with completed counts
+ $(2k_1+1)\cdots(2k_r+1)\,c(p)$;
+\item for every $s$ and every $i$, the words $Z^s$ and $Z^{s+f_i}$ are exchanges of each other
+ around the palindrome $Q_{i-1}^s$;
+\item all $2^r$ words have the same Gram label $M$, any two of them are joined by at most $r$
+ exchanges of the kind in \textup{(ii)}, and the roots of the pair in \textup{(ii)} satisfy
+ $\rho(Z^s)+\rho(Z^{s+f_i})=2M\rho(Q_{i-1}^s)/M(Q_{i-1}^s)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Every level is a centre.} Define block sequences $R_r^s=B_r^s$ and
+$R_i^s=B_i^s\ast R_{i+1}^s$ for $1\leqslant i<r$. We claim that $Z^s=Q_{i-1}^s\langle R_i^s\rangle$
+for every $i$, and prove it by downward induction on $i$. For $i=r$ it is the definition
+$Z^s=Q_r^s=Q_{r-1}^s\langle B_r^s\rangle$. If $Z^s=Q_i^s\langle R_{i+1}^s\rangle$, then
+$Q_i^s=Q_{i-1}^s\langle B_i^s\rangle$ and \cref{lem:nested-reading} give
+$Z^s=Q_{i-1}^s\langle B_i^s\ast R_{i+1}^s\rangle=Q_{i-1}^s\langle R_i^s\rangle$. By the last
+assertion of \cref{lem:nested-reading} and induction, every $R_i^s$ is structured. The same
+argument applied to the word $Q_{i-1}^s$ in place of $Z^s$ writes it as $p\langle R\rangle$ with $R$
+structured, or as $p$ itself when $i=1$; in both cases $Q_{i-1}^s$ is a palindrome. Hence $Z^s$ is
+structured around the palindrome $Q_{i-1}^s$.
+
+\emph{The exchange is a flip of the last coordinates.} The exchange of $Z^s$ around $Q_{i-1}^s$ is
+$Q_{i-1}^s\langle\widehat{R_i^s}\rangle$. Applying the second identity of \cref{lem:nested-reading}
+repeatedly, $\widehat{R_i^s}=\widehat{B_i^s}\ast\widehat{R_{i+1}^s}=\cdots$ is the sequence $R_i^{s'}$
+built from $s'=s+f_i$, the vector obtained by changing $s_i,\dots,s_r$. The first $i-1$ coordinates
+of $s'$ are those of $s$, so $Q_{i-1}^{s'}=Q_{i-1}^s$, and the exchange is
+$Q_{i-1}^{s'}\langle R_i^{s'}\rangle=Z^{s'}$. This proves (ii).
+
+\emph{Palindromes, distinctness and counts.} The case $i=1$ of the first step gives
+$Z^s=p\langle R_1^s\rangle$ with $R_1^s$ structured, so $Z^s$ is a palindrome. Let $s\neq s'$, let
+$i$ be the first coordinate in which they differ, and put $Q=Q_{i-1}^s=Q_{i-1}^{s'}$. Every
+$Q_j^s$ begins with $Q_{j-1}^s$, so $Z^s$ begins with $Q\langle B_i^s\rangle$ and $Z^{s'}$ begins
+with $Q\langle\widehat{B_i^s}\rangle$; the two words differ in the letter that follows the first
+copy of $Q$, which is the first letter of a block in one and of its exchange in the other. By
+\cref{prop:any-centre}, a word structured around a centre with $2k$ blocks has completed counts
+$2k+1$ times those of the centre; applied at the levels $1,\dots,r$ this gives the counts in (i).
+
+\emph{Labels and roots.} By \cref{prop:any-centre}, two words exchanged around a palindrome have the
+same label, and their roots sum to twice the label times the ratio of the centre. The vectors
+$f_1,\dots,f_r$ are linearly independent modulo two, since the matrix with these rows is triangular
+with ones on the diagonal. Every vector of $\{0,1\}^r$ is therefore a sum of at most $r$ of them,
+and applying the corresponding exchanges one after the other joins $Z^s$ to any other $Z^{s'}$.
+The label is therefore common to all $2^r$ words, which proves (iii).
+\end{proof}
+
+For $r=2$ the cube is a square, and its two pairs that are not exchanges are the pairs of the
+quadruple whose midpoints are shifted.
+
+\begin{corollary}[The square and its shifted midpoints]
+\label{cor:nested-square}
+Let $p$ be a palindrome and $W$, $V$ structured block sequences; put $P_1=p\langle W\rangle$,
+$P_2=p\langle\widehat W\rangle$ and
+$$
+ Z_1=P_1\langle V\rangle,\qquad Z_2=P_1\langle\widehat V\rangle,\qquad
+ Z_3=P_2\langle V\rangle,\qquad Z_4=P_2\langle\widehat V\rangle ,
+$$
+with common label $M$ and roots $\rho_1,\dots,\rho_4$. The pairs $(Z_1,Z_2)$ and $(Z_3,Z_4)$ are
+exchanges around $P_1$ and $P_2$, and the pairs $(Z_1,Z_4)$ and $(Z_2,Z_3)$ are exchanges around
+$p$. The two remaining pairs satisfy $\rho_1\neq\rho_2$ and
+$$
+ \frac{\rho_1+\rho_3}{2M}=\frac{\rho_p}{M_p}+\frac{\rho_1-\rho_2}{2M},\qquad
+ \frac{\rho_2+\rho_4}{2M}=\frac{\rho_p}{M_p}-\frac{\rho_1-\rho_2}{2M}.
+$$
+If $W$ and $V$ have two blocks each, then $M(P_1)=M_p(9M_p^2+1)$, $M=M(P_1)\bigl(9M(P_1)^2+1\bigr)$
+and $\abs{\rho_1-\rho_2}=6M(P_1)$.
+\end{corollary}
+
+\begin{proof}
+Take $r=2$, $B_1=W$ and $B_2=V$ in \cref{thm:nested-cubes}; then $Z_1,Z_2,Z_3,Z_4$ are
+$Z^{(0,0)},Z^{(0,1)},Z^{(1,0)},Z^{(1,1)}$. The flip $f_2=(0,1)$ joins $Z_1$ to $Z_2$ around
+$Q_1^{(0,0)}=P_1$ and $Z_3$ to $Z_4$ around $Q_1^{(1,0)}=P_2$. The flip $f_1=(1,1)$ joins $Z_1$ to
+$Z_4$ and $Z_2$ to $Z_3$, both around $Q_0=p$. By part (iii) of the theorem,
+$\rho_1+\rho_4=2M\rho_p/M_p$ and $\rho_2+\rho_3=2M\rho_p/M_p$. Hence
+$$
+ \rho_1+\rho_3=\rho_1-\rho_2+2M\frac{\rho_p}{M_p},\qquad
+ \rho_2+\rho_4=\rho_2-\rho_1+2M\frac{\rho_p}{M_p},
+$$
+which are the displayed identities after division by $2M$. The words $Z_1$ and $Z_2$ are distinct
+palindromes with the same label, and a palindrome is determined by its label and root, because
+they determine the Gram matrix through its determinant and the Cohn coding is injective; so
+$\rho_1\neq\rho_2$. If $W$ and $V$ have two blocks each, \cref{prop:one-block-closed-form}
+applied around $p$ gives the label of $P_1$, and applied around $P_1$ it gives $M$ and
+$\rho_1-\rho_2=\pm6M(P_1)$.
+\end{proof}
+
+For $p=\varepsilon$ and $W=V=(ba,ab)$ one has $P_1=baab$, $P_2=abba$, $M(P_1)=1130$, and the four
+words are those of \cref{rem:quadruple}, with $M=1130\cdot11\,492\,101$. The two pairs that are not
+exchanges have their midpoints at $2/5\pm3390/M$: the shift is half the width $6\cdot1130$ of the
+rungs around $baab$ and $abba$, divided by the label. \Cref{fig:nested-square} draws this square
+above the rung of $abba$ and $baab$.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/nested-square}
+\caption{The square of \cref{cor:nested-square} for $p=\varepsilon$ and $W=V=(ba,ab)$, in the plane
+of the ratio $\rho/M$ and the label, at the labels $5$, $1130$ and $12\,986\,074\,130$. The two lower
+levels are drawn to scale. At the top level $Z_1$ and $Z_2$ lie at $467/1130\pm3/N$ and $Z_3$ and
+$Z_4$ at $437/1130\pm3/N$, where $N=9\cdot1130^2+1=11\,492\,101$; these offsets, about
+$2.6\cdot10^{-7}$, are drawn enlarged, all by the same factor. The short rungs are the exchanges
+around $baab$ and $abba$, each centred above its centre; the arcs are the exchanges around the empty
+word, centred at $2/5$ like the rung below them. The diagonals $(Z_1,Z_3)$ and $(Z_2,Z_4)$ are not
+exchanges: their midpoints $2/5\pm3/N$ are the inner centre shifted by half the width of a short
+rung.}
+\label{fig:nested-square}
+\end{figure}
+
+When every block sequence has two blocks, the arithmetic of a cube is completely explicit. Put
+$M_i=M(Q_i^s)$, which by \cref{prop:one-block-closed-form} does not depend on $s$, and
+$N_i=9M_i^2+1$ for $0\leqslant i<r$, so that $M_0=M_p$ and $M_i=M_{i-1}N_{i-1}$. The same
+proposition gives $\rho(Q_i^s)=N_{i-1}\rho(Q_{i-1}^s)\pm3M_{i-1}$, with the sign $+$ exactly when the
+first block of $B_i^s$ is $ba$. Since $N_{i-1}\equiv1$ modulo $M_{i-1}=M_pN_0\cdots N_{i-2}$, the
+numbers $M_p,N_0,\dots,N_{r-1}$ are pairwise coprime with product $M$. Reducing the recursion,
+$\rho(Q_i^s)\equiv\rho(Q_{i-1}^s)$ modulo $M_{i-1}$ and $\rho(Q_i^s)\equiv\pm3M_{i-1}$ modulo
+$N_{i-1}$; since every later level keeps the residue modulo the label of the previous one,
+$$
+ \rho(Z^s)\equiv\rho_p\pmod{M_p},\qquad \rho(Z^s)\equiv\pm3M_{i-1}\pmod{N_{i-1}}\quad(1\leqslant i\leqslant r),
+$$
+and different $s$ give different patterns of signs. In the correspondence between roots of $-1$
+and Gaussian integers recalled before \cref{prop:exchange-arithmetic}, $N_{i-1}=(3M_{i-1})^2+1$ is
+the norm of $3M_{i-1}\pm i$, whose roots are $\pm3M_{i-1}$. The $2^r$ twins of a cube therefore carry
+the Gaussian integers $\gamma_p\prod_{i=1}^r(3M_{i-1}\pm i)$, with $\gamma_p$ the Gaussian integer
+attached to $\rho_p$, for all
+choices of signs, and the exchange around $Q_{i-1}^s$ conjugates the factors of the levels
+$i,\dots,r$. This is the sign change of \cref{prop:exchange-arithmetic}, made explicit. Whether every
+coincidence of labels among palindromes arises from such cubes is the question of
+\cref{sec:outlook}.

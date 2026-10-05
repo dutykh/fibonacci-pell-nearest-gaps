@@ -1,0 +1,505 @@
+\section{Decoding a rational reflection on finite words}
+\label{sec:decoder}
+
+The matrix identities for a standard directive supply many pairs related
+by its reflection: one may exchange the blocks $ab$ and $ba$ in any
+concatenation. The question is whether there are other pairs. We prove
+that there are none, even among arbitrary finite words. The proof reads
+two letters at a time. A change of projective coordinate places all
+possible first letters in two fixed intervals, and the final letter of
+the directive determines which inequalities exclude a wrong continuation.
+\Cref{subsec:centre-decoder} proves the same statement for the reflection of
+every palindrome by a shorter argument in the slope coordinate. The cylinders
+of this section are kept because they also measure how far a reflected column
+can move, which is what \cref{sec:displaced} needs.
+
+For a directive $d$, retain the notation
+$$
+ U=\mu(\phi_d(a)),\qquad V=\mu(\phi_d(b)),\qquad
+ G=\mu(\operatorname{Pal}(d)),\qquad
+ \nu_d(w)=\mu(\phi_d(w)).
+$$
+Thus $\nu_d$ evaluates a word by replacing $a,b$ with $U,V$.
+Write $M_0=e^{\mathsf T}Ge$, $\rho_0=(Ge)_1$ and
+$$
+ K=2ee^{\mathsf T}G-M_0I,\qquad R=K/M_0.
+$$
+Since $(ee^{\mathsf T}G)^2=M_0ee^{\mathsf T}G$, one has
+$K^2=M_0^2I$; in particular $R$ is an invertible involution.
+For a word $x$ in the two blocks $ab,ba$, let $\widehat{x}$ exchange
+these blocks in their original order. The parsing into blocks is
+unambiguous because both blocks have length two. For example,
+$\widehat{abba}=baab$. For a nonzero column $v$, the notation $[v]$
+denotes its line in the real projective line.
+
+\begin{theorem}[Finite-word reflection decoder]\label{thm:word-decoder}
+For every finite directive $d$ and every pair of finite words $x,y$,
+including the empty word,
+\begin{equation}\label{eq:decoder-projective}
+ [R\nu_d(x)e]=[\nu_d(y)e]
+ \quad\Longleftrightarrow\quad
+ x\in\{ab,ba\}^*,\qquad y=\widehat{x}.
+\end{equation}
+Whenever these conditions hold, the proportionality is exact:
+\begin{equation}\label{eq:decoder-exact}
+ R\nu_d(x)e=\nu_d(\widehat{x})e.
+\end{equation}
+\end{theorem}
+
+There is no palindrome or primitive-count hypothesis in this theorem.
+Those restrictions will enter only when the decoder is applied to the
+midpoint problem.
+
+\subsection{The two block identities}
+
+The literal standard identities proved in the preceding section give
+\begin{equation}\label{eq:decoder-standard}
+ UV=ABG,\qquad VU=BAG,\qquad G=G^{\mathsf T}.
+\end{equation}
+Appending $a$ to $d$ replaces $(U,V)$ by $(U,VU)$, and appending
+$b$ replaces it by $(UV,V)$. The direction of this update will matter
+when we compare the two generators.
+
+Direct multiplication gives $AB+BA=6ee^{\mathsf T}$. For every
+symmetric matrix $G$ one also has
+$\tr(ABG)=3e^{\mathsf T}Ge$. Consequently
+\begin{equation}\label{eq:decoder-intertwiners}
+ 3K=UV+VU-\tr(UV)I,\qquad
+ KUV=VUK,\qquad KVU=UVK,\qquad Ke=M_0e.
+\end{equation}
+Here the middle identities can be checked without a word argument:
+Cayley--Hamilton makes
+$$
+ (UV+VU-\tr(UV)I)UV
+ =VUUV-I
+ =VU(UV+VU-\tr(UV)I).
+$$
+Interchanging $U,V$ proves the other identity. In particular, these
+relations prove the forward construction in
+\eqref{eq:decoder-exact} by induction on the number of blocks. The
+rest of the section proves exhaustion.
+
+\subsection{A common coordinate at the terminal slope}
+
+Matrices act on slopes by
+$$
+ \begin{pmatrix}a&b\\c&d\end{pmatrix}(t)
+ =\frac{at+b}{ct+d},
+$$
+with the usual interpretation at infinity. The terminal column $e$
+has slope two. Set
+\begin{equation}\label{eq:decoder-interval}
+ \mathcal J=[8/5,29/12],\qquad z=\frac1{t-2}.
+\end{equation}
+Conjugation by $P=\left(\begin{smallmatrix}2&1\\1&0\end{smallmatrix}\right)$
+is exactly this change of coordinate, and sends the terminal slope to
+$z=\infty$. The usefulness of the coordinate is that every positive
+word already lies in the same interval:
+$$
+ A(\mathcal J)=[21/13,70/41]\subset\operatorname{int}\mathcal J,\qquad
+ B(\mathcal J)=[50/21,169/70]\subset\operatorname{int}\mathcal J.
+$$
+Both matrices have determinant one, so both maps are increasing on
+$\mathcal J$ and these endpoint evaluations prove the inclusions. The
+second is the tight one: its upper endpoint clears that of $\mathcal J$ by
+$29/12-169/70=1/420$, so the inclusion must be read in exact arithmetic.
+Since $2\in\mathcal J$, induction applies to every finite positive word.
+The interval $\mathcal J$ is a rational neighbourhood of the interval between the
+attracting fixed points of $A$ and $B$ on slopes, the golden ratio $(1+\sqrt5)/2$ and
+$1+\sqrt2$; its endpoints $8/5$ and $29/12$ are a Fibonacci and a Pell quotient just
+outside them. Moreover $A(t)<2<B(t)$ for every positive $t$, so the first letter of a
+nonempty word decides on which side of the terminal slope its column lies. In the
+coordinate $z$ the two halves $[8/5,2)$ and $(2,29/12]$ of $\mathcal J$ become the rays
+$z\leqslant-5/2$ and $z\geqslant12/5$, and the terminal slope $2$ becomes $z=\infty$.
+
+There are positive integers $p,q$ such that
+\begin{equation}\label{eq:decoder-trace-column}
+ \tr U=3p,\quad (P^{-1}UP)_{21}=-p,\qquad
+ \tr V=3q,\quad (P^{-1}VP)_{21}=q.
+\end{equation}
+At the empty directive this holds with $(p,q)=(1,2)$.
+For the induction step, multiplication with a general symmetric $G$
+gives
+$$
+ \tr(ABG)=\tr(BAG)=3M_0,\qquad
+ (P^{-1}ABGP)_{21}=-M_0,\qquad
+ (P^{-1}BAGP)_{21}=M_0.
+$$
+Thus the two directive updates replace $q$ or $p$, respectively,
+by the positive integer $M_0$.
+
+Define the positive reciprocal parameters and two coordinate centers by
+$$
+ \alpha_0=p^{-2},\qquad\beta_0=q^{-2},\qquad
+ u=\frac{(P^{-1}UP)_{11}}p,\qquad
+ v=\frac{(P^{-1}VP)_{11}}q.
+$$
+Trace and determinant determine the remaining entries:
+\begin{equation}\label{eq:decoder-cusp-matrices}
+ \begin{split}
+ P^{-1}UP&=
+ p\begin{pmatrix}u&u^2-3u+\alpha_0\\-1&3-u\end{pmatrix},\\
+ P^{-1}VP&=
+ q\begin{pmatrix}v&3v-v^2-\beta_0\\1&3-v\end{pmatrix}.
+ \end{split}
+\end{equation}
+Their projective maps in the new coordinate are therefore
+\begin{equation}\label{eq:decoder-fg}
+ f(z)=-u-\frac{\alpha_0}{z+u-3},\qquad
+ g(z)=v-\frac{\beta_0}{z+3-v}.
+\end{equation}
+
+\begin{lemma}[Uniform bounds and the last directive letter]
+\label{lem:decoder-dominance}
+For every directive,
+\begin{equation}\label{eq:decoder-uv}
+ 3\leqslant u\leqslant41/12,\qquad
+ 5/2\leqslant v\leqslant21/8.
+\end{equation}
+If $L=u+v-3$, then
+\begin{equation}\label{eq:decoder-curve}
+ M_0=pqL,\qquad
+ \alpha_0+\beta_0=L(3-L),\qquad 5/2\leqslant L<3.
+\end{equation}
+In particular $p\geqslant1$ and $q\geqslant2$. For a nonempty
+directive the following alternatives hold:
+\begin{equation}\label{eq:decoder-dominance}
+ \begin{array}{c@{\quad}c@{\quad}l}
+ \text{last letter}&\text{trace dominance}&\text{reciprocal bounds}\\[2pt]
+ a&q\geqslant5p&\beta_0\leqslant\alpha_0/25,\quad\alpha_0\leqslant1\\
+ b&p\geqslant(5/2)q&\alpha_0\leqslant4\beta_0/25,\quad\beta_0\leqslant1/4.
+ \end{array}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The word $\phi_d(a)$ is either $a$ or begins with $ab$; the word
+$\phi_d(b)$ is either $b$ or begins with $ba$. This follows by
+induction from the two updates following \eqref{eq:decoder-standard}.
+Consequently $U(2)=A(s)$, where $s=2$ if $U=A$ and otherwise $s$ is the slope of a column
+of a word beginning with $b$, so that $s\in B(\mathcal J)\subset[2,29/12]$. Likewise
+$V(2)=B(s')$ with $s'=2$ or $s'\in A(\mathcal J)\subset[8/5,2]$. Since $A$ and $B$ are
+increasing,
+$$
+ 5/3=A(2)\leqslant U(2)\leqslant A(29/12)=70/41,\qquad
+ 50/21=B(8/5)\leqslant V(2)\leqslant B(2)=12/5.
+$$
+On the other hand \eqref{eq:decoder-cusp-matrices} gives $U(2)=2-1/u$ and
+$V(2)=2+1/v$: the column $e$ has cusp coordinate $\infty$, and $f(\infty)=-u$,
+$g(\infty)=v$ by \eqref{eq:decoder-fg}. Solving, $12/41\leqslant1/u\leqslant1/3$ and
+$8/21\leqslant1/v\leqslant2/5$, which is \eqref{eq:decoder-uv}.
+
+The lower-left entry of $P^{-1}VUP$ is $pq(u+v-3)$, so it
+equals $M_0=pqL$. The matrix
+$P^{-1}(UV+VU)P=6P^{-1}ee^{\mathsf T}GP$ has zero second row.
+Its lower-right entry, expanded with
+\eqref{eq:decoder-cusp-matrices}, gives
+$\alpha_0+\beta_0=L(3-L)$. The bounds on $u,v$ give $L\geqslant5/2$;
+positivity of $\alpha_0+\beta_0$ then gives $L<3$.
+
+This argument has not required lower bounds on $p,q$ beyond their
+positive integrality. It now shows that either update to $pqL$
+strictly increases the replaced coordinate. Starting at $(1,2)$,
+we obtain $p\geqslant1,q\geqslant2$ at every stage.
+For an appended $a$, the new $q$ is
+$L_{\rm old}p q_{\rm old}\geqslant5p$.
+For an appended $b$, the new $p$ is
+$L_{\rm old}p_{\rm old}q\geqslant(5/2)q$.
+Taking reciprocal squares gives \eqref{eq:decoder-dominance}.
+\end{proof}
+
+\subsection{First-letter intervals and the reflection}
+
+Let $\mathcal C$ be the set of cusp slopes of all $\nu_d(w)e$.
+The empty word contributes infinity, and
+\begin{equation}\label{eq:decoder-orbit}
+ \mathcal C=\{\infty\}\cup f(\mathcal C)\cup g(\mathcal C)
+ \subset\mathcal H
+ :=\{z\leqslant-5/2\}\cup\{z\geqslant12/5\}\cup\{\infty\}.
+\end{equation}
+The inclusion follows by transforming $\mathcal J$ under
+\eqref{eq:decoder-interval}, as explained above. Each of the maps \eqref{eq:decoder-fg} has
+a single pole: $f$ at $z=3-u$ and $g$ at $z=v-3$. By \eqref{eq:decoder-uv} the first lies
+in $[-5/12,0]$ and the second in $[-1/2,-3/8]$, so both poles sit in the gap between the
+two rays of $\mathcal H$, and their distances to the rays are bounded below as in
+\cref{tab:poles}. On the positive ray the denominators $z+u-3$ and $z+3-v$ are these
+distances, and on the negative ray they are their negatives; in particular no denominator
+vanishes on $\mathcal H$.
+
+\begin{table}[htbp]
+\centering
+\caption{The poles of the two first-letter maps \eqref{eq:decoder-fg} and lower bounds for
+their distances to the two rays of $\mathcal H$, from \eqref{eq:decoder-uv}. Dividing the
+numerators $\alpha_0$ and $\beta_0$ by these distances gives the distances from the centres
+$-u$ and $v$ to the four endpoints of the cylinders \eqref{eq:decoder-cylinders}.}
+\label{tab:poles}
+\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+map & pole & distance to $z\geqslant12/5$ & distance to $z\leqslant-5/2$\\
+\midrule
+$f$ (letter $a$) & $3-u\in[-5/12,\,0]$ & $\geqslant12/5-0=12/5$ & $\geqslant-5/12+5/2=25/12$\\
+$g$ (letter $b$) & $v-3\in[-1/2,\,-3/8]$ & $\geqslant12/5+3/8=111/40$ & $\geqslant-1/2+5/2=2$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+A map $z\mapsto c-\beta/(z-z_0)$ with $\beta>0$ sends every point at distance at least
+$\delta$ from its pole $z_0$ to within $\beta/\delta$ of $c$, below $c$ to the right of the
+pole and above $c$ to the left of it, and it sends $\infty$ to $c$. For $f$ the centre is
+$c=-u$, the numerator $\alpha_0$ and the pole $3-u$; for $g$ they are $v$, $\beta_0$ and
+$v-3$. Applied to the four entries of \cref{tab:poles}, this gives
+\begin{equation}\label{eq:decoder-cylinders}
+ \begin{split}
+ f(\mathcal H)&\subset
+ \mathcal U:=[-u-5\alpha_0/12,-u+12\alpha_0/25],\\
+ g(\mathcal H)&\subset
+ \mathcal V:=[v-40\beta_0/111,v+\beta_0/2].
+ \end{split}
+\end{equation}
+For example, the lower end of $\mathcal V$ is $v-\beta_0\cdot40/111$: the point of the
+positive ray closest to the pole of $g$ is $12/5$, at distance $12/5-(v-3)\geqslant111/40$.
+\Cref{fig:cusp-cylinders} shows the configuration at the empty directive.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/cusp-cylinders}
+\caption{The cusp coordinate $z$ at the empty directive, where $f(z)=-3-1/z$ and
+$g(z)=5/2-1/(4z+2)$. Every column of a nonempty word lies on one of the two rays of
+$\mathcal H$ (thick), and the terminal column is the point at infinity. The poles of $f$ and
+$g$ lie in the gap between the rays; the bars below the axis show the intervals $[-5/12,0]$ and
+$[-1/2,-3/8]$ that contain them for every directive, and the arrows show the four distances of
+\cref{tab:poles}, measured from the ends of these ranges. The shaded boxes are the cylinders
+$\mathcal U$ and $\mathcal V$ of \eqref{eq:decoder-cylinders}, and the ticks above the axis are
+the columns of all words of length at most nine.}
+\label{fig:cusp-cylinders}
+\end{figure}
+
+These two finite intervals lie strictly in the negative and positive components of
+$\mathcal H$:
+$$
+ -u+12\alpha_0/25\leqslant-3+12/25<-5/2,\qquad
+ v-40\beta_0/111\geqslant5/2-10/111>12/5.
+$$
+Consequently a finite slope in $\mathcal C$ determines the first
+letter, and inversion of its projective generator determines the
+remainder. The terminal value cannot belong to either finite
+interval. Induction therefore proves injectivity of finite-word
+evaluation at the terminal slope.
+
+Put $\tau=2\rho_0/M_0$. Since both entries of $Ge$ are positive,
+$M_0=2\rho_0+(Ge)_2$ gives $0<\tau<1$. Direct conjugation and
+\eqref{eq:decoder-intertwiners} give
+\begin{equation}\label{eq:decoder-k}
+ P^{-1}RP=\begin{pmatrix}1&\tau\\0&-1\end{pmatrix},\qquad
+ k(z)=-z-\tau,\qquad
+ \tau=u-v+\delta,\quad \delta=\frac{\alpha_0-\beta_0}{L}.
+\end{equation}
+For the last equality, expand the upper-right entry of
+$3P^{-1}KP$ using \eqref{eq:decoder-cusp-matrices}.
+The map $k$ fixes infinity and sends the two finite components
+of $\mathcal H$ to opposite signs. It need not preserve
+$\mathcal H$; whenever both endpoints belong to $\mathcal C$,
+their first letters must nevertheless be opposite.
+
+We will also use positivity after an intermediate reflection, even
+when that reflected point has not yet been shown to be in the orbit.
+In the original coordinate,
+\begin{equation}\label{eq:decoder-positive-reflection}
+ R(t)=2-\frac{t-2}{1+\tau(t-2)}>0\qquad(t\in\mathcal J).
+\end{equation}
+Indeed the denominator exceeds $3/5$. If $t<2$, the value exceeds
+two; if $t\geqslant2$, it is at least $2-(t-2)\geqslant19/12$.
+As $U$ begins with $A$ and $V$ with $B$, they send every positive
+input below and above two, respectively. Hence $fk$ has negative
+cusp slope on $\mathcal C$, while $gk$ has positive cusp slope.
+These statements include the terminal input.
+
+\subsection{Excluding a wrong second letter}
+
+After opposite first letters have been removed, the two residual maps
+are
+\begin{equation}\label{eq:decoder-residuals}
+ \begin{split}
+ \mathcal E(z):=g^{-1}kf(z)
+ &=\frac{\beta_0}{\delta-\alpha_0/(z+u-3)}+v-3,\\
+ \mathcal D(z):=f^{-1}kg(z)
+ &=\frac{\alpha_0}{\delta-\beta_0/(z+3-v)}+3-u.
+ \end{split}
+\end{equation}
+These formulas follow by solving \eqref{eq:decoder-fg} for its
+input. The identities \eqref{eq:decoder-intertwiners} imply
+\begin{equation}\label{eq:decoder-residual-return}
+ \mathcal E g=fk,\qquad \mathcal D f=gk.
+\end{equation}
+It remains to exclude an empty remainder or the wrong next letter.
+We prove precisely
+\begin{equation}\label{eq:decoder-wrong}
+ \mathcal E(\{\infty\}\cup\mathcal U)\cap\mathcal C=\varnothing,
+ \qquad
+ \mathcal D(\{\infty\}\cup\mathcal V)\cap\mathcal C=\varnothing.
+\end{equation}
+Only these domains are needed. In particular, no estimate across a
+pole of either residual map will be used.
+
+\smallskip\noindent\emph{A directive ending in $a$.}
+Here $\beta_0\leqslant\alpha_0/25$ and $\alpha_0\leqslant1$.
+Since $L<3$,
+$$
+ \delta>\frac{8\alpha_0}{25}>0,\qquad
+ 0<\frac{\beta_0}{\delta}<\frac18.
+$$
+It follows from $-1/2\leqslant v-3\leqslant-3/8$ that
+$\mathcal E(\infty)\in(-1/2,-1/4)$.
+For $z\in\mathcal U$, the quantity $z+u-3$ is negative,
+so the denominator of $\mathcal E$ is larger than $\delta$.
+Therefore
+\begin{equation}\label{eq:decoder-a-E}
+ \mathcal E(\{\infty\}\cup\mathcal U)\subset(-1/2,-1/4),
+\end{equation}
+which is disjoint from $\mathcal H$.
+
+For the other residual, direct simplification gives
+$$
+ \mathcal D(\infty)-v=\frac{L\beta_0}{\alpha_0-\beta_0}
+ >\frac52\beta_0>\frac{\beta_0}{2}.
+$$
+If $z\in\mathcal V$, put $s=z+3-v$. The cylinder bound gives
+$s\geqslant3-40\beta_0/111>2$. Its residual denominator $h_0$ satisfies
+$$
+ h_0:=\delta-\frac{\beta_0}{s}
+ >\left(\frac8{25}-\frac1{50}\right)\alpha_0
+ =\frac{3\alpha_0}{10}>0,\qquad h_0<\delta<\frac{\alpha_0}{L}.
+$$
+Using $L\delta=\alpha_0-\beta_0$ now yields
+\begin{equation}\label{eq:decoder-a-D}
+ \mathcal D(z)-v
+ =\frac{\beta_0(1+L/s)}{h_0}
+ >\frac{L\beta_0}{\alpha_0}\geqslant\frac52\beta_0>\frac{\beta_0}{2}.
+\end{equation}
+Both the terminal value and these finite values are positive and
+strictly above the entire positive cylinder $\mathcal V$. They
+cannot be in $\mathcal C$.
+
+\smallskip\noindent\emph{A directive ending in $b$.}
+Now $\alpha_0\leqslant4\beta_0/25$ and $\beta_0\leqslant1/4$. Set
+$\eta=-\delta=(\beta_0-\alpha_0)/L$. Then
+$$
+ \eta>\frac{7\beta_0}{25}>0,\qquad
+ 0<\frac{\alpha_0}{\eta}<\frac47.
+$$
+At the terminal input,
+$$
+ \mathcal E(\infty)+u=-\frac{L\alpha_0}{\beta_0-\alpha_0}
+ <-10\alpha_0.
+$$
+For $z\in\mathcal U$, put $s=3-z-u$.
+Since $\alpha_0\leqslant1/25$, the cylinder bound gives
+$s\geqslant3-12\alpha_0/25>2$.
+The positive denominator
+$$
+ h_0:=\eta-\frac{\alpha_0}{s}
+ >\left(\frac7{25}-\frac2{25}\right)\beta_0
+ =\frac{\beta_0}{5},\qquad h_0<\eta<\frac{\beta_0}{L},
+$$
+allows the exact simplification
+\begin{equation}\label{eq:decoder-b-E}
+ \mathcal E(z)+u
+ =-\frac{\alpha_0(1+L/s)}{h_0}
+ <-\frac{L\alpha_0}{\beta_0}\leqslant-10\alpha_0.
+\end{equation}
+These values and the terminal value are negative and strictly below
+$-u-5\alpha_0/12$, the lower endpoint of $\mathcal U$.
+Thus they are outside $\mathcal C$.
+
+Finally $\mathcal D(\infty)=-\alpha_0/\eta+3-u$.
+For $z\in\mathcal V$, the quantity $s=z+3-v$ is positive and
+$$
+ \mathcal D(z)=-\frac{\alpha_0}{\eta+\beta_0/s}+3-u.
+$$
+The bounds $0\leqslant u-3\leqslant5/12$ and
+$0<\alpha_0/\eta<4/7$ give
+\begin{equation}\label{eq:decoder-b-D}
+ \mathcal D(\{\infty\}\cup\mathcal V)
+ \subset(-83/84,0),\qquad \frac5{12}+\frac47=\frac{83}{84}.
+\end{equation}
+This interval is disjoint from $\mathcal H$. Equations
+\eqref{eq:decoder-a-E}--\eqref{eq:decoder-b-D} prove all of
+\eqref{eq:decoder-wrong} for every nonempty directive.
+
+\subsection{The empty directive and finite termination}
+
+There is no last letter for the empty directive, so we check its
+residual exclusions directly in the original coordinate. Here
+$U=A$, $V=B$, $M_0=5$, and
+$$
+ K=\begin{pmatrix}3&4\\4&-3\end{pmatrix},\qquad
+ E_0=B^{-1}KA=\begin{pmatrix}0&5\\5&-9\end{pmatrix},\qquad
+ D_0=A^{-1}KB=\begin{pmatrix}9&5\\5&0\end{pmatrix}.
+$$
+The use of $K$ instead of $R$ does not change a projective map.
+The terminal input is now two. We have $E_0(2)=5\notin \mathcal J$ and
+$$
+ E_0A(t)=\frac{5(t+1)}{t-4}<0\qquad(t\in\mathcal J).
+$$
+Thus an empty source remainder or a second $a$ is excluded.
+For the other residual,
+$$
+ D_0(2)=23/10\in(2,50/21),\qquad
+ D_0B(t)=\frac{55t+23}{25t+10}.
+$$
+The latter map is decreasing on $\mathcal J$ and satisfies
+$$
+ 2<D_0B(t)\leqslant111/50<50/21.
+$$
+All these values lie between the terminal slope and the least
+possible slope of a word starting with $B$. They lie outside the
+encoded orbit. This proves exactly the empty-directive version
+of \eqref{eq:decoder-wrong}, without a dominance assumption.
+
+\begin{proof}[Proof of \cref{thm:word-decoder}]
+Represent \eqref{eq:decoder-projective} in cusp coordinates.
+If one word is empty, its slope is infinity; as $k(\infty)=\infty$
+and no nonempty word has that slope, both words are empty.
+Otherwise their first letters are opposite.
+
+Suppose $x=ax_1$ and $y=by_1$. Removing the target's first
+letter gives the residual relation
+$y_1(\infty)=\mathcal E(x_1(\infty))$, where words here denote
+their cusp maps. The first exclusion in
+\eqref{eq:decoder-wrong} says that $x_1$ is neither empty nor
+starts with $a$. Hence $x_1=bx_2$, and
+\eqref{eq:decoder-residual-return} gives
+$$
+ y_1(\infty)=fk(x_2(\infty)).
+$$
+By \eqref{eq:decoder-positive-reflection} this is a finite negative
+cusp slope. Therefore $y_1=ay_2$. Inverting $f$ restores
+exactly the original relation
+$y_2(\infty)=k(x_2(\infty))$.
+Thus the first source block is $ab$ and the first target block
+is $ba$.
+
+If $x$ begins with $b$, the second exclusion in
+\eqref{eq:decoder-wrong} and the identity $\mathcal Df=gk$
+give the exchanged conclusion: the source begins with $ba$,
+the target with $ab$, and removing those two letters restores
+the same reflection relation. The empty-directive calculation
+supplies the identical step in its original coordinate.
+
+Each step removes two letters from each word. Induction on their
+total length terminates, and the terminal case forces the two
+words to end simultaneously. They are therefore precisely
+the block-exchanged pair in \eqref{eq:decoder-projective}.
+Conversely, repeated use of \eqref{eq:decoder-intertwiners} gives
+$K\nu_d(x)=\nu_d(\widehat{x})K$ for every block word.
+Applying both sides to $e$ proves \eqref{eq:decoder-exact} and
+the converse implication.
+\end{proof}
+
+The exhaustion rests on the four strict residual exclusions and on the
+termination of the two-letter descent, both established above. The
+displayed identities and rational constants are also confirmed by exact
+computation in the supplementary material; no enumeration of directives
+or of finite words enters the proof.

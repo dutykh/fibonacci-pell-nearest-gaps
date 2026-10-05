@@ -1,0 +1,25 @@
+# Rational reflections and palindromic words in the Cohn monoid: exact computations
+# Author: Dr. Denys Dutykh (Khalifa University of Science and Technology, Abu Dhabi, UAE)
+cff-version: 1.2.0
+message: "If you use this package, please cite the article it accompanies."
+title: "Rational reflections and palindromic words in the Cohn monoid: exact computations"
+type: software
+authors:
+  - family-names: Dutykh
+    given-names: Denys
+    affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+  - family-names: Vuillon
+    given-names: Laurent
+    affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+date-released: "2026-10-05"
+license: LGPL-2.1-only
+repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps/"
+preferred-citation:
+  type: article
+  title: "Rational reflections and palindromic words in the Cohn monoid"
+  authors:
+    - family-names: Dutykh
+      given-names: Denys
+    - family-names: Vuillon
+      given-names: Laurent
+  year: 2026

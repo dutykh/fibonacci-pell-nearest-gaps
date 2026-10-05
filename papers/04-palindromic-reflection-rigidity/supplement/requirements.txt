@@ -1,0 +1,2 @@
+# Author: Dr. Denys Dutykh (Khalifa University of Science and Technology, Abu Dhabi, UAE)
+sympy==1.14.0

@@ -1,0 +1,13 @@
+check_decoder.py: PASS
+reference_sha256=463ceaff11113822d1679a678aae500aa71b3a21c67f69b1a4fdf8b54da4d66d
+check_examples.py: PASS
+SHA256 8dbb1159c02dfd8d93db28236a77900ecdc205388264155e776f93c3f8add9dc
+check_displaced.py: PASS
+{"arithmetic_controls": 4, "reference_sha256": "494c4dd4fbf0927a8b47ab9a462fa5c539611bdb0a903f4efc8dad93b985a15b", "checks": 63, "status": "PASS"}
+check_centres.py: PASS
+SHA256 876a3d88f75aa6e9bf95c62ee05cc7f6da2c0e8e806949affae8cf274866253e
+check_nested_and_lengths.py: PASS
+SHA256 936545922923a2970dd6af586848c2c08a6b451d0dade677963f9fb7edfc526f
+check_centre_decoder.py: PASS
+SHA256 9e6d09e96888f03ce3a9411f212ecf07c4715517e37e7ef7d773c4c2effb28e2
+All checks reproduced successfully.

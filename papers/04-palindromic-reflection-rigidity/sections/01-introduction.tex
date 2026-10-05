@@ -1,0 +1,151 @@
+\section{Introduction}
+\label{sec:introduction}
+
+The Markov equation
+$$
+ x^2+y^2+z^2=3xyz
+$$
+has a tree of positive integer solutions, and the Frobenius--Markov
+uniqueness conjecture asks whether a solution is determined, up to permutation, by
+its largest entry. One classical way to encode a solution is by a word:
+Christoffel words in two letters parametrize the tree, and under the Cohn
+representation the largest entry of a triple becomes a matrix invariant of
+the corresponding central word. A hypothetical pair of distinct triples
+with the same largest entry would then be a pair of distinct central words
+with the same invariant, and one can look for structures in the word
+setting that forbid such a coincidence. This article isolates one such
+structure and determines it completely.
+
+The structure is a reflection. For the two Cohn matrices
+$$
+ A=\begin{pmatrix}2&1\\1&1\end{pmatrix},\qquad
+ B=\begin{pmatrix}5&2\\2&1\end{pmatrix},
+$$
+a positive matrix word carries three kinds of information at once: a
+literal binary word, an integral Gram matrix, and the arithmetic of a root
+of $-1$ modulo its first diagonal entry. Each description makes some
+operations transparent and hides others. A reflection acts simply on Gram
+roots, but its compatibility with positive words turns out to be far more
+restrictive, and the question we answer is exactly how restrictive.
+
+The distinction is already visible in a small example. The palindromes
+$baab$ and $abba$ have Gram matrices
+$$
+ \begin{pmatrix}1130&467\\467&193\end{pmatrix},\qquad
+ \begin{pmatrix}1130&437\\437&169\end{pmatrix}.
+$$
+They have the same label and their normalized roots have midpoint $2/5$.
+There is no numerical approximation here. The coincidence itself has been noticed
+before, as an equality of matrix entries~\cite[p.~4]{LapointeReutenauer2021} and as
+a counterexample to a strengthening of the uniqueness conjecture for the values of
+lattice paths~\cite[p.~28]{LagisquetEtAl2021}. Yet their completed letter
+counts are $(3,3)$, which rules out central words and hence the usual
+Christoffel interpretation. In the Thue--Morse coding of Reutenauer and
+Vuillon, recalled in \cref{subsec:thue-morse}, the two palindromes become
+$abaaaba$ and $aababaa$, and the equality of their labels becomes the equality
+of the lengths of two central words; it is the first such coincidence. The issue is to
+determine whether this
+failure of primitivity is incidental to the example or forced by the
+reflection.
+
+We prove that it is forced, and classify every pair responsible for it.
+A palindrome $p$ determines a rational reflection $R_p$, which fixes the
+terminal column $e=(2,1)^{\mathsf T}$ and is orthogonal for the Gram form
+of $p$. The principal word theorem states that, for all finite words $x$
+and $y$,
+$$
+ [R_p\mu(x)e]=[\mu(y)e]
+ \quad\Longleftrightarrow\quad
+ x\in\{ab\,p,\ ba\,p\}^*,\quad y=\widehat x,
+$$
+where brackets denote a projective line and the hat exchanges the
+blocks $ab\,p$ and $ba\,p$ (\cref{thm:centre-decoder}). This is a
+classification for arbitrary finite words, uniformly in the centre, and
+the projective equality always lifts to exact equality of columns. When
+$p$ is the central word $g_d$ of a standard directive $d$, the blocks are
+the images of $ab$ and $ba$ under the standard morphism $\phi_d$, and the
+theorem reads $[R_d\nu_d(x)e]=[\nu_d(y)e]$ if and only if
+$x\in\{ab,ba\}^*$ and $y=\widehat x$, with $\nu_d=\mu\circ\phi_d$
+(\cref{thm:word-decoder}). For this case we give a second proof by
+projective cylinders, which also measures how far a reflected column can
+move.
+
+For palindromes, the word theorem has a stronger arithmetic consequence.
+Equal labels $M$ and the midpoint condition
+$$
+ \frac{\rho_X+\rho_Y}{2M}=\frac{\rho_p}{M_p}
+$$
+are equivalent to a full matrix conjugacy by $R_p$, and the decoder then
+forces the two palindromes to be $p\,X$ and $p\,\widehat X$, with $X$ a
+concatenation of the blocks (\cref{cor:centre-classification}): no common
+prefix needs to be assumed, and the prefix $p$ is forced. If $X$ has $2k$
+blocks, the completed counts of both palindromes are $2k+1$ times those of
+$p$, so they are not primitive when $k>0$. For a standard ancestor this
+gives the preimages $\widetilde w w$ and $\widetilde{\widehat w}\,\widehat w$,
+with $w$ a concatenation of $ab$ and $ba$, and completed counts
+$(2k+1)L_d(1,1)^{\mathsf T}$ (\cref{thm:palindromic-classification}).
+Thus the reflection creates an infinite family of exact palindromic
+label equalities while excluding every nontrivial central pair at the
+midpoint of any palindrome.
+
+We also retain the information that changes when the midpoint moves. The
+conjugacy becomes a two-sided matrix equation with a rank-one term, and
+its action on a centered reciprocal cusp coordinate is an affine
+reflection. For a hypothetical pair of distinct central words with equal
+labels, reduced integral coordinates for the midpoint supply a nonzero
+integer defect, and the first-letter cylinders of the standard generators
+convert that defect into a quantitative restriction on the common
+ancestor. The precise statement is \cref{thm:displaced-ancestor-bound}:
+when the two parent traces are comparable, the ancestor label $M_0$ is
+bounded by a constant multiple of $M^{1/4}$, the constant being explicit
+in the data of the actual pair, with no factorization of $M$ required and
+no restriction on the parity of $M$. Along a one-sided directive the two
+parents grow apart, the constant degrades, and the bound weakens to a
+cubic scale. Neither regime excludes all collisions.
+
+The block exchange around a palindrome $p$ (\cref{prop:any-centre}) has a simple
+arithmetic: the label of $p$ divides the common label, and the exchange conjugates
+the complementary Gaussian factor (\cref{prop:exchange-arithmetic}). Exchanges
+around nested centres compose. When the centre of an exchange is itself one of two
+exchanged palindromes, the four words built around them form a square of palindromes
+with one label, and $r$ nested levels form a cube with $2^r$ vertices
+(\cref{thm:nested-cubes}). The pairs of such a square that are not exchanges have their
+root midpoints shifted off every centre, by exactly half the width of a short rung
+(\cref{cor:nested-square}). In the
+Thue--Morse coding the label is the length of an explicit Christoffel word and the
+root its number of letters $b$ (\cref{prop:thue-morse}). An exact enumeration of
+all palindromes with label below $10^{26}$ finds no coincidence of labels that the
+exchanges do not produce, and every class of equal labels it finds is a single exchange
+or a square. This is the content of \cref{conj:structure}, whose proof would imply the
+uniqueness conjecture; \cref{sec:outlook} explains how far the reflection goes
+towards it. It also measures one consequence of the conjecture: two palindromes with the
+same label would have directing words of the same length in the Thue--Morse coding. This
+length is half the sum of the partial quotients of the label divided by the root, and for
+Markov words the fixed-sum theorem of Lagisquet, Pelantov\'a, Tavenas and
+Vuillon~\cite{LagisquetEtAl2021} turns the equality of lengths into an equivalent form of the
+uniqueness conjecture (\cref{prop:lengths-uniqueness}). On every reflection axis the
+equality holds, since twins there are exchanges.
+
+The prescribed midpoint is essential: a general equal-label pair need not
+have it (\cref{rem:quadruple} exhibits one), and away from it the inequalities
+above remain necessary conditions rather than exclusions. What the article contributes is the
+complete word classification at a specified reflection, together with a
+quantitative account of the information that survives off its axis. The
+Frobenius--Markov uniqueness conjecture itself is not resolved here.
+
+\input{sections/00-literature}
+
+\subsection{Organization}
+
+\Cref{sec:standard-grams} fixes the literal standard morphisms,
+completed counts and Gram normalization, and reads the label and the root in the
+Thue--Morse coding. \Cref{sec:decoder} proves the finite-word decoder by separating
+projective cylinders and reading two letters at a time. \Cref{sec:midpoint} derives
+the palindromic classification and the central-word obstruction, extends the
+construction, the decoder and the classification to every palindromic centre, shows
+that the midpoint hypothesis cannot be removed, and proves that nested exchanges
+produce cubes of twins. \Cref{sec:displaced} treats moving midpoints, explains the
+weighted scale that must be retained, and proves the common-ancestor bound.
+\Cref{sec:outlook} states the conjecture on twins, explains the ladders in which
+they appear, reads the lengths of the directing words, and isolates the remaining
+mathematical question.

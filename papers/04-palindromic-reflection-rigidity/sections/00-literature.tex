@@ -1,0 +1,70 @@
+\subsection{Relation to earlier work}
+\label{sec:literature}
+
+The standard morphisms and palindromic extensions used here belong to
+classical Sturmian combinatorics. Justin's functional identity relates
+iterated palindromic closure to composition of standard
+morphisms~\cite[Lemma~2.1]{Justin2005}. Its left and right forms, with the
+same conventions used below, appear in Perrin and
+Reutenauer~\cite[Section~2]{PerrinReutenauer2023}. The incidence formulas
+of Berth\'e, de Luca and Reutenauer describe the completed letter counts
+of central words and their standard factorizations~\cite[Section~3]{BertheDeLucaReutenauer2008}.
+These results supply the word transport and the primitive-count test in
+our application. The involution obtained by reversing a directive in
+\cite{BertheDeLucaReutenauer2008} changes the central word by Christoffel
+duality; our reflection instead acts on a positive matrix orbit while the
+directive remains fixed.
+
+The language that appears in the answer is also familiar. If
+$\theta(a)=ab$ and $\theta(b)=ba$, then
+$(ab\mid ba)^*=\theta(\{a,b\}^*)$ is the image of the Thue--Morse
+substitution. Reutenauer and Vuillon use this substitution together with
+palindromic and antipalindromic closure to construct Markov
+numbers~\cite{ReutenauerVuillon2017}: in their coding a Markov number is two more than the
+length of $\operatorname{Pal}(\theta(\operatorname{Pal}(av)))$, and the injectivity of this
+length is equivalent to the uniqueness conjecture~\cite[Theorem~1]{ReutenauerVuillon2017}.
+\Cref{prop:thue-morse} identifies that length plus two, the length of the Christoffel word
+$a\operatorname{Pal}(\theta(F_a(z)))b$, with our Gram label, for every palindrome $z$.
+Abram, Lapointe and Reutenauer
+extend the construction to whole Markov triples~\cite{AbramLapointeReutenauer2020}.
+Our conclusion concerns the role of this language in a different
+problem: it exhausts the finite words whose positive terminal vectors
+are carried to another such vector by the prescribed rational reflection.
+The proof establishes this exhaustion uniformly for the reflection of every
+palindrome, before imposing palindromicity on the reflected words.
+
+Palindromic symmetry is well established in the geometry of two-generator
+groups. Kassel and Reutenauer prove that a cyclically reduced basis with
+both words of odd length has a unique palindromic conjugate
+basis~\cite{KasselReutenauer2007}. Gilman and Keen relate palindromic
+words to axes perpendicular to the common perpendicular of the generator
+axes~\cite{GilmanKeen2009}. These results concern primitive bases or
+geometric axes. The decoder here retains the positive word, the finite
+terminal vector and the fixed rational reflection, and applies to every
+finite word, including nonprimitive ones.
+
+The distinction between a full matrix and one of its entries matters
+when connecting the result to Markov arithmetic. Reutenauer's
+Christoffel correspondence is a bijection with whole proper Markov
+triples~\cite[Theorem~1]{Reutenauer2009}. More recently, Veselov identifies
+Markov fractions with Cohn matrix indices and describes continued
+fractions through a mirrored Conway topograph~\cite[Sections~3--4]{Veselov2026}.
+Jouteur, Paris-Romaskevich and Thomas characterize modular involutions
+exchanging rational pairs and study Springborn operations, including a
+$q$-deformed midpoint formula for Farey neighbors~\cite[Sections~5--7]{JouteurParisRomaskevichThomas2026}.
+Those constructions retain a tree position, an arithmetic regularity
+condition or a whole rational fraction. They do not identify which
+arbitrary positive words survive reflection in the orbit considered here.
+
+There are also injectivity theorems for restricted word languages.
+Lapointe and Reutenauer prove that a Cohn matrix entry is strictly
+increasing in military order on the language of one fixed Sturmian
+sequence~\cite[Corollary~1]{LapointeReutenauer2021}. Our comparison allows
+arbitrary palindromes, whose completions need not lie in one such
+language. Their Gram labels are positive integers, and are Markov
+numbers under the additional Christoffel hypothesis. Equal labels and a
+specified root midpoint recover a full Gram congruence, which brings the
+arbitrary-word decoder into play. This yields an exact classification of
+the reflected pairs and shows why every nonempty pair fails the primitive
+completed-count condition. No claim is made that an arbitrary equal-label
+pair has the prescribed midpoint.

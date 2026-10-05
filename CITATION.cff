@@ -34,10 +34,15 @@ abstract: >-
   occurrence count, a complete decision procedure for equal traces of simple
   closed geodesics on the modular torus, with an exact isometry test, and shows
   that all such equalities are isometric for occurrence counts two to six and
-  for intersection numbers at most twenty-four.
+  for intersection numbers at most twenty-four. The fourth classifies the finite
+  words whose terminal column is carried to another word column by the rational
+  reflection of a palindrome, as the concatenations of two exchanged blocks, and
+  deduces that two palindromes with the same Gram label around a root midpoint
+  differ by one exchange; an enumeration of all palindromes with label up to
+  10^26 finds no coincidence of labels that the exchanges do not explain.
 type: software
-version: "2.2.0"
-date-released: "2026-09-24"
+version: "2.3.0"
+date-released: "2026-10-05"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
 keywords:
@@ -58,6 +63,10 @@ keywords:
   - modular torus
   - Vieta involutions
   - effective Diophantine methods
+  - palindromes
+  - Cohn matrices
+  - Thue-Morse morphism
+  - rational reflections
 authors:
   - family-names: Dutykh
     given-names: Denys
@@ -94,6 +103,17 @@ references:
     title: "Effective trace bounds and rigidity for simple curves on the modular torus"
     year: 2026
     notes: "Third manuscript of the series; sources in papers/03-effective-markoff-traces"
+    authors:
+      - family-names: Dutykh
+        given-names: Denys
+        affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+      - family-names: Vuillon
+        given-names: Laurent
+        affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+  - type: unpublished
+    title: "Rational reflections and palindromic words in the Cohn monoid"
+    year: 2026
+    notes: "Fourth manuscript of the series; sources in papers/04-palindromic-reflection-rigidity"
     authors:
       - family-names: Dutykh
         given-names: Denys

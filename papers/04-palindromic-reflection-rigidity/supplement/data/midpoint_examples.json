@@ -1,0 +1,177 @@
+[
+  {
+    "directive": "",
+    "ancestor": "",
+    "ancestor_gram": {
+      "M": 5,
+      "rho": 2,
+      "H": 1
+    },
+    "images": [
+      {
+        "word": "baab",
+        "gram": {
+          "M": 1130,
+          "rho": 467,
+          "H": 193
+        },
+        "completed_counts": [
+          3,
+          3
+        ]
+      },
+      {
+        "word": "abba",
+        "gram": {
+          "M": 1130,
+          "rho": 437,
+          "H": 169
+        },
+        "completed_counts": [
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "directive": "a",
+    "ancestor": "a",
+    "ancestor_gram": {
+      "M": 13,
+      "rho": 5,
+      "H": 2
+    },
+    "images": [
+      {
+        "word": "abaaaba",
+        "gram": {
+          "M": 19786,
+          "rho": 7649,
+          "H": 2957
+        },
+        "completed_counts": [
+          6,
+          3
+        ]
+      },
+      {
+        "word": "aababaa",
+        "gram": {
+          "M": 19786,
+          "rho": 7571,
+          "H": 2897
+        },
+        "completed_counts": [
+          6,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "directive": "b",
+    "ancestor": "b",
+    "ancestor_gram": {
+      "M": 29,
+      "rho": 12,
+      "H": 5
+    },
+    "images": [
+      {
+        "word": "bbababb",
+        "gram": {
+          "M": 219530,
+          "rho": 90927,
+          "H": 37661
+        },
+        "completed_counts": [
+          3,
+          6
+        ]
+      },
+      {
+        "word": "babbbab",
+        "gram": {
+          "M": 219530,
+          "rho": 90753,
+          "H": 37517
+        },
+        "completed_counts": [
+          3,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "directive": "ab",
+    "ancestor": "aba",
+    "ancestor_gram": {
+      "M": 194,
+      "rho": 75,
+      "H": 29
+    },
+    "images": [
+      {
+        "word": "ababaabaababa",
+        "gram": {
+          "M": 65712650,
+          "rho": 25404957,
+          "H": 9821729
+        },
+        "completed_counts": [
+          9,
+          6
+        ]
+      },
+      {
+        "word": "abaabababaaba",
+        "gram": {
+          "M": 65712650,
+          "rho": 25403793,
+          "H": 9820829
+        },
+        "completed_counts": [
+          9,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "directive": "ba",
+    "ancestor": "bab",
+    "ancestor_gram": {
+      "M": 433,
+      "rho": 179,
+      "H": 74
+    },
+    "images": [
+      {
+        "word": "babbabababbab",
+        "gram": {
+          "M": 730645066,
+          "rho": 302046257,
+          "H": 124864925
+        },
+        "completed_counts": [
+          6,
+          9
+        ]
+      },
+      {
+        "word": "bababbabbabab",
+        "gram": {
+          "M": 730645066,
+          "rho": 302043659,
+          "H": 124862777
+        },
+        "completed_counts": [
+          6,
+          9
+        ]
+      }
+    ]
+  }
+]

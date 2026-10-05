@@ -1,0 +1,304 @@
+\section{Displaced reflections and the size of a common ancestor}
+\label{sec:displaced}
+
+The ancestor-midpoint hypothesis has an exact algebraic meaning: it is the unique position where the reflection fixes the terminal column on both sides of the word equation. Moving the midpoint introduces a rank-one displacement. We first retain this displacement exactly, then combine the two first-letter cylinders with an integral rational-midpoint coordinate. The resulting bound applies to both parities of the common label. It is a necessary restriction on an equal-label pair, not a classification of all displaced pairs.
+
+\subsection{The full two-sided equation}
+
+Fix a directive $d$, put $w=\operatorname{Pal}(d)$, and retain the right standard map $F_d(z)=w\phi_d(z)$. Write
+$$
+ G=\mu(w),\quad \nu=\mu\circ\phi_d,\quad
+ M_0=e^{\mathsf T}Ge,\quad \rho_0=(Ge)_1,\quad r_0=\rho_0/M_0.
+$$
+The Gram matrix of the ancestor is $PGP$, with first row $(M_0,\rho_0)$. Define two primitive integral columns
+\begin{equation}
+ \omega=Ge=\binom{\rho_0}{M_0-2\rho_0},\qquad
+ f=\binom1{-2},\qquad a_0=G^{-1}f=\binom{M_0-2\rho_0}{-\rho_0}.
+ \label{eq:displaced-columns}
+\end{equation}
+In particular $\omega^{\mathsf T}a_0=0$ and $f^{\mathsf T}a_0=M_0$.
+
+\begin{proposition}[The moving reflection]
+\label{prop:displaced-equation}
+Suppose the palindrome images $F_d(z_X),F_d(z_Y)$ have the same Gram label $M$ and roots $\rho_X,\rho_Y$. Put
+$$
+ \tau=\frac{\rho_X+\rho_Y}{M},\quad \delta=\tau-2r_0,
+ \qquad R_0=\frac{2ee^{\mathsf T}G-M_0I}{M_0}.
+$$
+Then, with $\nu_i=\nu(z_i)$,
+\begin{align}
+ \nu_Y&=L_\tau\nu_XR_\tau,
+ \label{eq:displaced-full-word}\\
+ R_\tau&=R_0+\delta ef^{\mathsf T},\qquad
+ L_\tau=R_0+\delta a_0\omega^{\mathsf T}.
+ \label{eq:displaced-left-right}
+\end{align}
+The columns $v_i=\nu_i e$ satisfy the exact weighted-scale and displacement identities
+\begin{equation}
+ \omega^{\mathsf T}v_X=\omega^{\mathsf T}v_Y=M,
+ \qquad v_Y=R_0v_X+\delta M a_0.
+ \label{eq:displaced-weighted-columns}
+\end{equation}
+The right factor fixes $e$, whereas $L_\tau e=e+\delta M_0a_0$.
+\end{proposition}
+
+\begin{proof}
+The image Gram matrices have determinant one and the form
+$$
+ H_i=PG\nu_iP=
+ \begin{pmatrix}M&\rho_i\\\rho_i&(\rho_i^2+1)/M\end{pmatrix}.
+$$
+For $J_\tau=\left(\begin{smallmatrix}1&\tau\\0&-1\end{smallmatrix}\right)$, direct multiplication gives $H_Y=J_\tau^{\mathsf T}H_XJ_\tau$. Cancelling the invertible factors gives \eqref{eq:displaced-full-word} with
+$$
+ R_\tau=PJ_\tau P^{-1},\qquad L_\tau=G^{-1}R_\tau^{\mathsf T}G.
+$$
+At $\tau=2r_0$ both are $R_0$; varying $\tau$ gives the two rank-one terms in \eqref{eq:displaced-left-right}. Since $R_\tau e=e$, the full equation gives $v_Y=L_\tau v_X$. The first Gram entry is $\omega^{\mathsf T}v_X=M$, proving \eqref{eq:displaced-weighted-columns}. The terminal statement follows from $R_0e=e$ and $\omega^{\mathsf T}e=M_0$.
+\end{proof}
+
+For a positive column $v$ of slope $t=v_1/v_2$, use the reciprocal centered cusp coordinate
+\begin{equation}
+ \eta(t)=\frac{t-2}{1+r_0(t-2)}
+ =\frac{M_0f^{\mathsf T}v}{\omega^{\mathsf T}v}.
+ \label{eq:displaced-eta}
+\end{equation}
+The denominator is positive because $0<r_0<1/2$ and $t>0$. The homogeneous expression also defines the coordinate whenever $\omega^{\mathsf T}v\ne0$. The identities
+$$
+ \omega^{\mathsf T}L_\tau=\omega^{\mathsf T},\qquad
+ f^{\mathsf T}R_0=-f^{\mathsf T}
+$$
+give
+\begin{equation}
+ \eta([L_\tau v])=\xi-\eta([v]),\qquad
+ \xi=\delta M_0^2.
+ \label{eq:displaced-terminal}
+\end{equation}
+Thus the terminal $\eta(e)=0$ moves to $\xi$. For the two actual positive image columns,
+$$
+ \eta(t_X)+\eta(t_Y)=\xi.
+$$
+This formula alone cannot exclude a pair of positive slopes: any such pair determines a value of $\xi$. The word equation must retain the common weighted scale in \eqref{eq:displaced-weighted-columns}. Replacing $L_\tau$ by $R_\tau$ would erase precisely the information lost at a moving terminal.
+
+\subsection{The actual common prefix and an integral midpoint direction}
+
+Among palindromes in general, equal labels with a displaced midpoint do occur
+(\cref{rem:quadruple}), so centrality has to enter any restriction on displaced pairs. We now
+suppose $Z_X\ne Z_Y$ are central words with equal Gram label $M$. Let $d$ be the longest common prefix of their unique directives. The following lemma ensures that this directive really supplies a symmetric matrix prefix.
+
+\begin{lemma}[The maximal common prefix]
+\label{lem:common-prefix}
+Let $Z_X\ne Z_Y$ be central words with equal Gram label $M$, let $w_*$ be
+their maximal common symmetric prefix, so that $Z_i=w_*h_i\widetilde w_*$,
+and let $d$ be the longest common prefix of their directives. Then both
+$h_i$ have length at least two and begin with different letters, and
+\begin{equation}
+ w_*=\operatorname{Pal}(d)=w,\qquad
+ Z_i=w h_iw=F_d(z_i),
+ \label{eq:displaced-genuine-fork}
+\end{equation}
+where $z_X,z_Y$ are nonempty central words beginning with different
+letters.
+\end{lemma}
+
+\begin{proof}
+Every palindrome of length at least two has matrix at least $A^2$
+entrywise: remove its two outer letters and use that every letter matrix
+is at least $I$. The matrix $A^2$ dominates $I,A,B$, strictly in at least
+one entry. Against the strictly positive column $\mu(w_*)^{\mathsf T}e$
+its quadratic form therefore exceeds those of all length-zero and
+length-one cores, and the three short cores themselves have strictly
+ordered forms. Equal labels consequently cannot stop at a short core, and
+agreeing next letters would permit another symmetric stripping step;
+this proves the first assertion.
+
+It follows that $w_*$ is the full longest common word prefix. A directive
+extension $dx\cdots$ produces a central word beginning with
+$\operatorname{Pal}(d)x$, and neither directive can be a prefix of the
+other, since that would make one whole central word a prefix of the
+other, contrary to what has just been proved. This gives
+\eqref{eq:displaced-genuine-fork}, in which $z_i$ is the central preimage
+of the remaining directive and need not equal the literal core $h_i$.
+\end{proof}
+
+Write
+\begin{equation}
+ PG=\begin{pmatrix}u&v\\s&t\end{pmatrix},\qquad
+ ut-vs=-1,\quad u=2s+t,\quad
+ M_0=2u+v,\quad\rho_0=u.
+ \label{eq:displaced-prefix-frame}
+\end{equation}
+The four entries are nonnegative, with $u,v,s>0$; the empty directive has $t=0$. The symmetric factorization in \eqref{eq:displaced-genuine-fork} gives
+$$
+ H_i=(PG)\mu(h_i)(PG)^{\mathsf T}.
+$$
+The two components of $\mu(h_i)(u,v)^{\mathsf T}$ are positive. Hence $\rho_i/M$ is a strict positive weighted average of $s/u$ and $t/v$, proving
+\begin{equation}
+ \frac tv<\frac{\rho_i}{M}<\frac su,
+ \qquad\frac su-\frac tv=\frac1{uv}.
+ \label{eq:displaced-farey-interval}
+\end{equation}
+The Gram label and root determine the complete Gram matrix, and the Cohn coding is injective. Thus distinct $Z_i$ have distinct roots. Order them as $\rho_X<\rho_Y$, and set $\Sigma=\rho_X+\rho_Y$ and $\Delta\rho=\rho_Y-\rho_X>0$. Both roots lie in $(0,M/2)$, so $0<\Sigma<M$; none of these endpoints occurs.
+
+\begin{lemma}[A reduced midpoint without a parity assumption]
+\label{lem:displaced-integer-direction}
+Define
+\begin{equation}
+ c_0=\gcd(\Sigma,2M),\qquad Q=\frac{2M}{c_0},\qquad
+ \varepsilon_Q=\gcd(Q,2),\qquad
+ \kappa=\frac{\varepsilon_Q\Delta\rho}{Q}.
+ \label{eq:displaced-reduced-midpoint}
+\end{equation}
+Then $\kappa$ is a positive integer and there are unique coprime positive integers $\alpha,\beta$ satisfying
+\begin{equation}
+ Q=\alpha u+\beta v,\qquad
+ \frac\Sigma{c_0}=\alpha s+\beta t.
+ \label{eq:displaced-primitive-direction}
+\end{equation}
+They obey
+\begin{align}
+ c_0&>\frac{2\kappa}{\varepsilon_Q}uv,
+ \label{eq:displaced-prefix-separation}\\
+ M_0\Sigma-2\rho_0M&=c_0n,\qquad n=\alpha-2\beta.
+ \label{eq:displaced-integer-defect}
+\end{align}
+For the distinct central words under consideration, $n\ne0$.
+\end{lemma}
+
+\begin{proof}
+The determinant-one Gram equations imply $\rho_X^2\equiv\rho_Y^2\equiv-1\pmod M$, hence $M\mid\Sigma\Delta\rho$. Since $\gcd(\Sigma/c_0,Q)=1$, this gives $Q\mid2\Delta\rho$. Equivalently $Q/\varepsilon_Q\mid\Delta\rho$, proving positive integrality of $\kappa$ without factoring $M$ or assuming it odd.
+
+The strict midpoint interval in \eqref{eq:displaced-farey-interval} gives
+$$
+ \alpha=\frac{v\Sigma-2Mt}{c_0}>0,\qquad
+ \beta=\frac{2Ms-u\Sigma}{c_0}>0.
+$$
+They are integers because $c_0$ divides both numerators. Inverting the unimodular frame proves \eqref{eq:displaced-primitive-direction}, including uniqueness and coprimality. Moreover
+$$
+ \frac{\Delta\rho}{M}=\frac{2\kappa}{\varepsilon_Q c_0}<\frac1{uv},
+$$
+which is \eqref{eq:displaced-prefix-separation}. Substituting \eqref{eq:displaced-primitive-direction} into the left side of \eqref{eq:displaced-integer-defect}, and using \eqref{eq:displaced-prefix-frame}, gives $c_0(\alpha-2\beta)$.
+
+Finally, $n=0$ is precisely $\Sigma/(2M)=\rho_0/M_0$, the ancestor-midpoint case. \Cref{cor:no-central-midpoint} excludes that case for distinct central words. This last exclusion uses centrality; it is not asserted for arbitrary palindromic pairs.
+\end{proof}
+
+Put $r=\alpha/\beta$. Since $Q=\beta M_0\{1+r_0(r-2)\}$, the integer-defect identity gives
+\begin{equation}
+ \xi=\frac{2(r-2)}{1+r_0(r-2)}=2\eta(r),\qquad
+ 2\eta(r)=\eta(t_X)+\eta(t_Y).
+ \label{eq:displaced-mean}
+\end{equation}
+Thus the primitive direction is a nonlinear mean of the two actual column slopes, rather than a vector of letter counts. The root order also has a direct column interpretation. From $M=(u,v)v_i$, $\rho_i=(s,t)v_i$ and the frame identities, one obtains
+$$
+ \eta(t_i)=\frac{M_0^2\rho_i}{M}-M_0\rho_0.
+$$
+An $a$ preimage has $t_i<2$ and hence $\rho_i/M<r_0$; a $b$ preimage has $t_i>2$ and hence $\rho_i/M>r_0$. Therefore the $a$ branch is precisely the smaller-root branch, consistently with the ordering above.
+
+\subsection{Cancellation of the two parent cylinders}
+
+Let $U=\nu(a)$ and $V=\nu(b)$, with $\tr U=3p$, $\tr V=3q$. We recall the notation of the decoder, but write its cusp centers as $u_*,v_*$ to distinguish them from the prefix entries in \eqref{eq:displaced-prefix-frame}. Put
+$$
+ a_*=p^{-2},\quad b_*=q^{-2},\quad
+ L=u_*+v_*-3=\frac{M_0}{pq},\quad
+ \delta_*=(a_*-b_*)/L.
+$$
+The standard-basis formulas in \cref{sec:decoder} give
+\begin{equation}
+ p\geqslant1,\quad q\geqslant2,\quad
+ \frac52\leqslant L<3,\quad
+ a_*+b_*=L(3-L),\quad 2r_0=u_*-v_*+\delta_*.
+ \label{eq:displaced-parent-parameters}
+\end{equation}
+The preimages in \eqref{eq:displaced-genuine-fork} begin in opposite letters. Their cusp slopes $\zeta_i=1/(t_i-2)$ therefore lie in the two cylinders \eqref{eq:decoder-cylinders}. Naming the $a$ branch first, we may write
+\begin{align}
+ \zeta_X&=-u_*+e_U,&-\frac{5a_*}{12}\leqslant e_U\leqslant\frac{12a_*}{25},\nonumber\\
+ \zeta_Y&=v_*+e_V,&-\frac{40b_*}{111}\leqslant e_V\leqslant\frac{b_*}{2}.
+ \label{eq:displaced-cylinder-errors}
+\end{align}
+The centered coordinates $y_i=\zeta_i+r_0$ have the form
+$$
+ y_X=-\frac{L+3}{2}+\frac{\delta_*}{2}+e_U,
+ \qquad y_Y=\frac{L+3}{2}+\frac{\delta_*}{2}+e_V.
+$$
+The leading centers cancel in their reciprocal sum:
+\begin{equation}
+ \xi=\frac1{y_X}+\frac1{y_Y}
+ =\frac{\delta_*+e_U+e_V}{y_Xy_Y}.
+ \label{eq:displaced-parent-cancellation}
+\end{equation}
+This cancellation explains why both parent labels enter the bound.
+
+The ranges in \eqref{eq:displaced-parent-parameters}--\eqref{eq:displaced-cylinder-errors} give
+$$
+ -\frac{a_*}{12}-\frac{422b_*}{555}
+ \leqslant\delta_*+e_U+e_V
+ \leqslant\frac{22a_*}{25}+\frac{b_*}{6}.
+$$
+Every absolute coefficient here is at most $22/25$. The decoder's cusp orbit has $\zeta_X\leqslant-5/2$ and $\zeta_Y\geqslant12/5$, while $0<r_0<1/2$. Hence $y_X<-2$, $y_Y>12/5$, and
+$$
+ |\xi|<\frac{11}{60}(a_*+b_*)\leqslant\frac{11}{48}.
+$$
+Inverting \eqref{eq:displaced-mean} gives $r-2=\xi/(2-r_0\xi)$. Its denominator exceeds $181/96>0$, and therefore
+\begin{equation}
+ \left|\frac\alpha\beta-2\right|
+ <\frac{88}{905}(p^{-2}+q^{-2})
+ <\frac{p^{-2}+q^{-2}}{10}\leqslant\frac18.
+ \label{eq:displaced-parent-cone}
+\end{equation}
+No parity condition has entered either the cancellation or the rational direction.
+
+\begin{theorem}[A parent-sensitive bound in both parities]
+\label{thm:displaced-ancestor-bound}
+For two distinct central words with common Gram label $M$, let $d$ be their maximal common directive and use the data above. Let
+$$
+ \chi=\frac pq+\frac qp,\qquad n=\alpha-2\beta\ne0.
+$$
+Then
+\begin{equation}
+ \beta>\frac{10|n|p^2q^2}{p^2+q^2}
+ =\frac{10|n|M_0}{\chi L},
+ \qquad
+ M_0^4<\frac{8\varepsilon_Q\chi(7+5\sqrt2)}{25\kappa|n|}\,M.
+ \label{eq:displaced-quartic-bound}
+\end{equation}
+In particular, bounded parent imbalance gives a fourth-power restriction on the common-ancestor label.
+\end{theorem}
+
+\begin{proof}
+Since $|r-2|=|n|/\beta$, the first bound follows from \eqref{eq:displaced-parent-cone}. Set $\gamma=1+r_0(r-2)$. The same estimate gives $\gamma>15/16$, whence
+$$
+ Q=\beta\gamma M_0>
+ \frac{10\gamma|n|}{\chi L}M_0^2
+ >\frac{25|n|}{8\chi}M_0^2.
+$$
+The prefix ratio $u/v$ lies in $(\phi,1+\sqrt2)$, where $\phi=(1+\sqrt5)/2$: start at $2$, and apply the two increasing Cohn maps, which preserve this interval. The function $x/(2x+1)^2$ decreases for $x>1/2$. Consequently
+$$
+ \frac{uv}{M_0^2}=\frac{u/v}{(2u/v+1)^2}>5\sqrt2-7.
+$$
+Combining this with \eqref{eq:displaced-prefix-separation} and $M=c_0Q/2$ gives
+\begin{equation}
+ M_0^4<
+ \frac{\varepsilon_Q\chi L(7+5\sqrt2)}{10\kappa\gamma|n|}\,M
+ <\frac{8\varepsilon_Q\chi(7+5\sqrt2)}{25\kappa|n|}\,M,
+ \label{eq:displaced-quartic-refined}
+\end{equation}
+using $(5\sqrt2-7)^{-1}=7+5\sqrt2$. This also records the stronger data-dependent constant before its uniform simplification.
+\end{proof}
+
+The imbalance cannot be dropped. Along a constant $a$ directive, one parent label stays equal to one, while $M_0=Lp q$ and $5/2\leqslant L<3$. Thus $\chi=q+1/q$ grows proportionally to $M_0$; the fourth-power bound then has the earlier cubic scale. The theorem distinguishes balanced parent scales from long one-sided directives without excluding either.
+
+There is also a direct trace meaning for the integer defect. Put $H_0=(\rho_0^2+1)/M_0$, the lower-right entry of the ancestor Gram matrix. Since $(PGP)^{-1}H_i=P^{-1}\nu(z_i)P$, we have
+$$
+ \tr\nu(z_i)=\tr\bigl((PGP)^{-1}H_i\bigr)
+ =H_0M+M_0\frac{\rho_i^2+1}{M}-2\rho_0\rho_i.
+$$
+Completing a square gives
+$$
+ \tr\nu(z_i)=\frac M{M_0}+\frac{M_0}M
+ +\frac{M_0}M\left(\rho_i-\frac{M\rho_0}{M_0}\right)^2.
+$$
+Subtracting yields
+$$
+ \tr\nu(z_Y)-\tr\nu(z_X)
+ =M_0\Delta\rho\,\delta
+ =\frac{2\kappa n}{\varepsilon_Q}.
+$$
+Thus the relative words do not themselves have equal traces when $n\ne0$. Neither cancellation of the ancestor nor a projective moving-center argument supplies a new equal-label descent. The remaining problem is to combine literal centrality with the exact weighted-scale equality; the inequalities proved here are necessary conditions only.

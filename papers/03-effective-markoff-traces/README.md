@@ -66,7 +66,7 @@ has intersection number at least 25.
 papers/03-effective-markoff-traces/
 ├── DD-LV-Effective-Markov-Traces.tex  main file: preamble, abstract, \input list
 ├── DD-LV-Effective-Markov-Traces.pdf  compiled manuscript (33 pages), tracked
-├── references.bib                     bibliography, 14 entries
+├── references.bib                     bibliography, 15 entries
 ├── Makefile                           strict build; `make help` lists all targets
 ├── README.md                          this file
 │
