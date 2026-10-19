@@ -2,14 +2,14 @@
 
 **Authors:** Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
 
-This package accompanies the proofs of the finite-word decoder, the palindromic midpoint classification and the displaced common-ancestor bound, together with the Thue–Morse coding, the block exchange and the decoder around an arbitrary palindromic centre, the cubes of nested exchanges, the lengths of directing words, the ladder lemma and the three figures. The fixed checks perform prescribed exact algebra and reconstruct the worked examples. Two further tools enumerate twins among palindromes and test the decoding at arbitrary centres, as reported in the closing section of the article; they give evidence within their stated scopes and are not used in any proof.
+This package accompanies the proofs of the finite-word decoder, the palindromic midpoint classification and the displaced common-ancestor bound, together with the Thue–Morse coding, the block exchange and the decoder around an arbitrary palindromic centre, the cubes of nested exchanges, the lengths of directing words, the ladder lemma, the two twins of 52 letters that no chain of exchanges joins, and the three figures. The fixed checks perform prescribed exact algebra and reconstruct the worked examples. Two further tools enumerate twins among palindromes and test the decoding at arbitrary centres, as reported in the closing section of the article; they give evidence within their stated scopes and are not used in any proof.
 
 ## Layout and conventions
 
 - `code/palindromic_words.py`: reference word, right standard-morphism and Gram operations using integers and rational fractions.
 - `code/make_examples.py`: regeneration of the five prescribed example rows.
 - `code/make_figures.py`: writes the TikZ code of the three figures, `cusp-cylinders.tex`, `nested-square.tex` and `twin-ladders.tex`, from exact data, into the `figures/` folder of the manuscript directory that contains this supplement. It is the only tool that reads or writes outside this folder; the checks and the enumerations do not.
-- `code/twin_census.py`: exact enumeration of all palindromes up to a label bound, with the twins, their structure, their exchange classes, their letter counts, the squares of nested exchanges formed by the classes of four and, with `--ladder`, the ladder lemma.
+- `code/twin_census.py`: exact enumeration of all palindromes up to a label bound, with the twins, their structure, their common centres (part (ii) of the conjecture), their exchange classes, their letter counts, the squares of nested exchanges formed by the classes of four and, with `--ladder`, the ladder lemma.
 - `code/centre_decoder.py`: all solutions of the reflected column equation at a palindromic centre among words up to a length bound, an independent search that the decoder theorem makes a control.
 - `checks/check_decoder.py`: exact symbolic identities and strict residual margins for the decoder.
 - `checks/check_examples.py`: independent left-morphism reconstruction and Gram/count/reflection checks for the table.
@@ -17,6 +17,7 @@ This package accompanies the proofs of the finite-word decoder, the palindromic 
 - `checks/check_centres.py`: the Thue–Morse coding, the doubled directive, the block exchange and its arithmetic at every palindromic centre of length at most five, the four palindromes of label 12 986 074 130, and the ladder lemma below label one billion.
 - `checks/check_centre_decoder.py`: the decoder at every palindromic centre, with the symbolic identities of its proof for a general symmetric centre matrix, every rational constant of the proof, an exhaustive test on the palindromic centres of length at most four and all words of length at most nine, and the classification at every centre on all palindromes of label at most one billion.
 - `checks/check_nested_and_lengths.py`: the length of a directing word as a continued-fraction sum, the bridge to the m-value of Lagisquet, Pelantová, Tavenas and Vuillon on all words of length at most ten, the Christoffel and Farey identification on the central words of directive length at most nine, the cubes of nested exchanges up to depth three, and the first square with its two shifted midpoints.
+- `checks/check_chain_form.py`: the two palindromes of 52 letters around the empty word of the remark on chains of exchanges, with their common label, the exchanges of both, the empty word as the only centre of all four words, and the two classes reached by chains of exchanges, which are disjoint.
 - `data/midpoint_examples.json`: literal words, ancestor and image Gram entries, and completed counts for the table.
 - `LICENSE` and `CITATION.cff`: the licence (GNU LGPL v2.1) and the citation metadata of this material.
 - `run_all.py`: fixed portable runner with time limits and, on Unix, memory/CPU limits.

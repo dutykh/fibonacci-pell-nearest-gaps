@@ -41,8 +41,8 @@ abstract: >-
   differ by one exchange; an enumeration of all palindromes with label up to
   10^26 finds no coincidence of labels that the exchanges do not explain.
 type: software
-version: "2.3.0"
-date-released: "2026-10-05"
+version: "2.4.0"
+date-released: "2026-10-19"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
 keywords:

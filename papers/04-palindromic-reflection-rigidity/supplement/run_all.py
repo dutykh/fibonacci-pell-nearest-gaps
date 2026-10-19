@@ -27,7 +27,7 @@ def limits():
 here = Path(__file__).resolve().parent
 commands = []
 for script in ("check_decoder.py", "check_examples.py", "check_displaced.py", "check_centres.py",
-               "check_nested_and_lengths.py", "check_centre_decoder.py"):
+               "check_nested_and_lengths.py", "check_centre_decoder.py", "check_chain_form.py"):
     commands.append([sys.executable, "-B", str(here / "checks" / script)])
 for command in commands:
     result = subprocess.run(command, cwd=here, text=True, capture_output=True,

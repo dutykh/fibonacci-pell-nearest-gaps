@@ -11,7 +11,7 @@ authors:
   - family-names: Vuillon
     given-names: Laurent
     affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
-date-released: "2026-10-05"
+date-released: "2026-10-19"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps/"
 preferred-citation:

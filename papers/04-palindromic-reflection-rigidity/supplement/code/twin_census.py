@@ -14,7 +14,11 @@ palindrome is structured around ``p`` when it reads
 blocks ``Wi`` in ``{ab, ba}`` and ``^`` the block exchange.  The run checks:
 
 * part (i) of the conjecture: every palindrome with a twin is structured;
-* part (ii): every class of twins is connected by block exchanges;
+* part (ii): any two twins are structured around a common palindrome;
+* the stronger chain form: every class of twins is connected by block exchanges,
+  each around a centre of the current word (true within the scope of the article,
+  false above it, see the remark on chains of exchanges and
+  ``checks/check_chain_form.py``);
 * every exchange pair has its root midpoint at its centre, ``M_p`` divides the
   label, the cofactor is prime to ``M_p`` and the roots agree modulo ``M_p``
   (the propositions on arbitrary centres and on the arithmetic of an exchange);
@@ -157,7 +161,7 @@ def main():
         print(f"INCONCLUSIVE  more than {arguments.max_palindromes} palindromes below {bound:.3e}; nothing checked")
         sys.exit(2)
     sizes = defaultdict(int)
-    unstructured, disconnected, pairwise_failures = [], [], []
+    unstructured, disconnected, pairwise_failures, no_common_centre = [], [], [], []
     exchange_pairs = []
     count_failures, square_failures, square_kinds = [], [], defaultdict(int)
     for label, codes in sorted(twins.items()):
@@ -173,8 +177,10 @@ def main():
                 square_kinds[kind] += 1
         members = set(words)
         neighbours = {w: set() for w in words}
+        centres = {}
         for w in words:
             found = structures(w)
+            centres[w] = {p for p, _ in found}
             if not found:
                 unstructured.append((label, w))
             for p, blocks in found:
@@ -197,6 +203,8 @@ def main():
                 todo.append(v)
         if reached != members:
             disconnected.append((label, words))
+        if any(not centres[u] & centres[v] for u in words for v in words if u < v):
+            no_common_centre.append((label, words))
         if any(v not in neighbours[u] for u in words for v in words if u != v):
             pairwise_failures.append(label)
 
@@ -208,11 +216,16 @@ def main():
         print(f"COUNTEREXAMPLE  part (i): {unstructured[:5]}")
     else:
         print("PASS  part (i): every palindrome with a twin is structured around a palindrome")
-    if disconnected:
+    if no_common_centre:
         status = 1
-        print(f"COUNTEREXAMPLE  orbit form: {disconnected[:3]}")
+        print(f"COUNTEREXAMPLE  part (ii): {no_common_centre[:3]}")
     else:
-        print("PASS  part (ii): every class of twins is connected by exchanges")
+        print("PASS  part (ii): any two twins are structured around a common palindrome")
+    if disconnected:
+        print(f"INFO  the chain form fails: classes not connected by exchanges at {len(disconnected)} labels,"
+              f" the first being {disconnected[0][0]}")
+    else:
+        print("PASS  chain form: every class of twins is connected by exchanges")
     print(f"PASS  {len(exchange_pairs)} exchange pairs have their midpoint at the centre,"
           " M_p | M with coprime cofactor, rho = rho_p mod M_p")
     if pairwise_failures:

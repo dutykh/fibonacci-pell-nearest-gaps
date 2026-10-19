@@ -10,4 +10,6 @@ check_nested_and_lengths.py: PASS
 SHA256 936545922923a2970dd6af586848c2c08a6b451d0dade677963f9fb7edfc526f
 check_centre_decoder.py: PASS
 SHA256 9e6d09e96888f03ce3a9411f212ecf07c4715517e37e7ef7d773c4c2effb28e2
+check_chain_form.py: PASS
+SHA256 37ab728b03dd369081ccbcc26e1016e39f81c92986589b03ac87ac06bd8d7d31
 All checks reproduced successfully.

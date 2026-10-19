@@ -61,9 +61,11 @@ imbalance is bounded.
 
 An exact enumeration of all 16 743 538 palindromes with label at most 10²⁶
 finds no coincidence of labels that the exchanges do not produce, and every
-class it finds is a single exchange or a square. This supports the conjecture
-on twins stated in the closing section, whose proof would imply the uniqueness
-conjecture. These are structural restrictions: no result excludes every
+class it finds is a single exchange or a square. Above that range two
+palindromes of 52 letters share a label without being joined by exchanges, but
+both are structured around the empty word. The conjecture on twins stated in
+the closing section asks that any two twins be structured around a common
+palindrome; its proof would imply the uniqueness conjecture. These are structural restrictions: no result excludes every
 displaced central pair, and the uniqueness conjecture is not resolved.
 
 ## Directory layout
@@ -83,8 +85,8 @@ papers/04-palindromic-reflection-rigidity/
 │
 └── supplement/                                supplementary material, self-contained
     ├── README.md                              conventions, and which computation supports what
-    ├── run_all.py                             runs the six fixed checks with time limits
-    ├── checks/                                the six fixed checks
+    ├── run_all.py                             runs the seven fixed checks with time limits
+    ├── checks/                                the seven fixed checks
     ├── code/                                  reference words and Gram matrices, the census, the figures
     ├── data/                                  the worked examples and the recorded output
     ├── requirements.txt                       SymPy 1.14.0
@@ -117,20 +119,21 @@ supplement/requirements.txt`). No network access is involved, and nothing
 outside the supplement directory is read.
 
 ```sh
-make checks     # the six fixed checks, each limited in time and memory
+make checks     # the seven fixed checks, each limited in time and memory
 ```
 
-The six checks verify the symbolic identities and rational constants of the
+The seven checks verify the symbolic identities and rational constants of the
 word decoder and of the decoder at every palindromic centre, reconstruct the
 worked examples of the article independently from the literal words, verify the
 identities and constants of the moving reflection and of the fourth-power bound
 in both parities of the label, verify the Thue–Morse coding and the block
 exchange at every palindromic centre of length at most five together with the
 four palindromes of label 12 986 074 130, and verify the length of a directing
-word, the cubes of nested exchanges up to depth three and the first square. Each
+word, the cubes of nested exchanges up to depth three and the first square, and
+the two twins of 52 letters that no chain of exchanges joins. Each
 prints a PASS line and a hash that is compared with the recorded output.
 
-`make release` rebuilds the manuscript, runs the six checks, and then removes the
+`make release` rebuilds the manuscript, runs the seven checks, and then removes the
 build intermediates. From the top of the repository the same work is reached as
 `make release-04-palindromic-reflection-rigidity`.
 

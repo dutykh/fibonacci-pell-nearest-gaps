@@ -23,24 +23,54 @@ centre, and it suggests the following conjecture.
 \begin{conjecture}[Structure of twins]
 \label{conj:structure}
 \textup{(i)}~A palindrome has a twin if and only if it is structured around some palindrome.
-\textup{(ii)}~Two palindromes are twins if and only if a chain of block exchanges, each around
-its own centre, leads from one to the other.
+\textup{(ii)}~Any two twins are structured around a common palindrome.
 \end{conjecture}
 
-Part (ii) implies part (i), and it is the form that \cref{rem:quadruple} imposes, since the
-twins of a palindrome need not be its block exchanges. In both parts the \emph{if} direction is \cref{prop:any-centre}. Either part would
+Part (ii) implies part (i), since a palindrome with a twin is then structured around the
+palindrome that it shares with its twin, and the \emph{if} direction of part (i) is
+\cref{prop:any-centre}. Neither part asks the twins of a palindrome to be its block exchanges,
+and they need not be: \cref{rem:quadruple} shows twins that are not exchanges of each other, and
+\cref{rem:chain-form} below shows twins that no chain of exchanges, each around its own centre,
+joins. Either part would
 imply the Frobenius--Markov uniqueness conjecture. Indeed, two distinct Markov occurrences with
 the same Markov number are twin central words, while a structured palindrome has completed
 counts divisible by $2k+1\geqslant3$ and is therefore not central.
 
 An exact enumeration by computer of all $16\,743\,538$ palindromes whose label does not exceed
-$10^{26}$ supports the conjecture in its stronger form. Exactly $1\,719$ of these labels are
+$10^{26}$ supports both parts of the conjecture. Exactly $1\,719$ of these labels are
 carried by more than one palindrome, $1\,695$ by two and $24$ by four. Every palindrome
 involved is structured, every class of twins is connected by exchanges, and every exchange
 pair has its root midpoint at its centre. Every class of four is a square of
 \cref{cor:nested-square}, so that every pair of twins whose midpoint is shifted off its centres is
 a diagonal of such a square, and the two palindromes of every class have the same numbers of
-letters $a$ and $b$. The enumeration is part of the supplementary material.
+letters $a$ and $b$. Since the four words of a square are all structured around its inner centre
+(\cref{thm:nested-cubes}), any two twins in this range are structured around a common palindrome.
+The enumeration is part of the supplementary material.
+
+\begin{remark}[Chains of exchanges do not suffice]
+\label{rem:chain-form}
+Above the range of the enumeration, twins need not be joined by exchanges. With $u=ab$ and
+$v=ba$, the structured block sequences
+$$
+ B=uvuuuvvuuuvuuvvuvvvuuvvvuv,\qquad B'=uvvuuuvuuuvvuvuuvvvuvvvuuv
+$$
+of $26$ blocks give two palindromes $Z=\varepsilon\langle B\rangle$ and $Z'=\varepsilon\langle B'\rangle$
+of $52$ letters with the same label
+$$
+ M(Z)=M(Z')=19\,021\,048\,775\,294\,072\,282\,311\,853\,530\,130 .
+$$
+Testing every palindromic prefix as a centre shows that each of the four palindromes $Z$, $Z'$,
+$\varepsilon\langle\widehat B\rangle$ and $\varepsilon\langle\widehat{B'}\rangle$ is structured around
+the empty word and around no other palindrome. The only exchange that applies to $Z$ is therefore
+its exchange $\varepsilon\langle\widehat B\rangle$ around the empty word, and the only one that applies
+to that word leads back to $Z$; so the words that chains of exchanges reach from $Z$ are $Z$ and
+$\varepsilon\langle\widehat B\rangle$, and $Z'$ is not among them. By
+\cref{cor:centre-classification} the root midpoint of $Z$ and $Z'$ is then the ratio of no
+palindrome, so the pair is displaced, and it is not a diagonal of a square. Part~(ii) of
+\cref{conj:structure} holds for the four twins, since all of them are structured around the empty
+word, and all four have $26$ letters $a$ and $26$ letters $b$. The supplementary material checks
+these statements in exact arithmetic.
+\end{remark}
 
 \begin{figure}[htbp]
 \centering
@@ -109,13 +139,15 @@ This makes part~(i) of \cref{conj:structure} equivalent to one statement about m
 Indeed, if a palindrome $Z$ has a twin $Z'$ whose root midpoint is $\rho_p/M_p$, then $Z$ is
 structured around $p$ by \cref{cor:centre-classification}; conversely a structured palindrome
 has its exchange as a twin with that midpoint, by \cref{prop:any-centre}. No condition on a
-common prefix is needed: the corollary forces both palindromes to begin with $p$. Part~(ii) is
-equivalent in the same way to the statement that any two twins are joined by a chain of twins
-in which consecutive words have their root midpoint at the ratio of a palindrome. This is the
-displaced problem of \cref{sec:displaced}, now posed for all palindromes. \Cref{rem:quadruple}
+common prefix is needed: the corollary forces both palindromes to begin with $p$. Part~(ii)
+asks in addition that the palindrome be common to the two twins, and in the same way it is
+equivalent to the statement that \emph{any two twins $Z$ and $Z'$ have a common palindrome $p$
+such that each of them has a twin whose root midpoint with it is the ratio $\rho_p/M_p$.} This is
+the displaced problem of \cref{sec:displaced}, now posed for all palindromes. \Cref{rem:quadruple}
 shows that the twin has to be chosen, since some twins are displaced, and the enumeration finds
 that every displaced pair is a diagonal of a square of \cref{cor:nested-square}, that is, a
-composition of two exchanges. For each pair the centre, when it exists, is unique, because the
+composition of two exchanges; \cref{rem:chain-form} shows that above its range a displaced pair
+need not be a composition of exchanges at all. For each pair the centre, when it exists, is unique, because the
 ratio of a palindrome determines it.
 
 \subsection{Lengths of directing words}
@@ -126,9 +158,9 @@ $\abs{\operatorname{Pal}(\theta(av))}$ and $\abs{\operatorname{Pal}(\theta(av'))
 words, and it is natural to ask whether it forces the two directing words $av$ and $av'$ to have
 the same length. The question matters because the directing words of one length form a finite
 family, so that a positive answer would allow the coincidences to be studied one length at a
-time. This subsection gives the length its meaning in the Cohn coding, shows that
-\cref{conj:structure} implies a positive answer, and shows that for Markov words a positive answer
-is equivalent to the uniqueness conjecture.
+time. This subsection gives the length its meaning in the Cohn coding, shows that twins joined by
+exchanges have directing words of the same length, and shows that for Markov words a positive
+answer is equivalent to the uniqueness conjecture.
 
 \begin{lemma}[The length of a directing word]
 \label{lem:length-cf}
@@ -253,10 +285,11 @@ is the identification it makes: the directing word of the Thue--Morse coding is 
 the Christoffel word of the fixed-sum theorem, so that the length question is an equivalent form of
 the uniqueness conjecture.
 
-Three consequences place the proposition. First, part~(ii) of \cref{conj:structure} implies that
-twins have the same numbers of letters $a$ and $b$, because an exchange does not change them; so the
-conjecture implies that twins have directing words of the same length, and by the proposition this
-alone already implies uniqueness. Second, the equality of letter counts is a theorem on every
+Three consequences place the proposition. First, twins joined by exchanges have the same numbers
+of letters $a$ and $b$, because an exchange does not change them, and so do the two twins of
+\cref{rem:chain-form}, which no exchange joins; if all twins had the same letter counts, they would
+have directing words of the same length, and by the proposition this alone would already imply
+uniqueness. Second, the equality of letter counts is a theorem on every
 reflection axis: by \cref{cor:centre-classification}, two twins whose root midpoint is the ratio of
 a palindrome are exchanged around it, so they have the same numbers of letters $a$ and $b$ and
 directing words of the same length; in the enumeration up to $10^{26}$ every class of twins has a
@@ -280,4 +313,6 @@ uniqueness along these lines would have to show that central words cannot realiz
 midpoint, and centrality must enter there, since displaced twins exist among palindromes. The
 displaced twins found by the enumeration are all diagonals of the squares of
 \cref{cor:nested-square}: each pair is a composition of two exchanges, and its root is translated by
-twice the label times the difference of the two centre ratios.
+twice the label times the difference of the two centre ratios. Above that range displaced twins of
+another kind appear (\cref{rem:chain-form}); \cref{conj:structure} asks of them only that they share
+a centre.

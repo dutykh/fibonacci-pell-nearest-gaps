@@ -56,7 +56,7 @@ supplement. Nothing below `papers/` reaches into anything else.
 | 1 | Fibonacci–Pell nearest gaps: an all-exponent classification and quadratic-unit orbit rigidity | [`papers/01-fibonacci-pell-nearest-gaps`](papers/01-fibonacci-pell-nearest-gaps) | 46 | 21 exact programs |
 | 2 | Endpoint costs and balanced near-minimizers under Gaussian reflections | [`papers/02-endpoint-costs-balanced-paths`](papers/02-endpoint-costs-balanced-paths) | 20 | 3 exact computations over a complete finite graph |
 | 3 | Effective trace bounds and rigidity for simple curves on the modular torus | [`papers/03-effective-markoff-traces`](papers/03-effective-markoff-traces) | 33 | 14 exact programs: occurrence classification, polynomial proofs, residue cover |
-| 4 | Rational reflections and palindromic words in the Cohn monoid | [`papers/04-palindromic-reflection-rigidity`](papers/04-palindromic-reflection-rigidity) | 38 | 6 exact checks, an enumeration of all palindromes with label up to 10²⁶, and a search at every palindromic centre |
+| 4 | Rational reflections and palindromic words in the Cohn monoid | [`papers/04-palindromic-reflection-rigidity`](papers/04-palindromic-reflection-rigidity) | 38 | 7 exact checks, an enumeration of all palindromes with label up to 10²⁶, and a search at every palindromic centre |
 
 The first classifies, for every `q ⩾ 1`, every sign and every positive exponent
 `n`, the strict factor-two gaps between a power of the Pell unit `λ = 1 + √2`

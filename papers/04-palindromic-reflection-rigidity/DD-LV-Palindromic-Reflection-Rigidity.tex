@@ -100,30 +100,22 @@
 \keywords{palindromic closure, standard morphisms, Thue--Morse morphism, Cohn matrices, Markov equation, rational reflections, Frobenius root}
 \begin{document}
 \begin{abstract}
-We study the rational reflection that a palindrome $p$ defines for the two Cohn matrices. For
-the reflection of every palindrome we classify all finite words whose terminal columns are taken
-to other word columns: they are exactly the concatenations of the blocks $ab\,p$ and $ba\,p$, and
-the reflection exchanges these blocks; the projective relation lifts to exact equality.
-Consequently two palindromes have equal Gram labels and a root midpoint at the ratio of the centre
-exactly when they are exchanged around it, with no hypothesis on a common prefix. Every nontrivial
-such pair has nonprimitive completed letter counts, so that no two distinct central occurrences
-collide at such a midpoint, and an explicit quadruple of palindromes shows that the midpoint cannot
-be dropped. At a standard centre a second proof, by projective cylinders, gives the quantitative
-information used away from the midpoint. The exchange conjugates one Gaussian factor of the common
-label, and exchanges around nested centres compose into cubes of palindromes with a common label;
-the quadruple is the first square, and the midpoints of its two diagonals are shifted from the
-centre by half the width of its short rungs. In the Thue--Morse coding of Reutenauer and Vuillon, the Gram label of a
-palindrome is the length of an explicit Christoffel word, and the Gram root is its number of
-letters $b$, which also fixes where its standard factorization cuts. An exact enumeration of all
-palindromes with label below $10^{26}$ finds no coincidence of labels that these exchanges do not
-produce, and every class it finds is a single exchange or a square, in support of a conjecture
-whose proof would imply Frobenius--Markov uniqueness. In the same coding the length of the
-directing word is half the sum of the partial quotients of the label divided by the root; twins on
-a reflection axis have directing words of the same length, and for Markov words the equality of
-these lengths under a coincidence of numbers is equivalent to uniqueness. Away from the midpoint we
-derive the exact two-sided reflection equation, an integral midpoint defect valid for both label
-parities, and a fourth-power bound on the common-ancestor label when the parent imbalance is
-bounded. These are proved structural restrictions; they do not resolve the uniqueness conjecture.
+We study the rational reflection that a palindrome $p$ defines for the two Cohn matrices. We
+classify the finite words whose terminal columns it takes to other word columns: they are exactly
+the concatenations of the blocks $ab\,p$ and $ba\,p$, which it exchanges. Hence two palindromes have
+equal Gram labels and a root midpoint at the ratio of the centre exactly when they are exchanged
+around it. Such pairs have nonprimitive completed letter counts, so no two central words collide at
+such a midpoint; an explicit quadruple shows that this hypothesis cannot be dropped. Exchanges
+around nested centres compose into cubes of palindromes with one label. In the Thue--Morse coding of
+Reutenauer and Vuillon, the Gram label of a palindrome is the length of an explicit Christoffel word
+and the Gram root its number of letters $b$; for Markov words, uniqueness holds if and only if equal
+labels force directing words of equal length. An exact enumeration of all palindromes with label
+below $10^{26}$ finds no coincidence of labels that exchanges do not produce. Beyond it, two
+palindromes of $52$ letters share a label without being joined by exchanges, yet both are built
+around the empty word; we conjecture that any two palindromes with the same label are built around
+a common palindrome, which would imply Frobenius--Markov uniqueness. Away from the midpoint we derive
+the two-sided reflection equation and a fourth-power bound on the common-ancestor label under
+bounded parent imbalance. The uniqueness conjecture itself remains open.
 \end{abstract}
 \maketitle
 \input{sections/01-introduction}
@@ -138,8 +130,9 @@ The supplementary material accompanying this article contains the exact computat
 of \cref{thm:word-decoder,thm:palindromic-classification,thm:displaced-ancestor-bound},
 the worked examples of \cref{tab:pairs}, the identities and constants of the decoder at every
 palindromic centre in \cref{subsec:centre-decoder}, the nested cubes of \cref{subsec:nested}, the
-enumeration of twins of \cref{sec:outlook}, the identities of \cref{subsec:lengths}, the data of
-the three figures, and instructions for repeating the verification.
+enumeration of twins of \cref{sec:outlook}, the two twins of \cref{rem:chain-form}, the identities
+of \cref{subsec:lengths}, the data of the three figures, and instructions for repeating the
+verification.
 \section*{Code and data availability}
 The source code and the data supporting this article, with the instructions
 that repeat every calculation, are contained in the supplementary material of
@@ -150,8 +143,19 @@ this series:
 \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
 \par}
 
-\section*{Conflict of interest}
-The authors declare that they have no conflict of interest.
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial,
+or not-for-profit sectors.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial interests or personal
+relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work the authors used Codex (OpenAI) and Claude Code (Anthropic) to
+assist with the research, the computations and the writing. After using these tools, the authors
+reviewed and edited the content as needed and take full responsibility for the content of the
+published article.
 
 \bibliographystyle{amsplain}
 \bibliography{references}
