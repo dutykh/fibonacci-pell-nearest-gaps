@@ -1,0 +1,597 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{Complete Gaussian fibers and the finite windows}
+\label{sec:gaussian}
+
+The finite part of the proof must compare an occurrence with every
+primitive representation of its label. Searching a coordinate rectangle
+would obscure completeness. Gaussian factorization gives an exact finite
+parameter space whose size depends on the distinct prime divisors, not
+on the size of the coordinates, and once the prime factorizations are
+known the enumeration is a matter of integer arithmetic alone.
+
+\subsection{The whole primitive representation fiber}
+
+For $M\geqslant5$, define
+$$
+ \mathcal F(M)=\{(x,y)\in\Z^2:0<x<y,\ \gcd(x,y)=1,\ x^2+y^2=M\}.
+$$
+The source construction in Section~\ref{sec:occurrences} proves that this
+set is nonempty for every occurrence considered here.
+
+\begin{proposition}[Primitive Gaussian allocation]
+\label{prop:gaussian-fibre}
+If $\mathcal F(M)\ne\varnothing$, then
+\begin{equation}\label{eq:gaussian-factorization}
+ M=2^\epsilon\prod_{j=1}^t p_j^{e_j},\qquad
+ \epsilon\in\{0,1\},\quad t\geqslant1,\quad
+ p_j\equiv1\pmod4,
+\end{equation}
+where the $p_j$ are distinct primes and $e_j\geqslant1$.
+Choose $\pi_j=a_j+ib_j$ with $p_j=a_j^2+b_j^2$ and $0<a_j<b_j$.
+The elements of $\mathcal F(M)$ are exactly the sorted absolute
+coordinate pairs of
+\begin{equation}\label{eq:gaussian-sign-cube}
+ (1+i)^\epsilon\prod_{j=1}^t
+ \begin{cases}
+ \pi_j^{e_j},&\sigma_j=1,\\
+ \overline{\pi_j}^{\,e_j},&\sigma_j=-1,
+ \end{cases}
+ \qquad (\sigma_1,\ldots,\sigma_t)\in\{1,-1\}^t.
+\end{equation}
+Each normalized pair occurs exactly twice. Equivalently, fixing
+$\sigma_1=1$ lists the fiber without repetition, and
+$|\mathcal F(M)|=2^{t-1}$.
+\end{proposition}
+
+\begin{proof}
+The Gaussian integers form a Euclidean domain for the squared norm,
+hence have unique factorization. If $z=x+iy$ is primitive and a rational
+prime $p\equiv3\pmod4$ divides $z\overline z$, its Gaussian primality
+forces it to divide $z$ or $\overline z$. Either condition gives
+$p\mid x,y$, a contradiction. Likewise $4\nmid M$: a sum of two
+squares divisible by four has both coordinates even. This proves the
+shape \eqref{eq:gaussian-factorization}; $t=0$ would leave $M=1$ or $2$.
+
+For a split prime $p_j=\pi_j\overline{\pi_j}$, an allocation using both
+$\pi_j$ and $\overline{\pi_j}$ in $z$ would make $p_j$ divide both
+coordinates. Primitivity therefore puts the whole exponent $e_j$ on
+one of the two conjugate factors. Conversely, each allocation in
+\eqref{eq:gaussian-sign-cube} has primitive coordinates: a common odd
+prime would require both conjugate Gaussian factors, and a common factor
+two would require a higher ramified exponent. Unique factorization proves
+that these allocations, up to multiplication by a unit, exhaust all
+representations. Since $M\geqslant5$, a primitive Gaussian integer of norm $M$
+has nonzero coordinates of distinct absolute values, for otherwise $M=1$ or
+$M=2$; its sorted absolute pair therefore lies in $\mathcal F(M)$.
+
+It remains to count. Two Gaussian integers $x+iy$ and $x'+iy'$ have the
+same normalized pair, that is $\{\abs x,\abs y\}=\{\abs{x'},\abs{y'}\}$,
+exactly when $x'+iy'$ is $u(x+iy)$ or $u(x-iy)$ for one of the four units
+$u$. Write $z_\sigma$ for the product \eqref{eq:gaussian-sign-cube}. For an
+odd prime $p_j=a_j^2+b_j^2$ the factors $\pi_j$ and $\overline{\pi_j}$ are
+not associate: $\overline{\pi_j}=u\pi_j$ would force $b_j=0$, $a_j=0$ or
+$a_j=\pm b_j$, none of which is possible since $0<a_j<b_j$. Suppose now that
+$z_{\sigma'}$ and $z_\sigma$ give the same normalized pair. If
+$z_{\sigma'}=uz_\sigma$, unique factorization compares the exponents of the
+non-associate primes $\pi_j$ and $\overline{\pi_j}$ and gives $\sigma'=\sigma$.
+If $z_{\sigma'}=u\overline{z_\sigma}$, the same comparison gives
+$\sigma'=-\sigma$, because conjugation exchanges $\pi_j$ and
+$\overline{\pi_j}$ and replaces $1+i$ by the associate $1-i=-i(1+i)$.
+Conversely $z_{-\sigma}$ is an associate of $\overline{z_\sigma}$, so $\sigma$
+and $-\sigma$ always give the same pair. As $t\geqslant1$, the vectors
+$\sigma$ and $-\sigma$ are distinct, so each normalized pair comes from
+exactly two sign vectors, which proves the count and the last assertion.
+\end{proof}
+
+The exponents in \eqref{eq:gaussian-factorization} do not enlarge the
+primitive sign cube. Mixed allocations of a prime power generate
+imprimitive representations, so omitting them is a proved reduction,
+not a filter based on observed costs.
+
+\begin{remark}[Labels with a single representation]\label{rem:single-representation}
+By \cref{prop:gaussian-fibre}, a label $m>2$ has exactly one primitive
+positive representation precisely when $t=1$, that is when $m=p^e$ or
+$m=2p^e$ for a prime $p\equiv1\pmod4$. Such a label belongs to exactly one
+reduced fraction. \emph{Step 1.} Let $m=m_{P/Q}=m_{P'/Q'}$; by
+\cref{prop:occurrence-cost} the two occurrence pairs are elements of
+$\mathcal F(m)$, of costs $P+Q-2$ and $P'+Q'-2$. \emph{Step 2.} Since
+$\abs{\mathcal F(m)}=2^{t-1}=1$, the two pairs coincide, and so do their
+costs: $P+Q=P'+Q'$. \emph{Step 3.} \Cref{lem:fixed-cost-injectivity} gives
+$P/Q=P'/Q'$. This recovers the theorem of Baragar, Button and Schmutz that a
+Markov number which is a prime power or twice a prime power is unique
+\cite{Baragar1996,Button1998,Schmutz1996}, in the form stated in
+\cite[Theorem~C]{Zhang2007}; see also \cite{LangTan2007}. Here it follows
+from the fixed-sum ordering \eqref{eq:fixed-sum-order} and the Gaussian
+count, and \cref{thm:thirteen-rows} extends the same fiber argument, on
+thirteen rows, to fibers of every size.
+\end{remark}
+
+\begin{example}[Two representations, two costs]
+The first-row label $m_{1/7}=610=2\cdot5\cdot61$ has exactly two
+primitive positive representations:
+$$
+ 610=13^2+21^2=9^2+23^2.
+$$
+In the normalization of the proposition the two split primes are
+$1+2i$ and $5+6i$, and the two allocations give
+$(1+i)(1+2i)(5+6i)=-23+9i$ and $(1+i)(1-2i)(5+6i)=21+13i$. Proposition~\ref{prop:gaussian-fibre}
+proves that the list is complete. Their continued fractions are
+$$
+ \frac{21}{13}=[1;1,1,1,1,2],\qquad
+ \frac{23}{9}=[2;1,1,4],
+$$
+so the Euclidean costs are $6$ and $7$, respectively. The occurrence
+cost $1+7-2=6$ is therefore the minimum. This illustrates why the
+optimization question persists even when the label and its Markov
+occurrence are fixed: the full arithmetic fiber contains another
+primitive pair whose directive is unrestricted.
+\end{example}
+
+\Cref{prop:gaussian-fibre} lists the whole fiber but does not say which of
+its elements comes from the occurrence. The two labels next to the
+occurrence in the Markov tree do: the occurrence pair is the element of the
+sign cube whose prime factors all divide one explicit Gaussian integer.
+
+\begin{proposition}[The occurrence pair in the sign cube]\label{prop:occurrence-in-cube}
+Let $0<P<Q$ be coprime, let $L=P_L/Q_L<R=P_R/Q_R$ be its two Farey
+parents, the reduced fractions with $P_L+P_R=P$, $Q_L+Q_R=Q$ and
+$P_RQ_L-P_LQ_R=1$, and let $m_L$, $m_R$ be their labels, with $m_{0/1}=1$ and
+$m_{1/1}=2$. Write $(s,r)^{\mathsf T}=He$ for the
+occurrence pair of $P/Q$ before sorting, and $m=m_{P/Q}$. Then the ideal of
+$\Z[i]$ generated by $m$ and $m_L+i\,m_R$ is generated by $s+ir$ or by its
+conjugate. In particular, in the sign cube \eqref{eq:gaussian-sign-cube} of
+$m$, the occurrence pair is the element whose prime factors all divide
+$m_L+i\,m_R$, up to the conjugation of the whole product.
+\end{proposition}
+
+\begin{proof}
+\emph{The root read from the Cohn matrix.} The lower Christoffel word of
+$P/Q$ is the product of those of its two Farey parents, the words of $0/1$
+and $1/1$ being the letters $a$ and $b$ \cite{Reutenauer2009}. Writing
+$\gamma_L$ and $\gamma_R$ for the words of the parents, we have
+$\mu(\gamma_{P/Q})=\mu(\gamma_L)\,\mu(\gamma_R)$. Each factor has
+determinant one and upper right entry equal to its label: for the letters,
+$\mu(a)$ and $\mu(b)$ show it, and for a longer Christoffel word the
+computation in the proof of \cref{prop:occurrence-cost} gives an upper right
+entry $4\alpha+4\beta+\delta$, which is the label by
+\eqref{eq:square-count-identity}. Writing
+$\mu(\gamma_{P/Q})=\left(\begin{smallmatrix}a&m\\c&d\end{smallmatrix}\right)$ and
+$\mu(\gamma_X)=\left(\begin{smallmatrix}a_X&m_X\\c_X&d_X\end{smallmatrix}\right)$
+for $X=L,R$, the upper row of the product gives $m=a_Lm_R+m_Ld_R$ and
+$a=a_La_R+m_Lc_R$, so that
+$$
+ a\,m_R=a_R(m-m_Ld_R)+m_Lc_Rm_R\equiv-m_L(a_Rd_R-m_Rc_R)=-m_L\pmod m .
+$$
+
+\emph{The root read from the occurrence pair.} By the proof of
+\cref{prop:occurrence-cost}, $\mu(\gamma_{P/Q})=\mu(a)H^{\mathsf T}H\mu(b)$. With
+$e_1=(1,0)^{\mathsf T}$, the symmetric matrix $\mu(a)$ satisfies $\mu(a)e_1=e$,
+and $\mu(b)e_1=(5,2)^{\mathsf T}=2e+e_1$. Put $v=He=(s,r)^{\mathsf T}$ and
+$h=He_1=(p,q)^{\mathsf T}$. Then
+$$
+ a=e_1^{\mathsf T}\mu(\gamma_{P/Q})e_1=(He)^{\mathsf T}H(2e+e_1)=2m+sp+rq .
+$$
+The matrix with columns $v$ and $h$ is $HP_2$, of determinant
+$\eta=sq-rp=\pm1$, so that $rp=sq-\eta$ and
+$$
+ a\,r\equiv(sp+rq)\,r=s(sq-\eta)+r^2q=qm-\eta s\equiv-\eta s\pmod m .
+$$
+
+\emph{The ideals.} The labels $m_L$, $m_R$, $m$ form a Markov triple, whose
+entries are pairwise coprime \cite{Aigner2013}; and $\gcd(s,r)=1$ with
+$s^2+r^2=m$. Hence $m_R$ and $r$ are invertible modulo $m$. By the first step,
+$m_L+i\,m_R\equiv m_R\,(i-a)\pmod m$, and by the second, $s\equiv-\eta ar$, so that
+$s+ir\equiv r\,(i-\eta a)$ and $s-ir\equiv-r\,(i+\eta a)\pmod m$. If $\eta=1$, the
+first congruence and the third give equal ideals
+$(m,s+ir)=(m,i-a)=(m,m_L+i\,m_R)$; if $\eta=-1$, the fourth does,
+$(m,s-ir)=(m,m_L+i\,m_R)$. Finally $(m,s\pm ir)=(s\pm ir)$, because $s\pm ir$
+divides $m=(s+ir)(s-ir)$.
+
+\emph{The sign cube.} The generator $s\pm ir$ of the ideal is the greatest
+common divisor of $m$ and $m_L+i\,m_R$. A Gaussian prime factor of the label
+divides it exactly when it divides $m_L+i\,m_R$, which identifies the
+allocation of \eqref{eq:gaussian-sign-cube}, up to the conjugation of the
+whole product.
+\end{proof}
+
+The congruence $a\,m_R\equiv-m_L\pmod m$ of the first step is classical:
+up to sign, the residue of $a$ modulo $m$ is the characteristic number of
+the Markov triple $(m,m_L,m_R)$, defined by Frobenius as the solution of
+$m_Rx\equiv\pm m_L\pmod m$, a square root of $-1$ modulo $m$
+\cite[\S2, p.~462]{Frobenius1913}, see also \cite[Section~2.2]{Aigner2013}.
+The proposition translates it into the Gaussian integers and identifies the
+corresponding element of the sign cube with the occurrence pair.
+The cofactor $(m_L+i\,m_R)/(s\pm ir)$ has norm
+$(m_L^2+m_R^2)/m=3m_Lm_R-m$, by the Markov equation, in the form
+$mm'=m_L^2+m_R^2$ with $m'=3m_Lm_R-m$ that Frobenius uses
+\cite[\S1, p.~460]{Frobenius1913}. For the label $610$ of
+the example above, the parents $0/1$ and $1/6$ have labels $1$ and $233$, and
+$$
+ 1+233\,i=(21+13\,i)(5+8\,i):
+$$
+the first factor is the occurrence pair $(1+i)(1-2i)(5+6i)$, and the second
+has norm $89=3\cdot1\cdot233-610$, the label of $1/5$. The second factor is no
+accident: $1/5$ is the third vertex of the Farey triangle $(0/1,1/6,1/5)$ of
+$1/7$, defined below, and the next subsection shows that the cofactor is
+always the occurrence pair of that vertex, up to a unit and a conjugation;
+here $5+8i=i\,(8-5i)$, and $(8,5)$ is the occurrence pair of $1/5$.
+
+\subsection{The occurrence pairs along the Farey tree}\label{sec:vieta-jump}
+
+\Cref{prop:occurrence-in-cube} finds the occurrence pair as a greatest
+common divisor, a computation that still involves the label itself. The
+Markov tree offers a recursion instead. Along the tree the labels obey two
+relations of Vieta, a sum and a product, and the product lifts exactly to
+the Gaussian integers. The Gaussian integer $m_L+i\,m_R$ of
+\cref{prop:occurrence-in-cube} is the product of two Gaussian integers
+attached to $P/Q$ and to the third vertex of its Farey triangle, which are
+their occurrence pairs up to units and conjugation; once an orientation is
+fixed at the root of the tree, the product holds exactly, without any unit.
+Every occurrence pair is thus obtained from pairs found earlier by one exact
+division in $\Z[i]$, with no factorization, no greatest common divisor and
+no continued fraction. This is the Gaussian form of the replacement
+$(x,y,z)\mapsto(x,y,3xy-z)$ that generates the Markov tree.
+
+Two fractions $L=P_L/Q_L<R=P_R/Q_R$ with nonnegative terms are \emph{Farey
+neighbors} when $P_RQ_L-P_LQ_R=1$. Their mediant is
+$M=(P_L+P_R)/(Q_L+Q_R)$, and we call their \emph{difference} the fraction $D$
+whose terms are $\abs{P_R-P_L}$ and $\abs{Q_R-Q_L}$. The Farey tree of $[0,1]$
+starts from the pair $(0/1,1/1)$, whose difference is $1/0$, and replaces
+each pair $(L,R)$ by the two pairs $(L,M)$ and $(M,R)$. Every reduced
+fraction of $(0,1)$ is the mediant of exactly one pair of the tree, the pair
+of its two Farey parents \cite[Section~3.2, Theorem~3.9 and its proof]{Aigner2013}.
+The differences of the two new pairs are $R$ and $L$, because $M-L=R$ and
+$R-M=-L$ term by term, so that the difference of a pair of the tree is
+either one of the three fractions $0/1$, $1/1$ and $1/0$, or a mediant
+formed earlier. We write $\gamma_X$ and $m_X$ for the lower Christoffel word
+and the label of a fraction $X$ of $[0,1]$, with $\gamma_{0/1}=a$ and
+$\gamma_{1/1}=b$, we set $m_{1/0}=1$, and we call $(L,R,D)$ the \emph{Farey
+triangle} of the mediant $M$. Finally, $N(g+ih)=g^2+h^2$ denotes the norm of
+$\Z[i]$.
+
+The first lemma records the two relations of Vieta on every triangle. In
+this indexing they are the content of Theorem~1 of Reutenauer and of its
+proof \cite[Theorem~1 and its proof]{Reutenauer2009}, where the Fricke
+identity gives the Markov triple of a standard factorization and two trace
+identities give the two cases below; we include the argument in the
+notation of the Farey tree.
+
+\begin{lemma}[The labels on a Farey triangle]\label{lem:farey-triangle}
+For every pair $(L,R)$ of the tree, with mediant $M$ and difference $D$, the
+triple $(m_L,m_R,m_D)$ is a Markov triple with pairwise coprime entries, and
+\begin{equation}\label{eq:vieta-relations}
+ m_M=3m_Lm_R-m_D,\qquad m_Mm_D=m_L^2+m_R^2 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\emph{The sum relation.} Put $A_X=\mu(\gamma_X)$ for every fraction $X\neq1/0$
+of the tree. Since $\gamma_M=\gamma_L\gamma_R$ \cite{Reutenauer2009}, we have
+$A_M=A_LA_R$, and each $A_X$ has determinant one and trace $3m_X$ by
+\eqref{eq:cohn-source}. For two matrices $A$ and $B$ of determinant one, the
+Cayley--Hamilton theorem gives $B+B^{-1}=(\tr B)\,I$; multiplying by $A$ and
+taking traces,
+$$
+ \tr(AB)+\tr(AB^{-1})=\tr A\,\tr B .
+$$
+With $A=A_L$ and $B=A_R$ this reads $3m_M+\tr(A_LA_R^{-1})=9m_Lm_R$, and it
+remains to show that $\tr(A_LA_R^{-1})=3m_D$. For the starting pair,
+$$
+ A_{0/1}A_{1/1}^{-1}
+ =\begin{pmatrix}2&1\\1&1\end{pmatrix}\begin{pmatrix}1&-2\\-2&5\end{pmatrix}
+ =\begin{pmatrix}0&1\\-1&3\end{pmatrix},
+$$
+whose trace is $3=3m_{1/0}$. Every other pair $(L,R)$ was created from a pair
+of the tree in one of two ways. Either it is $(L,M')$, where $M'=R$ is the
+mediant of a pair $(L,R')$; then $D=R'$ and $A_R=A_LA_D$, so that
+$A_LA_R^{-1}=A_LA_D^{-1}A_L^{-1}$, whose trace is $\tr A_D^{-1}=\tr A_D=3m_D$, a
+matrix of determinant one and its inverse having the same trace. Or it is
+$(M',R)$, where $M'=L$ is the mediant of a pair $(L',R)$; then $D=L'$ and
+$A_L=A_DA_R$, so that $A_LA_R^{-1}=A_D$, whose trace is $3m_D$.
+
+\emph{The Markov triples.} The starting triple $(1,2,1)$ satisfies
+$x^2+y^2+z^2=3xyz$. If $(m_L,m_R,m_D)$ satisfies it, then $m_D$ is a root of
+the polynomial $X^2-3m_Lm_RX+m_L^2+m_R^2$, and by the sum relation
+$m_M=3m_Lm_R-m_D$ is its other root. The product of the two roots is
+$m_Mm_D=m_L^2+m_R^2$, which is the second relation in
+\eqref{eq:vieta-relations}, and $(m_L,m_R,m_M)$ satisfies the Markov equation
+as well. The triples of the two new pairs, $(m_L,m_M,m_R)$ and
+$(m_M,m_R,m_L)$, are permutations of it, and induction on the depth in the
+tree proves that every triple $(m_L,m_R,m_D)$ is a Markov triple.
+
+\emph{Coprimality.} If a prime divides two entries of a Markov triple, the
+Markov equation shows that it divides the square of the third, hence the
+third. The triple of a new pair has the entries $m_L$, $m_R$ and $m_M$, so a
+prime dividing two of them would divide $m_L$ and $m_R$, two entries of the
+triple of the parent pair. Since the starting triple $(1,2,1)$ has pairwise
+coprime entries, induction on the depth proves the last assertion.
+\end{proof}
+
+The product relation is the one to lift. Put $\alpha_{0/1}=1$,
+$\alpha_{1/1}=1+i$ and $\alpha_{1/0}=1$, and, for each pair $(L,R)$ of the
+tree, with mediant $M$ and difference $D$,
+\begin{equation}\label{eq:vieta-jump}
+ \overline{\alpha_M}=\frac{m_L+i\,m_R}{\alpha_D}.
+\end{equation}
+The definition proceeds down the tree: when a pair is reached, $\alpha_D$ is
+already known, since $D$ is a starting fraction or a mediant formed earlier,
+and it remains to see that the division is exact. Three divisibilities
+attached to each triangle ensure it. They are exchanged by the circular
+permutation $L\to R\to D\to L$: the first says that the division
+\eqref{eq:vieta-jump} is exact, and the other two prepare the divisions of the
+next generation. The first lemma below carries them from a pair to its two
+new pairs; the second runs the induction down the tree.
+
+\begin{lemma}[One step down the tree]\label{lem:vieta-step}
+Let $(L,R)$ be a pair of the tree, with mediant $M$ and difference $D$, and
+let $\alpha_L$, $\alpha_R$, $\alpha_D$ be Gaussian integers of norms $m_L$, $m_R$,
+$m_D$ such that
+\begin{equation}\label{eq:three-divisibilities}
+ \alpha_D\mid m_L+i\,m_R,\qquad \alpha_L\mid m_R+i\,m_D,\qquad
+ \alpha_R\mid m_D+i\,m_L .
+\end{equation}
+Then the quotient \eqref{eq:vieta-jump} is a Gaussian integer, $N(\alpha_M)=m_M$,
+and
+\begin{equation}\label{eq:new-divisibilities}
+ \alpha_M\mid m_R+i\,m_L,\qquad \alpha_L\mid m_M+i\,m_R,\qquad
+ \alpha_R\mid m_L+i\,m_M .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+\emph{The norm of $\alpha_M$.} The first divisibility in
+\eqref{eq:three-divisibilities} makes the quotient \eqref{eq:vieta-jump} a
+Gaussian integer, and by \cref{lem:farey-triangle},
+$$
+ N(\alpha_M)=\frac{N(m_L+i\,m_R)}{N(\alpha_D)}=\frac{m_L^2+m_R^2}{m_D}
+ =\frac{m_Mm_D}{m_D}=m_M .
+$$
+
+\emph{Divisibility by $\alpha_M$.} Conjugating \eqref{eq:vieta-jump} gives
+$\alpha_M\overline{\alpha_D}=m_L-i\,m_R$, and multiplying by $i$,
+$$
+ \alpha_M\cdot i\,\overline{\alpha_D}=m_R+i\,m_L .
+$$
+
+\emph{Divisibility by $\alpha_L$.} We compute modulo $\alpha_L$, which divides
+$m_L=\alpha_L\overline{\alpha_L}$. The definition gives
+$\overline{\alpha_M}\alpha_D=m_L+i\,m_R\equiv i\,m_R$, and its conjugate gives
+$\alpha_M\overline{\alpha_D}=m_L-i\,m_R$. With $m_M=\alpha_M\overline{\alpha_M}$ and
+$m_D=\alpha_D\overline{\alpha_D}$ it follows that, modulo $\alpha_L$,
+\begin{align*}
+ m_M+i\,m_R&\equiv\alpha_M\overline{\alpha_M}+\overline{\alpha_M}\alpha_D
+ =\overline{\alpha_M}\,(\alpha_M+\alpha_D),\\
+ \overline{\alpha_D}\,(\alpha_M+\alpha_D)&=m_L-i\,m_R+m_D\equiv m_D-i\,m_R
+ =-i\,(m_R+i\,m_D).
+\end{align*}
+The last member is divisible by $\alpha_L$, by the second divisibility in
+\eqref{eq:three-divisibilities}. The Gaussian integers $\alpha_L$ and
+$\overline{\alpha_D}$ have no common prime factor, because their norms $m_L$ and
+$m_D$ are coprime by \cref{lem:farey-triangle}. Unique factorization in $\Z[i]$
+therefore gives $\alpha_L\mid\alpha_M+\alpha_D$, and then $\alpha_L\mid m_M+i\,m_R$
+by the first line.
+
+\emph{Divisibility by $\alpha_R$.} We compute modulo $\alpha_R$, which divides
+$m_R$. The definition gives $\overline{\alpha_M}\alpha_D=m_L+i\,m_R\equiv m_L$,
+and therefore, modulo $\alpha_R$,
+\begin{align*}
+ m_L+i\,m_M&\equiv\overline{\alpha_M}\alpha_D+i\,\alpha_M\overline{\alpha_M}
+ =\overline{\alpha_M}\,(\alpha_D+i\,\alpha_M),\\
+ \overline{\alpha_D}\,(\alpha_D+i\,\alpha_M)&=m_D+i\,(m_L-i\,m_R)
+ =m_D+m_R+i\,m_L\equiv m_D+i\,m_L .
+\end{align*}
+The last member is divisible by $\alpha_R$, by the third divisibility in
+\eqref{eq:three-divisibilities}. The norms $m_R$ and $m_D$ are coprime, so
+$\alpha_R$ and $\overline{\alpha_D}$ have no common prime factor, and unique
+factorization gives $\alpha_R\mid\alpha_D+i\,\alpha_M$, and then
+$\alpha_R\mid m_L+i\,m_M$ by the first line.
+\end{proof}
+
+\begin{lemma}[Three divisibilities]\label{lem:three-divisibilities}
+Every quotient \eqref{eq:vieta-jump} is a Gaussian integer, and every pair
+$(L,R)$ of the tree, with difference $D$, satisfies
+\eqref{eq:three-divisibilities} and
+\begin{equation}\label{eq:three-norms}
+ N(\alpha_L)=m_L,\qquad N(\alpha_R)=m_R,\qquad N(\alpha_D)=m_D.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We argue by induction on the depth of the pair in the tree.
+
+\emph{The starting pair.} For $(L,R,D)=(0/1,1/1,1/0)$, the integers $1$, $1+i$
+and $1$ have the norms $1$, $2$ and $1$. The first two divisibilities have
+the divisor $1$, and the third says that $1+i$ divides
+$m_{1/0}+i\,m_{0/1}=1+i$.
+
+\emph{The step.} Assume \eqref{eq:three-norms} and
+\eqref{eq:three-divisibilities} for a pair $(L,R)$. By \cref{lem:vieta-step},
+the quotient \eqref{eq:vieta-jump} is a Gaussian integer of norm $m_M$, and
+\eqref{eq:new-divisibilities} holds. The pair $(L,M)$ has difference $R$, and
+its three divisibilities read $\alpha_R\mid m_L+i\,m_M$, $\alpha_L\mid m_M+i\,m_R$
+and $\alpha_M\mid m_R+i\,m_L$; the pair $(M,R)$ has difference $L$, and its
+three divisibilities read $\alpha_L\mid m_M+i\,m_R$, $\alpha_M\mid m_R+i\,m_L$ and
+$\alpha_R\mid m_L+i\,m_M$. Both are the three divisibilities
+\eqref{eq:new-divisibilities}, and the norms of the two new pairs are among
+$m_L$, $m_R$ and $m_M=N(\alpha_M)$. Both new pairs therefore satisfy
+\eqref{eq:three-norms} and \eqref{eq:three-divisibilities}, which completes the
+induction.
+\end{proof}
+
+The lemma defines $\alpha_M$ for every reduced fraction $M$ of $(0,1)$, since
+$M$ is the mediant of exactly one pair of the tree. It remains to identify
+this Gaussian integer.
+
+\begin{proposition}[The Vieta jump in the Gaussian integers]\label{prop:vieta-jump}
+Let $M=P/Q$ be a reduced fraction of $(0,1)$ with Farey triangle $(L,R,D)$.
+Then
+\begin{equation}\label{eq:vieta-product}
+ m_L+i\,m_R=\overline{\alpha_M}\,\alpha_D,\qquad N(\alpha_M)=m_M,
+\end{equation}
+and $\alpha_M$ is the occurrence pair of $P/Q$ up to a unit and a conjugation:
+if $(s,r)^{\mathsf T}=He$, then $\alpha_M=\varepsilon(s+ir)$ or
+$\alpha_M=\varepsilon(s-ir)$ for a unit $\varepsilon$ of $\Z[i]$. In particular, when
+$D$ lies in $(0,1)$, the cofactor $\alpha_D$ of $\overline{\alpha_M}$ in
+$m_L+i\,m_R$ is the occurrence pair of $D$, up to a unit and a conjugation.
+\end{proposition}
+
+\begin{proof}
+\Cref{lem:three-divisibilities} shows that \eqref{eq:vieta-jump} is a Gaussian
+integer of norm $m_M$, and multiplying \eqref{eq:vieta-jump} by $\alpha_D$
+gives the product in \eqref{eq:vieta-product}. The Gaussian integer
+$\overline{\alpha_M}$ divides $m_M=\overline{\alpha_M}\alpha_M$ and
+$m_L+i\,m_R=\overline{\alpha_M}\alpha_D$, hence every element of the ideal of
+$\Z[i]$ generated by $m_M$ and $m_L+i\,m_R$. By \cref{prop:occurrence-in-cube},
+this ideal is generated by $s+ir$ or by $s-ir$, so that $\overline{\alpha_M}$
+divides one of them. The two sides of this divisibility have the same norm
+$m_M$, so their quotient is a Gaussian integer of norm one, a unit:
+$\overline{\alpha_M}=\varepsilon'(s\pm ir)$, and conjugation gives
+$\alpha_M=\overline{\varepsilon'}(s\mp ir)$. The last assertion is the first
+one applied to the fraction $D$, which has its own Farey triangle.
+\end{proof}
+
+Up to units and conjugation, the product form is classical in substance: it
+follows from the identity $mm'=m_L^2+m_R^2$ and from the characteristic
+numbers of Frobenius, both recalled after \cref{prop:occurrence-in-cube} and
+applied to $m$ and to $m'=m_D$, together with unique factorization in $\Z[i]$
+\cite[\S\S1--2]{Frobenius1913}. For $m_D$ one more step is needed, since
+$(m_D,m_L,m_R)$ is not the triple of the Farey parents of $D$: the Farey
+triangles with the vertex $D$ are joined by flips that keep $D$, each of which
+replaces a triple $(m_D,x,y)$ by $(m_D,y,3m_Dy-x)$, and this leaves the residue
+of $x/y$ modulo $m_D$ unchanged up to sign, because $3m_Dy-x\equiv-x$ and
+$(x/y)^2\equiv-1\pmod{m_D}$ by the Markov equation. What
+\cref{lem:vieta-step,lem:three-divisibilities} add is the exact orientation,
+without units, along the whole tree, and it is this orientation that makes the
+recursion possible.
+
+The proposition turns the computation of occurrence pairs into a descent.
+To obtain the occurrence pair of $P/Q$, one follows the path of $P/Q$ in the
+Farey tree and keeps only the three Gaussian integers of the current
+triangle; each step costs one exact division in $\Z[i]$.
+\Cref{fig:vieta-tree} shows the first four generations. For the triangle
+$L=1/2$, $R=2/3$, $D=1/1$, whose labels are $5$, $29$ and $2$, the rule
+\eqref{eq:vieta-jump} gives
+$$
+ \overline{\alpha_{3/5}}=\frac{5+29\,i}{1+i}=\frac{(5+29\,i)(1-i)}2
+ =\frac{34+24\,i}2=17+12\,i ,
+$$
+and indeed $17^2+12^2=433=m_{3/5}$. Along the fractions $P/(P+1)$, whose right
+parent is $1/1$ and whose labels are Pell numbers, the rule gives
+successively
+\begin{align*}
+ 29+2i&=(5+12i)(1-2i),\\
+ 169+2i&=(29+12i)(5-2i),\\
+ 985+2i&=(29+70i)(5-12i),
+\end{align*}
+that is $169=5^2+12^2$, $985=29^2+12^2$ and $5741=29^2+70^2$, each second
+factor being the Gaussian integer found two generations earlier. Along the
+fractions $1/Q$ it recovers the identity $1+233i=(21+13i)(5+8i)$ of the
+label $610$, with both factors multiplied by $-1$.
+
+\begin{figure}[tb]
+\centering
+\input{figures/vieta-tree}
+\caption{The first four generations of the Farey tree, with the label $m$
+and the Gaussian integer $\alpha$ of each fraction, computed by the rule
+\eqref{eq:vieta-jump} alone from the values at the three starting fractions
+$0/1$, $1/1$ and $1/0$, drawn at the top. Each fraction is joined to the younger of its
+two Farey parents, and $1/2$ to both. In wine and dashed, the Farey triangle
+$L=1/2$, $R=2/3$, $D=1/1$; in navy, the edges from its parents to the
+mediant $M=3/5$, whose Gaussian integer $17-12i$ is the conjugate of the
+quotient of $5+29i$ by~$1+i$.}
+\label{fig:vieta-tree}
+\end{figure}
+
+\begin{remark}[The pair determines the occurrence]\label{rem:pair-determines}
+Two distinct occurrences of one label have distinct occurrence pairs, even
+up to units and conjugation: equal pairs have equal costs, and
+\cref{lem:fixed-cost-injectivity} applies. \Cref{prop:vieta-jump} computes the
+occurrence pair from the Farey triangle, that is, from the position of the
+occurrence in the Markov tree, and not from its label. A rule that produced
+the occurrence pair from the label alone, correctly for every occurrence,
+would therefore prove the uniqueness conjecture; \cref{sec:directives}
+states a conjecture of this kind.
+\end{remark}
+
+The finite part of the proof, to which we now turn, needs no recursion: it
+computes the whole fiber of each label, in which the occurrence pair is the
+one given by the Gram factor of \cref{prop:occurrence-cost}.
+
+\subsection{An elementary primality criterion}
+
+The factorizations used below rest on the following classical criterion,
+which we state for completeness. Suppose $n>2$, the complete factorization of $n-1$ into proved
+primes is supplied, and an integer $a$ satisfies
+\begin{equation}\label{eq:full-lucas}
+ a^{n-1}\equiv1\pmod n,\qquad
+ \gcd\bigl(a^{(n-1)/r}-1,n\bigr)=1
+ \quad\text{for every prime }r\mid n-1.
+\end{equation}
+Then $n$ is prime. Indeed, for any prime divisor $s$ of $n$, these
+conditions make the order of $a$ modulo $s$ exactly $n-1$. Since that
+order divides $s-1$, one has $s\geqslant n$, hence $s=n$.
+
+Applied recursively, with the primes of $n-1$ themselves established the
+same way, the criterion terminates at the prime two and establishes
+primality by integer arithmetic alone: no probabilistic test and no search
+for factors enters the verification, only the confirmation of factors
+already proposed.
+
+Each label is computed twice and the two values are compared: once from
+the floor increments of the lower Christoffel word, and once from the Cohn
+matrix built by Stern--Brocot mediants from the two boundary matrices. The
+occurrence pair is computed from the central Gram factor $H$ of
+\cref{prop:occurrence-cost}. For each label one then enumerates the
+$2^t$ sign choices in \eqref{eq:gaussian-sign-cube} and passes to the
+quotient by conjugation; that every normalized pair is obtained exactly
+twice, as \cref{prop:gaussian-fibre} predicts, is itself a check on the
+enumeration. The Euclidean algorithm then supplies the quotient sequence
+and the cost of every pair.
+
+\subsection{The finite windows}
+
+The finite part of the proof concerns the reduced fractions listed in
+\cref{tab:gaussian-windows}: in row $P$, for $8\leqslant P\leqslant13$, every
+denominator from $P+1$ up to the last denominator before the junction
+$Q_P$ of \cref{sec:assembly}. For each of these $248$ labels, the prime
+factorization, the primality of its factors by the recursive use of
+\eqref{eq:full-lucas}, the splitting of each prime and the costs of the
+resulting pairs are finitely many assertions about integers. They are
+recorded as part~\ref{it:fv-windows} of the finite verifications,
+\cref{prop:finite-verifications}, and \cref{prop:finite-windows} draws
+their consequence: in every finite window the occurrence pair is the unique
+representation of minimum cost.
+
+\begin{table}[tb]
+\centering
+\caption{The complete finite part of the minimality proof. Each row includes
+all $Q$ in the displayed interval with $\gcd(P,Q)=1$. The pair count includes
+every normalized primitive positive representation of every source, and the
+last column gives the largest individual fiber. The later sections cover the
+unbounded denominators beyond these windows.}
+\label{tab:gaussian-windows}
+\small
+\setlength{\tabcolsep}{11pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}crrrr@{}}
+\toprule
+$P$ & Denominators $Q$ & Sources & Pairs & Largest fiber \\
+\midrule
+8 & $9$--$28$ & 10 & 22 & 4 \\
+9 & $10$--$34$ & 17 & 56 & 8 \\
+10 & $11$--$38$ & 11 & 33 & 8 \\
+11 & $12$--$75$ & 59 & 324 & 32 \\
+12 & $13$--$100$ & 29 & 211 & 32 \\
+13 & $14$--$145$ & 122 & 992 & 64 \\
+\midrule
+Total & & 248 & 1638 & 64 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The statement on the finite windows is stronger than weak minimality, since
+it also asserts uniqueness of the minimizing representation. The unbounded
+part requires only weak minimality. It uses the finite windows as exact
+boundary data and separately excludes every lower-cost competitor on each
+infinite tail.

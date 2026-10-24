@@ -1,0 +1,303 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{Covering the unbounded tails}
+\label{sec:tails}
+
+A finite denominator check cannot establish weak minimality along an entire
+Farey row. The missing step is a uniform separation between the source
+ratio and every shorter inverse-Euclidean path. We obtain this separation
+by covering an infinite lattice of gap lengths with finitely many boxes.
+On each box the normalized ratio is controlled by its two values at a
+matched pair of corners, and the reason two values suffice is an order
+theorem for that ratio, Fibonacci denominator included.
+
+\subsection{A common eigenchannel for every defect count}
+
+Use the inverse-Euclidean matrices
+$$
+ \mathsf A=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad
+ \mathsf B=\begin{pmatrix}0&1\\1&1\end{pmatrix},\qquad z_0=\binom12.
+$$
+For $k\geqslant1$, a path with exactly $k$ defects is described uniquely
+by nonnegative gaps $g=(g_0,\ldots,g_k)$: apply $\mathsf B^{g_i}$ and
+then $\mathsf A$ for $i<k$, and apply only $\mathsf B^{g_k}$ at the end.
+The order in this description is chronological. If $S=\sum_i g_i$, the
+cost is $c=S+k+1$.
+
+Put $\varphi=(1+\sqrt5)/2$, $\theta=\varphi^{-2}$, and $q=-\theta=\varphi-2$.
+The matrix
+$$
+ T=\begin{pmatrix}1&\varphi\\\varphi&-1\end{pmatrix}
+$$
+satisfies $T^2=(1+\varphi^2)I$. Moreover
+$$
+ \varphi^{-g}T\mathsf B^gT^{-1}=\operatorname{diag}(1,q^g),
+ \qquad
+ \sqrt5\varphi^{-1}T\mathsf AT^{-1}
+ =\begin{pmatrix}2&1\\q&-2q\end{pmatrix}.
+$$
+Thus we may start with $(X,Y)=(\varphi^2,2-\sqrt5)$, apply
+\begin{equation}
+ \binom XY\longmapsto
+ \begin{pmatrix}2&q^{g_i}\\q&-2q^{g_i+1}\end{pmatrix}\binom XY
+ \quad(i<k),
+ \qquad (X,Y)\longmapsto(X,q^{g_k}Y)
+ \quad(i=k),
+ \label{eq:tail-channel}
+\end{equation}
+and denote the final $X^2+Y^2$ by $\Pi_k(g)$. The initial vector is
+$\varphi^{-1}Tz_0$, so the product of all removed positive factors gives
+$$
+ \Pi_k(g)=5^k\varphi^{-2c}(1+\varphi^2)N(g).
+$$
+Binet's formula, with $2c+3$ odd, consequently gives
+\begin{equation}
+ \mathcal R_k(g):=\frac{N(g)}{F_{2c+3}}
+ =\frac{\Pi_k(g)}{K_k(1-q^{2k+5+2S})},
+ \qquad K_k=5^k\varphi^4.
+ \label{eq:tail-normalization}
+\end{equation}
+The denominator is positive. This formula includes zero gaps and the
+special final gap, which has no following defect matrix.
+
+The right-hand side of \eqref{eq:tail-normalization} depends on the gaps
+only through the numbers $x_j=q^{g_j}$ for $j<k$, which enter the matrices
+\eqref{eq:tail-channel}, and $y=\theta^{2g_k}$, since $q^{2S}=y\prod_{j<k}x_j^2$.
+It is a rational function of these variables whose denominator stays
+positive when any of them is set to zero. We use it to give a meaning to
+infinite gaps: the value at $g_j=\infty$ is the value at $x_j=0$, or at
+$y=0$ for the final gap. An even gap has $x_j\in(0,1]$, an odd gap has
+$x_j\in[-\theta,0)$, and the final gap has $y\in(0,1]$; with the infinite
+values added, the ranges become the closed intervals $[0,1]$, $[-\theta,0]$
+and $[0,1]$.
+
+\subsection{Order in each parity coordinate}
+
+\begin{theorem}[Normalized parity order]
+\label{thm:tail-parity}
+For every $k\geqslant1$, hold all gaps but $g_j$ fixed and increase $g_j$
+by two. The normalized ratio $\mathcal R_k$ strictly increases if $j<k$
+and $g_j$ is even. It strictly decreases if $j<k$ and $g_j$ is odd, or
+if $j=k$ with either parity. More precisely, on the closed ranges just
+described, $\mathcal R_k$ is a strictly decreasing function of each $x_j$,
+$j<k$, and a strictly increasing function of $y$, whatever the values of the
+other variables in their closed ranges; in particular the monotonicity
+persists when some of the other gaps are infinite.
+\end{theorem}
+
+\begin{proof}
+\emph{The state before a gap.} Just before any gap, the physical
+column has second-to-first coordinate ratio $\xi\geqslant2$. This is true at
+$(1,2)$; every intervening $\mathsf B$ block leaves a ratio greater than one,
+and the following $\mathsf A$ adds one. Its channel therefore has $X>0$,
+$Y<0$, and
+$$
+ h=-Y/X=\frac{\xi-\varphi}{1+\varphi\xi},\qquad
+ \varphi^{-5}\leqslant h<\varphi^{-1}.
+$$
+This includes the first gap.
+
+\emph{A nonfinal gap.} Write the two columns of the channel defect matrix as
+$\mathsf u=(2,q)^{\mathsf T}$ and $\mathsf v=(1,-2q)^{\mathsf T}$. Their
+physical preimages are
+$$
+ T^{-1}\mathsf u=\binom{\varphi^{-2}}1=:\mathsf a,
+ \qquad T^{-1}\mathsf v=\binom{\varphi^{-1}}{\varphi^{-3}}=:\mathsf b,
+ \qquad \varphi^{-3}\mathsf a\leqslant\mathsf b\leqslant\varphi\mathsf a.
+$$
+Let $S$ be the product of the physical matrices that follow the defect, a
+matrix with nonnegative entries, and put $U=S\mathsf a$ and $V=S\mathsf b$.
+Componentwise $\varphi^{-3}U\leqslant V\leqslant\varphi U$, all entries being
+nonnegative, so that
+$$
+ \Delta:=\langle U,V\rangle\geqslant\varphi^{-3}\lVert U\rVert^2>0,
+ \qquad \nu:=\lVert V\rVert^2\leqslant\varphi\Delta ;
+$$
+here $U\neq0$ because every factor of $S$ maps positive columns to positive
+columns. The gap and the defect send the channel vector $(X,-hX)$ to
+$X(\mathsf u-xh\mathsf v)$, with $x=x_j=q^{g_j}$, and the channel matrices that
+follow are positive multiples of $TST^{-1}$. Since $T$ is scaled orthogonal,
+$T^{\mathsf T}T=(1+\varphi^2)I$, the numerator is therefore a positive multiple,
+independent of $x$, of
+$$
+ \Pi(x)=X^2\bigl(\lVert U\rVert^2-2xh\Delta+x^2h^2\nu\bigr).
+$$
+
+\emph{An even gap.} Here $0\leqslant x\leqslant1$, and $xh\nu<\Delta$ on this
+whole closed range, because $h\nu<\varphi^{-1}\varphi\Delta=\Delta$. The
+derivative $2X^2h(xh\nu-\Delta)$ of $\Pi$ is therefore negative, and $\Pi$
+decreases strictly with $x$. The normalizing denominator
+$1-q^{2k+5+2S}=1+\theta^{2k+5}\prod_ix_i^2\cdot y$ increases with $x^2$, so
+$\mathcal R_k$ decreases strictly with $x$ on $[0,1]$. Increasing an even gap
+by two decreases $x$, and so increases $\mathcal R_k$. This proves the even
+case.
+
+\emph{An odd gap.} Here $x=-\tau$ with $0\leqslant\tau\leqslant\theta$. Set
+$\zeta=\theta^{2k+5+2\sum_{i\ne j}g_i}$, so that the normalizing denominator is
+$1+\zeta\tau^2$. Up to the fixed positive factor $K_k$, the normalized
+function is
+$$
+ F(\tau)=\frac{\omega_0+2\omega_1\tau+\omega_2\tau^2}{1+\zeta\tau^2},\qquad
+ \omega_0=X^2\lVert U\rVert^2,\quad \omega_1=X^2h\Delta,\quad \omega_2=X^2h^2\nu.
+$$
+From the bounds on $\Delta$ and $h$, $\omega_0/\omega_1\leqslant\varphi^8=\theta^{-4}$.
+Differentiation gives
+$$
+ F'(\tau)=\frac{2(\omega_1+\omega_2\tau-\omega_0\zeta\tau-\omega_1\zeta\tau^2)}{(1+\zeta\tau^2)^2},
+$$
+and the numerator is positive on the closed range: using $\omega_2\tau\geqslant0$,
+$\tau\leqslant\theta$ and $\zeta\leqslant\theta^{2k+5}$,
+$$
+ \omega_1+\omega_2\tau-\omega_0\zeta\tau-\omega_1\zeta\tau^2
+ \geqslant \omega_1\bigl(1-\theta^{-4}\theta^{2k+5}\theta-\theta^{2k+5}\theta^2\bigr)
+ =\omega_1\bigl(1-\theta^{2k+2}-\theta^{2k+7}\bigr)>0.
+$$
+Indeed $\theta<1/2$ and $k\geqslant1$, so even the boundary case has
+$\theta^4+\theta^9<1$. Thus $F$ increases strictly with $\tau$, that is,
+$\mathcal R_k$ decreases strictly with $x=-\tau$ on $[-\theta,0]$. Increasing the
+odd gap by two decreases $\tau$, and therefore decreases $\mathcal R_k$.
+
+\emph{The final gap.} Put $\zeta=\theta^{2k+5+2\sum_{i<k}g_i}$. Up to $K_k$, the
+normalized function of $y=\theta^{2g_k}$ is
+$$
+ \frac{X^2+Y^2y}{1+\zeta y},
+$$
+whose derivative in $y$ is $(Y^2-X^2\zeta)/(1+\zeta y)^2$, of the sign of
+$h^2-\zeta$. This is positive since $h^2\geqslant\theta^5>\theta^{2k+5}\geqslant\zeta$,
+including $k=1$. So $\mathcal R_k$ increases strictly with $y$ on $[0,1]$;
+increasing the final gap decreases $y$ and proves the last assertion.
+
+\emph{The other variables anywhere in their ranges.} The three derivative
+computations used only the bounds on $h$, $\Delta$, $\nu$ and $\zeta$, and these
+hold whatever the values of the other variables in their closed ranges, not
+only at the values $q^{g}$, $\theta^{2g}$ and $0$. Indeed, for
+$-\theta\leqslant x\leqslant1$ the channel action $\operatorname{diag}(1,x)$ of a gap
+corresponds in physical coordinates to
+$$
+ M_x=T^{-1}\operatorname{diag}(1,x)\,T=\frac1{1+\varphi^2}
+ \begin{pmatrix}1+\varphi^2x&\varphi(1-x)\\\varphi(1-x)&\varphi^2+x\end{pmatrix},
+$$
+whose entries are nonnegative because $x\geqslant-\theta=-\varphi^{-2}$ and
+$x\leqslant1$; it is $\varphi^{-g}\mathsf B^g$ when $x=q^g$, and for $x=0$ it is the
+limit that represents an infinite gap. It maps positive columns to positive
+columns. The final gap enters only through $y$, and acts on the channel as
+$\operatorname{diag}(1,\sqrt y)$ with $0\leqslant\sqrt y\leqslant1$, a matrix of the same
+kind. Every suffix is thus still a product of nonnegative matrices, and the
+bounds on $\Delta$ and $\nu$ hold as shown above. Next, applied to a column
+$(1,\xi)^{\mathsf T}$ with $\xi\geqslant2$, the matrix $M_x$ gives a column with
+positive entries whose second coordinate exceeds the first by
+$$
+ \frac{\varphi^{-1}+\xi+x\varphi^2(\xi-\varphi)}{1+\varphi^2}
+ \geqslant\frac{\varphi^{-1}+\varphi}{1+\varphi^2}>0 ,
+$$
+since for $x<0$ one has $x\varphi^2(\xi-\varphi)\geqslant-\theta\varphi^2(\xi-\varphi)=-(\xi-\varphi)$;
+the next $\mathsf A$ therefore gives a ratio above $2$ again, and the bounds on
+$h$ hold before every gap. Finally, every other variable has absolute value at
+most $1$, so $\zeta\leqslant\theta^{2k+5}$ in both places where it was used. Each of
+the three derivative computations therefore applies at every point of the
+closed ranges, and the monotonicity is strict there. With $x_i=0$ or $y=0$
+this is the case of infinite gaps, which the covers below use.
+\end{proof}
+
+\Cref{fig:parity-order} shows the theorem at work in the simplest stratum,
+one defect, where the ratio depends on two gaps only: along a nonfinal gap the
+even and the odd values form two monotone sequences that approach the common
+limit from opposite sides, and along the final gap the ratio decreases.
+
+\begin{figure}[tb]
+\centering
+\input{figures/parity-order}
+\caption{The normalized parity order for one defect, computed exactly. (a)
+The one-defect paths with final gap $0$, as a function of the gap $g_0$ before
+the defect: the distance of the ratio $N/F_{2c+3}$ from its value
+$3/(\sqrt5\,\varphi)=(15-3\sqrt5)/10$ at $g_0=\infty$, on a logarithmic axis.
+The even values (navy circles) lie below that limit and increase towards it,
+the odd values (wine squares) lie above it and decrease. (b) The ratio itself
+as a function of the final gap $g_1$, for $g_0=2$ and $g_0=3$: it decreases
+for either parity.}
+\label{fig:parity-order}
+\end{figure}
+
+\subsection{A finite cover of the infinite gap lattice}
+
+Fix the parity of every gap. A coordinate domain is either a finite
+step-two interval or an infinite step-two tail. For a product box, its
+lower matched corner uses the lower endpoint in increasing coordinates
+and the upper endpoint in decreasing coordinates; the upper matched
+corner makes the opposite choices. An infinite endpoint means $x_j=0$, or
+$y=0$ for the final gap. The numerator and denominator in
+\eqref{eq:tail-normalization} are always evaluated at the same corner.
+Moving one coordinate at a time from a point of the box to a corner, and
+applying \cref{thm:tail-parity} on the closed ranges at each move, gives
+\begin{equation}
+ \mathcal R_k(g^{\min})\leqslant\mathcal R_k(g)
+ \leqslant\mathcal R_k(g^{\max}).
+ \label{eq:tail-corner-bounds}
+\end{equation}
+A corner need not satisfy a subsequently imposed lower bound on the total
+gap sum; it still safely bounds that restricted part of the box.
+
+For a required total $S\geqslant S_0$, set
+$\eta=\lceil S_0/(k+1)\rceil$. Every eligible tuple has some gap at least
+$\eta$. Partition it by the first such gap: earlier coordinates are below
+$\eta$, that coordinate is at least $\eta$, and later coordinates are
+unrestricted. Intersecting with a fixed parity gives $k+1$ disjoint root
+boxes whenever $\eta\geqslant2$. Empty parity intersections are discarded.
+Their union contains every eligible tuple exactly once.
+
+Every nonterminal box is split into two disjoint step-two domains along
+one coordinate, namely the non-singleton coordinate whose domain has the
+smallest lower endpoint, the first such coordinate in case of a tie: a finite
+domain of $n$ points is cut into its first $\lfloor n/2\rfloor$ points and the
+rest, and an infinite tail into its first point and the rest.
+A finite box may be discarded if its maximum total is
+less than $S_0$. Otherwise it closes only when its upper matched corner
+is strictly below the lower source threshold, or its lower matched corner
+is strictly above the upper source threshold. A singleton inside the
+closed source band would be an explicit failure. A subdivision tree all of
+whose leaves close therefore settles the whole infinite domain: the root
+boxes cover the eligible tuples, each exactly once, each split partitions a
+box, and every leaf lies entirely on one side of the band by
+\eqref{eq:tail-corner-bounds}.
+Whether a given tree closes is a finite question, settled for the trees of
+this paper in \cref{prop:finite-verifications}.
+
+All the quantities compared here lie in $\Z[\varphi]$: the channel
+entries, every power of $q$, and $K_k$. Writing $a+b\varphi$ for the pair
+of integers $(a,b)$ and clearing threshold denominators beforehand, the
+sign of $a+b\varphi$ is the sign of $2a+b+b\sqrt5$, which is decided by
+the signs of the two integers $2a+b$ and $b$ and, when these oppose each
+other, by the sign of $(2a+b)^2-5b^2$. Every comparison below is therefore
+an exact comparison of integers; no decimal approximation of $\sqrt5$
+enters.
+
+\subsection{The six unbounded source windows}
+
+With the constant $C_P=\varphi^2\lambda^{P-1}$ of \cref{sec:row-labels}, which
+the source labels of row $P$ approach, define the rational ceilings and
+starting costs by
+\begin{equation}
+ \begin{array}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+ P&c_P&U_P&\text{middle defects}\\[2pt]
+ 8&34&707/1000&2\\
+ 9&41&2929/5000&2,3\\
+ 10&46&4857/10000&2,3,4\\
+ 11&84&20111/50000&2,3,4,5\\
+ 12&110&333511/10^6&2,3,4,5,6\\
+ 13&156&2765404267/10^{10}&2,3,4,5,6,7.
+ \end{array}
+ \label{eq:tail-source-windows}
+\end{equation}
+For row $P$, the closed source band is $[C_P,U_P]$. The paths with no
+defect and with a single defect are excluded directly in \cref{sec:assembly},
+by the Fibonacci maximum and by \cref{lem:one-defect-minimum}; the paths with
+at least two defects are the business of the covers. For each pair $(P,k)$
+with $2\leqslant k\leqslant P-6$ (the middle defects of the table) the cover
+is built with $S_0=c_P-k-1$ and both thresholds; for $k=P-5$ with the lower
+threshold alone. \Cref{thm:tail-covers} in \cref{sec:assembly} states what
+the closed trees prove.
+
+The covers prove only the source-band exclusions needed at the actual tail
+junctions. They do not classify every extremal ray or assert the same bands
+at smaller costs. That narrower target makes one uniform order theorem
+sufficient for every stratum.

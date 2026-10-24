@@ -39,10 +39,18 @@ abstract: >-
   reflection of a palindrome, as the concatenations of two exchanged blocks, and
   deduces that two palindromes with the same Gram label around a root midpoint
   differ by one exchange; an enumeration of all palindromes with label up to
-  10^26 finds no coincidence of labels that the exchanges do not explain.
+  10^26 finds no coincidence of labels that the exchanges do not explain. The
+  fifth proves that the representation of a Markov number as a sum of two
+  coprime squares induced by its occurrence has the shortest subtractive
+  Euclidean algorithm among all primitive representations of that number on
+  the first thirteen Farey rows, with no bound on the denominator, through a
+  parity-order theorem for the Fibonacci-normalized norm, complete Gaussian
+  factorizations and finitely many exact verifications; it states two
+  conjectures that imply uniqueness, one of them verified for every Markov
+  number up to 10^12.
 type: software
-version: "2.4.0"
-date-released: "2026-10-19"
+version: "2.5.0"
+date-released: "2026-10-24"
 license: LGPL-2.1-only
 repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps"
 keywords:
@@ -67,6 +75,10 @@ keywords:
   - Cohn matrices
   - Thue-Morse morphism
   - rational reflections
+  - sums of two squares
+  - Euclidean algorithm
+  - Farey fractions
+  - palindromic closure
 authors:
   - family-names: Dutykh
     given-names: Denys
@@ -114,6 +126,17 @@ references:
     title: "Rational reflections and palindromic words in the Cohn monoid"
     year: 2026
     notes: "Fourth manuscript of the series; sources in papers/04-palindromic-reflection-rigidity"
+    authors:
+      - family-names: Dutykh
+        given-names: Denys
+        affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+      - family-names: Vuillon
+        given-names: Laurent
+        affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+  - type: unpublished
+    title: "Euclidean minimality of Markov representations on thirteen Farey rows"
+    year: 2026
+    notes: "Fifth manuscript of the series; sources in papers/05-thirteen-farey-rows"
     authors:
       - family-names: Dutykh
         given-names: Denys

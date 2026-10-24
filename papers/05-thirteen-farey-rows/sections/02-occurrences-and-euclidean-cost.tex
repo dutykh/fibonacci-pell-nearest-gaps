@@ -1,0 +1,345 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{Occurrences, representations, and Euclidean cost}\label{sec:occurrences}
+
+The arithmetic comparison in this paper concerns every primitive
+representation of a fixed integer, including representations that do not
+come from a Markov occurrence. We define the cost, put the two sets of
+objects on the same cost scale, and explain why minimality of the cost is
+enough to separate two occurrences.
+
+\subsection{The Euclidean cost and its two readings}\label{sec:cost}
+
+The cost of a pair is read in two ways in this paper: representations are
+compared through their continued fractions, while the cost of an occurrence
+is computed from a product of matrices. We define the cost by subtractions
+and prove that both readings give it. For coprime positive integers $r,s$,
+let $\ell(r,s)$ be the number of single subtractions needed to reach
+$(1,1)$: subtract the smaller coordinate from the larger until equality. In particular,
+$\ell(1,1)=0$, and exchanging the coordinates does not change $\ell$. For a
+column $v$ with coprime positive entries we write $\ell(v)$ for the cost of
+its two entries. Define
+\begin{equation}\label{eq:continued-fraction-matrices}
+ P_j=\begin{pmatrix}j&1\\1&0\end{pmatrix}\quad(j\geqslant1).
+\end{equation}
+For every primitive positive column $v$, exactly $j$ initial
+subtractions carry $P_jv=(jv_1+v_2,v_1)^{\mathsf T}$ to
+$(v_2,v_1)^{\mathsf T}$. Each of those subtractions is permitted,
+including the final step when $v_1=v_2=1$. Consequently
+\begin{equation}\label{eq:digit-adds-cost}
+ \ell(P_jv)=j+\ell(v).
+\end{equation}
+
+\begin{lemma}[The cost by continued fractions and by matrices]\label{lem:cost-descriptions}
+Let $q_0,q_1,\ldots,q_j$ be positive integers, with $q_j\geqslant2$ unless
+$j=0$ and $q_0=1$. Then the column
+\begin{equation}\label{eq:continued-fraction-product}
+ \binom sr=P_{q_0}P_{q_1}\cdots P_{q_j}\binom10
+\end{equation}
+has coprime positive entries, $s/r=[q_0;q_1,\ldots,q_j]$, and
+\begin{equation}\label{eq:quotient-cost}
+ \ell(r,s)=q_0+q_1+\cdots+q_j-1 .
+\end{equation}
+Every pair of coprime integers $0<r\leqslant s$ arises in this way, from
+the canonical continued fraction of $s/r$. If $(r,s)\neq(1,1)$, then
+moreover
+\begin{equation}\label{eq:index-product}
+ \binom sr=P_{q_0}\cdots P_{q_{j-1}}P_{q_j-1}\binom11 ,
+\end{equation}
+and $\ell(r,s)$ is the sum of the indices of the matrices in this product.
+\end{lemma}
+
+\begin{proof}
+\emph{The product.} We argue by induction on $j$. If $j=0$, the column is
+$P_{q_0}(1,0)^{\mathsf T}=(q_0,1)^{\mathsf T}$, and $s/r=q_0=[q_0]$. If $j\geqslant1$,
+the induction hypothesis applied to $q_1,\ldots,q_j$ gives a column
+$(s',r')^{\mathsf T}=P_{q_1}\cdots P_{q_j}(1,0)^{\mathsf T}$ with positive entries and
+$s'/r'=[q_1;q_2,\ldots,q_j]$, so that
+$$
+ \binom sr=P_{q_0}\binom{s'}{r'}=\binom{q_0s'+r'}{s'},\qquad
+ \frac sr=q_0+\frac{r'}{s'}=q_0+\frac1{[q_1;q_2,\ldots,q_j]}=[q_0;q_1,\ldots,q_j].
+$$
+In both cases the entries are positive, and they are coprime because each
+matrix $P_q$ has determinant $-1$, so that the column is the image of the
+primitive column $(1,0)^{\mathsf T}$ under a matrix invertible over $\Z$.
+
+\emph{Every pair arises.} Let $0<r\leqslant s$ be coprime. The canonical
+continued fraction $[q_0;q_1,\ldots,q_j]$ of $s/r$ has positive quotients, since
+$s/r\geqslant1$, and its last quotient is at least $2$ unless $s/r=1=[1]$. The
+column built from it has coprime positive entries in the ratio $s/r$, and two
+primitive positive columns with the same ratio are equal; hence it is
+$(s,r)^{\mathsf T}$.
+
+\emph{The cost.} For $0\leqslant i\leqslant j$ put
+$v_i=P_{q_i}\cdots P_{q_j}(1,0)^{\mathsf T}$, so that $v_0=(s,r)^{\mathsf T}$,
+$v_j=(q_j,1)^{\mathsf T}$ and $v_i=P_{q_i}v_{i+1}$ for $i<j$. By the first step,
+every $v_i$ is a primitive positive column, so \eqref{eq:digit-adds-cost},
+applied $j$ times, gives
+$$
+ \ell(r,s)=q_0+q_1+\cdots+q_{j-1}+\ell(q_j,1).
+$$
+From the pair $(q_j,1)$ every subtraction lowers the first coordinate by one,
+and $(1,1)$ is reached after $q_j-1$ of them, so that $\ell(q_j,1)=q_j-1$. This
+proves \eqref{eq:quotient-cost}.
+
+\emph{The second product.} If $(r,s)\neq(1,1)$, then $q_j\geqslant2$, so that the
+matrix $P_{q_j-1}$ is defined, and
+$P_{q_j-1}(1,1)^{\mathsf T}=(q_j,1)^{\mathsf T}=P_{q_j}(1,0)^{\mathsf T}$. Substituting
+this in \eqref{eq:continued-fraction-product} gives \eqref{eq:index-product}.
+The indices of its factors add up to $q_0+\cdots+q_{j-1}+(q_j-1)$, which is
+$\ell(r,s)$ by \eqref{eq:quotient-cost}.
+\end{proof}
+
+The introduction described the cost through the continued fraction, as in
+\eqref{eq:quotient-cost}. The proof of \cref{prop:occurrence-cost} below
+computes it through products of the matrices $P_1$ and $P_2$, by
+\eqref{eq:digit-adds-cost}, as the sum of the indices in
+\eqref{eq:index-product}. \Cref{lem:cost-descriptions} shows that the two
+readings agree, and \cref{lem:euclidean-bijection} adds a third, the
+length of a word.
+
+\subsection{The occurrence-induced pair}
+
+For $0<P<Q$ with $\gcd(P,Q)=1$, let $\gamma_{P/Q}$ be the binary
+word of length $Q$ whose $i$th letter is $b$ precisely when
+$\lfloor iP/Q\rfloor-\lfloor(i-1)P/Q\rfloor=1$.
+It is the proper lower Christoffel word with
+\begin{equation}\label{eq:farey-counts}
+ |\gamma_{P/Q}|_a=Q-P,\qquad |\gamma_{P/Q}|_b=P.
+\end{equation}
+Thus $Q$ is the total length of the Christoffel word. This convention
+distinguishes the denominator from the number of letters $a$.
+The word starts with $a$ and ends with $b$, so write
+$\gamma_{P/Q}=azb$. Its interior $z$ is a palindrome.
+Indeed, for $1\leqslant j\leqslant Q-1$, coprimality gives
+$\lfloor(Q-j)P/Q\rfloor=P-1-\lfloor jP/Q\rfloor$.
+The increments defining the letters at positions $i$ and $Q+1-i$
+therefore agree for $2\leqslant i\leqslant Q-1$.
+This is the central-word property of Christoffel words
+\cite{BertheDeLucaReutenauer2008}. We write $\widetilde w$ for reversal.
+
+For later exact evaluation, the same occurrence has the Cohn description
+\begin{equation}\label{eq:cohn-source}
+ \mu(a)=\begin{pmatrix}2&1\\1&1\end{pmatrix},\qquad
+ \mu(b)=\begin{pmatrix}5&2\\2&1\end{pmatrix},\qquad
+ m_{P/Q}=\frac13\tr\mu(\gamma_{P/Q}).
+\end{equation}
+The standard Christoffel--Markov correspondence identifies these
+occurrences with normalized Markov triples having largest entry greater
+than $2$; see, for example,
+\cite[Theorem~1 and its proof]{ReutenauerVuillon2017}.
+No injectivity of $P/Q\mapsto m_{P/Q}$ is assumed.
+
+The representation attached to an occurrence, and its cost, are known.
+\c{C}anak\c{c}{\i} and Schiffler show that $m_{P/Q}$ is the numerator of a
+palindromic continued fraction whose entries are $1$ and $2$, with
+$2(Q-P-1)$ entries equal to $1$ and $2P$ entries equal to $2$, and that
+$m_{P/Q}=r^2+s^2$ where $s/r$ is the continued fraction of its right half
+\cite[Section~4.1, Theorem~4.1 and the proof of Corollary~4.4]{CanakciSchiffler2020}.
+That half has partial quotients summing to $(Q-P-1)+2P=P+Q-1$ and ending
+with $2$, so \cref{lem:cost-descriptions} gives the cost $P+Q-2$. The same statement, in the language of Euclidean paths, is the
+source dictionary of our companion article \cite{DutykhVuillon2026Endpoint}.
+Alessandro De Luca and the second author have another proof of the
+representation, within the combinatorics of words (private communication), in
+which the Christoffel word of length $m_{P/Q}$ given by the construction of
+Reutenauer and Vuillon \cite{ReutenauerVuillon2017} is the image of a word with
+$s$ letters $a$ and $r$ letters $b$ under a substitution that sends $a$ to a
+word of length $s$ and $b$ to a word of length $r$, so that its length is
+$s^2+r^2$.
+We include a proof in the matrix language of the present paper, because it
+defines the pair that the computations of \cref{sec:gaussian} use; the
+paragraph after the proof shows that it is the pair of \c{C}anak\c{c}{\i} and
+Schiffler.
+
+\begin{proposition}[Occurrence pair and its cost]\label{prop:occurrence-cost}
+Every occurrence $P/Q$ with $0<P<Q$ induces a primitive positive
+representation
+$$
+ m_{P/Q}=r_{P/Q}^2+s_{P/Q}^2,\qquad 0<r_{P/Q}<s_{P/Q}.
+$$
+Its subtractive Euclidean cost is $P+Q-2$.
+\end{proposition}
+
+\begin{proof}
+\emph{The label as a quadratic form.} The matrices $\mu(a)$ and $\mu(b)$
+are symmetric, so reversing a word transposes its Cohn matrix, and the
+palindrome $z$ has a symmetric matrix
+$\mu(z)=\left(\begin{smallmatrix}\alpha&\beta\\\beta&\delta\end{smallmatrix}\right)$.
+Multiplying out,
+$$
+ \mu(a)\,\mu(z)\,\mu(b)=
+ \begin{pmatrix}
+ 10\alpha+9\beta+2\delta & 4\alpha+4\beta+\delta\\
+ 5\alpha+7\beta+2\delta & 2\alpha+3\beta+\delta
+ \end{pmatrix},
+$$
+whose trace is $3(4\alpha+4\beta+\delta)$. With $e=(2,1)^{\mathsf T}$ one has
+$e^{\mathsf T}\mu(z)e=4\alpha+4\beta+\delta$, and therefore
+\begin{equation}\label{eq:square-count-identity}
+ m_{P/Q}=\tfrac13\tr\mu(\gamma_{P/Q})=e^{\mathsf T}\mu(z)\,e .
+\end{equation}
+
+\emph{A square root of the form.} Cut the palindrome at its middle:
+$z=\widetilde w\,w$ when $\abs z$ is even, and $z=\widetilde w\,a\,w$ or
+$z=\widetilde w\,b\,w$ when $\abs z$ is odd, according to its middle letter.
+Since $\mu(\widetilde w)=\mu(w)^{\mathsf T}$, $\mu(a)=P_1^2$ and
+$\mu(b)=P_2^2$, with $P_1$ and $P_2$ symmetric, we obtain
+$\mu(z)=H^{\mathsf T}H$, where $H$ is $\mu(w)$, $P_1\mu(w)$ or $P_2\mu(w)$ in
+the three cases; the empty palindrome gives $H=I$. By
+\eqref{eq:square-count-identity}, $m_{P/Q}=(He)^{\mathsf T}(He)$.
+
+\emph{The pair.} The integer matrix $H$ has determinant $\pm1$, so the
+column $He$ is primitive. Its entries are positive, because $H$ is a product
+of nonnegative matrices with no zero row and $e$ is positive. They are
+distinct: two equal coprime entries would both be $1$, giving
+$m_{P/Q}=2$, whereas $m_{P/Q}\geqslant5$, because $\mu(z)\geqslant I$ entrywise
+(a product of nonnegative matrices each at least $I$) and
+\eqref{eq:square-count-identity} then gives $m_{P/Q}\geqslant e^{\mathsf T}e=5$. Sorting the two entries defines
+$r_{P/Q}<s_{P/Q}$. The construction uses the occurrence alone and assumes
+nothing about other occurrences with the same label.
+
+\emph{Its cost.} The column $e$ reaches $(1,1)$ after one subtraction, so
+$\ell(e)=1$. Apply the factors of $H$ to $e$ from the right. By
+\eqref{eq:digit-adds-cost}, a factor $\mu(a)=P_1P_1$ coming from a letter
+$a$ of $w$ adds $2$ to the cost, a factor $\mu(b)=P_2P_2$ adds $4$, and the
+middle factor $P_1$ or $P_2$, when present, adds $1$ or $2$. Each letter of
+$w$ occurs twice in $z$, so these increments add up to $\abs z_a+2\abs z_b$,
+and \eqref{eq:farey-counts} gives
+$$
+ \ell(He)=1+|z|_a+2|z|_b
+ =1+(Q-P-1)+2(P-1)=P+Q-2.
+$$
+No restriction on the parity of $|z|$ or of $m_{P/Q}$ is needed.
+\end{proof}
+
+The pair of \c{C}anak\c{c}{\i} and Schiffler is this pair. Write
+$\gamma_{P/Q}=a^{u_1}b\,a^{u_2}b\cdots a^{u_P}b$. The $k$th letter $b$ stands at
+position $\lceil kQ/P\rceil$, and $kQ/P$ is not an integer for $1\leqslant k<P$;
+comparison with their crossing numbers $v_k$, which satisfy
+$v_1+\cdots+v_k=\lfloor kQ/P\rfloor$ for $k<P$ and $v_1+\cdots+v_P=Q-1$, gives
+$u_1=v_1$ and $u_k=v_k-1$ for $2\leqslant k\leqslant P$. Their palindromic
+continued fraction is therefore $[2,\sigma(z),2]$, where $\sigma$ replaces each
+letter $a$ by the two entries $1,1$ and each letter $b$ by $2,2$. Its right
+half is $[\sigma(w),2]$, or $[j,\sigma(w),2]$ with $j=1$ or $2$ for a middle
+letter $a$ or $b$, and since $\mu(a)=P_1^2$, $\mu(b)=P_2^2$ and $e=P_2(1,0)^{\mathsf T}$,
+this is the continued fraction of the column $He$.
+
+\subsection{Every primitive pair has a unique Euclidean directive}
+
+Introduce the elementary matrices
+\begin{equation}\label{eq:directive-incidence}
+ L_a=\begin{pmatrix}1&1\\0&1\end{pmatrix},\qquad
+ L_b=\begin{pmatrix}1&0\\1&1\end{pmatrix},\qquad
+ L_{uv}=L_uL_v,\qquad {\bf1}=\binom11.
+\end{equation}
+
+\begin{lemma}[Euclidean bijection]\label{lem:euclidean-bijection}
+The map $u\mapsto L_u{\bf1}$ is a bijection from binary words to
+ordered coprime positive pairs, and
+\begin{equation}\label{eq:euclidean-length}
+ \ell(L_u{\bf1})=|u|.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+If $x>y>0$, the first letter of any directive producing $(x,y)$ must
+be $a$, because $L_a$ maps positive pairs to pairs with first coordinate
+larger, whereas $L_b$ makes the second coordinate larger. The unique
+predecessor is $(x-y,y)$. For $y>x$, the first letter is $b$ and the
+predecessor is $(x,y-x)$. Each subtraction preserves positivity and
+coprimality and decreases $x+y$. The only equal coprime positive pair
+is $(1,1)$, so this process terminates there. Reading the uniquely
+determined letters gives both existence and uniqueness, and one letter
+is removed at each subtraction. This proves
+\eqref{eq:euclidean-length}.
+\end{proof}
+
+The word $u$ is the \emph{directive} of the pair $L_u{\bf1}$, and it can be
+read on the continued fraction. With
+$J=\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$, which exchanges
+the two coordinates, one has $P_q=L_a^qJ$, $JL_a^qJ=L_b^q$ and $J{\bf1}={\bf1}$.
+Grouping the factors of \eqref{eq:index-product} in consecutive pairs
+therefore gives, for coprime $0<r<s$ with $s/r=[q_0;q_1,\ldots,q_j]$,
+$$
+ \binom sr=L_a^{q_0}L_b^{q_1}L_a^{q_2}L_b^{q_3}\cdots\,{\bf1},
+$$
+where the exponents are $q_0,q_1,\ldots,q_{j-1},q_j-1$ and the letters
+alternate. The directive of $(s,r)$ is thus the word
+$a^{q_0}b^{q_1}a^{q_2}\cdots$ whose runs have these lengths, and its length
+$q_0+\cdots+q_j-1$ agrees with \eqref{eq:quotient-cost} and
+\eqref{eq:euclidean-length}. For instance $21/13=[1;1,1,1,1,2]$, and the
+directive of $(21,13)$ is $ababab$.
+
+For unordered representations we always choose $0<r<s$. This loses
+neither norms nor costs. The exceptional positive pair $(1,1)$ represents
+$2$ and can be treated separately; $1=1^2+0^2$ is outside the positive
+pair convention.
+
+\begin{definition}\label{def:weak-minimality}
+An occurrence $P/Q$ is \emph{weakly Euclidean-minimal} if
+\begin{equation}\label{eq:weak-minimality}
+ P+Q-2\leqslant\ell(r,s)
+ \quad\text{whenever}\quad
+ m_{P/Q}=r^2+s^2,\quad 0<r<s,\quad\gcd(r,s)=1.
+\end{equation}
+\end{definition}
+
+The competitors in \eqref{eq:weak-minimality} range over the entire
+primitive two-square fiber. Their Euclidean directives need not be
+directives induced by a central Cohn word as above.
+Ties with such other representations are allowed.
+
+\subsection{Why weak minimality is enough within a proved family}
+
+Among the ordering theorems recalled in the introduction, we use the
+fixed-sum theorem of Lagisquet, Pelantov\'a, Tavenas and Vuillon
+\cite[Theorem~2, item~3]{LagisquetEtAl2021}, which compares two lattice points
+differing by a unit step along a line of fixed sum.
+Applying it $i$ times gives, for reduced $P/Q$ and
+$(P-i)/(Q+i)$ with $0<i<P<Q$,
+\begin{equation}\label{eq:fixed-sum-order}
+ m_{P/Q}<m_{(P-i)/(Q+i)}.
+\end{equation}
+The intermediate points of that iteration need not be reduced; this is
+harmless because the authors define the label at every lattice point,
+not only at Farey fractions.
+The inequality compares distinct points on one line of fixed sum $P+Q$.
+It does not compare arbitrary two-square representations.
+
+The next lemma is an immediate consequence of \eqref{eq:fixed-sum-order};
+it is also the case of equal sums in the proof of the proposition on the
+lengths of directing words of Markov words in
+\cite{DutykhVuillon2026Reflections}, where the cost $P+Q-2$ appears as the
+length of a directing word.
+
+\begin{lemma}[Fixed-cost injectivity]\label{lem:fixed-cost-injectivity}
+Two occurrences having the same label and the same occurrence cost
+have the same reduced Farey coordinate.
+\end{lemma}
+
+\begin{proof}
+Their costs are $P+Q-2$ and $P'+Q'-2$. If they are equal and
+$P>P'$, set $i=P-P'$. Then $Q'=Q+i$ and $0<i<P$, so
+\eqref{eq:fixed-sum-order} contradicts equality of labels. The other
+strict ordering of the numerators is excluded in the same way.
+Consequently $P=P'$ and $Q=Q'$. A reduced Farey coordinate has a unique
+lower Christoffel word, hence a unique normalized occurrence.
+\end{proof}
+
+\begin{corollary}\label{cor:restricted-injectivity}
+The label map is injective on any family of occurrences all of which
+are weakly Euclidean-minimal.
+\end{corollary}
+
+\begin{proof}
+If two members have equal label, each occurrence-induced pair is a
+competitor in the other's two-square fiber. Weak minimality in both
+directions makes their costs equal. Apply
+Lemma~\ref{lem:fixed-cost-injectivity}.
+\end{proof}
+
+Thus weak minimality on every occurrence would imply the
+Frobenius--Markov uniqueness conjecture. For a restricted family, both occurrences
+must lie in that family. If only one is known to be weakly minimal, a
+distinct equal-label occurrence is merely forced to have strictly
+larger cost.

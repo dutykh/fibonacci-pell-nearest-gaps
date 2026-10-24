@@ -1,0 +1,33 @@
+# Euclidean minimality of Markov representations on thirteen Farey rows: exact computations
+# Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+# Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+cff-version: 1.2.0
+message: "If you use this package, please cite the article it accompanies."
+title: "Euclidean minimality of Markov representations on thirteen Farey rows: exact computations"
+type: software
+authors:
+  - family-names: Dutykh
+    given-names: Denys
+    affiliation: "Mathematics Department, Khalifa University of Science and Technology, Abu Dhabi, United Arab Emirates"
+  - family-names: Vuillon
+    given-names: Laurent
+    affiliation: "Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France"
+date-released: "2026-10-24"
+license: LGPL-2.1-only
+repository-code: "https://github.com/dutykh/fibonacci-pell-nearest-gaps/"
+keywords:
+  - Markov numbers
+  - Christoffel words
+  - sums of two squares
+  - Euclidean algorithm
+  - Gaussian integers
+  - palindromic closure
+preferred-citation:
+  type: article
+  title: "Euclidean minimality of Markov representations on thirteen Farey rows"
+  authors:
+    - family-names: Dutykh
+      given-names: Denys
+    - family-names: Vuillon
+      given-names: Laurent
+  year: 2026

@@ -1,0 +1,81 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\subsection{Relation to earlier work}
+
+The representations studied here belong to an established connection
+between Markov numbers, words, and continued fractions. Reutenauer's
+Christoffel correspondence parametrizes whole Markov triples
+\cite{Reutenauer2009}; the palindromic-closure formula of Reutenauer and
+Vuillon gives an occurrence-wise construction of their entries
+\cite{ReutenauerVuillon2017}. The underlying central-word and incidence
+identities are developed in \cite{BertheDeLucaReutenauer2008}.
+These correspondences distinguish occurrences without presupposing that
+their largest numerical entries are distinct.
+
+A particularly close arithmetic formulation appears in
+\c{C}anak\c{c}{\i} and Schiffler \cite{CanakciSchiffler2020}.
+They relate primitive sums of two squares to even palindromic continued
+fractions \cite[Theorem~3.10 and Corollary~3.14]{CanakciSchiffler2020}. They
+construct the special continued fraction attached to a Markov occurrence
+\cite[Theorem~4.1]{CanakciSchiffler2020}, and its right half, through the
+proof of \cite[Corollary~4.4]{CanakciSchiffler2020}, is the occurrence pair of
+\cref{prop:occurrence-cost} together with its cost $P+Q-2$, as we show after
+that proposition.
+They conjecture the uniqueness of the representation whose
+palindromification is a Markov snake graph
+\cite[Conjecture~4.5]{CanakciSchiffler2020} and identify this conjecture
+with Markov uniqueness \cite[Theorem~4.8]{CanakciSchiffler2020}. Their
+Conjecture~4.6 asks for uniqueness
+under the weaker requirement that the half continued fraction use only
+the digits $1$ and $2$; they checked both conjectures by computer for all
+Markov numbers with denominator below $70$ \cite[Remark~4.7]{CanakciSchiffler2020}.
+Our comparison retains every primitive positive representation of the
+same integer, with no restriction on its partial quotients. The assertion
+is that the occurrence-induced representation minimizes the sum of those
+quotients, with the final Euclidean step omitted. It permits ties and
+does not assert either of these uniqueness conjectures.
+
+Ordering results compare a different set of objects: the Markov labels
+at specified lattice points. Aigner's book records conjectures for rows of
+fixed numerator, denominator and sum \cite[Section~10.1]{Aigner2013}; Rabideau and
+Schiffler proved the first \cite{RabideauSchiffler2020}, and Lagisquet,
+Pelantov\'a, Tavenas, and Vuillon proved all three
+\cite{LagisquetEtAl2021}. Their path minimization holds at a fixed lattice
+endpoint. Lee, Li, Rabideau, and Schiffler obtain further comparison
+inequalities \cite{LeeEtAl2023}, which confine any coincidence of labels to
+a narrow cone of slopes; their fixed-row ratio decreases to a constant,
+which \cref{sec:row-labels} computes and bounds on both sides from the Cohn
+trace, so that each infinite source row lies in a normalized interval. Gaster gives sharp monotonicity ranges using the
+stable norm on the modular torus \cite{Gaster2022}. None of these ordering
+statements, as stated, minimizes Euclidean cost over the full primitive
+two-square fiber of a label. The classical uniqueness theorem for labels
+that are prime powers, or twice prime powers, is the case of a fiber with a
+single element; \cref{rem:single-representation} derives it from the
+results of \cref{sec:occurrences,sec:gaussian}.
+
+Two of our submitted articles treat neighboring questions. The first
+studies the same Euclidean cost on the representations produced by a single
+Gaussian reflection \cite{DutykhVuillon2026Endpoint}, and contains the cost
+identity of \cref{prop:occurrence-cost} in its source dictionary; the second
+studies palindromes in the Cohn monoid \cite{DutykhVuillon2026Reflections},
+and contains \cref{lem:fixed-cost-injectivity} as the case of equal sums in
+the proof of its proposition on the lengths of directing words. Their full texts can be consulted in the repository of
+this series, given at the end of the article.
+
+Related extremal problems fix the length and sum of the entries of a
+continuant; Kan determines the numerical maximum under these constraints
+\cite[Theorem~5]{Kan2012}.\footnote{For sequences of length $t$ and sum $S$,
+the published statement assumes $2\leqslant t\leqslant S<nt$, where $n$, a bound
+on the entries, belongs to the next theorem of that article; the corrected
+version \cite[Theorem~3.5]{Kan2021} states the result for
+$2\leqslant t\leqslant S$.}
+Our proof derives the required path bounds
+directly. In its infinite part, a parity order for the full normalized
+ratio reduces whole boxes of gap lengths to exact corner comparisons.
+The finitely many remaining labels are settled through their complete
+Gaussian factorizations, so that an infinite comparison argument is
+joined to a finite piece of exact arithmetic. The resulting thirteen-row
+theorem assumes no upper bound on the denominator or on the Markov
+value. Its injectivity consequence applies when both occurrences
+belong to the proved rows; it does not exclude a collision with an
+occurrence outside them.

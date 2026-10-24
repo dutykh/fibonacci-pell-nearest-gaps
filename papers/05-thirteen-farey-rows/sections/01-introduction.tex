@@ -1,0 +1,141 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{A representation problem attached to Markov numbers}
+
+The Markov equation
+$$
+ x^2+y^2+z^2=3xyz
+$$
+has a tree of positive integer solutions generated from $(1,1,1)$ by permutations and
+the replacement $(x,y,z)\mapsto(x,y,3xy-z)$. The Frobenius--Markov uniqueness
+conjecture asks whether the largest entry determines a solution up to
+permutation. A useful approach is to attach an arithmetic optimization
+problem to each occurrence of that entry in the tree. If two occurrences
+are both optimal, a known ordering theorem can distinguish them.
+
+We use the Farey indexing $m_{P/Q}$ of Markov numbers, with
+$0<P<Q$ and $\gcd(P,Q)=1$, as in \cite{Aigner2013} and
+\cite{LagisquetEtAl2021}. An occurrence includes its reduced fraction;
+its label is the integer $m_{P/Q}$. Keeping these notions separate is
+essential in a uniqueness problem. The first labels in our convention
+are $m_{1/2}=5$, $m_{1/3}=13$, and $m_{2/3}=29$.
+
+Every such occurrence supplies a primitive positive representation
+$m_{P/Q}=r^2+s^2$. The subtractive Euclidean algorithm gives this pair
+an integer cost $\ell(r,s)$: count single subtractions until $(1,1)$ is
+reached. The cost can be read in two equivalent ways, and the paper uses
+both. If $s/r=[q_0;\ldots,q_j]$ is the canonical finite continued
+fraction, with last quotient at least two, the cost is the sum of the
+partial quotients minus one, $q_0+\cdots+q_j-1$. In matrix form,
+$$
+ \binom sr=P_{q_0}\cdots P_{q_{j-1}}P_{q_j-1}\binom11,\qquad
+ P_q=\begin{pmatrix}q&1\\1&0\end{pmatrix},
+$$
+and the cost is the sum of the indices of the factors;
+\cref{lem:cost-descriptions} proves that the two readings agree. The
+occurrence pair has cost $P+Q-2$; this follows
+from the continued fraction of \c{C}anak\c{c}{\i} and Schiffler
+\cite{CanakciSchiffler2020}, as we recall in \cref{sec:occurrences}.
+Our question is whether any other primitive representation of the same
+integer can have smaller cost. The competitors include all partial
+quotients and need not arise from another Markov occurrence.
+
+\begin{theorem}[Thirteen Farey rows]\label{thm:thirteen-rows}
+Let $0<P<Q$ be coprime integers with $P\leqslant13$. For every
+primitive positive representation
+$$
+ m_{P/Q}=r^2+s^2,\qquad 0<r<s,
+$$
+the subtractive Euclidean cost satisfies
+$$
+ \ell(r,s)\geqslant P+Q-2,
+$$
+with equality for the occurrence-induced representation.
+\end{theorem}
+
+There is no upper bound on $Q$ or on the label. The minimum is weak:
+the theorem permits other representations of the same cost. For the
+$248$ occurrences of the finite windows of \cref{sec:gaussian}, the
+occurrence pair is moreover the only representation of minimum cost.
+Since equal labels with equal costs come from the same fraction
+(\cref{lem:fixed-cost-injectivity}), weak minimality separates occurrences.
+
+\begin{corollary}\label{cor:thirteen-injective}
+If $P/Q$ and $P'/Q'$ are reduced fractions of $(0,1)$ whose numerators are
+at most thirteen, then $m_{P/Q}=m_{P'/Q'}$ implies $P/Q=P'/Q'$.
+\end{corollary}
+
+\Cref{cor:thirteen-injective} is not new in strength. Lee, Li, Rabideau
+and Schiffler show that two distinct fractions with equal labels have a
+slope $(P-P')/(Q-Q')$ strictly between $-5/4$ and $-8/7$, and their
+numerators then differ by at least six
+\cite[Corollary~1.5]{LeeEtAl2023}; this gives the injectivity on the first
+six rows, and on the first thirteen rows it leaves sixteen one-parameter
+families of candidate pairs, which their fixed-row limits
+\cite[Lemma~6.4 and (6.4)]{LeeEtAl2023} (for the first row, the exact value
+$m_{1/Q}=F_{2Q+1}$) and a few explicit comparisons of labels exclude. What \cref{cor:thirteen-injective} adds is its
+route: it comes from a minimality principle, which makes sense on every row
+and would give the uniqueness conjecture if it held on every row. The new
+content of the paper is \cref{thm:thirteen-rows} itself, a statement about
+every primitive representation of the label, Markov or not, and the method
+that proves it.
+
+\subsection{The mechanism of the proof}
+
+Two descriptions of a primitive pair organize the argument. Gaussian
+factorization enumerates every representation of one fixed integer.
+Inverse Euclidean steps organize every pair of one fixed cost. The
+first description treats a finite set of labels completely; the second
+controls the unbounded part of each row. \Cref{fig:proof-map} shows how
+the two descriptions divide the thirteen rows between them.
+
+At cost $c$, the largest norm is the Fibonacci value $F_{2c+3}$.
+Every other path departs from the Fibonacci path at some steps, called
+defects. Record the lengths of the Fibonacci runs between successive
+defects. The main general tool proved here, \cref{thm:tail-parity}, is
+that, on fixing their parities, the full normalized norm $N/F_{2c+3}$ is
+strictly monotone in each run length, with an explicit direction. This
+holds for every positive number of defects, not only for the strata used
+in the thirteen-row theorem. It reduces each infinite box of run lengths to
+two exact corner values in $\Q(\sqrt5)$.
+
+An exact expansion of the Cohn trace, in the eigenbasis of the first Cohn
+matrix, places the source labels of each row in narrow normalized
+intervals around an explicit constant, and we show that every shorter path
+misses the interval belonging to its row. The covers used at that step admit unbounded run
+lengths: their role is to prove uniform inequalities, not to extrapolate
+from a finite search. What remains after them is a finite list of labels,
+for which the complete two-square fiber is determined by Gaussian
+factorization. The finitely many assertions that these two steps leave to
+a computer are collected in one proposition, \cref{prop:finite-verifications};
+everything else is proved in the text.
+
+\begin{figure}[tb]
+\centering
+\input{figures/proof-map}
+\caption{How the proof covers the thirteen rows. Each horizontal line is a
+Farey row of numerator $P$, drawn against the denominator $Q$. The rows
+$P\leqslant7$ are settled by the norm envelopes of \cref{sec:early-rows}
+(teal). In the rows $8\leqslant P\leqslant13$ the dots are the $248$ reduced
+fractions of the finite windows, settled by complete Gaussian fibers in
+\cref{sec:gaussian} (wine); from the junction denominator $Q_P$ on, marked by
+a tick, the unbounded tail is settled by the parity-order covers of
+\cref{sec:tails} and the comparisons of \cref{sec:assembly} (navy). The arrows
+indicate that the rows continue without bound.}
+\label{fig:proof-map}
+\end{figure}
+
+\Cref{sec:occurrences} gives the two readings of the cost, recalls the
+occurrence cost identity and proves the restricted injectivity reduction.
+\Cref{sec:gaussian} describes the complete finite fibers and locates the
+occurrence pair in them, by one exact Gaussian division per step of the
+Farey tree (\cref{prop:vieta-jump}).
+\Cref{sec:early-rows} develops the path envelopes and proves the
+first seven rows. \Cref{sec:tails} establishes the
+general parity order and the construction of the covers.
+\Cref{sec:assembly} states the finite verifications, draws their
+consequences, joins the domains and proves the theorem. \Cref{sec:outlook}
+places the result in the larger question, with three conjectures that imply
+the uniqueness conjecture and the computations that support them.
+
+\input{sections/00-literature}

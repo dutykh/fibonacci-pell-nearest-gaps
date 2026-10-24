@@ -1,0 +1,320 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{Finite verifications and the proof of the theorem}\label{sec:assembly}
+
+We now prove the main theorem. Its computer-assisted part consists of
+finitely many assertions about integers and about elements of $\Z[\varphi]$;
+we state them together, derive from them the three statements on which the
+assembly rests, and then join the finite windows to the infinite tails at
+explicit denominators, so that no interval between a finite calculation and
+an asymptotic statement is left untreated. Throughout this section, for
+$P=8,\ldots,13$ respectively, put
+\begin{equation}\label{eq:tail-denominators}
+ Q_P=29,35,39,76,101,146 .
+\end{equation}
+These are one beyond the six finite windows of \cref{tab:gaussian-windows}.
+They satisfy $P+Q_P-3=c_P$, with $c_P$ as in
+\eqref{eq:tail-source-windows}, and all six fractions $P/Q_P$ are reduced.
+Beyond a second denominator the upper bound of \cref{prop:row-labels} alone
+keeps a source below its ceiling $U_P$; with
+\begin{equation}\label{eq:second-junctions}
+ n_P=3,4,4,7,8,11,\qquad Q^*_P=P(n_P+1)=32,45,50,88,108,156,
+\end{equation}
+every reduced $P/Q$ with $Q\geqslant Q^*_P$ has runs of length at least $n_P$,
+and the denominators $Q_P\leqslant Q<Q^*_P$ in between are finitely many.
+
+\subsection{The finite verifications}
+
+\begin{proposition}[Finite verifications]\label{prop:finite-verifications}
+The following assertions hold.
+\begin{enumerate}[label=\textup{(\roman*)},ref=\textup{(\roman*)},leftmargin=*]
+\item\label{it:fv-windows} For each of the $248$ reduced fractions $P/Q$ of
+ \cref{tab:gaussian-windows}, the label $m_{P/Q}$ is a product of explicit
+ prime powers; each of these primes passes the criterion \eqref{eq:full-lucas}
+ with explicit witnesses, recursively down to the prime two; each odd one is
+ congruent to $1$ modulo $4$ and has an explicit decomposition as a sum of two
+ squares; and among the pairs \eqref{eq:gaussian-sign-cube} built from these
+ data, the occurrence pair of \cref{prop:occurrence-cost} has cost $P+Q-2$ and
+ every other pair has a larger cost.
+\item\label{it:fv-covers} For each $P\in\{8,\ldots,13\}$ and each $k$ with $2\leqslant k\leqslant P-6$,
+ the subdivision tree of \cref{sec:tails} built from the root boxes of all
+ $2^{k+1}$ parity sectors, with $S_0=c_P-k-1$ and the thresholds $C_P$ and
+ $U_P$, is finite, and each of its leaves closes: its upper matched corner is
+ strictly below $C_P$ or its lower matched corner is strictly above $U_P$.
+ For $k=P-5$ and $S_0=c_P-k-1$, every root box has its upper matched corner
+ strictly below $C_P$.
+\item\label{it:fv-lower} For $k=2$ and $S_0=152$, every root box of the eight parity sectors has
+ its upper matched corner strictly below $71/100$.
+\item\label{it:fv-sources} For each $P\in\{8,\ldots,13\}$, one has
+ $C_P\bigl(1+\varphi^{-4n_P-6}\bigr)^P<U_P$, and
+ $m_{P/Q}<U_P\,F_{2(P+Q-2)+1}$ for each of the reduced $Q$ with
+ $Q_P\leqslant Q<Q^*_P$, thirty-eight denominators in all.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Each assertion is a finite statement about integers and about elements of
+$\Z[\varphi]$, whose signs are decided exactly by the integer test of
+\cref{sec:tails}. They were verified by computer in exact arithmetic, and the
+verification was carried out twice independently, the two computations
+resting on different formulas. For part~\ref{it:fv-windows}, the first computation builds the
+fiber of each label from the sign cube \eqref{eq:gaussian-sign-cube} and
+proves every prime by the criterion \eqref{eq:full-lucas}, applied
+recursively down to the prime two; the second finds every representation
+afresh, from the square roots of $-1$ modulo the label, combined by the
+Chinese remainder theorem and reduced by Cornacchia's descent, and checks
+every prime again, by the same criterion with independently written
+arithmetic and by a probable-prime test. In both, each label is computed
+from its Cohn matrix, the first computation obtaining it in two ways, from the
+floor increments of the Christoffel word and by Stern--Brocot mediants. For
+parts~\ref{it:fv-covers} and~\ref{it:fv-lower}, the first computation evaluates the normalized ratio
+through the channel recursion \eqref{eq:tail-channel} in $\Z[\varphi]$; the
+second rebuilds every tree from its root boxes and evaluates the ratio
+through the spectral projectors of the matrix $\mathsf B$ in $\Z[\sqrt5]$. For
+part~\ref{it:fv-sources}, the first computation takes each label from its Cohn matrix and
+decides the constant comparison by the integer sign test in $\Q(\sqrt5)$;
+the second takes each label as the continuant of the palindromic continued
+fraction $[2,\sigma(z),2]$ of \c{C}anak\c{c}{\i} and Schiffler, the Fibonacci
+numbers from the doubling formulas, and bounds the constants with rational
+enclosures of $\sqrt5$ to sixty decimal places.
+\end{proof}
+
+For instance, the first integer comparison of part~\ref{it:fv-sources} is the positive
+integer identity
+$$
+ 707F_{71}-1000\,m_{8/29}=25054682255203.
+$$
+
+\begin{remark}\label{rem:computer-contribution}
+The computer contributes only the assertions of
+\cref{prop:finite-verifications}: the factorizations and the costs of
+$1638$ explicit pairs, the closing of the boxes of finitely many trees,
+thirty-eight comparisons of integers and six comparisons of constants.
+Everything that turns them into statements about infinitely many
+denominators is proved in the text: that the sign cube lists the whole
+fiber (\cref{prop:gaussian-fibre}), that two matched corners bound a whole
+box (\cref{thm:tail-parity} and \eqref{eq:tail-corner-bounds}), that the
+root boxes cover every admissible gap tuple exactly once and each split
+partitions a box (\cref{sec:tails}), that a source row stays in its band
+beyond the junction (\cref{prop:row-labels} and \eqref{eq:second-junctions}),
+and the comparisons at the remaining costs, below.
+\end{remark}
+
+\subsection{Three consequences}
+
+\begin{proposition}[Complete finite windows]\label{prop:finite-windows}
+For every reduced $P/Q$ in \cref{tab:gaussian-windows}, the occurrence
+pair is the unique element of $\mathcal F(m_{P/Q})$ with minimum
+Euclidean cost. That cost is $P+Q-2$.
+\end{proposition}
+
+\begin{proof}
+By \cref{prop:finite-verifications}\ref{it:fv-windows} the label is a product of proved
+primes, the odd ones split as recorded. By \cref{prop:gaussian-fibre}, the
+pairs \eqref{eq:gaussian-sign-cube} built from this factorization are the
+whole fiber $\mathcal F(m_{P/Q})$. By \cref{prop:finite-verifications}\ref{it:fv-windows}
+again, the occurrence pair is the only one of them with cost $P+Q-2$, and
+all others cost more. The table contains every reduced denominator of each
+window, so no occurrence of the windows is missing.
+\end{proof}
+
+\begin{theorem}[Uniform tail exclusion]
+\label{thm:tail-covers}
+For each $P\in\{8,9,10,11,12,13\}$, each $2\leqslant k\leqslant P-6$, and
+every nonnegative gap tuple with cost $c\geqslant c_P$, one has
+$$
+ \frac{N(g)}{F_{2c+3}}<C_P
+ \quad\text{or}\quad
+ \frac{N(g)}{F_{2c+3}}>U_P.
+$$
+The inequalities are strict, so no endpoint in these strata belongs to
+the closed source band $[C_P,U_P]$. Every path with $k\geqslant P-5$
+defects and cost $c\geqslant c_P$ satisfies the stronger conclusion
+$N(g)/F_{2c+3}<C_P$.
+\end{theorem}
+
+\begin{proof}
+\emph{Middle defect counts.} Fix $P$ and $k$ with $2\leqslant k\leqslant P-6$.
+A tuple with $k$ defects has cost $c=S+k+1$, so $c\geqslant c_P$ means
+$S\geqslant S_0=c_P-k-1$. By \cref{sec:tails}, the root boxes of all parity
+sectors cover the tuples with $S\geqslant S_0$, each exactly once, and each
+split partitions a box into two. By \cref{prop:finite-verifications}\ref{it:fv-covers} the resulting tree is
+finite and every leaf closes, so each admissible tuple $g$ lies in exactly one
+closed leaf. If the upper matched corner of that leaf is below $C_P$, then
+\eqref{eq:tail-corner-bounds} gives
+$\mathcal R_k(g)\leqslant\mathcal R_k(g^{\max})<C_P$; otherwise its lower
+matched corner is above $U_P$ and
+$\mathcal R_k(g)\geqslant\mathcal R_k(g^{\min})>U_P$.
+
+\emph{The defect count $P-5$.} By \cref{prop:finite-verifications}\ref{it:fv-covers} every
+root box has its upper matched corner below $C_P$, and
+\eqref{eq:tail-corner-bounds} gives $\mathcal R_{P-5}(g)<C_P$ on the whole
+root box, hence for every admissible tuple.
+
+\emph{More defects.} If a path has more than $P-5$ defects, replace surplus
+$\mathsf A$ moves by $\mathsf B$ as in \cref{lem:path-orders}. At an
+ordered positive state $(u,v)$ the replacement increases the column by
+$(v-u,0)^{\mathsf T}$, and every subsequent matrix is nonnegative and
+invertible. The final norm strictly increases, while the cost stays fixed.
+Replacing until exactly $P-5$ defects remain gives a path of the same cost
+whose norm exceeds the original one and is below $C_PF_{2c+3}$.
+\end{proof}
+
+\begin{corollary}[A lower-cost bound]
+\label{cor:tail-lower-cost}
+Every path of cost $c\geqslant155$ with at least two defects satisfies
+$$
+ \frac{N(g)}{F_{2c+3}}<\frac{71}{100}.
+$$
+\end{corollary}
+
+\begin{proof}
+A path with exactly two defects and cost $c\geqslant155$ has $S\geqslant152$,
+so it lies in one root box of the cover with $S_0=152$. By
+\cref{prop:finite-verifications}\ref{it:fv-lower} and \eqref{eq:tail-corner-bounds}, its
+normalized ratio is below the value at the upper matched corner of that box,
+hence below $71/100$. A path with more defects is handled by replacing
+surplus defects, as in the proof of \cref{thm:tail-covers}.
+\end{proof}
+
+The corollary is used only at the cost-$(L-2)$ interface in row thirteen.
+
+\subsection{Where the source intervals meet the covers}
+
+Put $L=P+Q-2$ and $c=L-1$. The occurrence pair has cost $L$, and we must
+exclude every representation of the same norm at every smaller cost. We
+first place the source in its band: for every reduced $P/Q$ with
+$Q\geqslant Q_P$,
+\begin{equation}\label{eq:joined-source-band}
+ C_P<\frac{m_{P/Q}}{F_{2c+3}}<U_P.
+\end{equation}
+The lower bound is \cref{prop:row-labels}\ref{it:row-bounds}, since $F_{2c+3}=F_{2(P+Q-2)+1}$.
+For the upper bound there are two cases. If $Q\geqslant Q^*_P$, every run of
+$\gamma_{P/Q}$ has length at least $n=\lfloor(Q-P)/P\rfloor\geqslant n_P$, and since the
+upper bound of \cref{prop:row-labels}\ref{it:row-bounds} decreases with $n$,
+\begin{equation}\label{eq:junction-source}
+ \frac{m_{P/Q}}{F_{2c+3}}<C_P\bigl(1+\varphi^{-4n_P-6}\bigr)^P<U_P ,
+\end{equation}
+the second inequality being part~\ref{it:fv-sources} of \cref{prop:finite-verifications}.
+If $Q_P\leqslant Q<Q^*_P$, the upper bound is one of the thirty-eight integer
+comparisons of the same part. \Cref{fig:junction} shows the band, the source
+labels and the bound of \cref{prop:row-labels} for the row of numerator
+eight.
+
+\begin{figure}[tb]
+\centering
+\input{figures/junction}
+\caption{The source band of the row $P=8$. The normalized labels
+$m_{8/Q}/F_{2(Q+6)+1}$ (navy circles) decrease with the denominator and tend
+to $C_8$; from the junction $Q_8=29$ on they lie in the band between $C_8$ and
+$U_8=707/1000$ (shaded), which contains no normalized norm of a path one
+step cheaper: \cref{thm:tail-covers} excludes the paths with at least two
+defects, and the paths with fewer are excluded at the start of
+\cref{sec:one-step-below}. Before the junction, the wine
+circles are the labels of the finite window, settled by their complete
+Gaussian fibers. The dashed staircase is the upper bound of
+\cref{prop:row-labels}, $C_8\bigl((1+\varphi^{-4n-6})^8-1\bigr)$ with
+$n=\lfloor(Q-8)/8\rfloor$; it lies above every label and enters the band at
+$Q^*_8=32$, so that only the denominators $29$ and $31$ need a direct
+comparison. The vertical scale is $(m_{8/Q}/F_{2(Q+6)+1}-C_8)$, on a
+logarithmic axis. The inset repeats the denominators $27$, $29$ and $31$ on a
+linear scale: at the junction the label lies inside the band by
+$8.1\times10^{-5}$.}
+\label{fig:junction}
+\end{figure}
+
+\subsection{Excluding cost one step below the occurrence}\label{sec:one-step-below}
+
+The path with no defect has norm $F_{2c+3}$, above every source ceiling.
+A one-defect path satisfies
+$$
+ \frac{N}{F_{2c+3}}\geqslant
+ \frac{5F_{2c-1}}{F_{2c+3}}
+ >5\varphi^{-4}>\frac{29}{40}>U_8\geqslant U_P.
+$$
+The first inequality is \cref{lem:one-defect-minimum}; the strict
+Fibonacci comparison follows from Binet's formula at odd indices.
+\Cref{thm:tail-covers} excludes the closed source band for every
+remaining defect count. Thus no representation at cost $L-1$ has norm
+$m_{P/Q}$.
+
+\subsection{Excluding all smaller costs}
+
+It remains necessary to check smaller costs: exclusion at one depth
+alone would not imply minimality. We use the following elementary
+consequences of Binet's formula. For positive odd $n$, the ratios
+$F_n/F_{n+2}$ decrease strictly to $\varphi^{-2}$, and
+$F_n/F_{n+4}$ decrease strictly to $\varphi^{-4}$. In particular,
+for odd $n\geqslant5$,
+\begin{equation}\label{eq:coarse-fibonacci-ratios}
+ \varphi^{-2}<\frac{F_n}{F_{n+2}}\leqslant\frac5{13}<\frac25,
+ \qquad
+ \frac{F_n}{F_{n+4}}\leqslant\frac5{34}<\frac3{20}.
+\end{equation}
+All uses below occur strictly beyond these initial indices.
+
+For $8\leqslant P\leqslant11$, every cost $d\leqslant L-2$ has
+$$
+ N\leqslant F_{2L-1}
+ <\frac25F_{2L+1}
+ <C_{11}F_{2L+1}\leqslant C_PF_{2L+1}\leqslant m_{P/Q}.
+$$
+For $P=12,13$, the same Fibonacci bound gives, for every cost $d\leqslant L-3$,
+$$
+ N\leqslant F_{2L-3}
+ <\frac3{20}F_{2L+1}
+ <C_{13}F_{2L+1}\leqslant m_{P/Q}.
+$$
+Only the cost $d=L-2$ in the last two rows remains. Its Fibonacci
+maximum lies above the source, since
+$$
+ \frac{F_{2d+3}}{F_{2d+5}}>\varphi^{-2}>\frac38>U_{12}>U_{13}.
+$$
+For row twelve, every non-Fibonacci path satisfies
+$N\leqslant E_d<F_{2d+5}/3<C_{12}F_{2d+5}\leqslant m_{12/Q}$.
+Here the strict envelope comparison has a short exact proof:
+$$
+ F_{2d+5}-3E_d=2(F_{d+1}^2-2F_d^2)>0.
+$$
+Indeed $F_{d+1}/F_d>3/2$ for $d\geqslant5$, and the present range
+starts at $d=109$.
+
+For row thirteen, a one-defect path is above the source:
+$$
+ \frac{N}{F_{2d+5}}\geqslant\frac{5F_{2d-1}}{F_{2d+5}}
+ >5\varphi^{-6}>\frac5{18}>U_{13}.
+$$
+The radical inequality uses $\varphi^6=9+4\sqrt5<18$.
+Every path with at least two defects is below the source. Since
+$d\geqslant155$, \cref{cor:tail-lower-cost} gives
+$$
+ \frac{N}{F_{2d+5}}
+ =\frac{N}{F_{2d+3}}\frac{F_{2d+3}}{F_{2d+5}}
+ <\frac{71}{100}\frac5{13}
+ =\frac{71}{260}<C_{13}.
+$$
+All the comparisons made in this section between $C_P$, the rational
+constants and $U_P$ are inequalities in $\Q(\sqrt5)$, decided exactly by
+the integer sign test of \cref{sec:tails}; no decimal rounding enters the
+proof.
+
+\begin{proof}[Proof of \cref{thm:thirteen-rows}]
+\Cref{prop:occurrence-cost} supplies a primitive representation
+of cost $L=P+Q-2$. \Cref{prop:rows-seven} proves its weak
+minimality for $P\leqslant7$. For each $8\leqslant P\leqslant13$,
+\cref{prop:finite-windows} covers every reduced denominator
+$P<Q<Q_P$. For $Q\geqslant Q_P$, the preceding three subsections
+exclude every smaller cost. This proves weak minimality without a
+denominator bound.
+\end{proof}
+
+\begin{proof}[Proof of \cref{cor:thirteen-injective}]
+By \cref{thm:thirteen-rows}, every occurrence with numerator at most
+thirteen is weakly Euclidean-minimal, and \cref{cor:restricted-injectivity}
+applies to this family.
+\end{proof}
+
+The proof uses complete Gaussian fibers only for the finite initial
+windows. In the infinite tails it excludes all shorter primitive paths
+directly, so no factorization of an unbounded family of Markov integers
+is required. These two forms of completeness are complementary.

@@ -1,0 +1,176 @@
+% Euclidean minimality of Markov representations on thirteen Farey rows
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=32mm]{geometry}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,backgrounds}
+\input{figures/palette}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=green!40!black,urlcolor=blue!65!black]{hyperref}
+\usepackage{aliascnt}
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+\theoremstyle{plain}
+\newaliascnt{conjecture}{theorem}
+\newtheorem{conjecture}[conjecture]{Conjecture}
+\aliascntresetthe{conjecture}
+
+\usepackage[nameinlink,noabbrev]{cleveref}
+\crefname{theorem}{Theorem}{Theorems}
+\Crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}
+\Crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+\Crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\Crefname{corollary}{Corollary}{Corollaries}
+\crefname{definition}{Definition}{Definitions}
+\Crefname{definition}{Definition}{Definitions}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{remark}{Remark}{Remarks}
+\crefname{conjecture}{Conjecture}{Conjectures}
+\Crefname{conjecture}{Conjecture}{Conjectures}
+\crefname{section}{Section}{Sections}
+\Crefname{section}{Section}{Sections}
+\crefname{subsection}{Section}{Sections}
+\Crefname{subsection}{Section}{Sections}
+\crefname{figure}{Figure}{Figures}
+\Crefname{figure}{Figure}{Figures}
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+\crefname{equation}{}{}
+\Crefname{equation}{Equation}{Equations}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\cont}[1]{\operatorname{cont}\!\left(#1\right)}
+\newcommand{\height}[1]{h_{\mathrm{abs}}\!\left(#1\right)}
+\newcommand{\dist}[1]{\left\lVert#1\right\rVert}
+
+
+\newaliascnt{example}{theorem}
+\theoremstyle{definition}
+\newtheorem{example}[example]{Example}
+\aliascntresetthe{example}
+\crefname{example}{Example}{Examples}
+\Crefname{example}{Example}{Examples}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\arcosh}{arcosh}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\frenchspacing
+
+
+\title[Euclidean minimality on thirteen Farey rows]{Euclidean minimality of Markov representations\\on thirteen Farey rows}
+
+\author{Denys Dutykh}
+\address{Mathematics Department, Khalifa University of Science and Technology, PO Box 127788, Abu Dhabi, United Arab Emirates}
+\email{denys.dutykh@ku.ac.ae}
+
+\author{Laurent Vuillon}
+\address{Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chamb\'ery, France}
+\email{laurent.vuillon@univ-smb.fr}
+
+\hypersetup{
+ pdftitle={Euclidean minimality of Markov representations on thirteen Farey rows},
+ pdfauthor={Denys Dutykh and Laurent Vuillon},
+ pdfsubject={Primitive sums of two squares, Euclidean cost and unbounded Farey rows},
+ pdfkeywords={Markov numbers, Christoffel words, sums of two squares, Euclidean algorithm, Gaussian integers, palindromic closure}
+}
+\subjclass[2020]{Primary 11D25, 68R15; Secondary 11A55, 11E25, 11J06, 11Y50}
+\keywords{Markov numbers, Christoffel words, sums of two squares, Euclidean algorithm, Gaussian integers, palindromic closure}
+\begin{document}
+\begin{abstract}
+The Markov number attached to a reduced Farey fraction is canonically a sum
+of two coprime squares, and the subtractive Euclidean algorithm reduces this
+pair in exactly as many steps as the numerator plus the denominator minus
+two. We prove that no other primitive representation of the same integer as
+a sum of two squares has a shorter Euclidean algorithm when the numerator is
+at most thirteen, with no bound on the denominator. A parity-order theorem
+for the Fibonacci-normalized norm reduces infinite families of Euclidean
+paths to exact comparisons, complete Gaussian factorizations settle finitely
+many labels, and the remaining finite assertions are verified by computer in
+exact arithmetic. Minimality on every row would imply the Frobenius--Markov
+uniqueness conjecture. We conjecture that it holds, and state a second
+conjecture, on iterated palindromic closure and the Thue--Morse
+morphism, that also implies uniqueness and is verified for every Markov
+number up to $10^{12}$.
+\end{abstract}
+\maketitle
+\input{sections/01-introduction}
+\input{sections/02-occurrences-and-euclidean-cost}
+\input{sections/03-complete-gaussian-fibres}
+\input{sections/04-path-envelopes-and-early-rows}
+\input{sections/05-unbounded-tails}
+\input{sections/06-thirteen-row-assembly}
+\input{sections/07-outlook}
+\section*{Supplementary material}
+The supplementary material accompanying this article contains the exact
+computations behind \cref{prop:finite-verifications,lem:ladder-facts}: the
+factorizations and complete Gaussian fibers of the finite windows, the
+covers of the unbounded tails, the source comparisons, the matrices of the
+two ladders, two independent verifications of each, and instructions for
+repeating them. It also contains the complete factorizations of the labels
+behind the margins of \cref{sec:outlook}, verified a second time
+independently, and the two independent computations behind
+\cref{lem:directive-facts}.
+
+\section*{Code and data availability}
+{\clubpenalty=0 \widowpenalty=0
+The source code and the data supporting this article, with the instructions
+that repeat every calculation, are contained in the supplementary material of
+this article, which is available, together with that of the other articles of
+this series, at
+\par}
+\begin{center}
+  \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
+\end{center}
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial,
+or not-for-profit sectors.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+Generative AI (Claude Code by Anthropic) was used exclusively for grammatical polishing, LaTeX typesetting,
+and generating TikZ figure templates. No AI tools were used in the formulation, derivation, or verification
+of the mathematical results.
+
+\section*{Conflict of interest}
+The authors declare that they have no conflict of interest.
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+\end{document}

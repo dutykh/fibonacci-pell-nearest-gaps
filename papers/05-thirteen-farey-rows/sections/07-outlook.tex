@@ -1,0 +1,574 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{What the comparison isolates}\label{sec:outlook}
+
+The optimization problem separates two sources of difficulty in
+Markov uniqueness. The occurrence cost is explicit, but a fixed label
+may have many primitive two-square representations. Gaussian
+factorization describes that entire fiber without identifying its
+minimum. The path comparison supplies the missing order for the thirteen
+rows treated here. Its content is therefore stronger than a comparison
+between selected Markov labels, while its conclusion remains restricted
+to the family actually proved.
+
+The parity-order theorem has a scope independent of the row cutoff. It
+turns the normalized norm for any fixed defect count into a function
+whose extrema on parity boxes occur at prescribed corners, even when
+some gaps are infinite. The useful feature is the normalization itself:
+bounding the numerator and Fibonacci denominator separately loses the
+correlation that makes narrow source intervals accessible.
+
+Extending the result to another row requires more than another finite
+list of labels. One must first separate its source interval from every
+relevant shorter-cost stratum, including the smaller costs in the final
+assembly. The cover procedure has no proved termination theorem for
+arbitrary source intervals. A box that remains inside such an interval
+is an unresolved comparison, not evidence of a Markov collision.
+This is the precise additional work required beyond row thirteen.
+
+The broader question is whether the conclusion of
+\cref{thm:thirteen-rows} holds on every row.
+
+\begin{conjecture}[Euclidean minimality of Markov representations]
+\label{conj:euclidean-minimality}
+Every Markov occurrence weakly minimizes the Euclidean cost over the whole
+primitive positive two-square fiber of its label.
+\end{conjecture}
+
+By \cref{cor:restricted-injectivity}, the conjecture implies the
+Frobenius--Markov uniqueness conjecture. Beyond the thirteen rows the
+evidence is computational. By complete factorization of the labels, every
+one of the $4145$ occurrences with denominator at most $100$, or with
+$P+Q\leqslant160$, is strictly minimal: its pair is the only representation of
+minimum cost. \Cref{fig:margins} shows by how much, up to the denominator
+$100$. The margin can be a single unit: the label
+$m_{4/5}=985=12^2+29^2=16^2+27^2$ has the occurrence pair of cost $7$ and a
+second pair of cost $8$. \c{C}anak\c{c}{\i} and Schiffler checked their
+uniqueness conjectures by computer for all denominators below $70$
+\cite[Remark~4.7]{CanakciSchiffler2020}.
+
+\begin{figure}[tb]
+\centering
+\input{figures/margins}
+\caption{Computed evidence for \cref{conj:euclidean-minimality}. Each mark is
+an occurrence $P/Q$ with $Q\leqslant100$, placed at its denominator and
+numerator; its color and shape give the margin, the cost of the cheapest
+other primitive representation of the label minus the occurrence cost
+$P+Q-2$. Hollow circles are labels with a single representation, which have
+no competitor. No margin is zero or negative. The small margins thin out
+as the denominator grows; the ringed occurrences $(9k+1)/(15k+2)$,
+$k=1,\dots,6$, are the last ones with a margin at most $k$, and
+\cref{prop:two-ladders} explains them. The shaded rows $P\leqslant13$ are those
+of \cref{thm:thirteen-rows}.}
+\label{fig:margins}
+\end{figure}
+
+\subsection{How small the margin can be}
+
+The rarefaction of small margins in \cref{fig:margins} follows a precise
+law in the computed range. Among the occurrences with $P+Q\leqslant160$, a
+margin at most $k$, for $k=1,\dots,6$, occurs only when
+$$
+ P+Q\leqslant24k+3,\qquad P\leqslant9k+1,\qquad Q\leqslant15k+2 ,
+$$
+and all three bounds are reached by the single occurrence
+$(9k+1)/(15k+2)$, whose margin is exactly $k$ (\cref{fig:thresholds}). These
+six fractions are rungs of one Farey ladder, the fractions
+$(1+3j)/(2+5j)$ that run from $1/2$ to $3/5$, taken at $j=3k$; their labels
+are the neighbors of $m_{3/5}=433$ in the Markov tree. On every third rung
+the label is divisible by $5=(1+2i)(1-2i)$, and at the six computed rungs
+the cheapest competitor of the occurrence pair is the element of the fiber
+in which the Gaussian factor above $5$ is replaced by its conjugate. A companion ladder,
+$(2+3j)/(3+5j)$ from $2/3$ to $3/5$, behaves in the same way at $j=3k-1$. The
+mechanism can be proved for every rung, and it shows that thresholds of
+this kind, if they exist, cannot be smaller.
+
+The proof follows the occurrence vectors $v_j=H_je$ of the rungs, $H_j$ being
+the Gram factor of \cref{prop:occurrence-cost}. Two rungs apart, the central
+words grow by one fixed word at each end, so that $v_{j+2}$ is obtained from
+$v_j$ by a matrix that depends only on the parity of $j$; six rungs apart,
+the competitor obtained by conjugating the factor above $5$ is transformed
+by the same matrix conjugated by the rotation that multiplies by
+$(1-2i)/(1+2i)$.
+Cost is additive under nonnegative matrices of determinant one, and the
+whole statement reduces to the lengths of four explicit matrices.
+
+\begin{lemma}[Finite facts on two ladders]\label{lem:ladder-facts}
+For the ladder $(1+3j)/(2+5j)$ put $u=babab$ and $j_0=3$, and for the ladder
+$(2+3j)/(3+5j)$ put $u=abbab$ and $j_0=2$. For each ladder and each parity
+of $j\geqslant1$, let $T=H_j\,\mu(u)\,H_j^{-1}$, computed at the rungs $j=1$ and
+$j=2$. At each of the four rungs $j_0$ and $j_0+3$ of the two ladders, exactly
+one of the two matrices $R$ of multiplication by $(1-2i)/(1+2i)$ and by
+$(1+2i)/(1-2i)$ maps $v_j$ to an integer vector, and exactly one diagonal sign
+matrix $S$ makes that vector positive. Then:
+\begin{enumerate}[label=\textup{(\roman*)},ref=\textup{(\roman*)},leftmargin=*]
+\item\label{it:ladder-transfer} On the first ladder $T$ is
+ $\left(\begin{smallmatrix}1105&463\\463&194\end{smallmatrix}\right)$ at even $j$
+ and $\left(\begin{smallmatrix}1130&437\\437&169\end{smallmatrix}\right)$ at odd
+ $j$; on the second ladder the two matrices are exchanged.
+\item\label{it:ladder-length} At each of the four rungs, with $T$ the matrix of its parity, the
+ matrix $N=SRT^3R^{-1}S^{-1}$ is a nonnegative integer matrix of determinant
+ one whose expression as a word in $L_a$ and $L_b$ has $50$ letters, while
+ $T^3$ has $48$.
+\item\label{it:ladder-base} At each of the four rungs the vector $SRv_j$ is primitive, and its
+ Euclidean cost exceeds that of $v_j$ by $1$ at $j_0$ and by $2$ at $j_0+3$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+These are finitely many assertions about explicit integer matrices and
+vectors. They were verified by computer in exact arithmetic, and the
+verification was carried out twice independently: once through the Gram
+factors and the matrices of \ref{it:ladder-length}, and once by Gaussian division of the
+occurrence pairs, with the labels taken as continuants of the continued
+fraction $[2,\sigma(z),2]$.
+\end{proof}
+
+\begin{proposition}[Margins along two ladders]\label{prop:two-ladders}
+For every integer $k\geqslant1$, the labels of the reduced fractions
+$(9k+1)/(15k+2)$ and $(9k-1)/(15k-2)$ are divisible by $5$. In the occurrence
+pair of each, written as a Gaussian integer, replacing the factor above $5$
+by its conjugate gives a primitive representation of the same label whose
+Euclidean cost exceeds the occurrence cost by exactly $k$. Consequently the
+margins of these two occurrences are at most $k$.
+\end{proposition}
+
+\begin{proof}
+\emph{The words.} Two fractions $a/b<c/d$ with $bc-ad=1$ are Farey
+neighbors, and the lower Christoffel word of their mediant is the
+product $\gamma_{a/b}\gamma_{c/d}$ \cite{Reutenauer2009}. The fraction
+$(1+3j)/(2+5j)$ is a neighbor of $3/5$ lying below it, since
+$3(2+5j)-5(1+3j)=1$, and its mediant with $3/5$ is the next rung; starting
+from $\gamma_{1/2}=ab$ and $\gamma_{3/5}=ababb$, induction gives
+$\gamma_{(1+3j)/(2+5j)}=ab\,(ababb)^j$, with central word
+$z_j=b\,(ababb)^{j-1}abab$. Concatenation gives
+$z_{j+2}=babab\cdot z_j\cdot babab=u\,z_j\,u$. In the same way
+$5(2+3j)-3(3+5j)=1$ places $(2+3j)/(3+5j)$ above $3/5$, the words are
+$(ababb)^jabb$ with central words $z_j=babb\,(ababb)^{j-1}ab$, and
+$z_{j+2}=babba\cdot z_j\cdot abbab=\widetilde u\,z_j\,u$.
+
+\emph{The transfer.} In both cases the right half of the central word gains
+the word $u$ at its far end while its middle letter is unchanged, so that
+the Gram factor of \cref{prop:occurrence-cost} satisfies
+$H_{j+2}=H_j\,\mu(u)$. Put $T_j=H_j\,\mu(u)\,H_j^{-1}$. Then
+$T_jv_j=H_j\,\mu(u)\,e=H_{j+2}e=v_{j+2}$, and
+$T_{j+2}=H_j\,\mu(u)\,\mu(u)\,\mu(u)^{-1}H_j^{-1}=T_j$, so that $T_j$ depends only
+on the parity of $j$: it is the matrix $T$ of \cref{lem:ladder-facts}\ref{it:ladder-transfer}, and
+$v_{j+6}=T^3v_j$.
+
+\emph{The competitor.} Write $v_j=(s,r)^{\mathsf T}$, so that the label is
+$m=s^2+r^2$. Fix one of the four rungs $j_0$, $j_0+3$ of
+\cref{lem:ladder-facts}, with its matrices $R$, $S$ and $T$, and put
+$c_j=SR\,v_j$ for every rung $j$ congruent to it modulo six. Since
+$v_{j+6}=T^3v_j$,
+$$
+ c_{j+6}=SR\,T^3v_j=N\,c_j,\qquad N=SRT^3R^{-1}S^{-1}.
+$$
+The matrix $N$ has nonnegative integer entries and determinant one
+(\cref{lem:ladder-facts}\ref{it:ladder-length}); it maps positive vectors to positive
+vectors, since no row of it vanishes, and primitive integer vectors to
+primitive integer vectors, since its inverse is integral. By
+\cref{lem:ladder-facts}\ref{it:ladder-base} and induction on $j$ in steps of six, $c_j$ is
+therefore a positive primitive integer vector at every rung $j=3k$ of the
+first ladder and $j=3k-1$ of the second. The matrices $R$ and $S$ preserve
+lengths, so $c_j$ has norm $m$: up to the order of its entries it is an
+element of $\mathcal F(m)$. As a Gaussian integer, $c_j$ is $s+ir$ multiplied
+by $(1\mp2i)/(1\pm2i)$, up to a sign and a conjugation; its integrality means
+that $1\pm2i$ divides $s+ir$, so that $5$ divides $m$, and its primitivity that
+$25$ does not, by \cref{prop:gaussian-fibre}. The element $c_j$ is thus the
+occurrence pair with the factor above $5$ replaced by its conjugate.
+
+\emph{Cost.} By \cref{lem:euclidean-bijection}, every positive primitive
+column is $x=L_w{\bf1}$ for a unique word $w$, so that for every word $w'$,
+$\ell(L_{w'}x)=\ell(L_{w'w}{\bf1})=\lvert w'\rvert+\ell(x)$. Every nonnegative integer
+matrix $M=\left(\begin{smallmatrix}\alpha&\beta\\\gamma&\delta\end{smallmatrix}\right)\neq I$
+of determinant one is such an $L_{w'}$. Indeed one of its rows dominates the
+other entrywise: if $\alpha>\gamma$ and $\beta<\delta$, then
+$\alpha\delta-\beta\gamma\geqslant(\gamma+1)(\beta+1)-\beta\gamma=\beta+\gamma+1$, which equals one
+only for $M=I$; and if $\alpha<\gamma$ and $\beta>\delta$, then
+$\alpha\delta-\beta\gamma\leqslant(\gamma-1)(\beta-1)-\beta\gamma<0$. Subtracting the dominated
+row from the dominating one removes a first letter $L_a$ or $L_b$, keeps the
+entries nonnegative and the determinant one, and lowers the sum of the
+entries, so that the process ends at $I$. By \cref{lem:ladder-facts}\ref{it:ladder-length},
+$$
+ \ell(c_{j+6})=\ell(c_j)+50,\qquad \ell(v_{j+6})=\ell(v_j)+48,
+$$
+so that the excess $\ell(c_j)-\ell(v_j)$ grows by $2$ every six rungs. It is
+$1$ and $2$ at the first two rungs of each family
+(\cref{lem:ladder-facts}\ref{it:ladder-base}), hence $k$ at the $k$th, which is the rung
+$(9k+1)/(15k+2)$ of the first ladder and $(9k-1)/(15k-2)$ of the second.
+The margin is at most the excess of this particular competitor.
+\end{proof}
+
+The proposition explains the six ringed occurrences of \cref{fig:margins}:
+together with the computations, which find no cheaper competitor at those
+rungs, it gives their margins exactly. It also shows that the thresholds
+observed above cannot be lowered: for every $k$ there is an occurrence with
+$P+Q=24k+3$ and margin at most $k$.
+
+\begin{figure}[tb]
+\centering
+\input{figures/thresholds}
+\caption{The margin against $P+Q$ for the $120$ occurrences with
+$P+Q\leqslant160$ and margin at most $10$ (hollow circles; several
+occurrences may share a mark). The dashed line is $(P+Q-3)/24$, and the
+shaded region below it contains no occurrence. The filled wine circles are
+the occurrences $(9k+1)/(15k+2)$, $k=1,\dots,6$, which lie on the line and
+whose margin is exactly $k$; \cref{prop:two-ladders} shows that the margin
+of the next ones on the line is at most $k$ for every $k$.}
+\label{fig:thresholds}
+\end{figure}
+
+\begin{conjecture}[Thresholds of the margin]\label{conj:thresholds}
+For every integer $k\geqslant0$, every occurrence $P/Q$ with $P+Q>24k+3$ has
+margin larger than $k$, the margin of a label with a single primitive
+representation being taken as infinite.
+\end{conjecture}
+
+The case $k=0$ asserts that every occurrence is strictly minimal, which is
+stronger than \cref{conj:euclidean-minimality} and therefore implies the
+Frobenius--Markov uniqueness conjecture. The conjecture holds for every
+occurrence with $P+Q\leqslant160$, and \cref{prop:two-ladders} shows that it
+would be false with any smaller threshold.
+
+The minimality is not a consequence of the digit pattern alone. The
+representation of a Markov label by its occurrence pair has a half continued
+fraction with digits $1$ and $2$ only \cite[Corollary~4.4]{CanakciSchiffler2020},
+but such digits do not force minimality for other integers. The integer
+$135328989953=37\cdot113\cdot761\cdot42533$, which is not a Markov number,
+has eight primitive representations; two of them,
+$196223^2+311168^2$ and $131468^2+343577^2$, have continued fractions with
+digits $1$ and $2$ only, and their costs are $28$ and $27$. The first is
+therefore not minimal. Whatever makes the conjecture true must use the
+Markov structure of the label, as the path comparison of this paper does on
+thirteen rows.
+
+\subsection{Directives of the Christoffel words of a given length}\label{sec:directives}
+
+The comparison of this paper fixes a label and varies its representation as
+a sum of two squares. One may instead fix an integer $m$ and vary the
+Christoffel word of length $m$. For each $n$ prime to $m$ with $1\leqslant n<m/2$,
+the lower Christoffel word $\gamma_{n/m}$ has a central word, and the central
+word has a directive, in the sense of the iterated palindromic closure of de
+Luca. This subsection shows that these directives are the Euclidean
+directives of \cref{lem:euclidean-bijection}, characterizes those that are
+images of the Thue--Morse morphism, and states a conjecture on them that
+implies the uniqueness conjecture. It also recasts
+\cref{conj:euclidean-minimality} in terms of the square roots of $-1$ modulo
+the label.
+
+The palindromic closure $w^{(+)}$ of a word $w$ is the shortest palindrome
+having $w$ as a prefix, and the iterated palindromic closure is defined by
+$\operatorname{Pal}(\varepsilon)=\varepsilon$ and
+$\operatorname{Pal}(vx)=(\operatorname{Pal}(v)x)^{(+)}$ for a word $v$ and a letter $x$
+\cite{DeLuca1997}. The map $\operatorname{Pal}$ is injective, and $d$ is called the
+\emph{directive} of the central word $\operatorname{Pal}(d)$; the map
+$d\mapsto a\operatorname{Pal}(d)b$ is a bijection from the binary words onto the
+proper lower Christoffel words
+\cite[Section~2 and the proof of Theorem~1]{ReutenauerVuillon2017}, a consequence of
+\cite[Corollary~3.1]{BertheDeLucaReutenauer2008}. The Thue--Morse morphism
+$\theta$ sends $a$ to $ab$ and $b$ to $ba$; its image is the set $\{ab,ba\}^*$
+of the products of the words $ab$ and $ba$.
+
+\begin{lemma}[Directives of Christoffel words]\label{lem:directives}
+Let $1\leqslant n<m/2$ be coprime integers, write $\gamma_{n/m}=azb$, and let $d$
+be the directive of $z$. Then $L_d{\bf1}=(m-n,n)^{\mathsf T}$: the word $d$ is the
+directive of the pair $(m-n,n)$ in the sense of \cref{lem:euclidean-bijection},
+and $\abs d=\ell(n,m)-1$. If $n=1$, then $d=a^{m-2}$. If $n\geqslant2$ and
+$m/n=[c_0;c_1,\ldots,c_k]$ is the canonical continued fraction, the runs of $d$
+have the lengths $c_0-1,c_1,\ldots,c_{k-1},c_k-1$, alternately of the letters
+$a$ and $b$, beginning with $a$. In particular, $d$ lies in $\{ab,ba\}^*$ if and
+only if
+\begin{equation}\label{eq:block-form}
+ \frac mn=[2;B_1,\ldots,B_j,2],\qquad j\geqslant0,\quad B_i\in\{(2),\,(1,1)\},
+\end{equation}
+that is, if and only if the first and the last partial quotients equal $2$
+and those in between split into consecutive blocks $(2)$ and $(1,1)$.
+\end{lemma}
+
+\begin{proof}
+\emph{The pair.} Berth\'e, de Luca and Reutenauer attach to a word $d$ the
+incidence matrix $M_d$ of a composition of morphisms, with $M_{dd'}=M_dM_{d'}$,
+$M_a=\left(\begin{smallmatrix}1&1\\0&1\end{smallmatrix}\right)=L_a$ and
+$M_b=\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)=L_b$
+\cite[proofs of Proposition~3.1 and Corollary~3.2]{BertheDeLucaReutenauer2008},
+so that $M_d=L_d$. By \cite[Corollary~3.1]{BertheDeLucaReutenauer2008}, the
+Christoffel word $a\operatorname{Pal}(d)b$ has as many letters $a$ as the sum
+of the entries of the first row of $L_d$, and as many letters $b$ as the sum
+of the entries of its second row; that is, its two letter counts are the
+entries of $L_d{\bf1}$. For $z=\operatorname{Pal}(d)$, \eqref{eq:farey-counts}
+therefore gives $L_d{\bf1}=(m-n,n)^{\mathsf T}$, and \cref{lem:euclidean-bijection}
+shows that $d$ is the directive of $(m-n,n)$, of length $\ell(m-n,n)$. Since
+$m-n>n$, the first subtraction carries the pair $(n,m)$ to $(n,m-n)$, so that
+$\ell(n,m)=1+\ell(n,m-n)$.
+
+\emph{The runs.} If $n=1$, the pair $(m-1,1)$ reaches $(1,1)$ after $m-2$
+subtractions of its second coordinate, and its directive is $a^{m-2}$. If
+$n\geqslant2$, then $m/n$ is not an integer, so $k\geqslant1$; moreover $c_0\geqslant2$
+because $m>2n$, and $(m-n)/n=m/n-1=[c_0-1;c_1,\ldots,c_k]$ is a canonical
+expansion. The description of directives after \cref{lem:euclidean-bijection}
+gives the runs $c_0-1,c_1,\ldots,c_{k-1},c_k-1$, alternately of $a$ and $b$,
+beginning with $a$.
+
+\emph{The image of $\theta$.} A word lies in $\{ab,ba\}^*$ exactly when its
+length is even and its letters in the positions $2i-1$ and $2i$ differ for
+every $i$, that is, when a run ends after every odd position. If $n=1$, the
+word $a^{m-2}$, with $m\geqslant3$, has no such run end, and \eqref{eq:block-form}
+fails since $m/1$ has a single partial quotient. Let $n\geqslant2$, and write
+$r_0=c_0-1$, $r_i=c_i$ for $0<i<k$ and $r_k=c_k-1$, all positive; the runs end
+after the positions $r_0$, $r_0+r_1$, \dots, $r_0+\cdots+r_{k-1}$. Suppose that
+$d$ lies in $\{ab,ba\}^*$, of length $2h$. A run ending after the position $1$
+forces $r_0=1$, that is $c_0=2$. A run ending after the last odd position
+$2h-1$ leaves a last run of length $1$, so $r_k=1$, that is $c_k=2$. Between
+two consecutive odd positions $2i-1$ and $2i+1$, there is either no other run
+end, which makes a run of length $2$, or one run end after the position $2i$,
+which makes two runs of length $1$; so the runs $r_1,\ldots,r_{k-1}$, which are
+the quotients $c_1,\ldots,c_{k-1}$, split into consecutive blocks $(2)$ and
+$(1,1)$. Conversely, when \eqref{eq:block-form} holds, the run lengths are
+$1$, then blocks $(2)$ and $(1,1)$, then $1$, so the word has even length and
+a run ends after every odd position.
+\end{proof}
+
+Every occurrence supplies an integer of the form \eqref{eq:block-form}. Let
+$P/Q$ be an occurrence of the label $m$, with central word $z$, and write
+$\mu(z)e=(x,y)^{\mathsf T}$. Since $\mu(a)=P_1^2$, $\mu(b)=P_2^2$ and
+$P_2(1,0)^{\mathsf T}=e$, the column
+$P_2\,\mu(z)\,P_2(1,0)^{\mathsf T}=P_2\,\mu(z)\,e=(2x+y,x)^{\mathsf T}$ is the image
+of $(1,0)^{\mathsf T}$ under the product of the matrices $P_c$, $c$ running
+through the sequence $(2,\sigma(z),2)$ of \cref{sec:occurrences}, and its
+first entry $2x+y=e^{\mathsf T}\mu(z)e$ is $m$ by \eqref{eq:square-count-identity}.
+By \cref{lem:cost-descriptions}, the integer $u_{P/Q}=x$, which we call the
+\emph{root} of the occurrence, satisfies
+\begin{equation}\label{eq:root-cf}
+ \frac m{u_{P/Q}}=[2;\sigma(z),2].
+\end{equation}
+The sequence $\sigma(z)$ consists of the blocks $(1,1)$ and $(2,2)$, so the
+root is of the form \eqref{eq:block-form}, and $m/3<u_{P/Q}<m/2$. The matrix
+$P_2\,\mu(z)\,P_2$ is symmetric of determinant one, with first column
+$(m,u_{P/Q})^{\mathsf T}$, so that $u_{P/Q}^2\equiv-1\pmod m$. Since $\mu(a)e_1=e$,
+$\mu(b)e_1=2e+e_1$ and $\mu(z)$ is symmetric, the upper left entry of
+$\mu(\gamma_{P/Q})=\mu(a)\mu(z)\mu(b)$ is
+$e^{\mathsf T}\mu(z)(2e+e_1)=2m+u_{P/Q}$. By the first step of the proof of
+\cref{prop:occurrence-in-cube}, $u_{P/Q}\,m_R\equiv-m_L\pmod m$, and since
+$0<u_{P/Q}<m/2$, the root is the characteristic number of the Markov triple
+$(m,m_L,m_R)$ in the normalization of \cite[Section~2.2]{Aigner2013}, the
+smaller of the two solutions in $(0,m)$ of $m_Rx\equiv\pm m_L\pmod m$.
+
+\begin{conjecture}[Directives in the image of the Thue--Morse morphism]\label{conj:directives}
+For every Markov number $m\geqslant5$, exactly one integer $n$ with
+$1\leqslant n<m/2$, prime to $m$, has the property that the directive of the
+central word of $\gamma_{n/m}$ lies in $\{ab,ba\}^*$; equivalently, by
+\cref{lem:directives}, exactly one such $n$ satisfies \eqref{eq:block-form}.
+\end{conjecture}
+
+\begin{proposition}[The conjecture implies uniqueness]\label{prop:directives-uniqueness}
+\Cref{conj:directives} implies the Frobenius--Markov uniqueness conjecture.
+In terms of the Thue--Morse morphism, it states that for every Markov number
+$m\geqslant5$ exactly one word $w$ beginning with the letter $a$ satisfies
+$\abs{\operatorname{Pal}(\theta(w))}=m-2$.
+\end{proposition}
+
+\begin{proof}
+\emph{Uniqueness.} Every occurrence $P/Q$ of a Markov number $m$ supplies the
+integer $n=u_{P/Q}$, which satisfies \eqref{eq:block-form} by
+\eqref{eq:root-cf}. Two distinct occurrences supply distinct integers. Indeed,
+the canonical continued fraction \eqref{eq:root-cf} of $m/u_{P/Q}$ determines
+the sequence $\sigma(z)$; this sequence determines $z$, because $\sigma$ replaces
+each letter by two equal entries that identify it; and $z$ determines the word
+$\gamma_{P/Q}=azb$ and the fraction $P/Q$, by \eqref{eq:farey-counts}. If the
+integer of the conjecture is unique, so is the occurrence.
+
+\emph{The second form.} Let $n$ be an integer as in the conjecture, and $d$ the
+directive of the central word of $\gamma_{n/m}$. By \cref{lem:directives}, $d$
+begins with $a$, and it lies in $\{ab,ba\}^*$ exactly when $d=\theta(w)$ for a
+word $w$, which then begins with $a$ and is unique, the morphism $\theta$ being
+injective. Conversely, let $w$ begin with $a$. Then $d=\theta(w)$ begins with
+$a$, and $a\operatorname{Pal}(d)b$ is a proper lower Christoffel word whose numbers
+of letters $a$ and $b$ are the entries of $L_d{\bf1}$, by the first step of the
+proof of \cref{lem:directives}; the first entry is the larger, since
+$L_d{\bf1}=L_aL_{d'}{\bf1}$ with $d=ad'$. This word is therefore
+$\gamma_{n/m}$ for coprime integers with $n<m/2$ and
+$m=\abs{\operatorname{Pal}(\theta(w))}+2$, and the directive of its central word is
+$\theta(w)$. The integers $n$ of the conjecture for the label $m$ thus
+correspond one to one to the words $w$ beginning with $a$ such that
+$\abs{\operatorname{Pal}(\theta(w))}=m-2$.
+\end{proof}
+
+Reutenauer and Vuillon proved that, for every word $v$, the number
+$\abs{\operatorname{Pal}(\theta(\operatorname{Pal}(av)))}+2$ is a Markov number, that every
+Markov number $m\geqslant5$ arises in this way, and that the injectivity of the
+map $v\mapsto\abs{\operatorname{Pal}(\theta(\operatorname{Pal}(av)))}$ is equivalent to the
+uniqueness conjecture \cite[Theorem~1]{ReutenauerVuillon2017}. The words
+$\operatorname{Pal}(av)$ are the central words beginning with $a$. In the second
+form of \cref{prop:directives-uniqueness}, the conjecture contains this
+injectivity, and asserts in addition that no word $w$ beginning with $a$ that
+is not a central word gives a Markov number. The next lemma supports it for
+every Markov number up to $10^{12}$.
+
+\begin{lemma}[Finite facts on directives]\label{lem:directive-facts}
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=*]
+\item There are $150$ Markov numbers $m$ with $5\leqslant m\leqslant10^{12}$. Each
+ is the label of exactly one occurrence $P/Q$, and its root $u_{P/Q}$ is the
+ only integer $n$ prime to $m$ with $1\leqslant n<m/2$ satisfying
+ \eqref{eq:block-form}.
+\item The integers $31$ and $1130$, which are not Markov numbers, have exactly
+ two such integers prime to them each: $31/12=[2;1,1,2,2]$ and $31/13=[2;2,1,1,2]$, and
+ $1130/437=[2;\sigma(abba),2]$ and $1130/467=[2;\sigma(baab),2]$.
+\item For $m=m_{9/10}=6\,625\,109$, the root is $u_{9/10}=2\,744\,210$, with
+ $m/u_{9/10}=[2;2,\ldots,2]$, eighteen partial quotients equal to $2$, so that
+ $\ell(u_{9/10},m)=35$. The integer $n=2\,561\,343$ is prime to $m$ and smaller
+ than $m/2$, and
+ $$
+ \frac mn=[2;1,1,2,2,1,1,2,1,1,1,2,1,1,1,2,1,2,2,1,1,1,1,2,2],
+ $$
+ so that $\ell(n,m)=34$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+These are finitely many assertions about integers. They were verified by
+computer in exact arithmetic, and the verification was carried out twice
+independently. The first verification generates the labels from the Markov
+triples of \cref{lem:farey-triangle}, takes the roots from the residues of
+$-m_L/m_R$ modulo $m$ given by the first step of the proof of
+\cref{prop:occurrence-in-cube}, and searches, for each label, the sequences of
+blocks from the left. If a prefix $[2;B_1,\ldots,B_i]$ has $p$ and $p'$ as the
+numerators of its last two convergents, every completion has a tail column
+$(X,Y)^{\mathsf T}$ with coprime entries $0<Y<X$ and $m=pX+p'Y$; hence
+$Y<m/(p+p')$ and $Y$ lies in one residue class modulo $p$, so that once
+$p(p+p')>m$ at most one candidate remains, and it is tested directly. The
+second verification enumerates all the continued fractions
+\eqref{eq:block-form} with numerator at most $10^{12}$ and compares their
+numerators and denominators with the labels and roots computed from the
+Cohn matrices \eqref{eq:cohn-source}. The continued fractions of the last two
+items can also be checked by hand.
+\end{proof}
+
+The integers $31$ and $1130$ of \cref{lem:directive-facts} show that
+\cref{conj:directives} depends on the Markov structure of $m$. Whenever the block sequence $B_1,\ldots,B_j$ of \eqref{eq:block-form}
+is not a palindrome, the reversed expansion has the same numerator, since
+the product of the symmetric matrices $P_c$ in reverse order is the
+transpose, and a different denominator; this is the case of $31$. For
+$1130$, the two expansions come from the palindromes $abba$ and $baab$, which
+are not central words and have the same label $e^{\mathsf T}\mu(z)e$. The
+conjecture therefore asserts that a Markov number is the numerator of no
+expansion \eqref{eq:block-form} with a non-palindromic block sequence, and of
+no palindromic one other than that of its root.
+
+The roots of the occurrences are square roots of $-1$, and the square roots
+of $-1$ carry the whole two-square fiber, as the next lemma shows. This gives
+\cref{conj:euclidean-minimality} a form in which only the label and its square
+roots of $-1$ appear. In substance the lemma is classical. Smith derived from
+two identities of Euler that the numerator of a palindromic continued fraction
+with an even number of partial quotients is a sum of two coprime squares, given
+by its first half. He proved in this way that every prime $p\equiv1\pmod4$ is a
+sum of two squares, since a parity argument shows that one of the expansions of
+$p/u$ with $1<u<p/2$ is a palindrome, and he observed that the same argument
+applies to every divisor of an integer $1+x^2$ \cite{Smith1855}. Brillhart read
+the two squares off the remainders of the Euclidean algorithm on $p$ and the
+square root $u$ of $-1$, refining a method of Hermite \cite{Brillhart1972}.
+\c{C}anak\c{c}{\i} and Schiffler relate the primitive representations of an
+integer to its even palindromic continued fractions \cite[Theorem~3.10 and
+Corollary~3.14]{CanakciSchiffler2020}. What the lemma adds is a complete proof,
+for every label, of the correspondence between the square roots of $-1$ in
+$(1,m/2)$ and the fiber $\mathcal F(m)$, and the identity \eqref{eq:root-cost}
+between the costs, on which the reformulation of the conjecture below rests.
+
+\begin{lemma}[Square roots of $-1$]\label{lem:square-roots}
+Let $m\geqslant5$ be an integer with a primitive representation as a sum of two
+squares, and let $u$ be an integer with $1<u<m/2$ and $u^2\equiv-1\pmod m$.
+Then the canonical continued fraction of $m/u$ is a palindrome
+$[c_0;c_1,\ldots,c_{2h-1}]$ of even length. If $s/r=[c_{h-1};c_{h-2},\ldots,c_0]$
+in lowest terms, then $m=r^2+s^2$, $0<r<s$, and
+\begin{equation}\label{eq:root-cost}
+ \ell(u,m)=2\,\ell(r,s)+1 .
+\end{equation}
+The map $u\mapsto(r,s)$ is a bijection from these integers $u$ onto
+$\mathcal F(m)$, and it sends the root of an occurrence to its occurrence pair.
+\end{lemma}
+
+\begin{proof}
+\emph{The palindrome.} Write $m/u=[c_0;c_1,\ldots,c_k]$ canonically. Here
+$k\geqslant1$, because $u>1$ is prime to $m$; $c_0\geqslant2$, because $u<m/2$; and
+$c_k\geqslant2$. By \cref{lem:cost-descriptions}, the product
+$\Pi=P_{c_0}\cdots P_{c_k}$ has first column $(m,u)^{\mathsf T}$; write
+$\Pi=\left(\begin{smallmatrix}m&m'\\u&u'\end{smallmatrix}\right)$. Each $P_c$ is
+symmetric, so $\Pi^{\mathsf T}=P_{c_k}\cdots P_{c_0}$, whose first column is
+$(m,m')^{\mathsf T}$, and \cref{lem:cost-descriptions} gives
+$m/m'=[c_k;\ldots,c_0]$, a canonical expansion since $c_0\geqslant2$. As $c_k\geqslant2$
+and $k\geqslant1$, $m/m'>2$, so that $0<m'<m/2$. The determinant of $\Pi$ is
+$(-1)^{k+1}$, so $mu'-m'u=(-1)^{k+1}$, and $m'u\equiv(-1)^k\pmod m$. Since
+$u^2\equiv-1$, the inverse of $u$ modulo $m$ is $-u$, whence
+$m'\equiv(-1)^{k+1}u\pmod m$. If $k$ were even, then $m'\equiv-u$ and
+$0<m'<m$ would give $m'=m-u>m/2$, a contradiction. Hence $k$ is odd,
+$m'\equiv u$, and $m'=u$, both lying in $(0,m)$. The two canonical expansions
+$[c_0;\ldots,c_k]$ and $[c_k;\ldots,c_0]$ of $m/u$ then coincide, so that
+$c_i=c_{k-i}$ for every $i$, and $k+1=2h$ is even.
+
+\emph{The two squares.} By the symmetry of the expansion, the second half of
+the product is $P_{c_{h-1}}\cdots P_{c_0}=\Pi_0^{\mathsf T}$, where
+$\Pi_0=P_{c_0}\cdots P_{c_{h-1}}$, so that $\Pi=\Pi_0\Pi_0^{\mathsf T}$. If
+$(s',r')$ is the first row of $\Pi_0$, the upper left entry of $\Pi$ is
+$m=s'^2+r'^2$. The first column of $\Pi_0^{\mathsf T}=P_{c_{h-1}}\cdots P_{c_0}$ is
+$(s',r')^{\mathsf T}$, so \cref{lem:cost-descriptions} shows that $s'$ and $r'$ are
+coprime and positive, with $s'/r'=[c_{h-1};\ldots,c_0]$, a canonical
+expansion since $c_0\geqslant2$; hence $(s',r')=(s,r)$, and $r<s$ because this
+expansion is not $[1]$. Finally \eqref{eq:quotient-cost} gives
+$\ell(u,m)=2(c_0+\cdots+c_{h-1})-1$ and $\ell(r,s)=c_0+\cdots+c_{h-1}-1$, which
+is \eqref{eq:root-cost}.
+
+\emph{The bijection.} The pair $(r,s)$ determines $u$, because the canonical
+expansion of $s/r$ is the reversed first half of the palindrome, which gives
+the whole palindrome and hence $m/u$. The map is therefore injective. By \cref{prop:gaussian-fibre},
+$\abs{\mathcal F(m)}=2^{t-1}$, where $t$ is the number of distinct odd primes
+dividing $m$, as in \cref{prop:gaussian-fibre}. By the Chinese remainder theorem and Hensel's lemma, $-1$ has
+exactly $2^{t}$ square roots modulo $m$, two modulo each odd prime power
+dividing $m$ and one modulo $2$ when $m$ is even. They pair off as $u$ and
+$m-u$, and none of them is $1$ or $m/2$, because $m\geqslant5$; so exactly
+$2^{t-1}$ of them lie in $(1,m/2)$. An injective map between two finite sets
+of the same size is a bijection. Finally, for the root of an occurrence, the
+expansion is \eqref{eq:root-cf}, a palindrome because $z$ is one, and the
+reversal of its first half is the right half $[\sigma(w),2]$ or
+$[j,\sigma(w),2]$ of the paragraph after \cref{prop:occurrence-cost}, which is
+the continued fraction of the occurrence pair.
+\end{proof}
+
+By \cref{lem:square-roots} and \cref{prop:occurrence-cost},
+\cref{conj:euclidean-minimality} is equivalent to the following statement:
+for every occurrence $P/Q$ of a label $m$, no square root of $-1$ modulo $m$
+in $(1,m/2)$ has a shorter Euclidean algorithm with $m$ than the root, whose
+cost is $\ell(u_{P/Q},m)=2(P+Q-2)+1$. \Cref{fig:directives} shows the label
+$m_{4/5}=985$, whose two representations differ in cost by one. The
+restriction to square roots of $-1$ cannot be dropped, even on the rows of
+\cref{thm:thirteen-rows}: by the last item of \cref{lem:directive-facts}, the
+integer $n=2\,561\,343$, which is not a square root of $-1$ modulo $m_{9/10}$
+since its cost is even, has a shorter Euclidean algorithm with $m_{9/10}$
+than the root. Among all the integers $n$ prime to $m$, the condition
+\eqref{eq:block-form} isolates the root where the minimum of the cost does
+not.
+
+\begin{figure}[tb]
+\centering
+\input{figures/directives}
+\caption{The Euclidean cost $\ell(n,m)$ for $m=m_{4/5}=985$ and the $392$
+integers $n$ prime to $m$ with $1\leqslant n<m/2$ (hollow circles), on a
+logarithmic scale; the directive of the central word of $\gamma_{n/m}$ has
+$\ell(n,m)-1$ letters. The two square roots of $-1$ modulo $m$ in $(1,m/2)$ are
+filled: the root $408$ of the occurrence $4/5$, of cost $15=2\cdot7+1$, and
+$183$, of cost $17=2\cdot8+1$, which correspond by \cref{lem:square-roots} to the
+representations $12^2+29^2$ and $16^2+27^2$. Six other integers, $266$,
+$272$, $288$, $373$, $374$ and $407$, share the least cost $15$ with the root
+(dashed line), but only the root, ringed, satisfies \eqref{eq:block-form}.}
+\label{fig:directives}
+\end{figure}
+
+\Cref{conj:directives} is a rule of the kind discussed in
+\cref{rem:pair-determines}: it designates the root from the label alone, and
+with it the occurrence pair, which \cref{lem:square-roots} reads off the
+first half of the continued fraction of $m/u_{P/Q}$. Like
+\cref{conj:euclidean-minimality}, it can hold only because of the Markov
+structure of the label, as the integers $31$ and $1130$ of
+\cref{lem:directive-facts} show, and it
+reaches the uniqueness conjecture by a different road: through the
+palindromic closure and the Thue--Morse morphism rather than through the
+comparison of costs.

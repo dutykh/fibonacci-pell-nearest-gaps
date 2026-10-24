@@ -1,0 +1,397 @@
+% Authors: Dr. Denys Dutykh (Mathematics Department, Khalifa University of Science and Technology,
+% Abu Dhabi, UAE) and Prof. Laurent Vuillon (Univ. Savoie Mont Blanc, CNRS, LAMA, Chambery, France)
+\section{Path envelopes and the first seven rows}\label{sec:early-rows}
+
+The Euclidean bijection turns a cost bound into a finite binary tree.
+Enumerating that tree at every denominator would obscure the reason that
+an entire row can be treated. Instead, we compare its branches with a
+small number of explicit paths. Fibonacci growth controls the cost,
+and deviations from the Fibonacci path determine the finer norm bands.
+
+\subsection{Sorted paths and a stable order}
+
+On sorted positive pairs define
+\begin{equation}\label{eq:path-maps}
+ \mathsf A(x,y)=(x,x+y),\qquad
+ \mathsf B(x,y)=(y,x+y).
+\end{equation}
+The first move from $(1,1)$ is symmetric and gives $(1,2)$. Thereafter
+these two moves are distinct, and every sorted primitive pair of cost
+$c\geqslant1$ is obtained by a unique sequence of $c-1$ moves.
+Indeed, from $0<x<y$ its sorted predecessor is the sorted pair formed
+from $x,y-x$. If $y>2x$, the last move was $\mathsf A$; if $y<2x$,
+it was $\mathsf B$. The equality $y=2x$ is primitive only at $(1,2)$.
+This proves the asserted uniqueness directly, including its initial
+boundary.
+
+A move $\mathsf A$ after the fixed first move is called a \emph{defect}.
+Write $v_c(D)$ for the endpoint whose defect costs form
+$D\subseteq\{2,\ldots,c\}$. Thus a defect at cost $j$ is the move
+arriving at depth $j$. Products written as words in the moves are read
+chronologically from left to right; an expression $\mathsf B^nz$,
+with a vector $z$, means the $n$-fold application of $\mathsf B$ to that vector.
+
+Let $F_0=0,F_1=1,F_{n+1}=F_n+F_{n-1}$, and use
+$F_{-n}=(-1)^{n+1}F_n$ when a displayed identity reaches a negative
+index. Put
+$$
+ N(x,y)=x^2+y^2,\qquad
+ \Lambda(x,y)=x+\varphi y,\qquad
+ \varphi=\frac{1+\sqrt5}{2}.
+$$
+
+\begin{lemma}[Maximum, replacement, and propagation]\label{lem:path-orders}
+At exact cost $c$, the unique maximum norm is
+$F_{2c+3}$, attained at $(F_{c+1},F_{c+2})$.
+Replacing any defect by $\mathsf B$ strictly increases the final norm.
+Finally, simultaneous weak inequalities in $N$ and $\Lambda$ are
+preserved by every common $\mathsf B$-tail.
+\end{lemma}
+
+\begin{proof}
+Coordinate induction in \eqref{eq:path-maps}, starting from $(1,1)$,
+gives $x\leqslant F_{c+1}$ and $y\leqslant F_{c+2}$.
+The identity $F_{c+1}^2+F_{c+2}^2=F_{2c+3}$ proves the norm bound.
+After the first move, $x<y$, and
+$$
+ \mathsf B(x,y)-\mathsf A(x,y)=(y-x,0).
+$$
+This difference is nonnegative and nonzero. Each subsequent matrix
+is nonnegative and invertible, so it preserves a nonnegative nonzero
+difference. Since both endpoint coordinates are positive, the norm
+strictly increases. Replacing every defect therefore proves uniqueness
+of the Fibonacci maximum as well.
+For propagation, direct calculation gives
+\begin{equation}\label{eq:perron-propagation}
+ \Lambda(\mathsf Bz)=\varphi\Lambda(z),\qquad
+ N(\mathsf Bz)=\varphi^{-2}N(z)+\varphi^{-1}\Lambda(z)^2.
+\end{equation}
+Both coefficients are positive, and $\Lambda$ is positive on the
+states under consideration.
+\end{proof}
+
+\begin{lemma}[One-defect minimum]\label{lem:one-defect-minimum}
+For $c\geqslant2$, the earliest-defect endpoint
+$e_c=\mathsf B^{c-2}(1,3)$ minimizes both $N$ and $\Lambda$ among
+one-defect paths, and
+\begin{equation}\label{eq:one-defect-minimum}
+ N(e_c)=5F_{2c-1}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The assertion starts at $c=2$. An inherited one-defect path is covered
+by \eqref{eq:perron-propagation}. The only new path creates its defect
+at the last move and has endpoint $b_c=(F_c,F_{c+2})$. Fibonacci
+addition gives
+$$
+ b_c-e_c=F_{c-2}(-1,1),\qquad
+ N(b_c)-N(e_c)=4F_{c-2}F_{c-1}.
+$$
+Its $\Lambda$-difference is $(\varphi-1)F_{c-2}$, so induction closes.
+The equality for $N(e_c)$ follows by substitution from
+$e_c=(F_c+F_{c-2},F_{c+1}+F_{c-1})$, or from the recurrence
+$N(\mathsf B^2z)=3N(\mathsf Bz)-N(z)$ and its first two values.
+\end{proof}
+
+\subsection{The second envelope}
+
+\begin{lemma}[The second norm envelope]\label{lem:second-envelope}
+At cost $c\geqslant5$, every non-Fibonacci endpoint satisfies
+\begin{equation}\label{eq:second-envelope}
+ N(x,y)\leqslant E_c:=F_c^2+F_{c+2}^2.
+\end{equation}
+Equality is attained at $(F_c,F_{c+2})$, and also at $(12,19)$ when
+$c=6$; there are no other equality cases.
+\end{lemma}
+
+\begin{proof}
+Let $j$ be the last defect cost and $r=c-j$. Before that defect,
+the coordinate bound in Lemma~\ref{lem:path-orders} gives the upper
+state $(F_j,F_{j+1})$. Its final endpoint is
+$$
+ X_{c,j}=F_c+F_rF_j,\qquad
+ Y_{c,j}=F_{c+2}-F_rF_{j-1}.
+$$
+Any earlier defect makes at least one final coordinate strictly smaller.
+Expansion and Cassini's identity give the exact deficit
+\begin{align}\label{eq:second-envelope-deficit}
+ E_c-X_{c,j}^2-Y_{c,j}^2
+ =F_r\bigl[
+ 2(F_jF_{j-1}+(-1)^j)F_{r+1}
+ -F_{j-2}F_{j+1}F_r\bigr].
+\end{align}
+If $r=0$, this is zero. For $r\geqslant1$ and $j\geqslant4$,
+replace $F_{r+1}$ by its lower bound $F_r$; the remaining coefficient is
+$$
+ 2F_{j-1}^2-F_{j-2}^2+2(-1)^j>0.
+$$
+The case $j=2$ is positive directly. When $j=3$, the bracket in
+\eqref{eq:second-envelope-deficit} is $2F_{r+1}-3F_r$.
+Here $r\geqslant2$; its values at $r=2,3$ are $1,0$, and for
+$r\geqslant4$ it is $F_{r-3}>0$. The zero cases give exactly the
+two stated endpoints.
+\end{proof}
+
+It follows that an occurrence of cost $L\geqslant6$ and label $m$ is
+weakly Euclidean-minimal whenever
+\begin{equation}\label{eq:one-hole}
+ E_{L-1}<m,\qquad m\ne F_{2L+1}.
+\end{equation}
+At cost $L-1$ only the Fibonacci maximum can lie above $E_{L-1}$.
+Every smaller cost has norm at most
+$F_{2L-1}<E_{L-1}$. Thus \eqref{eq:one-hole} excludes every
+smaller-cost representation.
+
+\Cref{fig:norm-cloud} shows the situation that this criterion exploits.
+Normalized by the Fibonacci maximum, the norms of all pairs of one cost
+lie between zero and the second envelope, near $0.829$, except for the
+isolated value $1$, so that a hole separates the two. The normalized source labels
+of a row tend to the constant $C_P$ computed in \cref{sec:row-labels} below.
+For $P\leqslant6$ these limits exceed $1$, and $C_7$ falls in the hole; for
+$P\geqslant8$ they fall inside the cloud, where a finer separation is needed,
+and that is the business of \cref{sec:tails}.
+
+\begin{figure}[tb]
+\centering
+\input{figures/norm-cloud}
+\caption{The normalized norms $N/F_{43}$ of all $2^{19}$ sorted primitive pairs
+of cost $20$, counted in bins of width $1/200$ on a logarithmic scale (navy).
+The Fibonacci maximum is the isolated value $1$; every other pair lies at or
+below the second envelope of \cref{lem:second-envelope}, and every
+one-defect pair at or above the minimum of \cref{lem:one-defect-minimum}
+(dashed). The shaded hole contains no normalized norm. The ticks below mark
+the limits $C_P$ of the normalized source labels of the rows: $C_7$ lies in
+the hole, $C_8,\ldots,C_{13}$ inside the cloud, and $C_2,\ldots,C_6$ above $1$.}
+\label{fig:norm-cloud}
+\end{figure}
+
+\subsection{The labels of a row}\label{sec:row-labels}
+
+The source labels of the later rows must be placed in narrow normalized
+intervals, uniformly in the denominator. This subsection computes the
+constant $C_P$ that they approach and bounds the approach on both sides,
+with explicit constants. The idea is to diagonalize the Cohn matrix
+$\mu(a)$. In its eigenbasis the second Cohn matrix $\mu(b)$ becomes a
+matrix with positive entries, so that the trace formula
+\eqref{eq:cohn-source} turns the label into a sum of positive terms; the
+term that follows the dominant eigenvector at every letter gives $C_P$,
+and the others are corrections whose size is governed by the runs of the
+letter $a$.
+
+Put
+$$
+ \lambda=\frac3{\sqrt5\,\varphi}=\frac{15-3\sqrt5}{10},\qquad
+ C_P=\varphi^2\lambda^{P-1},\qquad
+ \widehat B=\frac1{\sqrt5}\begin{pmatrix}3\varphi^3&2\\2&3\varphi^{-3}\end{pmatrix},
+$$
+and, for a reduced fraction $P/Q$, write its lower Christoffel word as
+$$
+ \gamma_{P/Q}=a^{u_1}b\,a^{u_2}b\cdots a^{u_P}b,\qquad u_k\geqslant0 .
+$$
+The normalized label of the occurrence is
+\begin{equation}\label{eq:row-ratio}
+ \rho_{P,Q}=\frac{m_{P/Q}}{F_{2(P+Q-2)+1}} ,
+\end{equation}
+the label divided by the Fibonacci maximum one cost below the occurrence
+cost.
+
+\begin{proposition}[The labels of a row]\label{prop:row-labels}
+Let $0<P<Q$ be coprime and $n=\lfloor(Q-P)/P\rfloor$.
+\begin{enumerate}[label=\textup{(\roman*)},ref=\textup{(\roman*)},leftmargin=*]
+\item\label{it:row-runs} Every run satisfies $n\leqslant u_k\leqslant n+1$, and $u_1+\cdots+u_P=Q-P$.
+\item\label{it:row-trace} The label is the trace
+ $$
+ m_{P/Q}=\frac13\tr\prod_{k=1}^{P}
+ \begin{pmatrix}\varphi^{2u_k}&0\\0&\varphi^{-2u_k}\end{pmatrix}\widehat B ,
+ $$
+ the factors being multiplied in the order $k=1,\dots,P$.
+\item\label{it:row-bounds} If $P\geqslant2$, then
+ \begin{equation}\label{eq:row-source-limit}
+ C_P<\rho_{P,Q}<C_P\bigl(1+\varphi^{-4n-6}\bigr)^P ,
+ \end{equation}
+ while $\rho_{1,Q}<C_1$ for the first row. In particular
+ $\rho_{P,Q}$ tends to $C_P$ when $Q$ grows with $P$ fixed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\emph{The runs.} The $k$th letter $b$ of $\gamma_{P/Q}$ stands at position
+$\lceil kQ/P\rceil$, as recalled after \cref{prop:occurrence-cost}, so that
+$u_1=\lceil Q/P\rceil-1$ and
+$u_k=\lceil kQ/P\rceil-\lceil(k-1)Q/P\rceil-1$ for $k\geqslant2$. For every real
+$x$ and $y$ the difference $\lceil x+y\rceil-\lceil x\rceil$ is $\lfloor y\rfloor$
+or $\lceil y\rceil$; with $y=Q/P$, every $u_k$ is therefore
+$\lfloor Q/P\rfloor-1=n$ or $\lceil Q/P\rceil-1\leqslant n+1$. The word has $Q$
+letters, of which $P$ are $b$, so the runs add up to $Q-P$.
+
+\emph{The eigenbasis.} Let $V$ be the matrix with columns
+$(\varphi,1)^{\mathsf T}$ and $(1,-\varphi)^{\mathsf T}$. Its columns are
+orthogonal, each of squared length $\varphi^2+1=\sqrt5\,\varphi$, so that
+$O=V/(5^{1/4}\varphi^{1/2})$ is an orthogonal matrix. Since
+$\varphi^2=\varphi+1$,
+$$
+ \mu(a)\binom\varphi1=\binom{2\varphi+1}{\varphi+1}=\varphi^2\binom\varphi1,
+ \qquad
+ \mu(a)\binom1{-\varphi}=\binom{2-\varphi}{1-\varphi}=\varphi^{-2}\binom1{-\varphi},
+$$
+because $\varphi^3=2\varphi+1$ and $\varphi^{-2}=2-\varphi$. Thus
+$O^{\mathsf T}\mu(a)O=\operatorname{diag}(\varphi^2,\varphi^{-2})$. For the second
+matrix,
+$$
+ V^{\mathsf T}\mu(b)V=
+ \begin{pmatrix}5\varphi^2+4\varphi+1&2\varphi\\2\varphi&6-3\varphi\end{pmatrix}
+ =\begin{pmatrix}3\varphi^4&2\varphi\\2\varphi&3\varphi^{-2}\end{pmatrix},
+$$
+using $5\varphi^2+4\varphi+1=9\varphi+6=3\varphi^4$ and $6-3\varphi=3\varphi^{-2}$;
+dividing by $\sqrt5\,\varphi$ gives $O^{\mathsf T}\mu(b)O=\widehat B$. All four
+entries of $\widehat B$ are positive, $\tr\widehat B=6$ and $\det\widehat B=1$.
+Since $\mu(\gamma_{P/Q})=\prod_k\mu(a)^{u_k}\mu(b)$ and
+$O^{\mathsf T}\mu(a)^{u}O=\operatorname{diag}(\varphi^{2u},\varphi^{-2u})$, conjugating
+by $O$ and taking traces turns \eqref{eq:cohn-source} into \ref{it:row-trace}.
+
+\emph{Normalization.} Write $\beta=\widehat B_{12}/\widehat B_{11}=2/(3\varphi^3)$,
+$\delta=\widehat B_{22}/\widehat B_{11}=\varphi^{-6}$ and $t_k=\varphi^{-4u_k}$. Taking
+the factor $\varphi^{2u_k}\widehat B_{11}$ out of the $k$th matrix of \ref{it:row-trace} leaves
+$$
+ M_k=\begin{pmatrix}1&\beta\\t_k\beta&t_k\delta\end{pmatrix},\qquad
+ m_{P/Q}=\frac13\,\varphi^{2(Q-P)}\Bigl(\frac{3\varphi^3}{\sqrt5}\Bigr)^P\Theta,
+ \qquad \Theta=\tr\prod_{k=1}^PM_k ,
+$$
+by \ref{it:row-runs}. At the odd index $2(P+Q)-3$, Binet's formula reads
+$F_{2(P+Q)-3}=\bigl(\varphi^{2(P+Q)-3}+\varphi^{3-2(P+Q)}\bigr)/\sqrt5$. Dividing,
+and collecting the powers of $3$, $\sqrt5$ and $\varphi$,
+$$
+ \rho_{P,Q}
+ =\frac{3^{P-1}\varphi^{3-P}}{5^{(P-1)/2}}\cdot\frac{\Theta}{1+\eta}
+ =C_P\,\frac{\Theta}{1+\eta},\qquad \eta=\varphi^{6-4(P+Q)} .
+$$
+
+\emph{The lower bound.} Expand the trace of the product of the
+nonnegative matrices $M_k$ as a sum over closed walks
+$i_1,\dots,i_P,i_{P+1}=i_1$ in $\{1,2\}$, the walk contributing
+$\prod_k(M_k)_{i_ki_{k+1}}$. Every contribution is nonnegative. The walk that
+stays at $1$ contributes $1$. When $P\geqslant2$, the walk that visits $2$
+only at the step $j=1$ contributes $(M_P)_{12}(M_1)_{21}=\beta^2t_1$. Hence
+$\Theta\geqslant1+\beta^2t_1\geqslant1+\beta^2\varphi^{-4(Q-P)}$, since $u_1\leqslant Q-P$.
+The ratio of $\beta^2\varphi^{-4(Q-P)}$ to $\eta$ is
+$$
+ \frac{4}{9\varphi^6}\,\varphi^{-4Q+4P}\,\varphi^{4P+4Q-6}
+ =\frac49\,\varphi^{8P-12}\geqslant\frac49\,\varphi^4>1 ,
+$$
+because $P\geqslant2$ and $\varphi^4=(7+3\sqrt5)/2>9/4$. Therefore $\Theta>1+\eta$
+and $\rho_{P,Q}>C_P$.
+
+\emph{The upper bound.} By \ref{it:row-runs}, $0\leqslant t_k\leqslant\tau:=\varphi^{-4n}$, so that
+each $M_k$ is bounded entrywise by
+$M=\left(\begin{smallmatrix}1&\beta\\\tau\beta&\tau\delta\end{smallmatrix}\right)$,
+and since products of nonnegative matrices are monotone entrywise,
+$\Theta\leqslant\tr M^P$. The matrix $M$ has trace $1+\tau\delta>0$ and determinant
+$\tau(\delta-\beta^2)=5\tau/(9\varphi^6)>0$; its discriminant
+$(1+\tau\delta)^2-\tfrac{20}{9}\tau\delta=1-\tfrac29\tau\delta+(\tau\delta)^2$ is positive because
+$\tau\delta\leqslant\varphi^{-6}<1$.
+Its eigenvalues $\mu_1,\mu_2$ are therefore positive, and
+$$
+ \tr M^P=\mu_1^P+\mu_2^P\leqslant(\mu_1+\mu_2)^P=(1+\tau\delta)^P
+ =\bigl(1+\varphi^{-4n-6}\bigr)^P ,
+$$
+the binomial expansion of the right-hand side containing the left-hand
+side among nonnegative terms. As $1+\eta>1$, the upper bound in
+\eqref{eq:row-source-limit} follows.
+
+\emph{The first row.} When $P=1$ the product has the single factor $M_1$ and
+$u_1=Q-1$, so that $\Theta=1+t_1\delta=1+\varphi^{-4Q-2}$, which is smaller than
+$1+\eta=1+\varphi^{2-4Q}$. Hence $\rho_{1,Q}<C_1$, and $\rho_{1,Q}=C_1(1+\varphi^{-4Q-2})/(1+\varphi^{2-4Q})$ tends to
+$C_1$. Finally, when $P\geqslant2$, the integer $n\geqslant(Q-2P+1)/P$ grows without bound
+with $Q$, and both sides of \eqref{eq:row-source-limit} tend to $C_P$.
+\end{proof}
+
+The proposition shows where the constant comes from. In the leading
+term of \ref{it:row-trace}, each letter $a$ contributes the factor $\varphi^2$ and each
+letter $b$ the factor $\widehat B_{11}=3\varphi^3/\sqrt5=\lambda\varphi^4$; the
+Fibonacci normalization grows by $\varphi^2$ for each unit of cost, a letter $a$
+adding one unit and a letter $b$ two. Every letter $b$ therefore costs
+exactly the factor $\lambda$ against the Fibonacci growth, and
+$C_P=(\varphi^2/\lambda)\lambda^P$. The same number appears on the side of the
+paths. Normalized by the maximum at its own cost, the second envelope of
+\cref{lem:second-envelope} tends to $\lambda$, since
+$E_c/F_{2c+3}=(F_c^2+F_{c+2}^2)/(F_{c+1}^2+F_{c+2}^2)$ and $1+\varphi^4=3\varphi^2$;
+and the second row lies on that envelope, because for odd $Q=2n+3$ the
+word $\gamma_{2/Q}$ has central factor $a^nba^n$, whose Gram factor
+$P_2\,\mu(a)^n$ sends $e=(F_3,F_2)^{\mathsf T}$ to $(F_{Q+2},F_Q)^{\mathsf T}$, so
+that $m_{2/Q}=E_Q$. The value $\lambda$ is also the limit of the one-defect
+ratio of \cref{fig:parity-order}(a).
+
+Lee, Li, Rabideau and Schiffler prove, in their coordinates, that for fixed
+$P\geqslant2$ the ratio \eqref{eq:row-ratio} does not increase with $Q$
+\cite[Lemma~6.4]{LeeEtAl2023}, and they compute its limit in the proof of
+their Lemma~6.6 \cite[equation~(6.4)]{LeeEtAl2023}.\footnote{Two printed slips
+of that proof should be corrected. The equality labels the first-row value
+$m_{q,1}$ as $F_{2q-1}$ on the line that carries the Binet expression of
+$F_{2q+1}$, which is the correct index. And the monotonicity is asserted there
+for every positive parameter, whereas at the parameter of the first row the
+ratio is $F_{2Q+1}/F_{2Q-1}$, which increases strictly to $\varphi^2$ and stays
+below its limit, as \cref{prop:row-labels}\ref{it:row-bounds} also shows.}
+Neither result is used below: \cref{prop:row-labels} gives the lower bound
+for every denominator directly, and its upper bound, completed by finitely
+many exact comparisons, replaces the monotonicity in \cref{sec:assembly}.
+
+\subsection{The first seven rows}
+
+With the second envelope and the labels of a row at hand, the first seven
+rows follow from norms alone: their source labels sit above every norm of
+smaller cost except possibly the Fibonacci maximum, and that maximum is
+avoided.
+
+\begin{proposition}\label{prop:rows-seven}
+Every occurrence with $1\leqslant P\leqslant7$ is weakly
+Euclidean-minimal.
+\end{proposition}
+
+\begin{proof}
+The first row has $m_{1/Q}=F_{2Q+1}$ and cost $L=Q-1$.
+Every smaller cost has norm at most $F_{2Q-1}$, proving this case.
+The row formula follows, for example, by iterating the first Cohn
+matrix in \eqref{eq:cohn-source}.
+
+For $L\geqslant6$ put $u=F_{L-1}/F_L$. The interval
+$3/5\leqslant u\leqslant5/8$ is preserved by $u\mapsto1/(1+u)$.
+The inequality $E_{L-1}<(5/6)F_{2L+1}$ reduces to
+$7u^2+2u-4<0$, whose maximum on this interval is $-1/64$.
+The constants $C_P$ decrease with $P$, and
+$$
+ C_7=\frac{729}{125\varphi^4}>\frac56,\qquad
+ C_6=\frac{243}{25\sqrt5\varphi^3}>1.
+$$
+The two radical signs reduce respectively to
+$4373>1875\sqrt5$ and $59>25\sqrt5$, with squared margins
+$1545004$ and $356$. Hence
+\eqref{eq:row-source-limit} proves \eqref{eq:one-hole} for
+$2\leqslant P\leqslant6$. For $P=7$, the lower bound of
+\eqref{eq:row-source-limit} and $C_7>5/6$ give $m>E_{L-1}$, and it remains to
+show that $m\neq F_{2L+1}$, that is $\rho_{7,Q}\neq1$; we show $\rho_{7,Q}<1$. When
+$Q\geqslant14$, every run of $\gamma_{7/Q}$ has length at least
+$\lfloor(Q-7)/7\rfloor\geqslant1$, and \cref{prop:row-labels} gives
+$\rho_{7,Q}<C_7(1+\varphi^{-10})^7$. Since $\varphi^{10}=(123+55\sqrt5)/2>120$ and
+$\varphi^4=(7+3\sqrt5)/2>6.85$, one has
+$(1+\varphi^{-10})^7<e^{7/120}<e^{0.06}<1.07$ and
+$C_7=729/(125\varphi^4)<729/856<0.86$, so that $\rho_{7,Q}<0.86\cdot1.07<0.93$.
+For $8\leqslant Q\leqslant13$ the six labels
+$195025$, $499393$, $1278818$, $3276509$, $8399329$ and $21531778$ lie below
+$F_{27}=196418$, $F_{29}=514229$, $F_{31}=1346269$, $F_{33}=3524578$,
+$F_{35}=9227465$ and $F_{37}=24157817$ respectively.
+Thus this row also avoids the Fibonacci hole.
+
+The remaining $L\leqslant5$ slopes are
+$1/2,1/3,1/4,1/5,1/6,2/3,2/5,3/4$.
+Their $(L,m)$ values are respectively
+$$
+ (1,5),(2,13),(3,34),(4,89),(5,233),(3,29),(5,194),(5,169).
+$$
+Each satisfies $m>F_{2L+1}$, the maximum at costs at most $L-1$.
+\end{proof}
+
+The later rows require a finer separation than the second envelope.
+The next section classifies fixed-defect paths by their gap parities, and
+Section~\ref{sec:assembly} combines those unbounded covers with the
+complete finite Gaussian fibers of Section~\ref{sec:gaussian}.

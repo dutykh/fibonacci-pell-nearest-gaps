@@ -57,6 +57,7 @@ supplement. Nothing below `papers/` reaches into anything else.
 | 2 | Endpoint costs and balanced near-minimizers under Gaussian reflections | [`papers/02-endpoint-costs-balanced-paths`](papers/02-endpoint-costs-balanced-paths) | 20 | 3 exact computations over a complete finite graph |
 | 3 | Effective trace bounds and rigidity for simple curves on the modular torus | [`papers/03-effective-markoff-traces`](papers/03-effective-markoff-traces) | 33 | 14 exact programs: occurrence classification, polynomial proofs, residue cover |
 | 4 | Rational reflections and palindromic words in the Cohn monoid | [`papers/04-palindromic-reflection-rigidity`](papers/04-palindromic-reflection-rigidity) | 38 | 7 exact checks, an enumeration of all palindromes with label up to 10²⁶, and a search at every palindromic centre |
+| 5 | Euclidean minimality of Markov representations on thirteen Farey rows | [`papers/05-thirteen-farey-rows`](papers/05-thirteen-farey-rows) | 40 | 13 exact checks, each finite assertion verified twice independently, and censuses of margins and of directives up to 10¹² |
 
 The first classifies, for every `q ⩾ 1`, every sign and every positive exponent
 `n`, the strict factor-two gaps between a power of the Pell unit `λ = 1 + √2`
@@ -96,6 +97,20 @@ ancestor when the parent imbalance is bounded. An exact enumeration of all
 that the exchanges do not produce, which supports a conjecture on twins whose
 proof would imply the uniqueness conjecture. No result there excludes every
 displaced central pair.
+
+The fifth starts from the representation of a Markov number as a sum of two
+coprime squares that each occurrence induces: for the reduced Farey fraction
+`P/Q`, the subtractive Euclidean algorithm reduces this pair in exactly
+`P + Q − 2` steps. It proves that no other primitive representation of the
+same number has a shorter Euclidean algorithm when `P ⩽ 13`, with no bound on
+the denominator. A parity-order theorem for the Fibonacci-normalized norm
+reduces infinite families of Euclidean paths to two exact corner values,
+complete Gaussian factorizations settle 248 labels, and the remaining finite
+assertions are verified by computer in exact arithmetic, each twice
+independently. Minimality on every row would imply the uniqueness conjecture;
+the article conjectures that it holds, and states a second conjecture, on
+iterated palindromic closure and the Thue–Morse morphism, that also implies
+uniqueness and is verified for every Markov number up to `10¹²`.
 
 ## Repository layout
 
@@ -138,16 +153,26 @@ displaced central pair.
     │   ├── tools/                        the strict build gate
     │   └── supplement/                   supplementary material
     │
-    └── 04-palindromic-reflection-rigidity/
+    ├── 04-palindromic-reflection-rigidity/
+    │   ├── README.md                     the results, the boundary, the build
+    │   ├── Makefile                      strict build and reproduction targets
+    │   ├── DD-LV-Palindromic-Reflection-Rigidity.tex  main file
+    │   ├── DD-LV-Palindromic-Reflection-Rigidity.pdf  compiled manuscript, tracked
+    │   ├── references.bib                bibliography
+    │   ├── sections/                     one file per section
+    │   ├── figures/                      the figure sources
+    │   ├── tools/                        the strict build gate
+    │   └── supplement/                   supplementary material
+    │
+    └── 05-thirteen-farey-rows/
         ├── README.md                     the results, the boundary, the build
         ├── Makefile                      strict build and reproduction targets
-        ├── DD-LV-Palindromic-Reflection-Rigidity.tex  main file
-        ├── DD-LV-Palindromic-Reflection-Rigidity.pdf  compiled manuscript, tracked
+        ├── DD_LV_Thirteen_Farey_Rows.tex main file
+        ├── DD_LV_Thirteen_Farey_Rows.pdf compiled manuscript, tracked
         ├── references.bib                bibliography
         ├── sections/                     one file per section
         ├── figures/                      the figure sources
-        ├── tools/                        the strict build gate
-        └── supplement/                   supplementary material
+        └── supplement/                   supplementary material, with the strict build gate
 ```
 
 ## Building
@@ -183,8 +208,9 @@ One manuscript at a time is reached by its directory name, as `make
 Requirements are stated by each manuscript. In general they amount to a TeX
 Live installation with `latexmk` and `bibtex`, and Python 3.11 or later with no
 network access and no nondeterminism. The supplements need no third-party
-package, except those of the third and fourth manuscripts, whose symbolic
-checks use SymPy.
+package, except those of the third, fourth and fifth manuscripts, whose
+symbolic checks use SymPy. The two censuses of the fifth, which stand outside
+its fixed checks, use PARI/GP and Julia.
 
 ## What a manuscript directory contains
 

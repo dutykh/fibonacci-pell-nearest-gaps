@@ -1,0 +1,417 @@
+{
+ "checks/check_assembly.py": {
+  "named_constant_signs": 10,
+  "reference_sha256": "b5436be793ffa6529c3631a4560f84cb7cc3bda12ac8cf00e9be746e69290e1a",
+  "source_junctions": 6,
+  "status": "PASS"
+ },
+ "checks/check_directives.py": {
+  "continued_fractions_in_census": 528591759,
+  "directive_pairs": 13698,
+  "gaussian_recursion_fractions": 3043,
+  "label_9/10": [
+   6625109,
+   2744210,
+   2561343
+  ],
+  "markov_numbers_from_5_to_10^12": 150,
+  "non_markov_examples": {
+   "1130": [
+    437,
+    467
+   ],
+   "31": [
+    12,
+    13
+   ]
+  },
+  "search_prefixes": 1354294,
+  "square_root_labels": 3144,
+  "status": "PASS"
+ },
+ "checks/check_foundation_identities.py": {
+  "C6": "243/25 - 486*sqrt(5)/125",
+  "C7": "5103/250 - 2187*sqrt(5)/250",
+  "envelope": "t*(-t*(x - y)*(x + y) + v*(2*eps + 2*x*y))",
+  "scope": "universal matrix, Fibonacci and radical identities",
+  "sha256": "487c2c54e15b84a5ff85d201b10347fd39c22cdfad142fe13f517a9603e08772",
+  "status": "PASS"
+ },
+ "checks/check_margin_family.py": {
+  "excess_checked_up_to": 40,
+  "ladders": 2,
+  "records": {
+   "1/2": {
+    "excess_first_two": [
+     1,
+     2
+    ],
+    "six_rung_identities": [
+     [
+      3,
+      1,
+      50,
+      48
+     ],
+     [
+      6,
+      0,
+      50,
+      48
+     ]
+    ],
+    "transfers": {
+     "0": [
+      [
+       1105,
+       463
+      ],
+      [
+       463,
+       194
+      ]
+     ],
+     "1": [
+      [
+       1130,
+       437
+      ],
+      [
+       437,
+       169
+      ]
+     ]
+    }
+   },
+   "2/3": {
+    "excess_first_two": [
+     1,
+     2
+    ],
+    "six_rung_identities": [
+     [
+      5,
+      1,
+      50,
+      48
+     ],
+     [
+      8,
+      0,
+      50,
+      48
+     ]
+    ],
+    "transfers": {
+     "0": [
+      [
+       1130,
+       437
+      ],
+      [
+       437,
+       169
+      ]
+     ],
+     "1": [
+      [
+       1105,
+       463
+      ],
+      [
+       463,
+       194
+      ]
+     ]
+    }
+   }
+  },
+  "six_rung_identities": 4,
+  "status": "PASS"
+ },
+ "checks/check_row_bounds.py": {
+  "bound_controls": 950,
+  "corner_comparisons": 7,
+  "expansion_controls": 616,
+  "junction_comparisons": 38,
+  "reference_sha256": "8fff8bbf3801b826e6991802a344dbd2cca19f2b47e28bfd4a80a327d9d1faf1",
+  "row_seven_comparisons": 6,
+  "status": "PASS"
+ },
+ "checks/check_tail_bounds.py": {
+  "controls": [
+   [
+    [
+     4,
+     0,
+     3
+    ],
+    10,
+    14965,
+    28657
+   ],
+   [
+    [
+     1,
+     3,
+     0,
+     2
+    ],
+    10,
+    12629,
+    28657
+   ],
+   [
+    [
+     8,
+     2,
+     1,
+     0,
+     2
+    ],
+    18,
+    23175553,
+    63245986
+   ],
+   [
+    [
+     0,
+     0,
+     0
+    ],
+    3,
+    17,
+    34
+   ]
+  ],
+  "scope": "fixed all-defect algebra schemas",
+  "sha256": "4cadf45a436e221e835d39f9c3a186a1c171480b4eceb940278bd7b234c236ae",
+  "status": "PASS"
+ },
+ "checks/independent_gaussian.py": {
+  "junction_comparisons": 6,
+  "primes_proved": 1966,
+  "primitive_pairs": 1638,
+  "sources": 248,
+  "status": "PASS"
+ },
+ "checks/independent_margins.py": {
+  "by_margin": {
+   "1-2": 17,
+   "10-99": 2178,
+   "100+": 1639,
+   "3-9": 90,
+   "single": 221
+  },
+  "ladder_rungs": 80,
+  "occurrences": 4145,
+  "status": "PASS",
+  "thresholds_checked": 6
+ },
+ "checks/independent_row_bounds.py": {
+  "corner_comparisons": 7,
+  "junction_comparisons": 38,
+  "row_seven_comparisons": 6,
+  "sqrt5_digits": 60,
+  "status": "PASS"
+ },
+ "checks/independent_tail_cover.py": {
+  "agrees_with_catalog": true,
+  "groups": 28,
+  "status": "PASS",
+  "total": {
+   "above": 176348,
+   "below": 342676,
+   "ineligible": 0,
+   "nodes": 1023768,
+   "roots": 14280
+  }
+ },
+ "checks/verify_gaussian.py": {
+  "by_row": {
+   "10": {
+    "largest_fibre": 8,
+    "primitive_pairs": 33,
+    "sources": 11
+   },
+   "11": {
+    "largest_fibre": 32,
+    "primitive_pairs": 324,
+    "sources": 59
+   },
+   "12": {
+    "largest_fibre": 32,
+    "primitive_pairs": 211,
+    "sources": 29
+   },
+   "13": {
+    "largest_fibre": 64,
+    "primitive_pairs": 992,
+    "sources": 122
+   },
+   "8": {
+    "largest_fibre": 4,
+    "primitive_pairs": 22,
+    "sources": 10
+   },
+   "9": {
+    "largest_fibre": 8,
+    "primitive_pairs": 56,
+    "sources": 17
+   }
+  },
+  "gaussian_splits": 559,
+  "prime_checks": 1966,
+  "reference_sha256": "852ba5ec22f7e91e68767b7f4c492edd7be0cc58945d6c4652b2351ab8bd4c24",
+  "sources": 248,
+  "status": "PASS"
+ },
+ "early/check_early_rows.py": {
+  "check": "9f6caeb70d2dc7df7d07b52221493d6050deb926c1a837df5994d1a62ccf9f89",
+  "radical_sign_controls": [
+   [
+    4373,
+    -1875
+   ],
+   [
+    59,
+    -25
+   ],
+   [
+    71725,
+    -32076
+   ],
+   [
+    11736675,
+    -5248800
+   ],
+   [
+    -293414375,
+    131220000
+   ],
+   [
+    671,
+    -300
+   ]
+  ],
+  "scope": "13 fixed slopes; 6 exact radical signs; no range scan",
+  "slopes": [
+   [
+    1,
+    2,
+    5,
+    1,
+    2,
+    1
+   ],
+   [
+    1,
+    3,
+    13,
+    2,
+    3,
+    2
+   ],
+   [
+    1,
+    4,
+    34,
+    3,
+    5,
+    3
+   ],
+   [
+    1,
+    5,
+    89,
+    5,
+    8,
+    4
+   ],
+   [
+    1,
+    6,
+    233,
+    8,
+    13,
+    5
+   ],
+   [
+    2,
+    3,
+    29,
+    2,
+    5,
+    3
+   ],
+   [
+    2,
+    5,
+    194,
+    5,
+    13,
+    5
+   ],
+   [
+    3,
+    4,
+    169,
+    5,
+    12,
+    5
+   ],
+   [
+    7,
+    8,
+    195025,
+    169,
+    408,
+    13
+   ],
+   [
+    8,
+    9,
+    1136689,
+    408,
+    985,
+    15
+   ],
+   [
+    8,
+    29,
+    217774440785026,
+    5266875,
+    13785299,
+    35
+   ],
+   [
+    9,
+    10,
+    6625109,
+    985,
+    2378,
+    17
+   ],
+   [
+    9,
+    35,
+    152098457523687709,
+    207935978,
+    329941035,
+    42
+   ]
+  ],
+  "status": "PASS"
+ },
+ "tail/verify_all.py": {
+  "above": 176348,
+  "below": 342676,
+  "combined_manifest_sha256": "50dcd4a9e63a113c5ce95e8015a9806beba1879ffd695461b430af67bb724fc4",
+  "groups": 28,
+  "ineligible": 0,
+  "nodes": 1023768,
+  "roots": 14280,
+  "sectors": 1976,
+  "status": "PASS"
+ }
+}
