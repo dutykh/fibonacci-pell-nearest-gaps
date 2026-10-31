@@ -82,8 +82,17 @@ completed counts.
 The identities hold for the empty directive. Write $u=\phi_d(a)$
 and $v=\phi_d(b)$. Appending $a$ changes $(u,v)$ to $(u,vu)$ and
 $g_d$ to $g_du$; appending $b$ changes them to $(uv,v)$ and $g_dv$.
-If $uv=abg_d$ and $vu=bag_d$, these updates immediately preserve
-both identities in \eqref{eq:literal-standard-identities}.
+If $uv=abg_d$ and $vu=bag_d$, both identities in
+\eqref{eq:literal-standard-identities} survive these updates. After
+appending $a$,
+$$
+ u\,(vu)=(uv)\,u=abg_du,\qquad (vu)\,u=bag_du,
+$$
+which are the two identities for the directive $da$; after appending $b$,
+$$
+ (uv)\,v=abg_dv,\qquad v\,(uv)=(vu)\,v=bag_dv,
+$$
+which are the two identities for the directive $db$.
 Counting their letters gives
 $c(g_d)=L_d(1,1)^{\mathsf T}$. Counting
 $F_d(z)=g_d\phi_d(z)$ then proves

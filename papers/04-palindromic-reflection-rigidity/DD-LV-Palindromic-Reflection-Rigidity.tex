@@ -100,22 +100,24 @@
 \keywords{palindromic closure, standard morphisms, Thue--Morse morphism, Cohn matrices, Markov equation, rational reflections, Frobenius root}
 \begin{document}
 \begin{abstract}
-We study the rational reflection that a palindrome $p$ defines for the two Cohn matrices. We
-classify the finite words whose terminal columns it takes to other word columns: they are exactly
-the concatenations of the blocks $ab\,p$ and $ba\,p$, which it exchanges. Hence two palindromes have
-equal Gram labels and a root midpoint at the ratio of the centre exactly when they are exchanged
-around it. Such pairs have nonprimitive completed letter counts, so no two central words collide at
-such a midpoint; an explicit quadruple shows that this hypothesis cannot be dropped. Exchanges
-around nested centres compose into cubes of palindromes with one label. In the Thue--Morse coding of
-Reutenauer and Vuillon, the Gram label of a palindrome is the length of an explicit Christoffel word
-and the Gram root its number of letters $b$; for Markov words, uniqueness holds if and only if equal
-labels force directing words of equal length. An exact enumeration of all palindromes with label
-below $10^{26}$ finds no coincidence of labels that exchanges do not produce. Beyond it, two
-palindromes of $52$ letters share a label without being joined by exchanges, yet both are built
-around the empty word; we conjecture that any two palindromes with the same label are built around
-a common palindrome, which would imply Frobenius--Markov uniqueness. Away from the midpoint we derive
-the two-sided reflection equation and a fourth-power bound on the common-ancestor label under
-bounded parent imbalance. The uniqueness conjecture itself remains open.
+The Frobenius--Markov uniqueness conjecture asserts that a positive integer solution of the Markov
+equation is determined by its largest entry. Through the Cohn matrices, every binary palindrome has
+a label, a positive integer, and a root, a square root of minus one modulo the label; central words
+have Markov numbers as labels, and the conjecture says that distinct central words have distinct
+labels. We prove that the rational reflection defined by a palindrome maps the column of a finite
+word, the image of a fixed vector under its Cohn matrix, to that of another word, even up to a
+scalar, exactly when the first word is a concatenation of blocks, each formed by \emph{ab} or
+\emph{ba} followed by the palindrome, and the second is obtained by exchanging \emph{ab} and
+\emph{ba} in every block. Hence two distinct palindromes with the same label have roots, divided by
+that label, symmetric about the root of a palindrome divided by its label exactly when they are
+built around that palindrome, as copies of it separated by \emph{ab} or \emph{ba}, and exchanged; no
+two central words form such a pair, and nested exchanges give cubes of palindromes with one label.
+In the Thue--Morse coding of Reutenauer and Vuillon, the label is the length of an explicit
+Christoffel word and the root its number of letters \emph{b}. Among palindromes with label at most
+$10^{26}$, all coincidences of labels come from exchanges; beyond, two palindromes of 52 letters
+share a label without being joined by exchanges, though both are built around the empty word. We
+conjecture that any two palindromes with the same label are built around a common palindrome, which
+would imply the uniqueness conjecture.
 \end{abstract}
 \maketitle
 \input{sections/01-introduction}
@@ -138,7 +140,7 @@ The source code and the data supporting this article, with the instructions
 that repeat every calculation, are contained in the supplementary material of
 this article, which is available, together with that of the other articles of
 this series:
-
+\par\nopagebreak
 {\centering
 \url{https://github.com/dutykh/fibonacci-pell-nearest-gaps/}
 \par}
@@ -147,15 +149,13 @@ this series:
 This research did not receive any specific grant from funding agencies in the public, commercial,
 or not-for-profit sectors.
 
-\section*{Declaration of competing interest}
-The authors declare that they have no known competing financial interests or personal
-relationships that could have appeared to influence the work reported in this paper.
-
 \section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
-During the preparation of this work the authors used Codex (OpenAI) and Claude Code (Anthropic) to
-assist with the research, the computations and the writing. After using these tools, the authors
-reviewed and edited the content as needed and take full responsibility for the content of the
-published article.
+Generative AI (Claude Code by Anthropic) was used exclusively for grammatical polishing, LaTeX typesetting,
+and generating TikZ figure templates. No AI tools were used in the formulation, derivation, or verification
+of the mathematical results.
+
+\section*{Conflict of interest}
+The authors declare that they have no conflict of interest.
 
 \bibliographystyle{amsplain}
 \bibliography{references}
