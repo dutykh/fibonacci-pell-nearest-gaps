@@ -63,6 +63,6 @@ Thumbs.db
 .vscode/
 
 # ---------------------------------------------------------------------------
-# Working instructions for the assistant
+# Local working notes, kept out of the repository
 # ---------------------------------------------------------------------------
 CLAUDE.md
