@@ -1,5 +1,5 @@
 <!--
-Around the Markoff uniqueness conjecture: manuscripts and reproduction
+Around the Markov uniqueness conjecture: manuscripts and reproduction
 material.
 
 Authors:
@@ -9,21 +9,28 @@ Authors:
   France)
 -->
 
-# Around the Markoff uniqueness conjecture
+# fibonacci-pell-nearest-gaps: around the Markov uniqueness conjecture
 
-**Manuscripts and reproduction material**
+![The first four generations of the Farey tree, with the Markov number and the Gaussian integer of each fraction](docs/figures/vieta-tree.png)
 
-Denys Dutykh<sup>1</sup> and Laurent Vuillon<sup>2</sup>
+The Vieta tree of the fifth manuscript. Each fraction `P/Q` of the first four
+generations of the Farey tree carries its Markov number `m` and a Gaussian
+integer `α` with `m = |α|²`, computed by the Vieta jump of that manuscript
+alone from the values at the three starting fractions `0/1`, `1/1` and `1/0`
+at the top. In wine and dashed, the Farey triangle `L = 1/2`, `R = 2/3`,
+`D = 1/1`; in navy, the edges from its parents to the mediant `M = 3/5`,
+whose Gaussian integer `17 − 12i` is the conjugate of `(5 + 29i)/(1 + i)`,
+and indeed `17² + 12² = 433`.
 
-<sup>1</sup> Mathematics Department, Khalifa University of Science and
-Technology, PO Box 127788, Abu Dhabi, United Arab Emirates
-&lt;denys.dutykh@ku.ac.ae&gt;
-<sup>2</sup> Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chambéry, France
-&lt;laurent.vuillon@univ-smb.fr&gt;
+This repository is the public home of a series of manuscripts by Denys Dutykh
+and Laurent Vuillon around the uniqueness conjecture for Markov numbers, and of
+everything needed to re-run their computations: the LaTeX sources and compiled
+PDF of each manuscript, and its supplement of exact programs in integer or
+rational arithmetic.
 
 ## The question behind the series
 
-A Markoff triple is a positive integer solution of
+A Markov triple is a positive integer solution of
 
 ```text
 x² + y² + z² = 3xyz
@@ -31,8 +38,8 @@ x² + y² + z² = 3xyz
 
 and every such triple is obtained from `(1, 1, 1)` by repeatedly replacing one
 coordinate through the Vieta involution, so that the solutions form a tree. The
-largest coordinate of a triple is its Markoff number. Frobenius asked in 1913
-whether a Markoff number determines its triple: whether, for each `m`, there is
+largest coordinate of a triple is its Markov number. Frobenius asked in 1913
+whether a Markov number determines its triple: whether, for each `m`, there is
 at most one triple whose maximum is `m`. The question is still open, and it is
 the question this series circles.
 
@@ -44,10 +51,9 @@ down to a finite domain, and only then an exact computation over that domain,
 carried out in integer or rational arithmetic and reproducible from the
 supplement that travels with the manuscript.
 
-This repository is the public home of those manuscripts and of everything
-needed to re-run their computations. Every manuscript directory is
-self-contained: its own sources, its own bibliography, its own build, its own
-supplement. Nothing below `papers/` reaches into anything else.
+Every manuscript directory is self-contained: its own sources, its own
+bibliography, its own build, its own supplement. Nothing below `papers/`
+reaches into anything else.
 
 ## The manuscripts
 
@@ -72,7 +78,7 @@ subgraph has a single letter frequency, the letter count of every balanced
 accepted word stays within an explicit multiple of its completed cost from that
 finite set. It applies the theorem to the Gaussian reflection attached to
 `89 = 8² + 5²`, showing that every distinct reflected target of a genuine
-reduced Markoff source has strictly larger cost, by an amount growing linearly
+reduced Markov source has strictly larger cost, by an amount growing linearly
 with the denominator of the Farey slope away from four critical slopes.
 
 The third studies equal traces of simple closed geodesics on the modular
@@ -120,6 +126,7 @@ uniqueness and is verified for every Markov number up to `10¹²`.
 ├── LICENSE        GNU LGPL v2.1, covering everything in the repository
 ├── CITATION.cff   citation metadata for the repository as a whole
 ├── Makefile       forwards every target to each manuscript below papers/
+├── docs/figures/  the picture at the top of this page and its LaTeX source
 │
 └── papers/
     ├── 01-fibonacci-pell-nearest-gaps/
@@ -175,7 +182,12 @@ uniqueness and is verified for every Markov number up to `10¹²`.
         └── supplement/                   supplementary material, with the strict build gate
 ```
 
-## Building
+The picture at the top of this page is the TikZ figure
+`papers/05-thirteen-farey-rows/figures/vieta-tree.tex` of the fifth manuscript,
+drawn alone by `docs/figures/vieta-tree.tex`; the command that renders it is in
+the first lines of that file.
+
+## Quick start
 
 A manuscript is built from its own directory with `make`, exactly as if it were
 alone in a repository of its own:
@@ -205,12 +217,15 @@ One manuscript at a time is reached by its directory name, as `make
 01-fibonacci-pell-nearest-gaps` to build it, or `check-…`, `checks-…`,
 `release-…`, `clean-…` for the other verbs.
 
+## Requirements
+
 Requirements are stated by each manuscript. In general they amount to a TeX
-Live installation with `latexmk` and `bibtex`, and Python 3.11 or later with no
-network access and no nondeterminism. The supplements need no third-party
-package, except those of the third, fourth and fifth manuscripts, whose
-symbolic checks use SymPy. The two censuses of the fifth, which stand outside
-its fixed checks, use PARI/GP and Julia.
+Live installation with `latexmk` and `bibtex`, and Python 3.10 or later (the
+first manuscript asks for 3.11 or later) with no network access and no
+nondeterminism. The supplements need no third-party package, except those of
+the third, fourth and fifth manuscripts, whose symbolic checks use SymPy. The
+two censuses of the fifth, which stand outside its fixed checks, use PARI/GP
+and Julia.
 
 ## What a manuscript directory contains
 
@@ -233,19 +248,33 @@ Working notes, plans and internal reviews stay in the research tree and do not
 enter this repository. What lands here is the manuscript, the material a reader
 needs to check it, and the record of what that material establishes.
 
+## How to cite
+
+None of the five manuscripts has been published yet. Until they are, please
+cite this repository as software, and name the manuscript you rely on:
+
+D. Dutykh and L. Vuillon, Around the Markov uniqueness conjecture: manuscripts
+and reproduction material, software, version 2.5.1 (2026).
+
+https://github.com/dutykh/fibonacci-pell-nearest-gaps
+
+The button "Cite this repository" in the right-hand column of this page gives
+the same reference, read from `CITATION.cff`, which also lists the five
+manuscripts. The README of each manuscript gives a BibTeX entry for it.
+
 ## Licence
 
 Everything in this repository, manuscript sources and supplements alike, is
 released under the GNU Lesser General Public License, version 2.1. The full
 text is in [`LICENSE`](LICENSE).
 
-## Citation
+## Authors
 
-Citation metadata for the repository is in `CITATION.cff`, from which GitHub
-renders a "Cite this repository" button. Each manuscript is cited on its own,
-and its README gives the BibTeX entry for it.
+Denys Dutykh, Mathematics Department, Khalifa University of Science and
+Technology, PO Box 127788, Abu Dhabi, United Arab Emirates
+&lt;denys.dutykh@ku.ac.ae&gt;
 
-## Contact
+Laurent Vuillon, Univ. Savoie Mont Blanc, CNRS, LAMA, 73000 Chambéry, France
+&lt;laurent.vuillon@univ-smb.fr&gt;
 
-Denys Dutykh, &lt;denys.dutykh@ku.ac.ae&gt;
-Laurent Vuillon, &lt;laurent.vuillon@univ-smb.fr&gt;
+https://www.denys-dutykh.com/
